@@ -1,0 +1,156 @@
+@import "../config/base-import";
+@import "../libs/normalize";
+
+#aside_content {
+  .blog-search {
+    padding-bottom: 30px;
+    border-bottom: 1px solid $color-grey-b3;
+
+    label {
+      &.hide {
+        display: none;
+      }
+    }
+    input[type="text"] {
+      border-radius: 3px 0 0 3px;
+      border: 1px solid $color-grey-80;
+      padding: 4px 10px 3px;
+      width: 65%;
+      font-family: $font-italic;
+      vertical-align: top;
+      text-align: center;
+
+      &:focus {
+        outline: 0;
+      }
+    }
+    input[type="submit"] {
+      border-radius: 7px;
+      background-color: $color-black;
+      color: $color-white;
+      text-transform: uppercase;
+      border: 0;
+      line-height: 18px;
+      padding: 10px 10px 8px;
+      width: 35%;
+      margin-left: -10px;
+    }
+  }
+
+  .about {
+    padding-bottom: 20px;
+    border-bottom: 1px solid $color-grey-b3;
+    margin-bottom: 20px;
+
+    a {
+      color: $color-red;
+      font-family: $font-opensans;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+
+  .social-nav {
+    text-align: left;
+    margin-top: 5px;
+  }
+}
+
+#main_content {
+
+}
+
+.post {
+  font-size: 22px;
+  font-family: $font-opensanslight;
+
+  + .post {
+    margin-top: $spacing-between-boxes;
+  }
+
+  .title {
+    font-family: $font-handwriting;
+    font-size: 42px;
+  }
+
+  .date {
+    color: $color-grey-80;
+  }
+
+  .image {
+    margin: 20px 0;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      width: auto;
+    }
+  }
+
+  .teaser {
+    color: $color-grey-80;
+
+    p {
+      display: inline;
+    }
+  }
+
+  .more {
+    color: $color-red;
+    font-family: $font-italic;
+    display: inline;
+  }
+
+  .social {
+    margin-top: 15px;
+
+    .addthis_button_facebook {
+      height: 45px;
+      width: 46px;
+      background: url("/_resources/dyn/files/1058943z17264f83/_fn/social-sprite.png") 0 0 no-repeat;
+
+      .aticon-facebook {
+        display: none;
+      }
+    }
+
+    .addthis_button_twitter {
+      margin-left: 10px;
+      height: 45px;
+      width: 46px;
+      background: url("/_resources/dyn/files/1058943z17264f83/_fn/social-sprite.png") -56px 0 no-repeat;
+
+      .aticon-twitter {
+        display: none;
+      }
+    }
+
+    .label,
+    .addthis_toolbox {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .label {
+      margin-left: 10px;
+      color: $color-grey-80;
+    }
+  }
+}
+
+.paging {
+  margin-top: $spacing-between-boxes;
+  font-family: $font-opensanslight;
+
+  a {
+    color: $color-grey-80;
+  }
+
+  .backwards {
+    margin-right: 5px;
+  }
+
+  .forwards {
+    margin-left: 5px;
+  }
+}

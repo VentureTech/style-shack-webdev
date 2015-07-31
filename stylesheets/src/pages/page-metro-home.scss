@@ -1,0 +1,326 @@
+@import "../config/base-import";
+@import "../libs/normalize";
+
+.top-cta {
+  display: none;
+  max-height: 415px;
+  height: 415px;
+  background: url("/_resources/dyn/files/1058377z36f15d8f/_fn/home-cta-bg.jpg") top center no-repeat;
+  text-align: center;
+  margin-bottom: 30px;
+
+  .your-style {
+    padding: 25px 40px;
+    margin: 0 auto;
+    position: relative;
+    max-width: 300px;
+    background-color: $color-white;
+    top: 80px;
+
+    &:before {
+      background: transparent;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      bottom: 10px;
+      left: 10px;
+      content: '';
+      border: 1px solid $color-black;
+    }
+
+    h2 {
+      margin: 10px 0;
+      font-size: 30px;
+    }
+
+    p {
+      position: relative;
+      z-index: 2;
+      margin: 5px 0;
+      color: $color-white;
+    }
+
+    .cta {
+      display: inline-block;
+      background: $color-black;
+      padding: 13px 8px;
+      font-family: $font-opensans;
+      text-transform: uppercase;
+      color: $color-white;
+      text-decoration: none;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    a {
+      text-decoration: underline;
+      color: $color-black;
+      font-family: $font-italic;
+      font-size: 18px;
+    }
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    display: block;
+  }
+}
+
+.store-links {
+  display: none;
+
+  .mi {
+    width: 32%;
+
+    + .mi {
+      margin-left: 2%;
+      margin-top: 0;
+    }
+  }
+
+  .menuitemlabel {
+    display: block;
+    padding-top: 350px;
+    text-align: center;
+    color: $color-black;
+    font-family: $font-opensans;
+    background-size: cover !important;
+
+    .mil {
+      display: inline-block;
+      transform: scale(1.5,1);
+    }
+  }
+
+  .mens {
+    .menuitemlabel {
+      background: url("/_resources/dyn/files/1058611z8f039dd7/_fn/mens.jpg") top center no-repeat;
+    }
+  }
+
+  .new-arrivals {
+    .menuitemlabel {
+      background: url("/_resources/dyn/files/1058612z160acc6d/_fn/new-arrivals.jpg") top center no-repeat;
+    }
+  }
+
+  .sale {
+    .menuitemlabel {
+      background: url("/_resources/dyn/files/1058613z610dfcfb/_fn/summer-sale.jpg") top center no-repeat;
+    }
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    display: block;
+
+    .menuitemlabel {
+      background-size: auto !important;
+    }
+
+  }
+}
+
+.mobile-content-links {
+  .menu {
+    display: table;
+  }
+
+  .mi {
+    display: table-row;
+
+    + .mi {
+      margin-top: $spacing-between-boxes/2;
+    }
+  }
+
+  .menuitemlabel {
+    display: table-cell;
+    position: relative;
+    vertical-align: middle;
+    color: $color-white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.4;
+    height: 130px;
+    padding: 0 10px;
+
+    .mil {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  .shop-local,
+  .shop-style,
+  .shop-city {
+    .menuitemlabel:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-image: url("/_resources/dyn/files/1060234z4842f139/_fn/shop-local-bg.jpg");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 130%;
+    }
+  }
+
+  .shop-style,
+  .shop-city {
+    .menuitemlabel {
+      height: 140px;
+      padding-top: 10px;
+
+      &:before {
+        top: 15px;
+      }
+    }
+  }
+
+  @include breakpoint($bp-mobile-portrait-wide) {
+    .menuitemlabel {
+      padding: 0 40px;
+    }
+
+  }
+
+  @include breakpoint($bp-mobile-landscape) {
+    .menuitemlabel {
+      height: 310px;
+      font-size: 40px;
+    }
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    display: none;
+  }
+}
+
+#notes {
+  display: none;
+  padding-bottom: 30px;
+  border-bottom: 1px solid $color-black;
+  margin-bottom: 30px;
+  text-align: center;
+
+  a {
+    color: $color-black;
+  }
+
+  .title {
+    font-family: $font-handwriting;
+    font-size: 25px;
+    text-align: left;
+  }
+
+  .image {
+    margin-bottom: 8px;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      width: auto;
+    }
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    display: block;
+
+    .post {
+      display: inline-block;
+      vertical-align: top;
+      width: 47%;
+      text-align: center;
+
+      + .post {
+        margin-left: 3%;
+      }
+    }
+  }
+  @include breakpoint($bp-tablets-landscape) {
+    .post {
+      width: 48.25%;
+
+      + .post {
+        margin-left: 3%;
+      }
+    }
+  }
+}
+
+.about-con {
+  background: $color-grey-e6;
+  padding: 30px;
+  line-height: 1.5;
+  margin-left: -20px;
+  margin-right: -20px;
+
+  h4 {
+    margin-top: 0;
+  }
+
+  .info {
+    display: none;
+    vertical-align: top;
+    width: 48%;
+
+    + .info {
+      margin-left: 4%;
+    }
+
+    p {
+      font-family: $font-opensanslight;
+      margin: 0 auto;
+    }
+
+  }
+
+  .about-mobile {
+    .mi {
+      display: inline-block;
+      width: 45%;
+
+      + .mi {
+        margin-left: $spacing-mobile-horizontal;
+      }
+    }
+    .menuitemlabel {
+      display: block;
+      text-align: center;
+      background: $color-black;
+      padding: 8px;
+      font-family: $font-opensans;
+      text-transform: uppercase;
+      color: $color-white;
+      text-decoration: none;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    margin: 0;
+
+    .info {
+      display: inline-block;
+    }
+
+    .about-mobile {
+      display: none;
+    }
+  }
+
+  @include breakpoint($bp-tablets-landscape) {
+    padding: 50px;
+
+    div {
+      width: 42%;
+
+      + div {
+        margin-left: 16%;
+      }
+    }
+  }
+}

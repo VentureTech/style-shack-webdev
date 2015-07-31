@@ -1,0 +1,91 @@
+@import "../config/base-import";
+@import "../libs/normalize";
+
+.banner {
+  img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+}
+
+#aside_content {
+  .store_profile {
+    margin-top: $spacing-between-boxes/2;
+    font-size: 14px;
+    color: $color-grey-66;
+    line-height: 1.4;
+
+    a {
+      color: $color-grey-66;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .store-name {
+    text-transform: uppercase;
+    font-size: 24px;
+    color: $color-black;
+  }
+
+  .title {
+    margin-top: $spacing-between-boxes;
+    color: $color-black;
+  }
+
+  .email-field {
+    word-wrap: break-word;
+  }
+
+  .social-title {
+    margin-top: 30px;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+
+  .social-nav {
+    margin-top: 7px;
+    text-align: left;
+
+    .mi + .mi {
+      margin-left: 5px;
+    }
+
+    .menuitemlabel {
+      background: url("/_resources/dyn/files/1058943z17264f83/_fn/social-sprite.png") no-repeat;
+      background-size: auto 25px;
+      height: 25px;
+      width: 26px;
+    }
+
+    .twitter {
+      .menuitemlabel {
+        background-position: -30px 0;
+      }
+    }
+
+    .googleplus {
+      .menuitemlabel {
+        background-position: -186px 0;
+      }
+    }
+
+    .pinterest {
+      .menuitemlabel {
+        background-position: -93px 0;
+      }
+    }
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    .store_profile {
+      margin-top: 0;
+    }
+  }
+}
+
+
