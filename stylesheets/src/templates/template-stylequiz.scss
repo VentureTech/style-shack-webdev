@@ -1,0 +1,240 @@
+@import "../config/base-import";
+
+#header {
+  padding-bottom: 20px;
+}
+
+.styles-comp {
+  margin-top: 60px;
+  text-transform: uppercase;
+  font-size: 24px;
+  border-bottom: 1px solid $color-black;
+  padding-bottom: 50px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    margin-bottom: 30px;
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    margin-top: 160px;
+
+    img {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.heading {
+  font-family: $font-italic;
+  font-size: 30px;
+  text-align: center;
+}
+
+.formentry {
+  text-align: center;
+  font-family: $font-stack-serif;
+}
+
+.form_field {
+  + .form_field {
+    margin-top: $spacing-between-boxes/2;
+  }
+}
+
+.label,
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.question {
+  + .question {
+    margin-top: $spacing-between-boxes*3;
+  }
+}
+
+.extra_value_renderer {
+  > div {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    > div {
+      &:first-child {
+        button {
+          border-radius: 2px 2px 4px 4px;
+        }
+      }
+
+      + div {
+        button {
+          border-left: 0;
+        }
+      }
+    }
+  }
+}
+
+button {
+  background: linear-gradient($color-grey-f2, lighten($color-grey-d0, .5) 80%);
+  outline: 0;
+  border: 1px solid $color-grey-c5;
+  border-radius: 2px;
+  padding: 10px 15px;
+  margin: 8px;
+
+  &:hover {
+    background: $color-grey-f2;
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    margin: 0;
+  }
+}
+
+.button_description_container {
+  margin: 6px;
+
+  .label,
+  label,
+  input[type="radio"] {
+    display: inline-block;
+  }
+
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+}
+
+.fav-designer,
+.fav-blouse,
+.fav-dress,
+.fav-style,
+.current-style-fav,
+.fav-jacket,
+.fav-watch,
+.fav-necklace,
+.fav-bag,
+.fav-phone-case,
+.current-shoe-fav,
+.fav-magazine,
+.fav-celeb {
+  .extra_value_name {
+    font-family: $font-italic;
+    font-size: 24px;
+  }
+
+  label.tbl {
+    display: none;
+  }
+
+  .choice {
+    .rtb {
+      input {
+        display: none;
+      }
+    }
+
+    .button-image-container {
+      border: 1px solid $color-grey-d0;
+      transition: .125s ease all;
+
+      &:hover {
+        box-shadow: 0 0 2px rgba($color-black, .25);
+        transform: scale(1.03, 1.03);
+      }
+
+      &.checked {
+        border: 1px solid $color-grey-99;
+        box-shadow: 0 0 2px rgba($color-black, .25);
+      }
+    }
+
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    .extra_value_name {
+      font-size: 30px;
+    }
+  }
+}
+
+.fav-designer,
+.fav-blouse,
+.fav-dress,
+.fav-style,
+.current-style-fav,
+.fav-jacket,
+.fav-watch,
+.fav-necklace,
+.fav-bag,
+.fav-phone-case,
+.current-shoe-fav,
+.fav-magazine,
+.fav-celeb {
+  .button_description_container {
+    width: 95%;
+  }
+
+  .button-image-container {
+    padding: 30px 0;
+    height: 270px;
+    width: 100%;
+    display: table;
+
+    .wrap {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    img {
+      max-height: 200px;
+      max-width: 80%;
+      width: auto;
+    }
+
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    .button_description_container {
+      width: 48%;
+    }
+  }
+
+  @include breakpoint($bp-tablets-landscape) {
+    .button_description_container {
+      width: 30%;
+    }
+  }
+}
+
+.fav-style,
+.current-style-fav,
+.fav-jacket,
+.current-shoe-fav  {
+  .button-image-container {
+    height: 240px;
+
+    img {
+      max-height: 160px;
+    }
+
+  }
+
+  @include breakpoint($bp-tablets-landscape) {
+    .button_description_container {
+      width: 23%;
+    }
+  }
+}
+
+.submit_button {
+  margin-top: $spacing-between-boxes;
+}
+
+
+
