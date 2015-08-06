@@ -1,6 +1,8 @@
 @import "../config/base-import";
 
 #aside_content {
+  padding-top: 30px;
+
   .blog-search {
     padding-bottom: 30px;
     border-bottom: 1px solid $color-grey-b3;
@@ -70,6 +72,14 @@
   .title {
     font-family: $font-handwriting;
     font-size: 42px;
+
+    a {
+      color: $color-black;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   .date {
@@ -94,11 +104,25 @@
     }
   }
 
+  .content {
+    color: $color-grey-80;
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
   .more {
     color: $color-red;
     font-family: $font-italic;
     display: inline;
   }
+
+  .back {
+    float: right;
+    color: $color-red;
+    font-family: $font-italic;
+    margin-top: 7px;
+  }
+
 
   .social {
     margin-top: 15px;
