@@ -1,0 +1,31 @@
+@import "../config/base-import";
+
+.form_field {
+  + .form_field {
+    border-top: 1px solid $color-grey-80;
+    padding-top: $spacing-between-boxes/2;
+    margin-top: $spacing-between-boxes/2;
+  }
+
+  &:first-child {
+    font-family: $font-italic;
+    font-size: 30px;
+    text-align: center;
+
+    + .form_field {
+      border-top: 0;
+      padding-top: 0;
+      margin-top: 0;
+    }
+  }
+}
+
+
+.formentry {
+  text-align: left;
+}
+
+label,
+.label {
+  font-weight: bold;
+}
