@@ -27,7 +27,8 @@
   }
 }
 
-.heading {
+.heading,
+.social-title {
   font-family: $font-italic;
   font-size: 30px;
   text-align: center;
@@ -97,7 +98,7 @@ button {
 }
 
 .button_description_container {
-  margin: 6px;
+  margin: 15px 12px;
 
   .label,
   label,
@@ -110,19 +111,7 @@ button {
   }
 }
 
-.fav-designer,
-.fav-blouse,
-.fav-dress,
-.fav-style,
-.current-style-fav,
-.fav-jacket,
-.fav-watch,
-.fav-necklace,
-.fav-bag,
-.fav-phone-case,
-.current-shoe-fav,
-.fav-magazine,
-.fav-celeb {
+.picker {
   .extra_value_name {
     font-family: $font-italic;
     font-size: 24px;
@@ -149,33 +138,16 @@ button {
       }
 
       &.checked {
-        border: 1px solid $color-grey-99;
-        box-shadow: 0 0 2px rgba($color-black, .25);
+        box-shadow: 0 3px 10px rgba($color-black, .33);
+        transform: scale(1.1, 1.1);
+        position: relative;
+        z-index: 9999;
+        background: $color-white;
       }
     }
 
   }
 
-  @include breakpoint($bp-tablets-portrait) {
-    .extra_value_name {
-      font-size: 30px;
-    }
-  }
-}
-
-.fav-designer,
-.fav-blouse,
-.fav-dress,
-.fav-style,
-.current-style-fav,
-.fav-jacket,
-.fav-watch,
-.fav-necklace,
-.fav-bag,
-.fav-phone-case,
-.current-shoe-fav,
-.fav-magazine,
-.fav-celeb {
   .button_description_container {
     width: 95%;
   }
@@ -196,15 +168,21 @@ button {
       max-width: 80%;
       width: auto;
     }
-
   }
 
   @include breakpoint($bp-tablets-portrait) {
     .button_description_container {
-      width: 48%;
+      width: 47.5%;
+    }
+
+    .extra_value_name {
+      font-size: 30px;
     }
   }
+}
 
+
+.three-col {
   @include breakpoint($bp-tablets-landscape) {
     .button_description_container {
       width: 30%;
@@ -212,22 +190,19 @@ button {
   }
 }
 
-.fav-style,
-.current-style-fav,
-.fav-jacket,
-.current-shoe-fav  {
+
+.four-col {
   .button-image-container {
     height: 240px;
 
     img {
       max-height: 160px;
     }
-
   }
 
   @include breakpoint($bp-tablets-landscape) {
     .button_description_container {
-      width: 23%;
+      width: 22.5%;
     }
   }
 }
