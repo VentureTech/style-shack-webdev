@@ -4,6 +4,20 @@
   padding-bottom: 20px;
 }
 
+.message {
+  background-color: $color-dark-red;
+  color: $color-white;
+  padding: 10px;
+
+  + .message {
+    margin-top: 10px;
+  }
+}
+
+.message-container {
+  margin-bottom: 30px;
+}
+
 .styles-comp {
   margin-top: 60px;
   text-transform: uppercase;
@@ -80,6 +94,49 @@ label {
   }
 }
 
+.green {
+  label {
+    color: $color-green;
+  }
+}
+
+.blue {
+  label {
+    color: $color-blue;
+  }
+}
+
+.purple {
+  label {
+    color: $color-purple;
+  }
+}
+
+.orange {
+  label {
+    color: $color-orange;
+  }
+}
+
+.white {
+  label {
+    color: $color-white;
+    text-shadow: 1px 1px 3px rgba($color-black, .5);
+  }
+}
+
+.yellow {
+  label {
+    color: $color-yellow;
+  }
+}
+
+.red {
+  label {
+    color: $color-red;
+  }
+}
+
 button {
   background: linear-gradient($color-grey-f2, lighten($color-grey-d0, .5) 80%);
   outline: 0;
@@ -92,6 +149,10 @@ button {
     background: $color-grey-f2;
   }
 
+  .selected & {
+    background: $color-white;
+  }
+
   @include breakpoint($bp-tablets-portrait) {
     margin: 0;
   }
@@ -99,6 +160,7 @@ button {
 
 .button_description_container {
   margin: 15px 12px;
+  padding: 10px 15px 6px;
 
   .label,
   label,
@@ -108,6 +170,26 @@ button {
 
   input[type="radio"] {
     margin-right: 5px;
+    display: none;
+  }
+
+  &:hover {
+    box-shadow: 0 0 2px rgba($color-black, .25);
+    transform: scale(1.03, 1.03);
+  }
+
+  &.selected {
+    box-shadow: 0 3px 10px rgba($color-black, .33);
+    transform: scale(1.1, 1.1);
+  }
+}
+
+.fav-color {
+  label.tbl,
+  .label.tbl {
+    font-family: $font-opensans;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 }
 
