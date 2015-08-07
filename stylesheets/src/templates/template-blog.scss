@@ -12,11 +12,25 @@
         display: none;
       }
     }
+
+    span.query.input {
+      display: inline-block;
+      width: 65%;
+      vertical-align: top;
+    }
+
+    span.actions {
+      display: inline-block;
+      vertical-align: top;
+      width: 35%;
+      margin-left: -10px;
+    }
+
     input[type="text"] {
       border-radius: 3px 0 0 3px;
       border: 1px solid $color-grey-80;
-      padding: 4px 10px 3px;
-      width: 65%;
+      line-height: 30px;
+      width: 100%;
       font-family: $font-italic;
       vertical-align: top;
       text-align: center;
@@ -31,10 +45,8 @@
       color: $color-white;
       text-transform: uppercase;
       border: 0;
-      line-height: 18px;
-      padding: 10px 10px 8px;
-      width: 35%;
-      margin-left: -10px;
+      height: 34px;
+      width: 100%;
     }
   }
 
@@ -44,7 +56,7 @@
     margin-bottom: 20px;
 
     a {
-      color: $color-red;
+      color: $color-orange-red;
       font-family: $font-opensans;
       text-transform: uppercase;
       font-weight: bold;
@@ -104,6 +116,22 @@
     }
   }
 
+  .tags {
+    margin: 5px 0;
+
+    .tag {
+      display: inline-block;
+      background: $color-grey-e6;
+      padding: 4px 10px;
+      font-family: $font-italic;
+      font-size: 14px;
+
+      + .tag {
+        margin-left: 5px;
+      }
+    }
+  }
+
   .content {
     color: $color-grey-80;
     font-size: 18px;
@@ -111,14 +139,14 @@
   }
 
   .more {
-    color: $color-red;
+    color: $color-orange-red;
     font-family: $font-italic;
     display: inline;
   }
 
   .back {
     float: right;
-    color: $color-red;
+    color: $color-orange-red;
     font-family: $font-italic;
     margin-top: 7px;
   }
