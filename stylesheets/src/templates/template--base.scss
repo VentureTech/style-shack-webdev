@@ -61,6 +61,11 @@ h1 {
   font-family: $font-handwriting;
   font-size: 44px;
   line-height: 1.3;
+
+  a {
+    color: $color-black;
+  }
+
 }
 
 h2 {
@@ -245,6 +250,7 @@ h4 {
 
   .mi {
     display: none;
+    padding: 18px 15px 15px;
   }
 
   .women,
@@ -265,10 +271,8 @@ h4 {
 
   .menuitemlabel {
     color: $color-black;
-    padding: 18px 15px 15px;
     display: block;
     cursor: pointer;
-
   }
 
 
@@ -278,6 +282,9 @@ h4 {
 
     .mi {
       display: inline-block;
+      vertical-align: top;
+      padding: 20px 20px 25px;
+      position: relative;
 
       &.women,
       &.men,
@@ -285,15 +292,53 @@ h4 {
         width: auto;
         text-align: center;
       }
+
+      .menu {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 100%;
+        width: 200px;
+        left: 50%;
+        margin-left: -100px;
+        background: $color-white;
+        transition: .3s ease opacity, .3s ease max-height;
+
+        .mi {
+          display: block;
+          padding: 0;
+
+          + .mi {
+            border-top: 1px solid $color-black;
+          }
+
+          .menuitemlabel {
+            display: block;
+            padding: 12px 10px 10px;
+            border-bottom: 2px solid $color-white;
+
+            &:hover {
+              border-bottom: 2px solid $color-black;
+            }
+          }
+        }
+      }
+
+      &.over {
+
+        .menu {
+          max-height: 2000px;
+          opacity: 1;
+          border: 1px solid $color-black;
+        }
+      }
     }
 
-    .menuitemlabel {
-      padding: 20px 20px 25px;
-    }
   }
 
   @include breakpoint($bp-tablets-landscape) {
-    .menuitemlabel {
+    .mi {
       padding: 20px 30px 25px;
     }
   }
@@ -431,6 +476,7 @@ h4 {
     h1 {
       margin: 0;
       font-size: 45px;
+
     }
 
   }
