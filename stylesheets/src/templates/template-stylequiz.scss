@@ -120,8 +120,8 @@ label {
 
 .white {
   label {
-    color: $color-white;
-    text-shadow: 1px 1px 3px rgba($color-black, .5);
+    color: $color-grey-cc;
+    //text-shadow: 1px 1px 3px rgba($color-black, .5);
   }
 }
 
@@ -172,16 +172,6 @@ button {
     margin-right: 5px;
     display: none;
   }
-
-  &:hover {
-    box-shadow: 0 0 2px rgba($color-black, .25);
-    transform: scale(1.03, 1.03);
-  }
-
-  &.selected {
-    box-shadow: 0 3px 10px rgba($color-black, .33);
-    transform: scale(1.1, 1.1);
-  }
 }
 
 .fav-color {
@@ -190,6 +180,30 @@ button {
     font-family: $font-opensans;
     font-weight: bold;
     text-transform: uppercase;
+  }
+
+  .button_description_container {
+    .lt-ie9 & {
+      border: 2px solid $color-white;
+    }
+
+    &:hover {
+      box-shadow: 0 0 2px rgba($color-black, .25);
+      transform: scale(1.03, 1.03);
+
+      .lt-ie9 & {
+        border: 2px solid $color-grey-d0;
+      }
+    }
+
+    &.selected {
+      box-shadow: 0 3px 10px rgba($color-black, .33);
+      transform: scale(1.1, 1.1);
+
+      .lt-ie9 & {
+        border: 2px solid $color-black;
+      }
+    }
   }
 }
 
@@ -210,28 +224,37 @@ button {
       }
     }
 
-    .button-image-container {
-      border: 1px solid $color-grey-d0;
-      transition: .125s ease all;
-
-      &:hover {
-        box-shadow: 0 0 2px rgba($color-black, .25);
-        transform: scale(1.03, 1.03);
-      }
-
-      &.checked {
-        box-shadow: 0 3px 10px rgba($color-black, .33);
-        transform: scale(1.1, 1.1);
-        position: relative;
-        z-index: 9999;
-        background: $color-white;
-      }
-    }
-
   }
 
   .button_description_container {
     width: 95%;
+    border: 1px solid $color-grey-d0;
+    transition: .125s ease all;
+
+    .lt-ie9 & {
+      border: 2px solid $color-grey-d0;
+    }
+
+    &:hover {
+      box-shadow: 0 0 2px rgba($color-black, .25);
+      transform: scale(1.03, 1.03);
+
+      .lt-ie9 & {
+        border: 2px solid $color-grey-80;
+      }
+    }
+
+    &.selected {
+      box-shadow: 0 3px 10px rgba($color-black, .33);
+      transform: scale(1.1, 1.1);
+      position: relative;
+      z-index: 9999;
+      background: $color-white;
+
+      .lt-ie9 & {
+        border: 2px solid $color-black;
+      }
+    }
   }
 
   .button-image-container {
