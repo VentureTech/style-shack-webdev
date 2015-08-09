@@ -14,7 +14,7 @@
     margin-top: $spacing-between-boxes/2;
     font-size: 14px;
     color: $color-grey-66;
-    line-height: 1.4;
+    line-height: 1.6;
 
     a {
       color: $color-grey-66;
@@ -30,6 +30,18 @@
     text-transform: uppercase;
     font-size: 24px;
     color: $color-black;
+  }
+
+  .store-description {
+    &.trunc {
+      max-height: 330px;
+      overflow: hidden;
+    }
+  }
+
+  .read-more {
+    color: $color-orange-red;
+    font-family: $font-italic;
   }
 
   .title {
@@ -88,4 +100,22 @@
   }
 }
 
+.fancybox-inner {
+  max-height: 312px;
+  overflow: hidden;
+  font-size: 14px;
+  color: $color-grey-66;
+  line-height: 1.6;
 
+  .store-description {
+    border: 1px solid $color-black;
+    padding: 15px;
+
+    .title {
+      font-family: $font-handwriting;
+      font-size: 22px;
+      color: $color-black;
+      margin-bottom: 10px;
+    }
+  }
+}
