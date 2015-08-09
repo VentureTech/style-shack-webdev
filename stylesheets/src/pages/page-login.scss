@@ -1,0 +1,58 @@
+@import "../config/base-import";
+
+.login {
+  width: 90%;
+  margin: 30px auto;
+  border: 1px solid $color-black;
+  text-align: center;
+
+  .title {
+    font-family: $font-handwriting;
+    font-size: 24px;
+    margin-bottom: 5px;
+    background: $color-black;
+    color: $color-white;
+    padding: 5px 0;
+  }
+
+  .actions,
+  .fields {
+    margin: 10px auto;
+    max-width: 80%;
+  }
+
+  .fields {
+    text-align: left;
+  }
+
+  .field {
+    + .field {
+      margin-top: 5px;
+    }
+  }
+
+  .label {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 14px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+  }
+
+  input[type="submit"] {
+    background: linear-gradient($color-grey-f2, lighten($color-grey-d0, .5) 80%);
+    outline: 0;
+    border: 1px solid $color-grey-c5;
+    border-radius: 2px;
+    padding: 5px 15px;
+    font-size: 14px;
+  }
+
+
+  @include breakpoint($bp-tablets-portrait) {
+    width: 300px;
+  }
+}
