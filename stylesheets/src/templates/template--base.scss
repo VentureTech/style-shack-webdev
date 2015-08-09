@@ -56,6 +56,12 @@ ul.menu {
   }
 }
 
+ul,
+ol {
+  line-height: 1.5;
+  color: $color-grey-33;
+}
+
 h1 {
   font-weight: normal;
   font-family: $font-handwriting;
@@ -88,6 +94,11 @@ h4 {
   font-family: $font-opensans;
 }
 
+p {
+  line-height: 1.5;
+  color: $color-grey-33;
+}
+
 /*** BEGIN SECTION STYLES ***/
 
 #top_nav {
@@ -101,8 +112,57 @@ h4 {
   .store-signup {
     display: none;
     position: absolute;
+    z-index: 10;
     top: 13px;
     left: 12px;
+
+    .menu-t1 {
+      position: relative;
+    }
+
+    .menu-t2 {
+      position: absolute;
+      left: 0;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: .4s ease all;
+      background-color: #000;
+      text-align: center;
+      width: 100%;
+      border: 1px solid $color-white;
+
+      .mi {
+        display: block;
+
+        + .mi {
+          border-top: 1px solid $color-white;
+        }
+
+        .menuitemlabel {
+          display: block;
+          padding: 10px;
+
+          &:hover {
+            background: $color-grey-33;
+          }
+        }
+      }
+    }
+
+    .mi-parent {
+      .menuitemlabel {
+        display: block;
+        padding-bottom: 8px;
+      }
+
+      &:hover {
+        .menu-t2 {
+          max-height: 2000px;
+          opacity: 1;
+        }
+      }
+    }
   }
 
   .user-links {
@@ -304,6 +364,7 @@ h4 {
         margin-left: -100px;
         background: $color-white;
         transition: .3s ease opacity, .3s ease max-height;
+        z-index: 999;
 
         .mi {
           display: block;
@@ -345,6 +406,15 @@ h4 {
 }
 
 #content_enclosing {
+  #main_content {
+    a {
+      color: $color-orange-red;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
   @include breakpoint($bp-tablets-portrait) {
     padding-bottom: $spacing-footer-height + $spacing-between-boxes;
   }
@@ -483,6 +553,10 @@ h4 {
 
   #main_nav {
     margin-bottom: 50px;
+
+    > div > .spotlight-trends {
+      display: none;
+    }
   }
 
   #footer {
