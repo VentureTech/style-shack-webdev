@@ -1,13 +1,17 @@
 @import "../config/base-import";
-@import "../libs/normalize";
 
 .top-cta {
   display: none;
   max-height: 415px;
   height: 415px;
-  background: url("/_resources/dyn/files/1058377z36f15d8f/_fn/home-cta-bg.jpg") top center no-repeat;
+  //background: url("/_resources/dyn/files/1058377z36f15d8f/_fn/home-cta-bg.jpg") top center no-repeat;
   text-align: center;
   margin-bottom: 30px;
+
+  .metro-img {
+    height: 100%;
+    background-size: cover !important;
+  }
 
   .your-style {
     padding: 25px 40px;
@@ -50,6 +54,8 @@
       text-decoration: none;
       font-size: 16px;
       margin-bottom: 4px;
+      position: relative;
+      z-index: 2;
     }
 
     a {
@@ -215,7 +221,8 @@
     text-align: left;
   }
 
-  .image {
+  .image,
+  .placeholder-image {
     margin-bottom: 8px;
 
     img {
@@ -223,6 +230,14 @@
       height: auto;
       width: auto;
     }
+  }
+
+  .placeholder-image {
+    background: url("/_resources/dyn/files/1064457zcfeece0/_fn/blog-bg2.png") top center no-repeat;
+    background-size: contain;
+    width: 497px;
+    height: 322px;
+    max-width: 100%;
   }
 
   @include breakpoint($bp-tablets-portrait) {
