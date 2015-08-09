@@ -1,5 +1,4 @@
 @import "../config/base-import";
-@import "../libs/normalize";
 
 .top-cta {
   display: none;
@@ -215,7 +214,8 @@
     text-align: left;
   }
 
-  .image {
+  .image,
+  .placeholder-image {
     margin-bottom: 8px;
 
     img {
@@ -223,6 +223,14 @@
       height: auto;
       width: auto;
     }
+  }
+
+  .placeholder-image {
+    background: url("/_resources/dyn/files/1064457zcfeece0/_fn/blog-bg2.png") top center no-repeat;
+    background-size: contain;
+    width: 497px;
+    height: 322px;
+    max-width: 100%;
   }
 
   @include breakpoint($bp-tablets-portrait) {
@@ -280,10 +288,10 @@
   .about-mobile {
     .mi {
       display: inline-block;
-      width: 48.2%;
+      width: 48%;
 
       + .mi {
-        margin-left: $spacing-mobile-horizontal;
+        margin-left: 4%;
       }
     }
     .menuitemlabel {
