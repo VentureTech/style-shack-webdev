@@ -85,14 +85,17 @@
     font-family: $font-handwriting;
     font-size: 42px;
 
-    a {
-      color: $color-black;
+    #content_enclosing #main_content & {
+      a {
+        color: $color-black;
 
-      &:hover {
-        text-decoration: underline;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
+
 
   .date {
     color: $color-grey-80;
