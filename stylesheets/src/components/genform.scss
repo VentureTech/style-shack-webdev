@@ -1,52 +1,95 @@
 @import "../config/base-import";
 
+.fields {
+  text-align: left;
+}
 
-  .fields {
-    text-align: left;
+.question {
+  + .question {
+    margin-top: 20px;
   }
 
-  .question {
-    + .question {
+  .part {
+    + .part {
+      margin-top: 20px;
+    }
+  }
+
+  > .form_field {
+    + .form_field {
       margin-top: 20px;
     }
 
-    .part {
-      + .part {
-        margin-top: 20px;
-      }
-    }
-
-    > .user-entry-required {
-      + .user-entry-required {
-        margin-top: 20px;
-      }
+    > .label {
+      font-weight: bold;
     }
   }
 
-  .label {
-    display: block;
-    margin-bottom: 3px;
-    font-size: 14px;
+  div.address_line {
+    + div.address_line {
+      margin-top: 10px;
+    }
+  }
+}
+
+.rtb {
+  display: inline-block;
+
+  + .rtb {
+    margin-left: 5px;
   }
 
-  input[type="text"],
-  textarea {
-    border: 1px solid $color-grey-c5;
-    padding: 5px;
-    font-size: 12px;
-    width: 100%;
+  .label,
+  label {
+    display: inline-block;
   }
 
-  input[type="submit"],
-  button {
-    background: linear-gradient($color-grey-f2, lighten($color-grey-d0, .5) 80%);
-    outline: 0;
-    border: 1px solid $color-grey-c5;
-    border-radius: 2px;
-    padding: 5px 15px;
-    font-size: 14px
+  input[type="radio"] {
+    + label,
+    + .label {
+      margin-left: 5px;
+    }
   }
+}
 
-  .submit_button {
-    margin-top: 10px;
-  }
+.label {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 14px;
+}
+
+label {
+  font-size: 12px;
+  margin-bottom: 3px;
+  display: block;
+}
+
+input[type="text"],
+textarea {
+  border: 1px solid $color-grey-c5;
+  padding: 5px;
+  font-size: 12px;
+  width: 100%;
+}
+
+input[type="submit"],
+button {
+  background: linear-gradient($color-grey-f2, lighten($color-grey-d0, .5) 80%);
+  outline: 0;
+  border: 1px solid $color-grey-c5;
+  border-radius: 2px;
+  padding: 5px 15px;
+  font-size: 14px
+}
+
+.submit_button {
+  margin-top: 10px;
+}
+
+.example-con {
+  font-size: 12px;
+  font-style: italic;
+  padding: 3px 0;
+}
+
+
