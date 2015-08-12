@@ -92,6 +92,7 @@ h4 {
   font-size: 24px;
   font-weight: normal;
   font-family: $font-opensans;
+  margin-bottom: .75em;
 }
 
 p {
@@ -231,6 +232,10 @@ p {
       width: auto;
       height: auto;
     }
+  }
+
+  &.admin-nav {
+
   }
 
   @include breakpoint($bp-mobile-landscape) {
@@ -446,9 +451,12 @@ p {
     background: url("/_resources/dyn/files/1058943z17264f83/_fn/social-sprite.png") no-repeat;
     height: 45px;
     width: 46px;
-    text-indent: 9999px;
     white-space: nowrap;
     cursor: pointer;
+
+    .mil {
+      display: none;
+    }
   }
 
   .facebook {
@@ -643,6 +651,11 @@ p {
 }
 
 #t_store {
+
+  #header {
+    padding-top: 70px;
+  }
+
   #main_enclose {
     padding-bottom: $spacing-between-boxes;
     border-bottom: 1px solid $color-black;
@@ -675,4 +688,85 @@ p {
     }
   }
 
+}
+
+#t_store_admin,
+#t_admin {
+  #header {
+    padding-top: 70px;
+  }
+
+  #top_nav {
+    text-align: left;
+    padding: 10px;
+    min-height: 40px;
+  }
+
+  .logout {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+
+    a {
+      display: inline-block;
+      background: $color-red none repeat scroll 0 0;
+      color: #FFF;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 5px 8px;
+      margin-left: 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      box-shadow: none;
+      text-shadow: none;
+
+      &:hover {
+        background-color: $color-dark-red;
+      }
+    }
+  }
+
+  #content_enclosing {
+    @include breakpoint($bp-tablets-portrait) {
+      padding-bottom: $spacing-admin-footer-height + $spacing-between-boxes;
+    }
+  }
+
+  #footer {
+    height: 100px;
+    margin-top: -100px;
+  }
+}
+
+#t_store_admin {
+  #top_nav {
+    .store-nav {
+      .mi {
+        + .mi {
+          border-left: 1px solid $color-white;
+        }
+      }
+
+      .menuitemlabel {
+        padding: 0 20px;
+      }
+    }
+  }
+}
+
+
+#t_admin {
+  #top_nav {
+    .admin-nav {
+      .mi {
+        + .mi {
+          border-left: 1px solid $color-white;
+        }
+      }
+
+      .menuitemlabel {
+        padding: 0 20px;
+      }
+    }
+  }
 }
