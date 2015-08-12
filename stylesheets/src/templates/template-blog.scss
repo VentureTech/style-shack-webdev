@@ -3,6 +3,10 @@
 #aside_content {
   padding-top: 30px;
 
+  p {
+    font-size: 14px;
+  }
+
   .blog-search {
     padding-bottom: 30px;
     border-bottom: 1px solid $color-grey-b3;
@@ -97,7 +101,7 @@
   }
 
 
-  .date {
+  .info {
     color: $color-grey-80;
   }
 
@@ -113,6 +117,7 @@
 
   .teaser {
     color: $color-grey-80;
+    margin: 20px 0;
 
     p {
       display: inline;
