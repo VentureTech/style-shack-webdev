@@ -1,0 +1,96 @@
+@import "../config/base-import";
+
+.prop-body {
+  &:after {
+    display: block;
+    clear: both;
+    content: '';
+  }
+}
+
+.prop-wrapper {
+  .prop {
+    padding: 5px 0;
+  }
+
+  .persistence-actions {
+    button {
+      + button {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+.store-images-wrapper {
+    width: 25%;
+    border: 1px solid $color-grey-cc;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: $color-grey-f2;
+
+    button.store-images-trigger,
+    label.store-images-label {
+      display: inline-block;
+      vertical-align: middle;
+      height: auto;
+      padding: 5px;
+      margin: 0;
+    }
+
+    button.store-images-trigger {
+      background-color: $color-grey-80;
+      border: 1px solid $color-grey-77;
+
+      &.custom-expand-collapse-trigger-expanded {
+        box-shadow: inset 0 0 7px rgba($color-black, .75);
+      }
+    }
+
+    .actions {
+      .btn {
+        + .btn {
+          margin-left: 5px;
+        }
+      }
+    }
+
+  }
+
+.main-container {
+  float: right;
+  width: 75%;
+
+  input {
+    margin: 0;
+  }
+
+  .left-container,
+  .right-container {
+      display: inline-block;
+      vertical-align: top;
+      float: none;
+      width: 50%;
+      padding: 0 20px;
+
+      &:after {
+        display: block;
+        clear: both;
+        content: '';
+      }
+    }
+}
+
+.logo-image,
+.banner-image {
+
+  .drop-zone {
+    max-height: 300px;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      width: auto;
+    }
+  }
+}

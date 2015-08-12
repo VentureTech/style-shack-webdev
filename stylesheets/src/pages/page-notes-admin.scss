@@ -1,0 +1,15 @@
+@import "../config/base-import";
+
+.post {
+
+  label {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  &.tags {
+    > input[type="text"] {
+     // display: none;
+    }
+  }
+}
