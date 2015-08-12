@@ -1,34 +1,47 @@
 jQuery(function($){
    var $forms = $("form.miwt-form");
 
-    function initSelector(input) {
-        var $select = $(input);
-        $select.select2({
-            tags: true,
+    $forms.each(function (idx, form) {
+        var $form = $(form);
+        var $tags = $form.find(".post.tags");
+        var $categories = $form.find(".post.categories");
+        var selectDefaults = {
             maximumSelectionLength: 10,
             width: 360
-        })
-    }
+        };
 
-    function createTagField(select) {
-        var $select = $(select);
+        function initSelector(con, opts) {
+            var $select = $(con).find("select");
 
-        $select.on("select2:change", function(e){
+            $select.select2($.extend({}, selectDefaults, opts));
+        }
 
-        });
+        function createTagField(con) {
+            var $select = $(con).find("select");
+            var $input = $(con).find("input[type=text]");
+            var values = $select.select2("val");
 
-    }
-
-    function init() {
-        $forms.each(function (idx, form) {
-            var $form = $(form);
-            var $tagSelect = $form.find(".post.tags > select");
+            function updateTagFieldInput() {
+                values = $select.select2("val");
+                $input.val(values ? values.join(" ") : "");
+            }
 
 
-            //initSelector($tagSelect);
-            //createTagField($tagSelect);
-        });
-    }
+            $select.on("select2:select", updateTagFieldInput);
+            $select.on("select2:unselect", updateTagFieldInput);
 
-    init();
+        }
+
+
+        function init() {
+            initSelector($tags, {tags: true, multiple: true});
+            initSelector($categories);
+            createTagField($tags);
+            createTagField($tags);
+        }
+
+        init();
+    });
+
+
 });
