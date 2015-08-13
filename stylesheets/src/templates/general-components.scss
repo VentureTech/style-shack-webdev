@@ -104,6 +104,10 @@ button.btn {
   &.delete {
     background-color: $color-grey-aa;
     border: 1px solid $color-grey-77;
+
+    &:hover {
+      background-color: $color-grey-99;
+    }
   }
 }
 
