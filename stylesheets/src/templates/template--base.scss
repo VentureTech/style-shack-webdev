@@ -104,7 +104,6 @@ p {
 
 #top_nav {
   background-color: $color-black;
-  padding: 10px 0;
   color: $color-white;
   text-align: right;
   position: relative;
@@ -114,54 +113,60 @@ p {
     display: none;
     position: absolute;
     z-index: 10;
-    top: 13px;
-    left: 12px;
+    top: 1px;
+  }
 
-    .menu-t1 {
+  .menu-t1 {
+    > .mi {
       position: relative;
-    }
 
-    .menu-t2 {
-      position: absolute;
-      left: 0;
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: .4s ease all;
-      background-color: #000;
-      text-align: center;
-      width: 100%;
-      border: 1px solid $color-white;
-
-      .mi {
+      .menuitemlabel {
+        padding: 10px;
         display: block;
-
-        + .mi {
-          border-top: 1px solid $color-white;
-        }
-
-        .menuitemlabel {
-          display: block;
-          padding: 10px;
-
-          &:hover {
-            background: $color-grey-33;
-          }
-        }
       }
     }
+  }
 
-    .mi-parent {
+  .menu-t2 {
+    position: absolute;
+    left: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: .4s ease all;
+    background-color: #000;
+    text-align: center;
+    border: 1px solid $color-white;
+
+    .mi {
+      display: block;
+      white-space: nowrap;
+
+      + .mi {
+        border-top: 1px solid $color-white;
+      }
+
       .menuitemlabel {
         display: block;
-        padding-bottom: 8px;
-      }
+        padding: 10px;
 
-      &:hover {
-        .menu-t2 {
-          max-height: 2000px;
-          opacity: 1;
+        &:hover {
+          background: $color-grey-33;
         }
+      }
+    }
+  }
+
+  .mi-parent {
+    .menuitemlabel {
+      display: block;
+    }
+
+    &:hover,
+    &.over {
+      .menu-t2 {
+        max-height: 2000px;
+        opacity: 1;
       }
     }
   }
@@ -232,10 +237,6 @@ p {
       width: auto;
       height: auto;
     }
-  }
-
-  &.admin-nav {
-
   }
 
   @include breakpoint($bp-mobile-landscape) {
@@ -698,7 +699,7 @@ p {
 
   #top_nav {
     text-align: left;
-    padding: 10px;
+    //padding: 10px;
     min-height: 40px;
   }
 
@@ -748,7 +749,8 @@ p {
       }
 
       .menuitemlabel {
-        padding: 0 20px;
+        padding-left: 20px;
+        padding-right: 20px;
       }
     }
   }
@@ -758,14 +760,15 @@ p {
 #t_admin {
   #top_nav {
     .admin-nav {
-      .mi {
+      > ul > .mi {
         + .mi {
           border-left: 1px solid $color-white;
         }
       }
 
       .menuitemlabel {
-        padding: 0 20px;
+        padding-left: 20px;
+        padding-right: 20px;
       }
     }
   }
