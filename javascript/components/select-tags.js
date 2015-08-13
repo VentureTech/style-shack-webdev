@@ -35,9 +35,9 @@ jQuery(function($){
 
         function init() {
             initSelector($tags, {tags: true, multiple: true});
-            initSelector($categories);
+            initSelector($categories, {tags: true});
             createTagField($tags);
-            createTagField($tags);
+            createTagField($categories);
         }
 
         init();
