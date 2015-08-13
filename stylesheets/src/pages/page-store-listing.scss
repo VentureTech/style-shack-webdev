@@ -1,6 +1,140 @@
 @import "../config/base-import";
 @import "../libs/normalize";
 
+.filters {
+  margin-bottom: 10px;
+
+
+  .title {
+    text-transform: uppercase;
+    color: $color-grey-80;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    .title,
+    form {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .title {
+      padding: 5px 10px;
+      border: 1px solid $color-grey-80;
+    }
+  }
+}
+
+.filter_controls.menu {
+  width: 100%;
+
+  > .mi {
+    border: 1px solid $color-grey-80;
+    width: 100%;
+    position: relative;
+    color: $color-grey-80;
+    text-transform: none;
+
+    + .mi {
+      margin-top: 10px;
+    }
+
+    .label {
+      display: inline-block;
+      width: 20%;
+      padding: 3px 0;
+      font-size: 14px;
+      text-align: center;
+      background: $color-grey-55;
+      color: $color-white;
+    }
+
+    .active-filters {
+      display: inline-block;
+      vertical-align: middle;
+      font-family: $font-italic;
+      font-size: 12px;
+      width: 70%;
+      overflow: hidden;
+      white-space: nowrap;
+      margin-left: 5px;
+
+      .tag {
+        background: $color-grey-f2;
+        padding: 0 3px;
+      }
+    }
+
+    span.arrow {
+      display: block;
+      position: absolute;
+      right: 5px;
+      top: 10px;
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+
+      border-top: 6px solid $color-grey-80;
+    }
+
+    .t2_menu {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: .5s ease all;
+      position: absolute;
+      top: 100%;
+      left: -1px;
+      right: -1px;
+      padding: 10px;
+      border: 1px solid $color-grey-80;
+      border-radius: 0 3px 3px 0;
+      background: $color-white;
+
+      &.opened {
+        max-height: 2000px;
+        opacity: 1;
+        z-index: 8888;
+      }
+
+      .mi {
+        display: block;
+        text-transform: none;
+
+        + .mi {
+          margin-top: 4px;
+        }
+      }
+    }
+
+    .control {
+      margin-right: 4px;
+    }
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    > .mi {
+      display: inline-block;
+      width: 300px;
+
+      + .mi {
+        margin-top: 0;
+      }
+    }
+
+    .active-filters {
+      ul {
+        max-width: 205px;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+
 .store {
   text-align: center;
   margin-bottom: $spacing-between-boxes;
