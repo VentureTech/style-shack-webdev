@@ -7,9 +7,10 @@
     font-size: 18px;
   }
 
-  &.tags {
+  &.tags,
+  &.categories {
     > input[type="text"] {
-     // display: none;
+      display: none;
     }
   }
 }
