@@ -80,20 +80,12 @@ label {
 
 input[type="text"],
 textarea {
-  border: 1px solid $color-grey-c5;
-  padding: 5px;
-  font-size: 12px;
-  width: 100%;
+  @include genericInputStyle;
 }
 
 input[type="submit"],
 button {
-  background: linear-gradient($color-grey-f2, lighten($color-grey-d0, .5) 80%);
-  outline: 0;
-  border: 1px solid $color-grey-c5;
-  border-radius: 2px;
-  padding: 5px 15px;
-  font-size: 14px
+  @include genericButtonStyle;
 }
 
 .submit_button {
