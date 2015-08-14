@@ -71,6 +71,18 @@
     text-align: left;
     margin-top: 5px;
   }
+
+  .social-tab {
+    li {
+      filter: grayscale(100%);
+      opacity: .35;
+
+      &.tab-selected {
+        filter: none;
+        opacity: 1;
+      }
+    }
+  }
 }
 
 #main_content {
