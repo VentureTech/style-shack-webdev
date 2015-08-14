@@ -5,6 +5,7 @@ jQuery(function($){
         var $form = $(form);
         var $tags = $form.find(".post.tags");
         var $categories = $form.find(".post.categories");
+        var $status = $form.find(".post.status");
         var selectDefaults = {
             maximumSelectionLength: 10,
             width: 360
@@ -23,19 +24,17 @@ jQuery(function($){
 
             function updateTagFieldInput() {
                 values = $select.select2("val");
-                $input.val(values ? values.join(" ") : "");
+                $input.val($.isArray(values) ? values.join(",") : values);
             }
-
 
             $select.on("select2:select", updateTagFieldInput);
             $select.on("select2:unselect", updateTagFieldInput);
-
         }
-
 
         function init() {
             initSelector($tags, {tags: true, multiple: true});
-            initSelector($categories, {tags: true});
+            initSelector($categories);
+            initSelector($status);
             createTagField($tags);
             createTagField($categories);
         }
