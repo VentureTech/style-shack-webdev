@@ -14,3 +14,19 @@
     font-style: normal;
   }
 }
+
+@mixin genericButtonStyle() {
+    background: linear-gradient($color-grey-f2, lighten($color-grey-d0, .5) 80%);
+    outline: 0;
+    border: 1px solid $color-grey-c5;
+    border-radius: 2px;
+    padding: 5px 15px;
+    font-size: 14px
+}
+
+@mixin genericInputStyle() {
+  border: 1px solid $color-grey-c5;
+  padding: 5px;
+  font-size: 12px;
+  width: 100%;
+}
