@@ -1,0 +1,155 @@
+@import "../config/base-import";
+
+
+.message {
+  background-color: $color-dark-red;
+  color: $color-white;
+  padding: 10px;
+
+  + .message {
+    margin-top: 10px;
+  }
+}
+
+.message-container {
+  margin-bottom: 30px;
+}
+
+
+table.orderitems,
+table.order_detail {
+  border: 1px solid $color-grey-80;
+  width: 100%;
+
+  th {
+    background: $color-black;
+    color: $color-white;
+    padding: 10px;
+    text-align: left;
+  }
+
+  td {
+    padding: 10px;
+    border: 0;
+    border-bottom: 1px solid $color-black;
+    font-size: 14px;
+  }
+
+  .option {
+    font-style: italic;
+    font-size: 12px;
+  }
+
+  tr {
+    &.total {
+      td {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+
+button {
+  @include genericButtonStyle;
+}
+
+.actions {
+  &.quantity_update {
+    margin-top: 10px;
+  }
+
+  &.checkout {
+    float: right;
+    margin-top: -27px;
+  }
+}
+
+fieldset {
+  margin-top: $spacing-between-boxes;
+  font-size: 14px;
+
+  > div {
+    + div {
+      margin-top: $spacing-between-boxes/2;
+    }
+
+    > div {
+      + div {
+        margin-top: $spacing-between-boxes/3;
+      }
+    }
+  }
+}
+
+legend {
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.nanp_button,
+.intl_button {
+  label {
+    display: inline-block;
+    padding-left: 5px;
+  }
+}
+
+.shipping_same_as_billing {
+  margin-bottom: $spacing-between-boxes/2;
+
+  input,
+  label {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+}
+
+.phone_number {
+
+  .format {
+    > span {
+      display: inline-block;
+
+      + span {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .nanp {
+    > input,
+    > label {
+      display: inline-block;
+
+      + input,
+      + label {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .nanp_example {
+    font-style: italic;
+    font-size: 12px;
+    margin-top: 3px;
+  }
+}
+
+.city_state_postalcode,
+.payment_method_options {
+  > div {
+    margin-top: $spacing-between-boxes/3;
+  }
+}
+
+form[name="checkout"] {
+  .checkout {
+    margin-top: 3px;
+  }
+}

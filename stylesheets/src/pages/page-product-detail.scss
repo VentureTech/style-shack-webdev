@@ -1,0 +1,23 @@
+.productname {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.prosedescription {
+  max-height: 0;
+  opacity: 0;
+  transition: .4s ease all;
+  overflow: hidden;
+}
+
+.photos {
+  display: inline-block;
+  width: 45%;
+  vertical-align: top;
+}
+
+.info {
+  display: inline-block;
+  width: 53%;
+  vertical-align: top;
+}
