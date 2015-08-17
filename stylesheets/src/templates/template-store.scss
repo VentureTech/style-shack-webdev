@@ -68,7 +68,6 @@
     }
 
     .menuitemlabel {
-      background: url("/_resources/dyn/files/1058943z17264f83/_fn/social-sprite.png") no-repeat;
       background-size: auto 25px;
       height: 25px;
       width: 26px;
@@ -93,6 +92,12 @@
     .pinterest {
       .menuitemlabel {
         background-position: -93px 0;
+      }
+    }
+
+    .instagram {
+      .menuitemlabel {
+        background-position: -63px 0;
       }
     }
   }
