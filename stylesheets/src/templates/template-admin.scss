@@ -1,0 +1,111 @@
+@import "../config/base-import";
+
+.prop-body {
+  &:after {
+    display: block;
+    clear: both;
+    content: '';
+  }
+}
+
+.banner-image label {
+  border-bottom: 1px solid $color-grey-cc;
+}
+
+.prop-wrapper {
+  .prop {
+    padding: 5px 0;
+    display: block;
+
+    > .tal,
+    label {
+      display: block;
+      margin-bottom: 3px;
+      text-align: left;
+    }
+
+    &.banner-image label {
+      margin-bottom: 5px;
+    }
+  }
+
+  .actions {
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    button + button {
+      margin-left: 5px;
+    }
+  }
+
+  .persistence-actions {
+    button {
+      + button {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+.product-editor {
+  padding: 10px 20px;
+  margin-left: 20px;
+  border: 1px solid $color-grey-cc;
+
+  > div {
+    + div {
+      margin-top: $spacing-between-boxes;
+    }
+  }
+}
+
+button.metro-images-trigger {
+  display: inline-block;
+  vertical-align: middle;
+  height: auto;
+  margin: 0;
+  padding: 5px 0;
+}
+
+button.metro-images-trigger {
+  float: right;
+  background: transparent;
+  border: 1px solid $color-grey-cc;
+  margin-top: 4px;
+  position: relative;
+  border-radius: 0;
+  padding: 5px;
+
+  &:before {
+    content: "+";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    line-height: .7;
+    color: $color-grey-66;
+    font-family: $font-opensanslight;
+  }
+
+  &.custom-expand-collapse-trigger-expanded {
+    &:before {
+      content: "\2013";
+    }
+  }
+
+  &:hover {
+    background: transparent;
+  }
+}
+
+.val {
+  max-width: 100%;
+  font-size: 14px;
+  color: $color-grey-33;
+  line-height: 1.5;
+}

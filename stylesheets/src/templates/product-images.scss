@@ -1,0 +1,33 @@
+@import "../config/base-import";
+
+.product-options,
+.product-images-list {
+  .picture-editor {
+    &.mode-view {
+      img {
+        max-width: 200px;
+        height: auto;
+        width: auto;
+      }
+    }
+  }
+}
+
+.product-management,
+.product-options {
+  .pager-search-results {
+    img {
+      max-width: 50px;
+      height: auto;
+      width: auto;
+    }
+  }
+
+  @include breakpoint($bp-tablets-landscape) {
+    .pager-search-results {
+      img {
+        max-width: 100px;
+      }
+    }
+  }
+}
