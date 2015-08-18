@@ -111,6 +111,35 @@ button.btn {
   }
 }
 
+/** CREATE GLYPH BUTTONS **/
+td.action-column {
+  .actions {
+    text-align: left;
+  }
+
+  .btn {
+    &.view {
+      @include viewButtonGlyph;
+    }
+    &.order-up {
+      @include arrowUpButtonGlyph;
+    }
+    &.order-down {
+      @include arrowDownButtonGlyph;
+    }
+    &.edit {
+      @include editButtonGlyph;
+    }
+    &.delete,
+    &.remove {
+      @include deleteButtonGlyph;
+    }
+    &.edit-images {
+      @include editImageButtonGlyph;
+    }
+  }
+}
+
 .miwt-table {
   width: 100%;
   border-collapse: separate;
@@ -131,7 +160,7 @@ button.btn {
 
   th {
     background: transparent linear-gradient(to bottom, $color-blue-grey 0%, $color-grey-66 100%) repeat scroll 0 0;
-    font-size: 18px;
+    font-size: 14px;
     color: $color-white;
     font-weight: normal;
     padding: 10px 15px;
@@ -140,6 +169,10 @@ button.btn {
 
     + th {
       border-left: 1px solid $color-grey-c5;
+    }
+
+    span.column-label {
+      display: block;
     }
 
     &.first-column {
