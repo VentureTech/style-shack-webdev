@@ -8,6 +8,7 @@
 @include fontFace('OpenSans_Light', '/OpenSans', 'open_sans_300-webfont');
 @include fontFace('OpenSans_Italic', '/OpenSans', 'open_sans_italic-webfont');
 @include fontFace('OpenSans_Regular', '/OpenSans', 'open_sans_regular-webfont');
+@include createIconFonts;
 
 
 .box-wc {
