@@ -12,9 +12,30 @@ jQuery(function($){
         };
 
         function initSelector(con, opts) {
-            var $select = $(con).find("select");
+            var $con = $(con);
+            var $select = $con.find("select");
 
-            $select.select2($.extend({}, selectDefaults, opts));
+            function getPreselectedValues() {
+                var preloadValues = $con.find("input").val().split(",");
+                var $selectOptions = $select.find("option");
+                var optionValues = new Array;
+                var options = new Array;
+                $selectOptions.each(function (idx, val) {
+                    var optVal = $(val).attr("value");
+                    var name = $(val).html();
+                    optionValues.push(optVal);
+                    options.push({id: optVal, text: name});
+                });
+
+                return $.map(preloadValues, function (val) {
+                    if ($.inArray(val, optionValues) > -1) {
+                        return (options[$.inArray(val, optionValues)]);
+                    }
+                });
+            }
+
+
+            $select.select2($.extend({}, selectDefaults, opts, {data: getPreselectedValues}));
         }
 
         function createTagField(con) {
@@ -33,10 +54,10 @@ jQuery(function($){
 
         function init() {
             initSelector($tags, {tags: true, multiple: true});
-            initSelector($categories);
-            initSelector($status);
+            //initSelector($categories);
+            //initSelector($status);
             createTagField($tags);
-            createTagField($categories);
+            //createTagField($categories);
         }
 
         init();
