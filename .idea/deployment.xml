@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Styleshack Live - Frontend">
+    <serverData>
+      <paths name="Styleshack Live - Admin">
+        <serverdata>
+          <mappings>
+            <mapping deploy="styleshack-admin.venturetech.net/Web/Stylesheets" local="$PROJECT_DIR$/stylesheets/build" web="/" />
+            <mapping deploy="styleshack-admin.venturetech.net/Web/Javascript" local="$PROJECT_DIR$/javascript" web="/" />
+            <mapping deploy="styleshack-admin.venturetech.net/Web/Design" local="$PROJECT_DIR$/design" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="Styleshack Live - Frontend">
+        <serverdata>
+          <mappings>
+            <mapping deploy="styleshack.venturetech.net/Web/Stylesheets" local="$PROJECT_DIR$/stylesheets/build" web="/" />
+            <mapping deploy="styleshack.venturetech.net/Web/Javascript" local="$PROJECT_DIR$/javascript" web="/" />
+            <mapping deploy="styleshack.venturetech.net/Web/Design" local="$PROJECT_DIR$/design" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="Styleshack Live - Stores">
+        <serverdata>
+          <mappings>
+            <mapping deploy="styleshack-stores.venturetech.net/Web/Stylesheets" local="$PROJECT_DIR$/stylesheets/build" web="/" />
+            <mapping deploy="styleshack-stores.venturetech.net/Web/Javascript" local="$PROJECT_DIR$/javascript" web="/" />
+            <mapping deploy="styleshack-stores.venturetech.net/Web/Design" local="$PROJECT_DIR$/design" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
