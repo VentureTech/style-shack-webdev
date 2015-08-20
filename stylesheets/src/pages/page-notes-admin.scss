@@ -1,16 +1,69 @@
 @import "../config/base-import";
 
-.post {
+.blog.entry {
+  border: 1px solid $color-grey-cc;
+  padding: 20px;
 
+  .actions {
+    text-align: right;
+
+    button + button {
+      margin-left: 5px;
+    }
+  }
+}
+
+div.windowcontent {
+  top: 3.5em !important;
+  padding: 20px;
+  background-color: $color-white !important;
+  border: 0 !important;
+}
+
+.windowbuttons {
+  padding-right: 10px;
+}
+
+.file {
+  font-size: 14px;
+}
+
+.post {
   label {
     font-weight: bold;
     font-size: 18px;
   }
 
+  &.featured {
+    input,
+    label.tbl {
+      display: inline-block;
+    }
+
+    input {
+      float: left;
+      margin-top: 10px;
+      margin-right: 5px;
+    }
+  }
+
+  .file-name,
+  .post.author {
+    font-size: 14px;
+    margin-right: 20px;
+  }
+
+  .select2-selection__choice,
+  .select2-selection__rendered {
+    font-size: 12px;
+  }
+
   &.tags,
   &.categories {
     > input[type="text"] {
-      display: none;
+     // display: none;
     }
   }
+
 }
+
