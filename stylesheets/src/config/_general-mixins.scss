@@ -1,3 +1,9 @@
+@mixin resetMenu() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 // Based on Font Squirrel generated files
 @mixin fontFace($font-name, $file-path, $file-name) {
   $font-file-path: $path-fonts + $file-path + '/' + $file-name;
