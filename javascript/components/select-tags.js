@@ -43,10 +43,10 @@ jQuery(function($){
 
         function init() {
             initSelector($tags, {tags: true, multiple: true});
-            //initSelector($categories);
-            //initSelector($status);
+            initSelector($categories);
+            initSelector($status);
             createTagField($tags);
-            //createTagField($categories);
+            createTagField($categories);
         }
 
         init();
