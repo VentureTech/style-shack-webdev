@@ -154,7 +154,7 @@ td.action-column {
   -moz-border-left-colors: none;
   border-image: none;
 
-  .action-column button {
+  .action-column button + button {
     margin-left: 10px;
   }
 
