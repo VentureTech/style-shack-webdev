@@ -634,6 +634,10 @@ p {
 
     #main_content {
       width: 60%;
+
+      &.wide {
+        width: 100%;
+      }
     }
 
     #aside_content {
