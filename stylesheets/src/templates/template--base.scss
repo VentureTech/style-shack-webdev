@@ -1,4 +1,5 @@
 @import "../config/base-import";
+@import "../config/pager";
 @import "../libs/normalize";
 
 @include fontFace('BebasNeue_Book', '/BebasNeue', 'bebasneue_book-webfont');
@@ -657,7 +658,6 @@ p {
 }
 
 #t_store {
-
   #header {
     padding-top: 70px;
   }
@@ -693,7 +693,45 @@ p {
       padding-left: 40px;
     }
   }
+}
 
+#t_catalog {
+  #header {
+    padding-top: 70px;
+  }
+
+  #main_enclose {
+    padding-bottom: $spacing-between-boxes;
+    border-bottom: 1px solid $color-black;
+    margin-bottom: 30px;
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    #main_content,
+    #aside_content {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    #main_content {
+      width: 70%;
+    }
+
+    #aside_content {
+      width: 30%;
+      padding-right: 50px;
+    }
+  }
+  @include breakpoint($bp-tablets-landscape) {
+    #main_content {
+      width: 85%;
+    }
+
+    #aside_content {
+      width: 15%;
+      padding-right: 15px;
+    }
+  }
 }
 
 #t_store_admin,
@@ -771,7 +809,6 @@ p {
     }
   }
 }
-
 
 #t_admin {
   #top_nav {
