@@ -1,0 +1,52 @@
+@import "general-mixins";
+
+.catalog {
+  margin-bottom: $spacing-between-boxes;
+
+  ul {
+    @include resetMenu;
+
+    + ul {
+      margin-top: 10px;
+    }
+  }
+
+
+  a {
+    color: $color-black;
+  }
+
+  ul.menubeanv {
+    li {
+      display: block;
+    }
+
+    li.over {
+      ul {
+        background: $color-white;
+        display: block;
+        position: relative;
+        top: auto;
+        left: 40px;
+      }
+    }
+  }
+
+
+
+}
+
+
+.catalogpath {
+  color: $color-black;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.catalogcategorylist {
+  a {
+    color: $color-grey-80;
+    font-family: $font-opensans;
+    font-size: 14px;
+  }
+}
