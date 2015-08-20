@@ -34,6 +34,7 @@ jQuery(function($){
             var $store = $(store);
             $store.removeClass(COL_ONE_CLASS).removeClass(COL_TWO_CLASS).removeClass(COL_THREE_CLASS);
 
+            /** HANDLE THREE COLS ABOVE TABLET PORTRAIT **/
             if (windowWidth > TABLET_BREAKPOINT) {
                 if (idx % 3 == 2) {
                     $store.addClass(COL_THREE_CLASS);
@@ -45,6 +46,8 @@ jQuery(function($){
                     $store.addClass(COL_ONE_CLASS);
                 }
             }
+
+            /** HANDLE TWO COLS BELOW TABLET PORTRAIT AND ABOVE MOBILE LANDSCAPE**/
             else if (windowWidth <= TABLET_BREAKPOINT && windowWidth > MOBILE_BREAKPOINT) {
                 if (idx % 2 == 1) {
                     $store.addClass(COL_TWO_CLASS);
