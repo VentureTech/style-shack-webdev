@@ -1,0 +1,84 @@
+@import "../config/base-import";
+
+/* file chooser styles */
+
+.file_chooser {
+  td {
+    vertical-align: middle;
+
+    &.sibling_directories-con,
+    &.cwd-con,
+    &.pager-con,
+    &.actions-con {
+      vertical-align: top;
+    }
+
+    &.cwd-con {
+      height: 2.25em;
+    }
+
+    &.actions-con {
+      height: 3.75em;
+
+      div.actions {
+        margin: 5px 4px;
+      }
+
+      label {
+        width: 17em;
+        display: inline-block;
+      }
+    }
+
+    &.fse_icon-con {
+      padding: 0 1px;
+    }
+
+  }
+
+  .sibling_directories {
+    overflow-y: auto;
+    padding: 3px;
+
+    .element {
+      input.selector {
+        display: none;
+      }
+    }
+  }
+
+  div.cwd {
+    margin: 4px;
+    padding: 2px 4px;
+    font-size: 1.2em;
+  }
+
+  div.pager {
+    height: 18em;
+    overflow: auto;
+    margin: 4px;
+  }
+}
+
+table.file_chooser {
+  width: 100%;
+}
+
+td.sibling_directories-con {
+  min-width: 8em;
+  vertical-align: top;
+
+  .btn-image {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 3px;
+  }
+
+  .fse_folder {
+    span {
+      font-size: 12px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
