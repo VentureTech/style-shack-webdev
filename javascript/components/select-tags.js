@@ -14,28 +14,16 @@ jQuery(function($){
         function initSelector(con, opts) {
             var $con = $(con);
             var $select = $con.find("select");
+			var serializedPreloadValues = $con.find('input').val();
+          
+          	var preloadValues = serializedPreloadValues.length ? serializedPreloadValues.split(',') : null;
 
-            function getPreselectedValues() {
-                var preloadValues = $con.find("input").val().split(",");
-                var $selectOptions = $select.find("option");
-                var optionValues = new Array;
-                var options = new Array;
-                $selectOptions.each(function (idx, val) {
-                    var optVal = $(val).attr("value");
-                    var name = $(val).html();
-                    optionValues.push(optVal);
-                    options.push({id: optVal, text: name});
-                });
-
-                return $.map(preloadValues, function (val) {
-                    if ($.inArray(val, optionValues) > -1) {
-                        return (options[$.inArray(val, optionValues)]);
-                    }
-                });
+            $select.select2($.extend({}, selectDefaults, opts));
+          
+          	if (preloadValues) {
+          		$select.select2('val', preloadValues);
+				$select.trigger('change');
             }
-
-
-            $select.select2($.extend({}, selectDefaults, opts, {data: getPreselectedValues}));
         }
 
         function createTagField(con) {
@@ -50,6 +38,7 @@ jQuery(function($){
 
             $select.on("select2:select", updateTagFieldInput);
             $select.on("select2:unselect", updateTagFieldInput);
+          	$select.on("change", updateTagFieldInput);
         }
 
         function init() {
