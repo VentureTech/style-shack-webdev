@@ -15,6 +15,14 @@
     font-size: 14px;
     color: $color-grey-33;
     line-height: 1.5;
+
+    .prop.online-purchase-url {
+      .val {
+        display: block;
+        white-space: pre;
+        word-wrap: break-word;
+      }
+    }
   }
 }
 
