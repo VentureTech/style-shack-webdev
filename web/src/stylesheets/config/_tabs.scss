@@ -1,0 +1,44 @@
+/* ==========================================================================
+   Basic Styles for Tabs
+   baiken@vipasolutions.com, sbenes, knoone
+   Updated Aug 21, 2015
+   ========================================================================== */
+
+/* Tab Container
+   ========================================================================== */
+ul.tab-items {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tab-items {
+
+  li {
+    display: inline-block;
+    *display: inline;
+    zoom:1;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    background-color: #F9F9F7;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 8px 8px 0 0;
+    border: 1px solid #DDDAAA;
+    border-bottom: none;
+  }
+
+  .tab-selected a {
+    background-color: #FAF9E2;
+  }
+}
+
+.tab-content {
+  border: 1px solid #dddaaa;
+  border-radius: 0 8px 8px 8px;
+  padding: 20px;
+  background-color: #FAF9E2;
+}
