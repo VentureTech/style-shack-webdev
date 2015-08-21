@@ -1,35 +1,140 @@
 .filters {
-  margin-bottom: 10px;
+  margin-bottom: $spacing-between-boxes/2;
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
 
   .title {
     text-transform: uppercase;
     color: $color-grey-80;
     font-size: 15px;
-    margin-bottom: 10px;
+    margin: $spacing-between-boxes/2 0 10px;
   }
 
   @include breakpoint($bp-tablets-portrait) {
     .title,
-    form {
+    .filter_controls {
       display: inline-block;
       vertical-align: top;
     }
 
     .title {
-      padding: 5px 10px;
-      width: 20%;
+      padding: 7px 10px;
+      margin-right: 10px;
+      margin-top: 0;
       border: 1px solid $color-grey-80;
     }
 
-    form {
+    .inner {
+      padding-right: 200px;
+    }
+
+    .filter_controls {
       width: 80%;
     }
   }
 }
 
-.filter_controls.menu {
-  width: 100%;
+.sort-by {
+  border: 1px solid $color-grey-80;
+  position: relative;
+  color: $color-grey-80;
+  text-transform: none;
 
+  .label {
+    display: inline-block;
+    width: 44%;
+    padding: 7px 0;
+    font-size: 14px;
+    text-align: center;
+    background: $color-grey-80;
+    color: $color-white;
+    text-transform: uppercase;
+  }
+
+  .active-filters {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: $font-italic;
+    font-size: 12px;
+    width: 31%;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-left: 10px;
+  }
+
+  span.arrow {
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 12px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid $color-grey-80;
+  }
+
+  .t2_menu {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: .5s ease all;
+    position: absolute;
+    top: 100%;
+    left: -1px;
+    right: -1px;
+    border: 1px solid $color-grey-80;
+    border-radius: 0 3px 3px 0;
+    background: $color-white;
+
+    &.opened {
+      max-height: 2000px;
+      opacity: 1;
+      z-index: 8888;
+    }
+
+    .mi {
+      display: block;
+      text-transform: none;
+      font-size: 14px;
+      text-align: center;
+
+      label {
+        display: block;
+        padding: 10px 15px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      + .mi {
+        border-top: 1px solid $color-grey-cc;
+      }
+
+      &.mi_active {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .control {
+    display: none;
+    margin-right: 4px;
+  }
+
+
+  @include breakpoint($bp-tablets-portrait) {
+    float: right;
+    width: 180px;
+  }
+}
+
+.filter_controls.menu {
   > .mi {
     border: 1px solid $color-grey-80;
     width: 100%;
@@ -41,33 +146,26 @@
       margin-top: 10px;
     }
 
-    &.sort-by {
-      float: right;
-    }
-
     .label {
-      display: inline-block;
-      width: 20%;
-      padding: 3px 0;
-      font-size: 14px;
+      padding: 4px 40px 0 20px;
+      font-size: 18px;
       text-align: center;
-      background: $color-grey-55;
-      color: $color-white;
+      font-family: $font-italic;
     }
 
     .active-filters {
-      display: inline-block;
-      vertical-align: middle;
       font-family: $font-italic;
+      top: 100%;
       font-size: 12px;
-      width: 70%;
+      width: 100%;
       overflow: hidden;
       white-space: nowrap;
-      margin-left: 5px;
+      padding: 0 10px;
 
       .tag {
-        background: $color-grey-f2;
-        padding: 0 3px;
+        display: block;
+        padding: 5px 10px;
+        border-top: 1px solid $color-grey-cc;
       }
     }
 
@@ -75,7 +173,7 @@
       display: block;
       position: absolute;
       right: 5px;
-      top: 10px;
+      top: 12px;
       width: 0;
       height: 0;
       border-left: 6px solid transparent;
@@ -93,7 +191,6 @@
       top: 100%;
       left: -1px;
       right: -1px;
-      padding: 10px;
       border: 1px solid $color-grey-80;
       border-radius: 0 3px 3px 0;
       background: $color-white;
@@ -108,14 +205,29 @@
         display: block;
         text-transform: none;
         font-size: 14px;
+        text-align: center;
 
         + .mi {
-          margin-top: 4px;
+          border-top: 1px solid $color-grey-cc;
+        }
+
+        label {
+          padding: 10px 15px;
+          display: block;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        &.mi_active {
+          font-weight: bold;
         }
       }
     }
 
     .control {
+      display: none;
       margin-right: 4px;
     }
   }
@@ -123,10 +235,12 @@
   @include breakpoint($bp-tablets-portrait) {
     > .mi {
       display: inline-block;
-      width: 300px;
+      vertical-align: top;
+      width: auto;
 
       + .mi {
         margin-top: 0;
+        margin-left: 10px;
       }
     }
 
