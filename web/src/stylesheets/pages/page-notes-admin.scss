@@ -34,7 +34,8 @@ div.windowcontent {
     font-size: 18px;
   }
 
-  &.featured {
+  &.featured,
+  &.approved{
     input,
     label.tbl {
       display: inline-block;
@@ -65,5 +66,13 @@ div.windowcontent {
     }
   }
 
+}
+
+span.select2-results {
+  > ul.select2-results__options {
+    > li:first-child {
+      display: none;
+    }
+  }
 }
 

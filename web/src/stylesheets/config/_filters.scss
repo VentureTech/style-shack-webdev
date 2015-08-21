@@ -17,7 +17,12 @@
 
     .title {
       padding: 5px 10px;
+      width: 20%;
       border: 1px solid $color-grey-80;
+    }
+
+    form {
+      width: 80%;
     }
   }
 }
@@ -34,6 +39,10 @@
 
     + .mi {
       margin-top: 10px;
+    }
+
+    &.sort-by {
+      float: right;
     }
 
     .label {

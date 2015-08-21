@@ -32,6 +32,11 @@
   }
 }
 
+h2 {
+  padding: 10px 40px;
+  margin-top: -10px;
+}
+
 #aside_content {
   width: 25%;
   display: inline-block;
@@ -136,11 +141,11 @@
 .store-profile-editor {
   padding: 10px 20px;
   margin-left: 20px;
-  border: 1px solid $color-grey-cc;
+  margin-top: -105px;
 
   > div {
     + div {
-      margin-top: $spacing-between-boxes;
+      margin-top: $spacing-between-boxes/2;
     }
   }
 }
@@ -173,10 +178,10 @@ button.product-images-trigger,
 button.product-options-trigger,
 button.store-images-trigger,
 button.store-members-trigger {
-  float: right;
   background: transparent;
   border: 1px solid $color-grey-cc;
-  margin-top: 4px;
+  background: $color-red;
+  margin-top: 2px;
   position: relative;
   border-radius: 0;
   padding: 5px;
@@ -184,13 +189,10 @@ button.store-members-trigger {
   &:before {
     content: "+";
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
     height: 100%;
     width: 100%;
     line-height: .7;
-    color: $color-grey-66;
+    color: $color-white;
     font-family: $font-opensanslight;
   }
 
@@ -215,6 +217,7 @@ label.store-members-label {
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
+  margin-left: 15px;
 }
 
 

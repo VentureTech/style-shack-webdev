@@ -5,13 +5,16 @@
 .purchase-options-wrapper,
 .product-images-wrapper,
 .product-options-wrapper {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 2px #959595;
+
   input {
     margin: 0;
   }
 
   .prop-wrapper,
   .product-options {
-    border-top: 1px solid $color-grey-cc;
     font-size: 14px;
     color: $color-grey-33;
     line-height: 1.5;
@@ -25,6 +28,7 @@
     }
   }
 }
+
 
 .product-images-wrapper {
   button.store-images-trigger,

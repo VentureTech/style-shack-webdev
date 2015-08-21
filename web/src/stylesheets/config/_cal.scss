@@ -1,0 +1,121 @@
+@import "base-vars";
+
+.calendar {
+  td {
+    padding: 4px;
+  }
+}
+
+#calendar {
+  .search_parameters {
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+
+
+
+.calendar {
+  color: $color-grey-66;
+  font-size: 14px;
+  -webkit-box-shadow: 0 1px 5px rgba($color-black,0.3);
+  -moz-box-shadow: 0 1px 5px rgba($color-black,0.3);
+  box-shadow: 0 1px 5px rgba($color-black,0.3);
+  border-spacing: 0;
+  border-collapse: collapse;
+  background: $color-white;
+  text-align: center;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  thead {
+    .daynames {
+      td {
+        background: $color-grey-f2;
+      }
+    }
+
+    th {
+      width: 14%;
+      padding: 10px 0;
+      background: $color-grey-55;
+      color: $color-white;
+      border: 1px solid $color-grey-1b;
+      font-weight: bold;
+      text-align: center;
+      min-width: 120px;
+    }
+  }
+
+  .daysrow {
+    td {
+      font-weight: normal;
+    }
+  }
+
+  td {
+    color: $color-grey-66;
+    font-weight: bold;
+    border: 1px solid $color-grey-c5;
+    vertical-align: top;
+    padding: 4px;
+
+    &.today {
+      background: #327cd8;
+      color: #fff;
+
+      &:hover {
+        background: #327cd8;
+      }
+
+      .day {
+        .dom {
+          background: #39648b;
+          color: #fff;
+        }
+      }
+    }
+
+    .day {
+      min-height: 100px;
+      padding-bottom: 7px;
+
+      .dom {
+        background: $color-grey-d0;
+        color: $color-grey-55;
+        text-align: right;
+        display: block;
+        padding: 5px 7px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+
+    .events {
+      min-height: 95px;
+      padding: 0 5px;
+      margin: 0 auto;
+    }
+
+    &.inactive,
+    &.inactive a,
+    &.inactive:hover {
+      background: $color-grey-cc;
+      color: $color-white;
+    }
+
+    &:hover {
+      background: $color-grey-f2;
+    }
+
+  }
+
+  .events {
+    margin: 3px 0;
+    font-size: 12px;
+  }
+}

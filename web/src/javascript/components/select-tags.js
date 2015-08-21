@@ -15,14 +15,36 @@ jQuery(function($){
             var $con = $(con);
             var $select = $con.find("select");
 			var serializedPreloadValues = $con.find('input').val();
+
+            if (serializedPreloadValues) {
+                preloadOpts($select, opts, serializedPreloadValues);
+            }
+
+            else {
+                $select.select2($.extend({}, selectDefaults, opts));
+            }
           
-          	var preloadValues = serializedPreloadValues.length ? serializedPreloadValues.split(',') : null;
+          	/*var preloadValues = serializedPreloadValues.length ? serializedPreloadValues.split(',') : null;
 
             $select.select2($.extend({}, selectDefaults, opts));
           
           	if (preloadValues) {
           		$select.select2('val', preloadValues);
 				$select.trigger('change');
+            }*/
+        }
+
+        function preloadOpts(select, opts, vals) {
+            var $select = $(select);
+            var serializedPreloadValues = vals;
+
+            var preloadValues = serializedPreloadValues.length ? serializedPreloadValues.split(',') : null;
+
+            $select.select2($.extend({}, selectDefaults, opts));
+
+            if (preloadValues) {
+                $select.select2('val', preloadValues);
+                $select.trigger('change');
             }
         }
 

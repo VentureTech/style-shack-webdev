@@ -1,0 +1,73 @@
+$color-white: #fff;
+$color-grey-f9: #f9f9f9;
+$color-grey-f2: #f2f2f2;
+$color-grey-e6: #e6e6e6;
+$color-grey-d0: #d0d0d0;
+$color-grey-c5: #c5c5c5;
+$color-grey-cc: #ccc;
+$color-grey-b3: #b3b3b3;
+$color-grey-aa: #aaa;
+$color-grey-99: #999;
+$color-grey-80: #808080;
+$color-grey-77: #777;
+$color-grey-66: #666;
+$color-grey-55: #555;
+$color-grey-33: #333;
+$color-grey-1b: #1b1b1b;
+$color-black: #000;
+
+$color-youtube-black: $color-grey-1b;
+$color-facebook-blue: #3b579d;
+
+
+$color-tan: #e7e1dc;
+$color-grey-tan: #ac9b8f;
+$color-dark-tan: #baa188;
+$color-gold-tan: #c69c6d;
+$color-brown: #ca022e;
+
+$color-orange: #ff6614;
+$color-red: #c00812;
+$color-orange-red: #fe413f;
+$color-dark-red: #7a0000;
+$color-yellow: #ffc800;
+$color-blue: #196bb6;
+$color-purple: #842cb6;
+$color-dark-blue: #043665;
+$color-blue-grey: #25282A;
+$color-dark-green: #145432;
+$color-green: #177c27;
+
+$font-stack-serif: Georgia, Times New Roman, serif;
+$font-stack-sans: Arial, Verdana, sans-serif;
+$font-bebas: "BebasNeue_Book", $font-stack-sans;
+$font-opensans: "OpenSans_Regular", $font-stack-sans;
+$font-opensanslight: "OpenSans_Light", $font-stack-sans;
+$font-handwriting: "NothingYouCouldDo", $font-stack-sans;
+$font-italic: "CardoItalic", $font-stack-sans;
+
+$font-monospace: monospace;
+
+$font-default-color: $color-black;
+$font-default-size: 13px;
+$font-default-content-line-height: 1.4;
+
+$html-entity-nbsp: "\a0";
+
+$path-theme: '/_theme';
+$path-fonts: $path-theme + '/fonts';
+
+$bp-mobile-portrait-wide: (min-width 375px);
+$bp-mobile-landscape: (min-width 480px);
+$bp-tablets-portrait: (min-width 768px);
+$bp-tablets-landscape: (min-width 1024px);
+$bp-desktop: (min-width 1280px);
+$bp-desktop-wide: (min-width: 1400px);
+
+$constraint-max-width: 980px;
+
+$spacing-mobile-horizontal: 20px;
+$spacing-between-boxes: 40px;
+
+$spacing-footer-height: 353px;
+$spacing-admin-footer-height: 100px;

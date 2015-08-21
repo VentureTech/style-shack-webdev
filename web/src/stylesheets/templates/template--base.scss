@@ -1,0 +1,829 @@
+@import "../config/base-import";
+@import "../config/cal";
+@import "../config/pager";
+@import "../libs/normalize";
+
+@include fontFace('BebasNeue_Book', '/BebasNeue', 'bebasneue_book-webfont');
+@include fontFace('BebasNeue_Light', '/BebasNeue', 'bebasneue_light-webfont');
+@include fontFace('CardoItalic', '/Cardo', 'cardo_italic-webfont');
+@include fontFace('NothingYouCouldDo', '/NothingYouCouldDo', 'nothing_you_could_do_regular-webfont');
+@include fontFace('OpenSans_Light', '/OpenSans', 'open_sans_300-webfont');
+@include fontFace('OpenSans_Italic', '/OpenSans', 'open_sans_italic-webfont');
+@include fontFace('OpenSans_Regular', '/OpenSans', 'open_sans_regular-webfont');
+@include createIconFonts;
+
+
+.box-wc {
+  max-width: 100%;
+  padding: 0 $spacing-mobile-horizontal;
+
+  @include breakpoint($bp-tablets-landscape) {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+
+  @include breakpoint($bp-desktop) {
+    max-width: 1030px;
+    padding: 0;
+  }
+}
+
+/*** OVERALL ELEMENT STYLES ***/
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+  .mi {
+    text-transform: uppercase;
+  }
+
+  .menuitemlabel {
+    text-decoration: none;
+  }
+
+
+  @include breakpoint($bp-tablets-portrait) {
+    .mi {
+      display: inline-block;
+    }
+  }
+}
+
+ul,
+ol {
+  line-height: 1.5;
+  color: $color-grey-33;
+}
+
+h1 {
+  font-weight: normal;
+  font-family: $font-handwriting;
+  font-size: 44px;
+  line-height: 1.3;
+
+  a {
+    color: $color-black;
+  }
+
+}
+
+h2 {
+  font-weight: normal;
+  font-family: $font-italic;
+  font-size: 36px;
+  line-height: 1.3;
+}
+
+h3 {
+  font-weight: normal;
+  font-family: $font-handwriting;
+  font-size: 25px;
+}
+
+h4 {
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: normal;
+  font-family: $font-opensans;
+  margin-bottom: .75em;
+}
+
+p {
+  line-height: 1.5;
+  color: $color-grey-33;
+}
+
+/*** BEGIN SECTION STYLES ***/
+
+#top_nav {
+  background-color: $color-black;
+  color: $color-white;
+  text-align: right;
+  position: relative;
+
+  .shop-cta,
+  .store-signup {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 1px;
+  }
+
+  .menu-t1 {
+    > .mi {
+      position: relative;
+
+      .menuitemlabel {
+        padding: 10px;
+        display: block;
+      }
+    }
+  }
+
+  .menu-t2 {
+    position: absolute;
+    left: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: .4s ease all;
+    background-color: #000;
+    text-align: center;
+    border: 1px solid $color-white;
+
+    .mi {
+      display: block;
+      white-space: nowrap;
+
+      + .mi {
+        border-top: 1px solid $color-white;
+      }
+
+      .menuitemlabel {
+        display: block;
+        padding: 10px;
+
+        &:hover {
+          background: $color-grey-33;
+        }
+      }
+    }
+  }
+
+  .mi-parent {
+    .menuitemlabel {
+      display: block;
+    }
+
+    &:hover,
+    &.over {
+      .menu-t2 {
+        max-height: 2000px;
+        opacity: 1;
+      }
+    }
+  }
+
+  .user-links {
+    position: absolute;
+    right: -10px;
+    top: 10px;
+
+    .mi {
+      display: none;
+    }
+
+    .menuitemlabel {
+      padding: 0 20px;
+    }
+
+    .shack {
+      &.mi {
+        display: block;
+
+        .mil {
+          display: none;
+        }
+      }
+
+      .menuitemlabel:after {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        top: -3px;
+        margin-left: 10px;
+        height: 25px;
+        width: 25px;
+        background: url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png") no-repeat;
+      }
+    }
+
+    .shopping-bag {
+      .menuitemlabel:after {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        top: -3px;
+        margin-left: 10px;
+        height: 25px;
+        width: 25px;
+        background: url("/_resources/dyn/files/1060007zf9e2272e/_fn/shopping-bag.png") no-repeat;
+      }
+    }
+
+  }
+
+  .menuitemlabel {
+    color: $color-white;
+    font-family: $font-stack-sans;
+    font-size: 16px;
+  }
+
+  #logo-mobile {
+    text-align: center;
+    padding-top: 3px;
+
+    img {
+      max-width: 220px;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  @include breakpoint($bp-mobile-landscape) {
+    .user-links {
+      right: 5px;
+      top: 14px;
+    }
+
+    #logo-mobile {
+      padding: 0;
+
+      img {
+        max-width: 400px;
+      }
+    }
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    #logo-mobile {
+      display: none;
+    }
+
+    .shop-cta,
+    .store-signup {
+      display: block;
+    }
+
+    .user-links {
+      position: relative;
+      top: auto;
+      right: auto;
+
+      .mi {
+        display: inline-block;
+
+        + .mi {
+          border-left: 1px solid $color-white;
+        }
+
+        &.shack {
+          display: inline-block;
+          .mil {
+            display: inline;
+          }
+        }
+      }
+    }
+  }
+}
+
+#header {
+  text-align: center;
+
+  #logo {
+    display: none;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      width: auto;
+    }
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    padding: 90px 0 45px;
+
+    #logo {
+      display: block;
+    }
+  }
+}
+
+#main-nav {
+  text-align: center;
+  border-bottom: 1px solid $color-grey-99;
+  margin-bottom: 15px;
+
+  .mi {
+    display: none;
+    padding: 18px 15px 15px;
+  }
+
+  .women,
+  .men,
+  .stores {
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+  }
+
+  .women {
+    text-align: left;
+  }
+
+  .stores {
+    text-align: right;
+  }
+
+  .menuitemlabel {
+    color: $color-black;
+    display: block;
+    cursor: pointer;
+  }
+
+
+  @include breakpoint($bp-tablets-portrait) {
+    border-bottom: 1px solid $color-black;
+    margin-bottom: 35px;
+
+    .mi {
+      display: inline-block;
+      vertical-align: top;
+      padding: 20px 20px 25px;
+      position: relative;
+
+      &.women,
+      &.men,
+      &.stores {
+        width: auto;
+        text-align: center;
+      }
+
+      .menu {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 100%;
+        width: 200px;
+        left: 50%;
+        margin-left: -100px;
+        background: $color-white;
+        transition: .3s ease opacity, .3s ease max-height;
+        z-index: 999;
+
+        .mi {
+          display: block;
+          padding: 0;
+
+          + .mi {
+            border-top: 1px solid $color-black;
+          }
+
+          .menuitemlabel {
+            display: block;
+            padding: 12px 10px 10px;
+            border-bottom: 2px solid $color-white;
+
+            &:hover {
+              border-bottom: 2px solid $color-black;
+            }
+          }
+        }
+      }
+
+      &.over {
+
+        .menu {
+          max-height: 2000px;
+          opacity: 1;
+          border: 1px solid $color-black;
+        }
+      }
+    }
+
+  }
+
+  @include breakpoint($bp-tablets-landscape) {
+    .mi {
+      padding: 20px 30px 25px;
+    }
+  }
+}
+
+#content_enclosing {
+  #main_content {
+    a {
+      color: $color-orange-red;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  @include breakpoint($bp-tablets-portrait) {
+    padding-bottom: $spacing-footer-height + $spacing-between-boxes;
+  }
+}
+
+#cta_section {
+  padding-bottom: $spacing-between-boxes;
+
+  @include breakpoint($bp-tablets-portrait) {
+    border-bottom: 1px solid $color-black;
+    margin-bottom: 30px;
+  }
+}
+
+.social-nav {
+  margin-top: $spacing-between-boxes;
+  text-align: right;
+
+  .mi {
+    display: inline-block;
+
+    + .mi {
+      margin-left: 10px;
+    }
+  }
+
+  .menuitemlabel {
+    display: block;
+    background: url("/_resources/dyn/files/1058943z17264f83/_fn/social-sprite.png") no-repeat;
+    height: 45px;
+    width: 46px;
+    white-space: nowrap;
+    cursor: pointer;
+
+    .mil {
+      display: none;
+    }
+  }
+
+  .facebook {
+    .menuitemlabel {
+      background-position: 0 0;
+    }
+  }
+
+  .twitter {
+    .menuitemlabel {
+      background-position: -56px 0;
+    }
+  }
+
+  .instagram {
+    .menuitemlabel {
+      background-position: -113px 0;
+    }
+  }
+
+  .pinterest {
+    .menuitemlabel {
+      background-position: -169px 0;
+    }
+  }
+
+  .contact {
+    .menuitemlabel {
+      background-position: -225px 0;
+    }
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    display: block;
+  }
+}
+
+#footer {
+  height: 353px;
+  margin-top: -353px;
+  background: $color-black;
+  display: none;
+
+  .box-wc {
+    padding-top: $spacing-between-boxes;
+    padding-bottom: $spacing-between-boxes;
+  }
+
+  #footer-nav {
+    .mi {
+      display: inline-block;
+      vertical-align: top;
+
+      &.mi-parent {
+        width: 40%;
+
+        &:last-child {
+          width: 20%;
+        }
+      }
+    }
+
+    .menuitemlabel {
+      color: $color-white;
+    }
+
+    .menu-t2 {
+      font-family: $font-opensanslight;
+      margin-top: 20px;
+
+      .mi {
+        display: block;
+        + .mi {
+          margin-top: 3px;
+        }
+      }
+
+      .menuitemlabel {
+        text-transform: none;
+      }
+    }
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    display: block;
+  }
+}
+
+
+/** Overrides for Blog Template **/
+#t_blog {
+  #header {
+    padding: 65px 0 55px;
+
+    h1 {
+      margin: 0;
+      font-size: 45px;
+
+    }
+
+  }
+
+  #main_nav {
+    margin-bottom: 50px;
+
+    > div > .spotlight-trends {
+      display: none;
+    }
+  }
+
+  #footer {
+    background-color: transparent;
+
+    #footer-nav {
+      display: inline-block;
+      vertical-align: top;
+      width: 40%;
+
+
+      .mi-parent {
+        width: auto;
+
+        + .mi-parent {
+          margin-left: 50px;
+        }
+      }
+
+      .menuitemlabel {
+        color: $color-grey-80;
+      }
+    }
+
+    .ad {
+      display: inline-block;
+      vertical-align: top;
+      width: 25%;
+
+      img {
+        max-width: 100%;
+        height: auto;
+        width: auto;
+      }
+    }
+
+    .newsletter {
+      display: inline-block;
+      vertical-align: top;
+      width: 30%;
+      color: $color-grey-80;
+
+      .title {
+        text-transform: uppercase;
+      }
+
+      p {
+        font-family: $font-opensanslight;
+      }
+    }
+
+
+
+    .box-wc {
+      border-top: 1px solid $color-black;
+    }
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    #main_content,
+    #aside_content {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    #main_content {
+      width: 60%;
+
+      &.wide {
+        width: 100%;
+      }
+    }
+
+    #aside_content {
+      width: 40%;
+      padding-left: 50px;
+    }
+  }
+  @include breakpoint($bp-tablets-landscape) {
+    #main_content {
+      width: 65%;
+    }
+    #aside_content {
+      width: 35%;
+      padding-left: 100px;
+    }
+  }
+}
+
+#t_store {
+  #header {
+    padding-top: 70px;
+  }
+
+  #main_enclose {
+    padding-bottom: $spacing-between-boxes;
+    border-bottom: 1px solid $color-black;
+    margin-bottom: 30px;
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    #main_content,
+    #aside_content {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    #main_content {
+      width: 60%;
+    }
+
+    #aside_content {
+      width: 40%;
+      padding-left: 50px;
+    }
+  }
+  @include breakpoint($bp-tablets-landscape) {
+    #main_content {
+      width: 74%;
+    }
+    #aside_content {
+      width: 25%;
+      padding-left: 40px;
+    }
+  }
+}
+
+#t_catalog {
+  #header {
+    padding-top: 70px;
+  }
+
+  #main_enclose {
+    padding-bottom: $spacing-between-boxes;
+    border-bottom: 1px solid $color-black;
+    margin-bottom: 30px;
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    #main_content,
+    #aside_content {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    #main_content {
+      width: 70%;
+    }
+
+    #aside_content {
+      width: 30%;
+      padding-right: 50px;
+    }
+  }
+  @include breakpoint($bp-tablets-landscape) {
+    #main_content {
+      width: 85%;
+    }
+
+    #aside_content {
+      width: 15%;
+      padding-right: 15px;
+    }
+  }
+}
+
+#t_store_admin,
+#t_admin {
+  #header {
+    padding-top: 70px;
+  }
+
+  #top_nav {
+    text-align: left;
+    //padding: 10px;
+    min-height: 40px;
+  }
+
+  .logout {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+
+    a {
+      display: inline-block;
+      background: $color-red none repeat scroll 0 0;
+      color: #FFF;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 5px 8px;
+      margin-left: 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      box-shadow: none;
+      text-shadow: none;
+
+      &:hover {
+        background-color: $color-dark-red;
+      }
+    }
+  }
+
+  #content_enclosing {
+    @include breakpoint($bp-tablets-portrait) {
+      padding-bottom: $spacing-admin-footer-height + $spacing-between-boxes;
+    }
+  }
+
+  #footer {
+    height: 100px;
+    margin-top: -100px;
+  }
+}
+
+#t_store_admin {
+  #top_nav {
+    .store-nav {
+      .mi {
+        + .mi {
+          border-left: 1px solid $color-white;
+        }
+      }
+
+      .menuitemlabel {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+  }
+}
+
+#t_shopper {
+  #header {
+    padding: 20px 0;
+    text-align: center;
+
+    #logo {
+      display: block;
+    }
+  }
+}
+
+#t_admin {
+  #top_nav {
+    .admin-nav {
+      > ul > .mi {
+        + .mi {
+          border-left: 1px solid $color-white;
+        }
+      }
+
+      .menuitemlabel {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+  }
+}
