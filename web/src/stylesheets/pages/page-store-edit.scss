@@ -22,8 +22,18 @@
   }
 }
 
+.main-container {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 2px #959595;
+}
 
 .store-images-wrapper {
+  margin-top: $spacing-between-boxes;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 2px #959595;
+
   .actions {
     .btn {
       + .btn {
