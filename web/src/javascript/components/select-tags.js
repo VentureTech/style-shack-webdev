@@ -16,22 +16,14 @@ jQuery(function($){
             var $select = $con.find("select");
 			var serializedPreloadValues = $con.find('input').val();
 
-            if (serializedPreloadValues) {
+            if (serializedPreloadValues && serializedPreloadValues !== "") {
+                console.log('populate');
                 preloadOpts($select, opts, serializedPreloadValues);
             }
 
             else {
                 $select.select2($.extend({}, selectDefaults, opts));
             }
-          
-          	/*var preloadValues = serializedPreloadValues.length ? serializedPreloadValues.split(',') : null;
-
-            $select.select2($.extend({}, selectDefaults, opts));
-          
-          	if (preloadValues) {
-          		$select.select2('val', preloadValues);
-				$select.trigger('change');
-            }*/
         }
 
         function preloadOpts(select, opts, vals) {
@@ -65,7 +57,7 @@ jQuery(function($){
 
         function init() {
             initSelector($tags, {tags: true, multiple: true});
-            initSelector($categories);
+            initSelector($categories, {tags: true, multiple: true});
             initSelector($status);
             createTagField($tags);
             createTagField($categories);
@@ -73,6 +65,5 @@ jQuery(function($){
 
         init();
     });
-
 
 });
