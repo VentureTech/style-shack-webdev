@@ -103,7 +103,6 @@ h2 {
   }
 
   .main-container {
-    float: none;
 
     input {
       margin: 0;
@@ -137,17 +136,26 @@ h2 {
 }
 
 .product-editor,
+.product-management,
 .store-profile-viewer,
 .store-profile-editor {
-  padding: 10px 20px;
+  //padding: 10px 20px;
   margin-left: 20px;
-  margin-top: -105px;
 
   > div {
     + div {
       margin-top: $spacing-between-boxes/2;
     }
+
+    &.prop-body {
+      margin-top: 0;
+    }
   }
+}
+
+.product-editor {
+  padding: 10px 20px;
+  margin-top: -105px;
 }
 
 button.product-info-trigger,
