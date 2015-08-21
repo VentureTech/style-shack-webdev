@@ -1,7 +1,9 @@
 @import "../config/base-import";
+@import "../libs/normalize";
 @import "../config/cal";
 @import "../config/pager";
-@import "../libs/normalize";
+@import "../config/tabs";
+@import "../config/property-editor";
 
 @include fontFace('BebasNeue_Book', '/BebasNeue', 'bebasneue_book-webfont');
 @include fontFace('BebasNeue_Light', '/BebasNeue', 'bebasneue_light-webfont');
@@ -10,6 +12,7 @@
 @include fontFace('OpenSans_Light', '/OpenSans', 'open_sans_300-webfont');
 @include fontFace('OpenSans_Italic', '/OpenSans', 'open_sans_italic-webfont');
 @include fontFace('OpenSans_Regular', '/OpenSans', 'open_sans_regular-webfont');
+@include fontFace('OpenSans_Bold', '/OpenSans', 'open_sans_700-webfont');
 @include createIconFonts;
 
 
