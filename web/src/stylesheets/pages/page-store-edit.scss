@@ -1,18 +1,27 @@
 @import "../config/base-import";
 
-.logo-image,
-.banner-image {
-  .drop-zone {
-    max-height: 300px;
-    overflow: hidden;
+.mode-view {
+  .logo-image,
+  .banner-image {
+    .drop-zone {
+      max-height: 300px;
+      overflow: hidden;
 
-    img {
-      max-width: 100%;
-      height: auto;
-      width: auto;
+      img {
+        max-width: 100%;
+        height: auto;
+        width: auto;
+      }
+
+      .mode-crop {
+        img {
+          max-width: none;
+        }
+      }
     }
   }
 }
+
 
 .store-images-wrapper {
   .actions {
