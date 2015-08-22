@@ -23,17 +23,19 @@
   var CROPPED_PICTURE_NAME = 'cropped-picture-data[data-url]1[name]';
   var CROP_SELECTION_MIN_BOX_WIDTH = 20;
   var CROP_SELECTION_MIN_BOX_HEIGHT = 20;
-  
+
   var TEXT_ASPECT_RATIO_CONTROL_LABEL = 'Lock Aspect Ratio';
   var TEXT_ASPECT_RATIO_LOCKED_MESSAGE = 'Uncheck the box to crop outside of aspect ratio.';
   var TEXT_ASPECT_RATIO_UNLOCKED_MESSAGE = 'Check the box to crop within aspect ratio.';
   var TEXT_NO_CROP_MESSAGE = 'The image\'s size is too small to crop. You can drag & drop a different image.';
-  
+
   var CSS_CANCEL_BUTTON_CLASS = 'cancel';
+  var CSS_SAVE_BUTTON_CLASS = 'save';
   var CSS_NO_IMAGE_CLASS = 'no-image-selected';
   var CSS_HIDDEN_CLASS = 'hidden';
   var CSS_UNLOCKED_CLASS = 'unlocked';
   var CSS_LOCKED_CLASS = 'locked';
+  var CSS_MODE_CROP = 'mode-crop';
 
   var cropSettingDefaults = {
     minWidth: 200,
@@ -47,9 +49,10 @@
 
   function ImageCropper() {
     var dnd, $img, canvas, jcrop;
-    var cropSettings;
-    var $context, $dropZone, $canvas, $miwtInputName, $miwtInputData;
+    var cropSettings, cropData;
+    var $context, $dropZone, $miwtInputName, $miwtInputData;
     var api;
+    var previousIsCrop;
 
     var $aspectRatioOption = $([
       '<div class="option opt-aspect-ratio">',
@@ -65,21 +68,15 @@
       el.style.height = h + 'px';
     }
 
-    function updateImage(img) {
-      if(jcrop) jcrop.destroy();
+    function updateImage() {
+      if (jcrop) jcrop.destroy();
       // jcrop will set these, need to clear them when updating the image.
-      img.style.display=null;
-      img.style.visibility=null;
-      img.style.width=null;
-      img.style.height=null;
-      var w =  img.width;
-      var h = img.height;
+      $img.removeAttr('style');
+      var w =  $img.width();
+      var h = $img.height();
       var dropZone = dnd.getDropZone();
-      var wrapper = img.parentNode; // Should be a jcrop-wrapper
 
-      // Delete all elements from the wrapper, then add the image back.
-      while (wrapper.childNodes[0]) wrapper.removeChild(wrapper.childNodes[0]);
-      wrapper.appendChild(img);
+      $img.siblings().remove();
 
       var aspectRatio = cropSettings.aspectRatio;
       var minWidth = Math.min(w, cropSettings.minWidth);
@@ -130,11 +127,11 @@
 
       resize(dropZone, scaledWidth, scaledHeight);
       resize(canvas, scaledWidth, scaledHeight);
-      canvas.getContext('2d').drawImage(img, 0, 0, scaledWidth, scaledHeight);
+      canvas.getContext('2d').drawImage($img.get(0), 0, 0, scaledWidth, scaledHeight);
       // keySupport == false required to prevent "jumping" when clicking on the image
       var options = {
         aspectRatio: aspectRatio,
-        onSelect: cropImage,
+        onSelect: saveCropData,
         keySupport: false,
         setSelect: [0, 0, Math.max(minWidth, CROP_SELECTION_MIN_BOX_WIDTH), Math.max(minHeight, CROP_SELECTION_MIN_BOX_HEIGHT)],
         minSize: [minWidth, minHeight],
@@ -149,7 +146,7 @@
       });
     }
 
-    function loadImage(imgFile) {
+    function loadImageIntoWorkspace(imgFile) {
       if (!imgFile.type.match(/image.*/)) return;
       var reader = new FileReader();
       reader.onload = function (e) {
@@ -158,22 +155,26 @@
       reader.readAsDataURL(imgFile);
     }
 
+    function saveCroppedImageData() {
+      var w = cropData.x2 - cropData.x;
+      var h = cropData.y2 - cropData.y;
+      var cropped = d.createElement('canvas');
+      resize(cropped, w, h);
+      cropped.getContext('2d').drawImage($img.get(0), cropData.x, cropData.y, w, h, 0, 0, w, h);
+      $miwtInputData.val(cropped.toDataURL('image/jpeg', 0.75));
+    }
+
     function clearCroppedImageData() {
       $miwtInputData.val('');
     }
 
-    function cropImage(crop) {
-      var w = crop.x2 - crop.x;
-      var h = crop.y2 - crop.y;
-      var cropped = d.createElement('canvas');
-      resize(cropped, w, h);
-      cropped.getContext('2d').drawImage($img.get(0), crop.x, crop.y, w, h, 0, 0, w, h);
-      $miwtInputData.val(cropped.toDataURL('image/jpeg', 0.75));
+    function saveCropData(crop) {
+      cropData = crop;
     }
 
-    function filesSelected(fileList) {
+    function onFilesSelected(fileList) {
       if(fileList && fileList.length > 0)
-        loadImage(fileList[0]);
+        loadImageIntoWorkspace(fileList[0]);
       dnd.clearFileInput();
     }
 
@@ -193,33 +194,22 @@
         .removeClass($checkbox.prop('checked') ? CSS_UNLOCKED_CLASS: CSS_LOCKED_CLASS);
     }
 
-    function imageCropperIsSupported() {
+    function isSupported() {
       return w.cms && w.cms.file && w.cms.file.DnD;
     }
 
-    function setImageCropperActive() {
-      $context.data('image-cropper-init', true);
+    function isCropMode() {
+      return $context.hasClass(CSS_MODE_CROP);
     }
 
-    function imageCropperIsActive() {
-      return !!$context.data('image-cropper-init');
+    function hasChangedMode() {
+      return !!previousIsCrop != isCropMode();
     }
 
-    function init(context) {
-      var fileInput;
-      $context = $(context);
-
-      if (imageCropperIsActive() || !imageCropperIsSupported()) {
-        return false;
-      }
-
-      $dropZone = $context.find('.drop-zone');
-      $img = $context.hasClass(CSS_NO_IMAGE_CLASS) ? $([]) : $context.find('img');
-      fileInput = $context.find('input[type=file]').get(0);
-
+    function initConfig() {
       var config = $context.data();
       if (config) {
-        cropSettings = cropSettingDefaults;
+        cropSettings = $.extend({}, cropSettingDefaults);
         $.each(config, function(key, val) {
           if (typeof cropSettings[key] === "undefined") {
             return;
@@ -227,33 +217,11 @@
           cropSettings[key] = config[key];
         });
       }
+    }
 
+    function initAspectRatio() {
       $context.prepend($aspectRatioOption);
       updateAspectRatioControlUI();
-
-      $canvas = $('<canvas class="cropper-canvas" />').appendTo($dropZone);
-      $miwtInputData = $(createHiddenInput(CROPPED_PICTURE_DATA, fileInput.id +  '[data-url]1', ''));
-      $miwtInputName = $(createHiddenInput(CROPPED_PICTURE_NAME, fileInput.id +  '[data-url]1[name]', 'img.png'));
-      $dropZone.append($miwtInputData).append($miwtInputName);
-
-      if (dnd) { dnd.destroy(); }
-      dnd = new w.cms.file.DnD(fileInput, $dropZone.get(0));
-
-      if (!$img.length) {
-        $img = $('<img />');
-        $dropZone.find('.jcrop-wrapper').append($img);
-        $canvas.get(0).getContext('2d').fillText('Drop image here or choose below', 75, 80);
-      }
-
-      $img.one('load', function() {
-        updateImage($img);
-      }).each(function(){
-        if (this.complete) $img.load();
-      });
-
-      $img.attr('id', fileInput.id + "-picture");
-
-      dnd.addListener(filesSelected);
 
       $aspectRatioOption.on('change', 'input', function(evt) {
         if (!jcrop) {
@@ -265,16 +233,84 @@
 
         updateAspectRatioControlUI();
       });
+    }
 
+    function initCrop() {
+      var fileInput;
+      $dropZone = $context.find('.drop-zone');
+      $img = $context.hasClass(CSS_NO_IMAGE_CLASS) ? $([]) : $context.find('img');
+      fileInput = $context.find('input[type=file]').get(0);
+      canvas = document.createElement('canvas');
+      $dropZone.append(canvas);
+      $miwtInputData = $(createHiddenInput(CROPPED_PICTURE_DATA, fileInput.id +  '[data-url]1', ''));
+      $miwtInputName = $(createHiddenInput(CROPPED_PICTURE_NAME, fileInput.id +  '[data-url]1[name]', 'img.png'));
+      $dropZone.append($miwtInputData).append($miwtInputName);
+
+      if (dnd) { dnd.destroy(); }
+      dnd = new w.cms.file.DnD(fileInput, $dropZone.get(0));
+
+      if (!$img.length) {
+        $img = $('<img />');
+        $dropZone.find('.jcrop-wrapper').append($img);
+        canvas.get(0).getContext('2d').fillText('Drop image here or choose below', 75, 80);
+      }
+
+      $img.on('load', function() {
+        updateImage($img);
+      }).each(function(){
+        if (this.complete) $img.load();
+      });
+
+      $img.attr('id', fileInput.id + "-picture");
+
+      dnd.addListener(onFilesSelected);
+    }
+
+    function init(context) {
+      $context = $(context);
+
+      if (!isSupported()) {
+        return false;
+      }
+
+      initConfig();
+      update();
+
+      $context.data('image-cropper-init', true);
       $context.data('image-cropper', api);
-      setImageCropperActive();
 
       return true;
     }
 
+    function update() {
+      if (hasChangedMode()) {
+        destroy();
+
+        if (isCropMode()) {
+          initAspectRatio();
+          initCrop();
+        }
+      }
+
+      previousIsCrop = isCropMode();
+    }
+
+    function destroy() {
+      if (dnd) dnd.destroy();
+      if (jcrop) jcrop.destroy();
+      $aspectRatioOption.off('change');
+      $aspectRatioOption.remove();
+      if ($img && $img.length) $img.off('load');
+      $context.data('image-cropper-init', false);
+      $context.data('image-cropper', {});
+    }
+
     api = {
       init: init,
-      clearCroppedImageData: clearCroppedImageData
+      update: update,
+      clearCroppedImageData: clearCroppedImageData,
+      saveCroppedImageData: saveCroppedImageData,
+      destroy: destroy
     };
 
     return api;
@@ -282,7 +318,6 @@
 
   function ImageCropperManager() {
     var $context;
-    var imageCroppers = [];
 
     var PICTURE_SELECTOR = '.picture-editor';
 
@@ -297,8 +332,12 @@
         var $btnhitEl = $(document.getElementById(btnhitId));
         var $cropper = $btnhitEl.closest(PICTURE_SELECTOR);
 
-        if ($btnhitEl.length && $cropper.length && $btnhitEl.hasClass(CSS_CANCEL_BUTTON_CLASS)) {
-          $cropper.data('image-cropper').clearCroppedImageData();
+        if ($btnhitEl.length && $cropper.length) {
+          if ($btnhitEl.hasClass(CSS_CANCEL_BUTTON_CLASS)) {
+            $cropper.data('image-cropper').clearCroppedImageData();
+          } else if ($btnhitEl.hasClass(CSS_SAVE_BUTTON_CLASS)) {
+            $cropper.data('image-cropper').saveCroppedImageData();
+          }
         }
       }
 
@@ -307,10 +346,12 @@
 
     function addCroppers() {
       $context.find(PICTURE_SELECTOR).each(function() {
-        var ic = new ImageCropper();
-        var initSuccess = ic.init(this);
-        if (initSuccess) {
-          imageCroppers.add(ic);
+        var $cropper = $(this);
+        if ($cropper.data('image-cropper-init')) {
+          $cropper.data('image-cropper').update();
+        } else {
+          var ic = new ImageCropper();
+          ic.init(this);
         }
       });
     }
@@ -329,14 +370,7 @@
       }
     };
   }
-  
-  /****************************************************************
-   * NOTE: This is app specific implementation.  
-   * This part may need updates to work with your app
-   * 
-   * ex: 
-   * HTMLFormElement.prototype.submit_options = {postUpdate: init};
-   ****************************************************************/
+
   jQuery(function($) {
     $('.miwt-form').each(function() {
       var form = this;
@@ -363,5 +397,5 @@
       icm.init(form);
     });
   });
-  
+
 })(window, document, jQuery);
