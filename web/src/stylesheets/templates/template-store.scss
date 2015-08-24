@@ -1,5 +1,4 @@
 @import "../config/base-import";
-@import "../libs/normalize";
 
 .banner-img {
   img {
@@ -51,6 +50,7 @@
   .title {
     margin-top: $spacing-between-boxes;
     color: $color-black;
+    font-family: $font-opensansbold;
   }
 
   .email-field {
