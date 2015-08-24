@@ -70,7 +70,7 @@ div.windowcontent {
 
 span.select2-results {
   > ul.select2-results__options {
-    > li:first-child {
+    > li.empty {
       display: none;
     }
   }
