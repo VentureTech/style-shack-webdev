@@ -16,13 +16,16 @@ jQuery(function($){
             var $select = $con.find("select");
 			var serializedPreloadValues = $con.find('input').val();
 
+            $select.find("option.empty").attr("disabled", "true");
+
             if (serializedPreloadValues && serializedPreloadValues !== "") {
-                console.log('populate');
                 preloadOpts($select, opts, serializedPreloadValues);
             }
 
             else {
-                $select.select2($.extend({}, selectDefaults, opts));
+                $select.select2($.extend({}, selectDefaults, opts, {placeholder: 'Select an option'}));
+                $select.find("option.empty").remove();
+                $select.next(".select2-container").find('select2-selection__choice__remove[value="x"]').remove();
             }
         }
 
