@@ -1,7 +1,7 @@
 @import "../config/base-import";
 
 
-.photos {
+.images {
   .variantpictures,
   .productpictures {
     text-align: center;
@@ -52,7 +52,7 @@
 
 }
 
-.info {
+.product {
   @include breakpoint($bp-tablets-portrait) {
     display: inline-block;
     width: 53%;
@@ -60,7 +60,12 @@
   }
 }
 
-.productname {
+.store-name {
+  color: $color-grey-80;
+  margin-bottom: 20px;
+}
+
+.name {
   font-weight: bold;
   font-size: 24px;
   margin-bottom: 0;
