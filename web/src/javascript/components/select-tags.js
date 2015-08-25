@@ -60,7 +60,7 @@ jQuery(function($){
 
         function init() {
             initSelector($tags, {tags: true, multiple: true});
-            initSelector($categories, {tags: true, multiple: true});
+            initSelector($categories, {tags: false, multiple: true});
             initSelector($status);
             createTagField($tags);
             createTagField($categories);
