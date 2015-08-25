@@ -39,6 +39,11 @@
 a {
   text-decoration: none;
   cursor: pointer;
+  color: $color-orange-red;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 ul.menu {
@@ -418,15 +423,6 @@ p {
 }
 
 #content_enclosing {
-  #main_content {
-    a {
-      color: $color-orange-red;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
   @include breakpoint($bp-tablets-portrait) {
     padding-bottom: $spacing-footer-height + $spacing-between-boxes;
   }
@@ -555,6 +551,35 @@ p {
 
 /** Overrides for Blog Template **/
 #t_blog {
+  #top_nav {
+    text-align: left;
+    min-height: 40px;
+  }
+
+  .logout {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+
+    a {
+      display: inline-block;
+      background: $color-red none repeat scroll 0 0;
+      color: #FFF;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 5px 8px;
+      margin-left: 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      box-shadow: none;
+      text-shadow: none;
+
+      &:hover {
+        background-color: $color-dark-red;
+      }
+    }
+  }
+
   #header {
     padding: 65px 0 55px;
 
@@ -719,6 +744,10 @@ p {
 
     #main_content {
       width: 70%;
+
+      &.wide {
+        width: 100%;
+      }
     }
 
     #aside_content {
@@ -746,7 +775,6 @@ p {
 
   #top_nav {
     text-align: left;
-    //padding: 10px;
     min-height: 40px;
   }
 
