@@ -2,60 +2,60 @@
 
 
 .images {
-  .variantpictures,
-  .productpictures {
-    text-align: center;
-
-    img {
-      max-width: 100%;
-      height: auto;
-      width: auto;
-    }
+  img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
   }
 
-  .variants {
-    width: 20%;
+  .thumbs {
+    width: 10%;
     display: inline-block;
     vertical-align: top;
+    padding-right: 10px;
+
+    .image {
+      + .image {
+        margin-top: 7px;
+      }
+    }
   }
 
   .main {
-    width: 75%;
+    width: 85%;
     display: inline-block;
     vertical-align: top;
     margin-left: 10px;
-  }
+    position: relative;
 
-  @include breakpoint($bp-mobile-landscape) {
-    .variants {
-      width: 10%;
-    }
+    img {
+      transition: 1s ease height;
 
-    .main {
-      width: 85%;
+      &.old {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+
+        &.remove {
+          opacity: 0;
+        }
+      }
     }
   }
 
   @include breakpoint($bp-tablets-portrait) {
     display: inline-block;
-    width: 45%;
+    width: 55%;
     vertical-align: top;
-
-    .variants {
-      width: 20%;
-    }
-
-    .main {
-      width: 75%;
-    }
   }
 
 }
 
-.product {
+.product-info {
   @include breakpoint($bp-tablets-portrait) {
     display: inline-block;
-    width: 53%;
+    width: 45%;
     vertical-align: top;
   }
 }
@@ -65,49 +65,56 @@
   margin-bottom: 20px;
 }
 
-.name {
+.product-name {
   font-weight: bold;
   font-size: 24px;
-  margin-bottom: 0;
+  margin-bottom: 3px;
 }
 
 .pricelist {
   margin: 5px 0 25px;
 }
 
-.prosedescription,
-.briefdescription {
-  padding: $spacing-between-boxes/3 5px;
-  border-top: 1px solid $color-grey-66;
+.more-info {
+  margin-top: $spacing-between-boxes;
 
-  .label {
-    text-transform: uppercase;
-    color: $color-grey-80;
-    position: relative;
+  > div {
+    padding: $spacing-between-boxes/3 5px;
+    border-top: 1px solid $color-grey-66;
 
-    &:after {
-      content: '';
-      border-left: 7px solid transparent;
-      border-right: 7px solid transparent;
-      border-top: 7px solid $color-grey-66;
-      height: 10px;
-      width: 10px;
-      display: block;
-      position: absolute;
-      right: 0;
-      top: 6px;
-    }
-
-    &.open {
-      &:after {
-        border-left: 7px solid transparent;
-        border-right: 7px solid transparent;
-        border-bottom: 7px solid $color-grey-66;
-        border-top: 0;
-        top: 2px;
-      }
+    &.boutique-info {
+      border-bottom: 1px solid $color-grey-66;
     }
   }
+
+  .title {
+      text-transform: uppercase;
+      color: $color-grey-80;
+      position: relative;
+
+      &:after {
+        content: '';
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-top: 7px solid $color-grey-66;
+        height: 10px;
+        width: 10px;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 6px;
+      }
+
+      &.open {
+        &:after {
+          border-left: 7px solid transparent;
+          border-right: 7px solid transparent;
+          border-bottom: 7px solid $color-grey-66;
+          border-top: 0;
+          top: 2px;
+        }
+      }
+    }
 
   .content {
     max-height: 0;
@@ -123,10 +130,6 @@
       margin-top: 10px;
     }
   }
-}
-
-.prosedescription {
-  border-bottom: 1px solid $color-grey-66;
 }
 
 .productoption {
