@@ -17,14 +17,32 @@
     }
   }
 
+
   .store-name {
     text-transform: uppercase;
     font-size: 16px;
+    margin: 4px 0;
+    font-family: $font-opensansbold;
+
+    a {
+      color: $color-black;
+    }
+  }
+
+  .name {
+    font-family: $font-opensans;
     margin-bottom: 4px;
+    font-size: 13px;
+
+    a {
+      color: $color-black;
+    }
   }
 
   .price {
+    font-family: $font-opensans;
     color: $color-grey-80;
+    font-size: 13px;
   }
 
   .store-type,
