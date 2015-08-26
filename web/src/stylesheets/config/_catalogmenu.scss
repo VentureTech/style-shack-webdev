@@ -7,7 +7,7 @@
     @include resetMenu;
 
     + ul {
-      margin-top: 10px;
+      margin-top: $spacing-between-boxes/4;
     }
   }
 
@@ -16,37 +16,58 @@
     color: $color-black;
   }
 
-  ul.menubeanv {
-    li {
+  ul.catalogmenu.menu-t0 {
+    .mi {
       display: block;
+      text-transform: none;
     }
 
-    li.over {
-      ul {
-        background: $color-white;
-        display: block;
+    > .mi {
+      + .mi {
+        margin-top: $spacing-between-boxes/4;
+      }
+
+      &.catalogcategory.mi-parent {
         position: relative;
-        top: auto;
-        left: 40px;
+        padding-right: 10px;
+
+        &:after {
+          position: absolute;
+          top: 8px;
+          right: 5px;
+          width: 0;
+          height: 0;
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+          border-top: 6px solid $color-black;
+          content: '';
+        }
+
+        &.over:after {
+          border-bottom: 6px solid $color-black;
+          border-top: none;
+        }
+      }
+    }
+
+    .menu {
+      .mi {
+        + .mi {
+          margin-top: 0;
+        }
+
+        .menuitemlabel {
+          color: $color-grey-80;
+          font-family: $font-opensans;
+          font-size: 12px;
+        }
       }
     }
   }
-
-
-
 }
 
 
 .catalogpath {
   color: $color-black;
   font-weight: bold;
-  text-transform: uppercase;
-}
-
-.catalogcategorylist {
-  a {
-    color: $color-grey-80;
-    font-family: $font-opensans;
-    font-size: 14px;
-  }
 }
