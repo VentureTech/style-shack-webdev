@@ -50,10 +50,31 @@
 
 table.wizard_procedure {
   width: 100%;
+
+  .wizard_category_navigator {
+    display: none;
+  }
 }
 
 table.procedure-navigation {
-  margin: 0 auto;
+  margin-top: $spacing-between-boxes;
+  width: 100%;
+
+  .next-button-con {
+    text-align: right;
+  }
+
+  .previous-button-con {
+    text-align: left;
+  }
+
+  .disabled-con {
+    button {
+      background: $color-grey-f2;
+      color: $color-grey-cc;
+      border: 0;
+    }
+  }
 }
 
 .formentry {
@@ -321,7 +342,8 @@ button {
 }
 
 .submit_button {
-  margin-top: $spacing-between-boxes;
+  margin-top: $spacing-between-boxes/4;
+
 }
 
 
