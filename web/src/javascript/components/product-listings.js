@@ -1,5 +1,5 @@
 jQuery(function($){
-    var $storesCon = $(".products");
+    var $storesCon = $(".product-listing");
     var $stores = $storesCon.find(".product");
     var MOBILE_BREAKPOINT = 480;
     var TABLET_BREAKPOINT = 1024;
