@@ -320,6 +320,10 @@ p {
   }
 }
 
+.spotlight-trends {
+  display: none;
+}
+
 #main-nav {
   text-align: center;
   border-bottom: 1px solid $color-grey-99;
@@ -328,6 +332,10 @@ p {
   .mi {
     display: none;
     padding: 18px 15px 15px;
+
+    .spotlight-trends {
+      display: block;
+    }
   }
 
   .women,
@@ -593,10 +601,6 @@ p {
 
   #main_nav {
     margin-bottom: 50px;
-
-    > div > .spotlight-trends {
-      display: none;
-    }
   }
 
   #footer {
@@ -744,25 +748,29 @@ p {
 
     #main_content {
       width: 70%;
+      padding-left: 25px;
 
       &.wide {
         width: 100%;
+        padding: 0;
       }
     }
 
     #aside_content {
       width: 30%;
-      padding-right: 50px;
+      border-right: 1px solid $color-grey-d0;
+      padding-right: 25px;
     }
   }
   @include breakpoint($bp-tablets-landscape) {
     #main_content {
-      width: 85%;
+      width: 80%;
+      padding-left: 30px;
     }
 
     #aside_content {
-      width: 15%;
-      padding-right: 15px;
+      width: 20%;
+      padding-right: 10px;
     }
   }
 }
