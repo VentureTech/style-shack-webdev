@@ -44,6 +44,12 @@
   color: $color-grey-80;
   text-transform: none;
 
+  .mi {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   .label {
     display: inline-block;
     width: 44%;
@@ -113,10 +119,6 @@
       label {
         display: block;
         padding: 10px 15px;
-
-        &:hover {
-          cursor: pointer;
-        }
       }
 
       + .mi {
@@ -148,6 +150,10 @@
     position: relative;
     color: $color-grey-80;
     text-transform: none;
+
+    &:hover {
+      cursor: pointer;
+    }
 
     + .mi {
       margin-top: 10px;
@@ -189,6 +195,13 @@
       border-top: 6px solid $color-grey-80;
     }
 
+    &.opened {
+      span.arrow {
+        border-bottom: 6px solid $color-grey-80;
+        border-top: none;
+      }
+    }
+
     .t2_menu {
       max-height: 0;
       overflow: hidden;
@@ -221,10 +234,10 @@
         label {
           padding: 10px 15px;
           display: block;
+        }
 
-          &:hover {
-            cursor: pointer;
-          }
+        &:hover {
+          cursor: pointer;
         }
 
         &.mi_active {
