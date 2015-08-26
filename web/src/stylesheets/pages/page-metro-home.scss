@@ -4,7 +4,6 @@
   display: none;
   max-height: 415px;
   height: 415px;
-  //background: url("/_resources/dyn/files/1058377z36f15d8f/_fn/home-cta-bg.jpg") top center no-repeat;
   text-align: center;
   margin-bottom: 30px;
 
@@ -70,6 +69,38 @@
     display: block;
   }
 }
+
+.ads {
+  > div {
+    width: 34.3%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    font-family: $font-handwriting;
+    font-size: 24px;
+
+    &.new-to-metro {
+      width: 31.3%;
+    }
+
+    + div {
+      padding-left: 3%;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      width: 100%;
+      margin-bottom: 5px;
+    }
+
+    a {
+      color: $color-black;
+    }
+  }
+}
+
+
 
 .store-links {
   display: none;
