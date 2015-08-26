@@ -12,14 +12,13 @@ jQuery(function($) {
         lastStep = curStep;
         curStep = $con.find(".wizard_procedure_step").attr("class").replace("wizard_procedure_step", "").trim();
 
-        if ($con.find(".message-container .message").length && curStep !== lastStep) {
+        if ($con.find(".message-container .message").length && curStep !== lastStep && lastStep !== "") {
             $('html,body').scrollTop(100);
         }
 
-        if (curStep !== lastStep) {
+        if (curStep !== lastStep && lastStep !== "") {
             $('html,body').scrollTop(100);
         }
-
     }
 
     $forms.each(function(idx, form){
