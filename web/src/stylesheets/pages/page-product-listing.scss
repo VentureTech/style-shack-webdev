@@ -17,12 +17,10 @@
     }
   }
 
-
   .store-name {
-    text-transform: uppercase;
-    font-size: 16px;
+    font-family: $font-opensans;
     margin: 4px 0;
-    font-family: $font-opensansbold;
+    font-size: 13px;
 
     a {
       color: $color-black;
@@ -30,9 +28,10 @@
   }
 
   .name {
-    font-family: $font-opensans;
+    text-transform: uppercase;
+    font-size: 14px;
     margin-bottom: 4px;
-    font-size: 13px;
+    font-family: $font-opensansbold;
 
     a {
       color: $color-black;
