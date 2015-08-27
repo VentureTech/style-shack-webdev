@@ -48,22 +48,25 @@ jQuery(function($) {
             $imageButtons.each(function (idx, button) {
                 var $imageButton = $(button);
 
-                $imageButton.wrapInner('<div class="wrap" />');
+                if (($imageButton).find(".wrap").length == 0) {
+                    $imageButton.wrapInner('<div class="wrap" />');
 
-                $imageButton.on('click', function (e) {
-                    $(this).parents('.button_description_container')
-                        .addClass(SELECTED_CLASS)
-                        .removeClass(UNSELECTED_CLASS)
-                        .siblings().removeClass(SELECTED_CLASS)
-                        .addClass(UNSELECTED_CLASS)
-                        .find('.button-image-container')
-                        .removeClass(CHECKED_CLASS);
 
-                    $(this).addClass(CHECKED_CLASS)
-                        .siblings(".rtb")
-                        .find("input[type=radio]")
-                        .attr(CHECKED_CLASS, true);
-                });
+                    $imageButton.on('click', function (e) {
+                        $(this).parents('.button_description_container')
+                            .addClass(SELECTED_CLASS)
+                            .removeClass(UNSELECTED_CLASS)
+                            .siblings().removeClass(SELECTED_CLASS)
+                            .addClass(UNSELECTED_CLASS)
+                            .find('.button-image-container')
+                            .removeClass(CHECKED_CLASS);
+
+                        $(this).addClass(CHECKED_CLASS)
+                            .siblings(".rtb")
+                            .find("input[type=radio]")
+                            .attr(CHECKED_CLASS, true).click();
+                    });
+                }
             });
         }
 
