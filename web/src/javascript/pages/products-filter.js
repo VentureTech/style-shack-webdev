@@ -14,7 +14,9 @@ jQuery(function($){
 
         $trigger.on('click', function(evt) {
             $con.toggleClass(CSS_OPENED_CLASS);
+            $con.siblings(".mi").removeClass(CSS_OPENED_CLASS);
             $content.toggleClass(CSS_OPENED_CLASS);
+            $con.siblings(".mi").find(".t2_menu").removeClass(CSS_OPENED_CLASS);
         });
 
         $content.on('change', 'input[type=checkbox]', function(evt) {
