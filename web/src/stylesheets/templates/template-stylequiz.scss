@@ -150,7 +150,6 @@ label {
 .white {
   label {
     color: $color-grey-cc;
-    //text-shadow: 1px 1px 3px rgba($color-black, .5);
   }
 }
 
@@ -190,6 +189,22 @@ button {
 .button_description_container {
   margin: 15px 12px;
   padding: 10px 15px 6px;
+
+  .choice_text_value {
+    font-size: 13px;
+
+    .label,
+    label {
+      display: block;
+      color: $color-grey-80;
+    }
+
+    input {
+      padding: 3px;
+      text-align: center;
+    }
+
+  }
 
   .label,
   label,
@@ -323,7 +338,6 @@ button {
     }
   }
 }
-
 
 .four-col {
   .button-image-container {
