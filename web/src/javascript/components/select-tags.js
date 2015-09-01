@@ -61,7 +61,7 @@ jQuery(function($){
         function init() {
             initSelector($tags, {tags: true, multiple: true});
             initSelector($categories, {tags: false, multiple: true});
-            initSelector($status);
+            initSelector($status, {minimumResultsForSearch: -1});
             createTagField($tags);
             createTagField($categories);
         }
