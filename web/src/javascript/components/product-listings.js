@@ -1,6 +1,6 @@
 jQuery(function($){
-    var $storesCon = $(".product-listing");
-    var $stores = $storesCon.find(".product");
+    var $productsListingCon = $(".product-listing");
+    var $products = $productsListingCon.find(".product");
     var MOBILE_BREAKPOINT = 480;
     var TABLET_BREAKPOINT = 1024;
     var RESIZE_THROTTLE_TIME = 200;
@@ -31,46 +31,46 @@ jQuery(function($){
     }
 
     function orderStores() {
-        $stores.each(function (idx, store) {
-            var $store = $(store);
-            $store.removeClass(COL_ONE_CLASS).removeClass(COL_TWO_CLASS).removeClass(COL_THREE_CLASS).removeClass(COL_FOUR_CLASS);
+        $products.each(function (idx, product) {
+            var $product = $(product);
+            $product.removeClass(COL_ONE_CLASS).removeClass(COL_TWO_CLASS).removeClass(COL_THREE_CLASS).removeClass(COL_FOUR_CLASS);
 
             /** HANDLE FOUR COLS ABOVE TABLET LANDSCAPE **/
             if (windowWidth > TABLET_BREAKPOINT) {
                 if (idx % 4 == 3) {
-                    $store.addClass(COL_FOUR_CLASS);
+                    $product.addClass(COL_FOUR_CLASS);
                 }
                 else if (idx % 4 == 2) {
-                    $store.addClass(COL_THREE_CLASS);
+                    $product.addClass(COL_THREE_CLASS);
                 }
                 else if (idx % 4 == 1) {
-                    $store.addClass(COL_TWO_CLASS);
+                    $product.addClass(COL_TWO_CLASS);
                 }
                 else {
-                    $store.addClass(COL_ONE_CLASS);
+                    $product.addClass(COL_ONE_CLASS);
                 }
             }
 
             /** HANDLE THREE COLS BELOW TABLET LANDSCAPE AND ABOVE TABLET PORTRAIT **/
             else if (windowWidth <= TABLET_BREAKPOINT && windowWidth > MOBILE_BREAKPOINT) {
                 if (idx % 3 == 2) {
-                    $store.addClass(COL_THREE_CLASS);
+                    $product.addClass(COL_THREE_CLASS);
                 }
                 else if (idx % 3 == 1) {
-                    $store.addClass(COL_TWO_CLASS);
+                    $product.addClass(COL_TWO_CLASS);
                 }
                 else {
-                    $store.addClass(COL_ONE_CLASS);
+                    $product.addClass(COL_ONE_CLASS);
                 }
             }
 
             /** HANDLE TWO COLS BELOW TABLET PORTRAIT AND ABOVE MOBILE LANDSCAPE **/
             else if (windowWidth <= TABLET_BREAKPOINT && windowWidth > MOBILE_BREAKPOINT) {
                 if (idx % 2 == 1) {
-                    $store.addClass(COL_TWO_CLASS);
+                    $product.addClass(COL_TWO_CLASS);
                 }
                 else {
-                    $store.addClass(COL_ONE_CLASS);
+                    $product.addClass(COL_ONE_CLASS);
                 }
             }
         });
@@ -80,6 +80,15 @@ jQuery(function($){
         addResizeWatcher();
         orderStores();
     }
+
+    function reorderStores() {
+        $products = $productsListingCon.find(".product");
+        orderStores();
+    }
+
+    $productsListingCon.on('ss:order-stores', function(evt, idx) {
+        reorderStores();
+    });
 
     init();
 });
