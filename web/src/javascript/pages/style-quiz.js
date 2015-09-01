@@ -5,19 +5,26 @@ jQuery(function($) {
     var UNSELECTED_CLASS = "unselected";
     var FOCUSED_CLASS = "focused";
     var curStep = "";
-    var lastStep;
+    var lastStep = "";
+    var newErrorMessage;
 
     function initScrollPage(context) {
         var $con = $(context || document);
-        lastStep = curStep;
-        curStep = $con.find(".wizard_procedure_step").attr("class").replace("wizard_procedure_step", "").trim();
 
-        if ($con.find(".message-container .message").length && curStep !== lastStep && lastStep !== "") {
-            $('html,body').scrollTop(100);
+        if (newErrorMessage == null && $con.find(".message-container .message").length) {
+            newErrorMessage = true;
         }
 
-        if (curStep !== lastStep && lastStep !== "") {
+        if (newErrorMessage && curStep !== lastStep && lastStep !== "") {
             $('html,body').scrollTop(100);
+            newErrorMessage = false;
+        }
+
+        if (!(curStep == $con.find(".wizard_procedure_step").attr("class").replace("wizard_procedure_step", "").trim()) || lastStep == "") {
+            lastStep = curStep;
+            curStep = $con.find(".wizard_procedure_step").attr("class").replace("wizard_procedure_step", "").trim();
+            $('html,body').scrollTop(100);
+            newErrorMessage = null;
         }
     }
 
@@ -28,6 +35,8 @@ jQuery(function($) {
             var $colorQuestion = $(".question > .fav-color");
             var $colorButtons = $colorQuestion.find(".button_description_container");
             var $imageButtons = $questions.find('.button-image-container');
+
+            curStep = $form.find(".wizard_procedure_step").attr("class").replace("wizard_procedure_step", "").trim();
 
             $colorButtons.each(function (idx, button) {
                 var $colorButton = $(button);
