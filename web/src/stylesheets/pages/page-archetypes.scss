@@ -1,0 +1,16 @@
+@import "../config/base-import";
+
+#content_header {
+  margin-bottom: $spacing-between-boxes;
+}
+
+.archetype-image {
+  margin-bottom: $spacing-between-boxes/3;
+
+  img {
+    border: 1px solid $color-grey-80;
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+  }
+}
