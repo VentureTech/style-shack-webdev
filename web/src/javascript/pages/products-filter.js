@@ -4,6 +4,12 @@ jQuery(function($){
     var $filterCon = $(".filter-con");
     var $form = $filterCon.find("form");
     var productsWsUrl = $productsCon.data("wsProduct");
+    if (productsWsUrl.indexOf("?") > 0) {
+        productsWsUrl = productsWsUrl + "&";
+    }
+    else {
+        productsWsUrl = productsWsUrl + "?";
+    }
     var filtersWsUrl = $filterCon.data("wsFilters");
     var $productListingCon = $(".product-listing");
     var $filterListingCon = $(".filter-listing");
@@ -29,10 +35,12 @@ jQuery(function($){
         $content.on('change', 'input', function(e) {
             var paramMap = $form.serialize();
 
-            $.get(productsWsUrl + "?" + paramMap, function(data){
+            $.get(productsWsUrl + paramMap, function(data){
                 $productListingCon.empty();
                 $productListingCon.html($($.parseHTML(data)).html());
+                $productListingCon.trigger("ss:order-stores");
             });
+
 
             //$form.submit();
         });
@@ -61,14 +69,14 @@ jQuery(function($){
             buildUpdater($form, $trigger, $content);
         });
 
-        $filterTags.click(".tag", function(e){
-            var $tag = $(e.currentTarget);
-            $form.find('#'+$tag.attr("id")).click();
-
-            $.get(productsWsUrl + "?" + $form.serialize(), function(data){
-                $productListingCon.empty();
-                $productListingCon.html($($.parseHTML(data)).html());
-            });
-        });
+        //$filterTags.click(".tag", function(e){
+        //    var $tag = $(e.currentTarget);
+        //    $form.find('#'+$tag.attr("id")).click();
+        //
+        //    $.get(productsWsUrl + "?" + $form.serialize(), function(data){
+        //        $productListingCon.empty();
+        //        $productListingCon.html($($.parseHTML(data)).html());
+        //    });
+        //});
     });
 });
