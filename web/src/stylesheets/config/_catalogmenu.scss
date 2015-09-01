@@ -1,5 +1,63 @@
 @import "general-mixins";
 
+.archetype-menu {
+  margin-bottom: $spacing-between-boxes/2;
+
+  ul {
+    @include resetMenu;
+
+    + ul {
+      margin-top: $spacing-between-boxes/4;
+    }
+  }
+
+  a {
+    color: $color-black;
+  }
+
+  .menu-t1 {
+    > .mi {
+      > .menuitemlabel {
+        position: relative;
+
+        &:after {
+          position: absolute;
+          top: 8px;
+          right: 5px;
+          width: 0;
+          height: 0;
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+          border-top: 6px solid $color-black;
+          content: '';
+        }
+
+      }
+
+      &.over {
+        > .menuitemlabel:after {
+          border-bottom: 6px solid $color-black;
+          border-top: none;
+        }
+      }
+    }
+  }
+
+  ul.menu {
+    .mi {
+      display: block;
+      text-transform: none;
+    }
+  }
+
+  .menu-t2 {
+    .menuitemlabel {
+      color: $color-grey-80;
+      font-family: $font-opensans;
+      font-size: 12px;
+    }
+  }
+}
 .catalog {
   margin-bottom: $spacing-between-boxes;
 
@@ -11,13 +69,13 @@
     }
   }
 
-
   a {
     color: $color-black;
   }
 
   ul.catalogmenu.menu-t0 {
-    .mi {
+    .mi,
+    .mi-parent {
       display: block;
       text-transform: none;
     }
