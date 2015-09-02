@@ -20,7 +20,7 @@ jQuery(function($) {
             newErrorMessage = false;
         }
 
-        if (!(curStep == $con.find(".wizard_procedure_step").attr("class").replace("wizard_procedure_step", "").trim()) || lastStep == "") {
+        if (!(curStep == $con.find(".wizard_procedure_step").attr("class").replace("wizard_procedure_step", "").trim())) {
             lastStep = curStep;
             curStep = $con.find(".wizard_procedure_step").attr("class").replace("wizard_procedure_step", "").trim();
             $('html,body').scrollTop(100);
