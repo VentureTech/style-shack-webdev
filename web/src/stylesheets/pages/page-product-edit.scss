@@ -96,3 +96,21 @@
     }
   }
 }
+
+.dialog {
+  .search-options {
+    div.search-option-con,
+    div.node-con,
+    .ctb {
+      margin-left: 30px;
+    }
+  }
+
+  .search-options-selector {
+    .node-label,
+    .option-label,
+    .ctb {
+      display: block;
+    }
+  }
+}

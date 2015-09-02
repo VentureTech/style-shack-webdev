@@ -34,17 +34,27 @@
 }
 
 @mixin genericButtonStyle() {
-    background: linear-gradient($color-grey-f2, lighten($color-grey-d0, .5) 80%);
-    outline: 0;
-    border: 1px solid $color-grey-c5;
-    border-radius: 2px;
-    padding: 5px 15px;
-    font-size: 14px
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-family: $font-opensans;
+  border: 0 none;
+  margin: 0;
+  text-decoration: none;
+  color: $color-white;
+  background-color: $color-grey-77;
+  font-size: 14px;
+  padding: 7px 50px;
+
+  &:hover {
+    text-decoration: none;
+    background-color: $color-green;
+  }
 }
 
 @mixin genericInputStyle() {
   border: 1px solid $color-grey-c5;
-  padding: 5px;
+  padding: 8px 5px;
   font-size: 12px;
   width: 100%;
 }
@@ -104,6 +114,20 @@
   }
 }
 
+@mixin emailGlyph() {
+  @include addButtonGlyph('\e05c');
+}
+
+@mixin userGlyph() {
+  @include addButtonGlyph('\e0a5');
+}
+
+@mixin passwordGlyph() {
+  @include addButtonGlyph('\e08a');
+}
+
 @mixin editImageButtonGlyph() {
   @include addButtonGlyph('\e079');
 }
+
+

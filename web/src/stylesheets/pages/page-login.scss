@@ -31,6 +31,40 @@
     }
   }
 
+  .username {
+    .value {
+      display: block;
+      @include userGlyph;
+
+      input {
+        padding-left: 40px;
+      }
+
+      &:before {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+      }
+    }
+  }
+
+  .password {
+    .value {
+      display: block;
+      @include passwordGlyph;
+
+      input {
+        padding-left: 40px;
+      }
+
+      &:before {
+        position: absolute;
+        left: 12px;
+        top: 10px;
+      }
+    }
+  }
+
   .label {
     display: block;
     margin-bottom: 3px;
@@ -39,16 +73,11 @@
 
   input[type="text"],
   input[type="password"] {
-    width: 100%;
+    @include genericInputStyle;
   }
 
   input[type="submit"] {
-    background: linear-gradient($color-grey-f2, lighten($color-grey-d0, .5) 80%);
-    outline: 0;
-    border: 1px solid $color-grey-c5;
-    border-radius: 2px;
-    padding: 5px 15px;
-    font-size: 14px;
+    @include genericButtonStyle;
   }
 
 

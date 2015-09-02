@@ -283,6 +283,10 @@ td.action-column {
 }
 
 
+.custom-expand-collapse-collapsed {
+  display: none !important;
+}
+
 /** OVERRIDE IMG CROPPER STYLES **/
 .option.locked {
   border: 1px solid #1a608a;

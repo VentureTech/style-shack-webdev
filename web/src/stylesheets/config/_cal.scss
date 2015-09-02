@@ -13,6 +13,27 @@
   }
 }
 
+.miwt-calendar {
+  input[type='text'] {
+    display: inline-block;
+    width: auto;
+  }
+
+  button {
+    display: inline-block;
+    padding: 6px 10px;
+    margin: 0 5px;
+
+    &.open {
+      margin-left: 5px;
+    }
+  }
+}
+
+.constraint-input-conjunction {
+  font-size: 12px;
+  font-family: $font-opensanslight;
+}
 
 
 .calendar {

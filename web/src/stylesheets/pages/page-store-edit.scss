@@ -49,9 +49,21 @@
   .store-members {
     border: 1px solid $color-grey-cc;
     padding: 20px;
+
+    .entity-actions {
+      width: 100%;
+      float: left;
+
+      .btn {
+        float: right;
+      }
+    }
   }
 }
 
+.store-images-label {
+  font-weight: bold;
+}
 
 
 

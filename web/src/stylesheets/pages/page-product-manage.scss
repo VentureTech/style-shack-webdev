@@ -1,0 +1,18 @@
+.product-management {
+
+  .pager-search-results img {
+    width: 100px;
+  }
+}
+.product-images-list {
+  .picture-editor.mode-view img {
+    width: 100px;
+  }
+
+  .product-options {
+    .picture-editor.mode-view img,
+    .pager-search-results img {
+      width: 100px;
+    }
+  }
+}

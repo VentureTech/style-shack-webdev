@@ -1,20 +1,5 @@
 @import "../config/base-import";
-
-
-.message {
-  background-color: $color-dark-red;
-  color: $color-white;
-  padding: 10px;
-
-  + .message {
-    margin-top: 10px;
-  }
-}
-
-.message-container {
-  margin-bottom: 30px;
-}
-
+@import "../config/property-editor";
 
 table.orderitems,
 table.order_detail {

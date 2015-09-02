@@ -75,7 +75,6 @@
   }
 
   // Messages
-
   .message-container {
     margin: 15px 0;
 
@@ -164,4 +163,18 @@
   .prop-editor {
     padding: 5px;
   }
+}
+
+.message {
+  background-color: $color-dark-red;
+  color: $color-white;
+  padding: 10px;
+
+  + .message {
+    margin-top: 10px;
+  }
+}
+
+.message-container {
+  margin-bottom: 30px;
 }

@@ -18,23 +18,12 @@ input[type="color"],
 select {
   height: 30px;
   line-height: 26px;
-  font-family: OpenSans,Arial,sans-serif;
+  font-family: $font-opensans;
   font-size: 14px;
   padding: 2px 5px;
   border: 1px solid $color-grey-cc;
   border-radius: 3px;
   background: transparent linear-gradient(to bottom, $color-grey-f2 0%, $color-white 100%) repeat scroll 0% 0%;
-}
-
-.miwt-calendar {
-  .open {
-    background: transparent url("/_resources/dyn/files/9735za7b1c4de/_fn/datepicker-icon.png") no-repeat scroll center center;
-    border: medium none;
-    text-indent: -1000em;
-    width: 26px;
-    height: 26px;
-    margin-left: 5px;
-  }
 }
 
 /* Search UI*/
@@ -82,7 +71,7 @@ button.btn {
   border: 1px solid $color-dark-red;
   color: #FFF;
   font-size: 14px;
-  font-family: OpenSansBold,Arial,sans-serif;
+  font-family: $font-opensansbold;
   padding: 5px 15px;
   margin: 10px 0;
   border-radius: 3px;
