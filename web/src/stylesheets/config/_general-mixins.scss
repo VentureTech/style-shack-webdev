@@ -87,6 +87,27 @@
   }
 }
 
+@mixin addInputGlyph($content) {
+  position: relative;
+  font-family: 'Icons';
+  color: $color-grey-80;
+
+  input {
+    padding-left: 40px;
+  }
+
+  &:before {
+    position: absolute;
+    left: 8px;
+    top: 9px;
+    width: 20px;
+    text-align: center;
+    display: block;
+    font-size: 14px;
+    content: $content;
+  }
+}
+
 @mixin viewButtonGlyph() {
   @include addButtonGlyph('\e065');
 }
@@ -115,15 +136,15 @@
 }
 
 @mixin emailGlyph() {
-  @include addButtonGlyph('\e05c');
+  @include addInputGlyph('\e05c');
 }
 
 @mixin userGlyph() {
-  @include addButtonGlyph('\e0a5');
+  @include addInputGlyph('\e0a5');
 }
 
 @mixin passwordGlyph() {
-  @include addButtonGlyph('\e08a');
+  @include addInputGlyph('\e08a');
 }
 
 @mixin editImageButtonGlyph() {
