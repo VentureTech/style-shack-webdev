@@ -15,6 +15,10 @@
     padding: 5px 0;
   }
 
+  .password-rules {
+    padding: 0 20px;
+  }
+
   .actions,
   .fields {
     margin: 10px auto;
@@ -27,43 +31,45 @@
 
   .field {
     + .field {
-      margin-top: 5px;
+      margin-top: 10px;
     }
   }
 
   .username {
+    font-size: 14px;
+
+    label {
+      display: none;
+    }
+
     .value {
       display: block;
       @include userGlyph;
+    }
+  }
 
-      input {
-        padding-left: 40px;
+  &.password-reset {
+    .username {
+      label {
+        display: block;
       }
-
-      &:before {
-        position: absolute;
-        left: 10px;
-        top: 10px;
+      .value:before {
+        display: none;
       }
     }
   }
 
-  .password {
+  .password,
+  .verify-password {
+    label {
+      display: none;
+    }
     .value {
       display: block;
       @include passwordGlyph;
-
-      input {
-        padding-left: 40px;
-      }
-
-      &:before {
-        position: absolute;
-        left: 12px;
-        top: 10px;
-      }
     }
   }
+
 
   .label {
     display: block;
