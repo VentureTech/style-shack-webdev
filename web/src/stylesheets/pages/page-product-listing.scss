@@ -2,7 +2,7 @@
 @import "../config/filters";
 
 .filters {
-  margin: 10px 0;
+  margin: $spacing-between-boxes/2 0;
 }
 
 .product {
@@ -109,6 +109,26 @@
 
     &.col3 + &.col4 {
       padding-left: 2%;
+    }
+
+    .sm & {
+      width: 25.25%;
+
+      &.col1 {
+        width: 22.25%;
+      }
+
+      &.col1 + &.col2 {
+        padding-left: 3%;
+      }
+
+      &.col2 + &.col3 {
+        padding-left: 3%;
+      }
+
+      &.col3 + &.col4 {
+        padding-left: 2%;
+      }
     }
   }
 }
