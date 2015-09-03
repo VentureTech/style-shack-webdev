@@ -354,6 +354,12 @@ p {
     text-align: right;
   }
 
+  .sale {
+    .menuitemlabel {
+      color: $color-orange-red;
+    }
+  }
+
   .menuitemlabel {
     color: $color-black;
     display: block;
