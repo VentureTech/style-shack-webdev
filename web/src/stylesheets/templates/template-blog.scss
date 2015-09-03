@@ -98,6 +98,23 @@
     margin-top: $spacing-between-boxes;
   }
 
+  strong {
+    font-family: $font-opensansbold;
+    font-weight: normal;
+  }
+
+  img {
+    margin: 10px 20px;
+
+    &[style*="float:left"] {
+      margin-left: 0;
+    }
+
+    &[style*="float:right"] {
+      margin-right: 0;
+    }
+  }
+
   .title {
     font-family: $font-handwriting;
     font-size: 42px;
