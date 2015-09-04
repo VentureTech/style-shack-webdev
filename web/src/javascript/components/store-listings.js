@@ -1,6 +1,7 @@
 jQuery(function($){
-    var $storesCon = $(".stores");
-    var $stores = $storesCon.find(".store");
+    var $root = $("#e-content");
+    var $storeListingCon = $(".store-listing");
+    var $stores = $storeListingCon.find(".store");
     var MOBILE_BREAKPOINT = 480;
     var TABLET_BREAKPOINT = 768;
     var RESIZE_THROTTLE_TIME = 200;
@@ -63,6 +64,15 @@ jQuery(function($){
         addResizeWatcher();
         orderStores();
     }
+
+    function reorderStores() {
+        $stores = $storeListingCon.find(".store");
+        orderStores();
+    }
+
+    $root.on('ss:order-stores', function(evt, idx) {
+        reorderStores();
+    });
 
     init();
 });

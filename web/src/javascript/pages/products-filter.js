@@ -28,10 +28,6 @@ jQuery(function($) {
 
             var initialActiveFilters = $filterGroup.data("activeFilters") ? $filterGroup.data("activeFilters").split("|") : [];
 
-            function $getFilterElById(id) {
-                return $filterGroup.find('.mi[data-filter-id="' + id + '"]')
-            }
-
             $filterGroup.on('ss:filter-group-open', function() {
                 $filterGroup.addClass(CSS_OPENED_CLASS);
             });
@@ -51,7 +47,7 @@ jQuery(function($) {
             });
 
             $activeFilterList.on("click", ".tag", function(e) {
-                $getFilterElById($(this).data("filterId")).trigger("ss:filter-inactive");
+                $filterGroup.find('.mi[data-filter-id="' + $(this).data("filterId") + '"]').trigger("ss:filter-inactive");
             });
 
 
@@ -115,6 +111,7 @@ jQuery(function($) {
         var $sortItems = $context.find('.mi');
         var $sortInputs = $context.find('input');
         var $form = $context.closest('form');
+        var $activeSortCon = $('<div class="active-sort" />').appendTo($context);
 
         var activeSortKey = '';
 
@@ -151,6 +148,7 @@ jQuery(function($) {
             $sortItem.addClass(CSS_ACTIVE_CLASS);
             $sortInput.prop('checked', true);
 
+            $activeSortCon.empty().append($('<div class="sort-opt" />').text("Sorted by: " + $sortItem.find("label").text()));
             activeSortKey = sortInputKey;
             $form.trigger('ss:sort-update');
         });
@@ -192,7 +190,7 @@ jQuery(function($) {
 
         $root.on('ss:content-loaded', function(evt, content) {
             renderContent(content);
-            //$content.trigger("ss:order-stores");
+            $root.trigger("ss:order-products");
             isLoadingContent = false;
         });
 

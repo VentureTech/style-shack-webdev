@@ -1,4 +1,5 @@
 jQuery(function($){
+    var $root = $("#e-content");
     var $productsListingCon = $(".product-listing");
     var $products = $productsListingCon.find(".product");
     var MOBILE_BREAKPOINT = 480;
@@ -30,7 +31,7 @@ jQuery(function($){
         });
     }
 
-    function orderStores() {
+    function orderProducts() {
         $products.each(function (idx, product) {
             var $product = $(product);
             $product.removeClass(COL_ONE_CLASS).removeClass(COL_TWO_CLASS).removeClass(COL_THREE_CLASS).removeClass(COL_FOUR_CLASS);
@@ -78,16 +79,16 @@ jQuery(function($){
 
     function init() {
         addResizeWatcher();
-        orderStores();
+        orderProducts();
     }
 
-    function reorderStores() {
+    function reorderProducts() {
         $products = $productsListingCon.find(".product");
-        orderStores();
+        orderProducts();
     }
 
-    $productsListingCon.on('ss:order-stores', function(evt, idx) {
-        reorderStores();
+    $root.on('ss:order-products', function(evt, idx) {
+        reorderProducts();
     });
 
     init();
