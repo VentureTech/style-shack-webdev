@@ -147,6 +147,10 @@
   @include addInputGlyph('\e08a');
 }
 
+@mixin checkmarkGlyph() {
+  @include addInputGlyph('\e033');
+}
+
 @mixin editImageButtonGlyph() {
   @include addButtonGlyph('\e079');
 }
