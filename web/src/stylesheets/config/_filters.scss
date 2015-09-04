@@ -1,3 +1,5 @@
+@import "../config/general-mixins";
+
 .filters {
   margin-bottom: $spacing-between-boxes/2;
 
@@ -29,6 +31,7 @@
       padding: 7px 10px;
       margin-right: 10px;
       margin-top: 0;
+      margin-bottom: 0;
       border: 1px solid $color-grey-80;
     }
 
@@ -43,11 +46,9 @@
 }
 
 .sort-by {
-  border: 1px solid $color-grey-80;
+  text-transform: none;
   position: relative;
   z-index: 800;
-  background: $color-grey-80;
-  text-transform: none;
 
   .mi {
     &:hover {
@@ -61,6 +62,8 @@
     text-align: center;
     color: $color-white;
     text-transform: uppercase;
+    border: 1px solid $color-grey-80;
+    background: $color-grey-80;
   }
 
   span.arrow {
@@ -80,6 +83,23 @@
       border-bottom: 6px solid $color-white;
       border-top: none;
     }
+
+    .t2_menu {
+      max-height: 2000px;
+      opacity: 1;
+      z-index: 8888;
+    }
+  }
+
+  .active-sort {
+    text-align: right;
+    font-family: $font-italic;
+    padding: 7px 0;
+    font-size: 14px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 300px;
   }
 
   .t2_menu {
@@ -89,16 +109,15 @@
     transition: .5s ease all;
     position: absolute;
     top: 100%;
-    left: -1px;
-    right: -1px;
-    border: 1px solid $color-grey-80;
-    border-radius: 0 3px 3px 0;
+    left: 0px;
+    right: 0px;
     background: $color-white;
+    border: 1px solid $color-grey-80;
 
-    &.opened {
-      max-height: 2000px;
-      opacity: 1;
-      z-index: 8888;
+    > label {
+      border: 1px solid $color-grey-80;
+      border-radius: 0 3px 3px 0;
+      background: $color-white;
     }
 
     .mi {
@@ -116,7 +135,7 @@
         border-top: 1px solid $color-grey-cc;
       }
 
-      &.mi_active {
+      &.active {
         font-weight: bold;
       }
     }
@@ -200,16 +219,17 @@
         text-transform: none;
         font-size: 14px;
         text-align: center;
+        padding: 0;
 
         + .mi {
           border-top: 1px solid $color-grey-cc;
         }
 
         label {
-          padding: 10px 15px;
           display: block;
           font-size: 13px;
           color: $color-grey-80;
+          padding: 10px 25px;
 
           &:hover {
             cursor: pointer;
@@ -220,8 +240,15 @@
           cursor: pointer;
         }
 
-        &.mi_active {
-          font-weight: bold;
+        &.active {
+          label {
+            @include checkmarkGlyph;
+            background-color: $color-grey-b3;
+            box-shadow: inset 0 0 7px rgba($color-black, .15);
+            color: $color-white;
+            text-shadow: 1px 1px 1px rgba($color-black,.4);
+            font-weight: bold;
+          }
         }
       }
     }
@@ -274,7 +301,6 @@
 
         .mi {
           display: inline-block;
-          padding: 10px 20px;
           width: 33.3%;
           border: 1px solid $color-white;
           border-top: 0;
@@ -282,10 +308,6 @@
           + .mi {
             border: 1px solid $color-white;
             border-top: 0;
-          }
-
-          label {
-            padding: 0;
           }
         }
       }
@@ -301,20 +323,12 @@
   }
 }
 
+
 .active-filters {
   font-family: $font-italic;
   font-size: 12px;
-  padding: 10px 180px 10px 0;
+  padding: 5px 180px 0 0;
   position: relative;
-
-  .active-sort {
-    position: absolute;
-    right: 0;
-    top: 15px;
-    text-align: right;
-    width: 150px;
-    font-family: $font-opensansbold;
-  }
 
   > .tag {
     display: inline-block;
