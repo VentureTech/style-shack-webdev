@@ -204,7 +204,7 @@
 	}
 }
 
-#header {
+.l-header {
 	text-align: center;
 
 	#logo {
@@ -226,69 +226,67 @@
 	}
 }
 
-#content_enclosing {
+.e-content {
 	@include breakpoint($bp-tablets-portrait) {
 		padding-bottom: $spacing-footer-height + $spacing-between-boxes;
 	}
 }
 
-#cta_section {
+.l-cta {
 	padding-bottom: $spacing-between-boxes;
 
 	@include breakpoint($bp-tablets-portrait) {
 		border-bottom: 1px solid $color-black;
-		margin-bottom: 30px;
+		margin-bottom: $spacing-between-boxes;
 	}
 }
 
 
-#footer {
-	height: 353px;
-	margin-top: -353px;
-	background: $color-black;
+.l-footer {
 	display: none;
 
-	.box-wc {
-		padding-top: $spacing-between-boxes;
-		padding-bottom: $spacing-between-boxes;
-	}
+	@include breakpoint($bp-tablets-portrait) {
+		display: block;
+		height: $spacing-footer-height;
+		margin-top: -$spacing-footer-height;
+		background: $color-black;
 
-	#footer-nav {
-		.mi {
-			display: inline-block;
-			vertical-align: top;
+		.box-wc {
+			padding-top: $spacing-between-boxes;
+			padding-bottom: $spacing-between-boxes;
+		}
 
-			&.mi-parent {
-				width: 40%;
-
-				&:last-child {
-					width: 20%;
-				}
+		#footer-nav {
+			.menu {
+				@include resetMenu;
 			}
-		}
-
-		.menuitemlabel {
-			color: $color-white;
-		}
-
-		.menu-t2 {
-			font-family: $font-opensanslight;
-			margin-top: 20px;
 
 			.mi {
-				display: block;
-				+ .mi {
-					margin-top: 3px;
+				display: inline-block;
+				vertical-align: top;
+
+				&.mi-parent {
+					width: 40%;
+
+					&:last-child {
+						width: 20%;
+					}
 				}
 			}
 
 			.menuitemlabel {
-				text-transform: none;
+				color: $color-white;
+			}
+
+			.menu-t2 {
+				font-family: $font-opensanslight;
+				margin-top: 20px;
+
+				.mi {
+					display: block;
+					margin-bottom: 3px;
+				}
 			}
 		}
-	}
-
-	@include breakpoint($bp-tablets-portrait) {
-		display: block;
 	}
 }
