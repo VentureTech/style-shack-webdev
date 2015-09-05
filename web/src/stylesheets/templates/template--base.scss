@@ -1,9 +1,5 @@
 @import "../config/base-import";
 @import "../libs/normalize";
-@import "../config/cal";
-@import "../config/pager";
-@import "../config/tabs";
-@import "../config/property-editor";
 
 @include fontFace('BebasNeue_Book', '/BebasNeue', 'bebasneue_book-webfont');
 @include fontFace('BebasNeue_Light', '/BebasNeue', 'bebasneue_light-webfont');
@@ -15,6 +11,10 @@
 @include fontFace('OpenSans_Bold', '/OpenSans', 'open_sans_700-webfont');
 @include createIconFonts;
 
+@import "../config/cal";
+@import "../config/pager";
+@import "../config/tabs";
+@import "../config/property-editor";
 
 .box-wc {
   max-width: 100%;
