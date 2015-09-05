@@ -1,15 +1,8 @@
-@import "../../config/base-import";
-
-/* file chooser styles */
-div.file_dialog {
-  /*height: 100%;*/
-  /*background-color: #fff;*/
-}
 table.file_chooser {
-  width: 100%;
+	width: 100%;
 }
-.file_chooser {
 
+.file_chooser {
   td {
     vertical-align: middle;
 
@@ -40,6 +33,18 @@ table.file_chooser {
     &.fse_icon-con {
       padding: 0 1px;
     }
+
+  }
+
+  .sibling_directories {
+    overflow-y: auto;
+    padding: 3px;
+
+    .element {
+      input.selector {
+        display: none;
+      }
+    }
   }
 
   div.cwd {
@@ -54,17 +59,35 @@ table.file_chooser {
     margin: 4px;
   }
 
-  .sibling_directories {
-    overflow-y: auto;
-    padding: 3px;
+	.sibling_directories {
+		overflow-y: auto;
+		padding: 3px;
 
-    .element input.selector {
-      display: none;
-    }
-  }
+		.element input.selector {
+			display: none;
+		}
+	}
+}
+
+table.file_chooser {
+  width: 100%;
 }
 
 td.sibling_directories-con {
   min-width: 8em;
   vertical-align: top;
+
+  .btn-image {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 3px;
+  }
+
+  .fse_folder {
+    span {
+      font-size: 12px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
 }
