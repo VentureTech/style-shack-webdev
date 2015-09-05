@@ -60,10 +60,11 @@ $path-fonts: $path-theme + '/fonts';
 
 $bp-mobile-portrait-wide: (min-width 375px);
 $bp-mobile-landscape: (min-width 480px);
+$bp-mobile-only: (max-width 767px);
 $bp-tablets-portrait: (min-width 768px);
 $bp-tablets-landscape: (min-width 1024px);
 $bp-desktop: (min-width 1280px);
-$bp-desktop-wide: (min-width: 1400px);
+$bp-desktop-wide: (min-width 1400px);
 
 $constraint-max-width: 980px;
 
