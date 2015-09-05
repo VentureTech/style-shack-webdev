@@ -9,7 +9,7 @@
       <option name="fileExtension" value="scss" />
       <option name="immediateSync" value="false" />
       <option name="name" value="SCSS" />
-      <option name="output" value="$ProjectFileDir$/stylesheets/build" />
+      <option name="output" value="$ProjectFileDir$/web/build/admin/stylesheets:$ProjectFileDir$/web/build/frontend/stylesheets:$ProjectFileDir$/web/build/stores/stylesheets" />
       <option name="outputFilters">
         <array />
       </option>
