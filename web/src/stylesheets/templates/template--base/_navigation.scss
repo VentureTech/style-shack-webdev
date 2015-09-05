@@ -9,9 +9,7 @@
 	margin-bottom: 15px;
 
 	.menu {
-		margin: 0;
-		padding: 0;
-		list-style: none;
+		@include resetMenu;
 	}
 
 	.mi {
@@ -127,6 +125,10 @@
 .social-nav {
 	margin-top: $spacing-between-boxes;
 	text-align: right;
+
+	.menu {
+		@include resetMenu;
+	}
 
 	.mi {
 		display: inline-block;

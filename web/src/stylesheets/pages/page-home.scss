@@ -40,9 +40,7 @@
   display: none;
 
   .menu {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+		@include resetMenu;
   }
 
   .mi {
@@ -100,9 +98,7 @@
 
 .mobile-content-links {
   .menu {
-		margin: 0;
-		padding: 0;
-		list-style: none;
+		@include resetMenu;
     display: table;
   }
 
@@ -230,83 +226,93 @@
 
 .about-con {
   background: $color-grey-e6;
-  padding: 30px;
+  padding: 30px 20px;
   line-height: 1.5;
-  margin-left: -20px;
-  margin-right: -20px;
-
-  h4 {
-    margin-top: 0;
-  }
-
-  .info {
-    display: none;
-    vertical-align: top;
-    width: 48%;
-
-    + .info {
-      margin-left: 4%;
-    }
-
-    p {
-      font-family: $font-opensanslight;
-      margin: 0 auto;
-    }
-
-  }
 
   .about-mobile {
+		.menu {
+			@include resetMenu;
+		}
+
     .mi {
       display: inline-block;
-      width: 48%;
+			vertical-align: top;
+      width: 50%;
+			padding-left: 10px;
 
-      + .mi {
-        margin-left: 4%;
-      }
+			&:first-child {
+				padding-left: 0;
+				padding-right: 10px;
+			}
     }
+
     .menuitemlabel {
-      display: block;
-      text-align: center;
-      background: $color-black;
-      padding: 8px;
-      font-family: $font-opensans;
-      text-transform: uppercase;
-      color: $color-white;
-      text-decoration: none;
-      font-size: 16px;
-      margin-bottom: 4px;
+			@include style-button-base;
+			text-align: center;
+			width: 100%;
     }
   }
 
+	.info {
+		display: none;
+	}
+
+	@include breakpoint($bp-mobile-only) {
+		margin-left: -20px;
+		margin-right: -20px;
+	}
+
   @include breakpoint($bp-tablets-portrait) {
-    margin: 0;
+		.about-mobile {
+			display: none;
+		}
 
-    .info {
-      display: inline-block;
-    }
+		.info {
+			display: inline-block;
+			vertical-align: top;
+			width: 50%;
+			font-family: $font-opensanslight;
+			padding-right: 20px;
 
-    .about-mobile {
-      display: none;
-    }
+			+ .info {
+				padding-right: 0;
+				padding-left: 20px;
+			}
+
+			h4 {
+				margin-top: 0;
+			}
+		}
   }
 
   @include breakpoint($bp-tablets-landscape) {
-    padding: 50px;
-
-    div {
-      width: 42%;
-
-      + div {
-        margin-left: 16%;
-      }
-    }
+    padding: 40px;
   }
+}
+
+/* Mailchimp subscription form */
+.mailchimp {
+	position: relative;
+
+	.mailchimp-email {
+		padding-right: 110px;
+	}
+
+	.mailchimp-input {
+		width: 100%;
+	}
+
+	.mailchimp-action {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
 }
 
 .social-nav {
   display: none;
 
   @include breakpoint($bp-tablets-portrait) {
-    display: inline-block;
+    display: block;
   }
 }
