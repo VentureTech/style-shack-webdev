@@ -1,0 +1,15 @@
+@mixin style-button-base {
+	display: inline-block;
+	background: $color-black;
+	color: $color-white;
+	padding: 8px 15px;
+	font-family: $font-opensans;
+	font-size: 16px;
+	text-transform: uppercase;
+	text-decoration: none;
+
+	&:hover {
+		background: lighten($color-black, 10%);
+		text-decoration: none;
+	}
+}

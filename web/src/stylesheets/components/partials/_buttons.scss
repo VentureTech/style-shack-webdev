@@ -37,17 +37,5 @@ button.btn {
 //FIXME this needs to be .btn button need to find out more details
 //  - Homepage has btn-std
 .btn-std {
-	display: inline-block;
-	background: $color-black;
-	color: $color-white;
-	padding: 8px 15px;
-	font-family: $font-opensans;
-	font-size: 16px;
-	text-transform: uppercase;
-	text-decoration: none;
-
-	&:hover {
-		background: lighten($color-black, 10%);
-		text-decoration: none;
-	}
+	@include style-button-base;
 }
