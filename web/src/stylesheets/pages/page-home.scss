@@ -205,64 +205,55 @@
   }
 }
 
-#notes {
+.l-notes {
   display: none;
-  padding-bottom: 30px;
-  border-bottom: 1px solid $color-black;
-  margin-bottom: 30px;
-  text-align: center;
-
-  a {
-    color: $color-black;
-  }
-
-  .title {
-    font-family: $font-handwriting;
-    font-size: 25px;
-    text-align: left;
-  }
-
-  .image,
-  .placeholder-image {
-    margin-bottom: 8px;
-
-    img {
-      max-width: 100%;
-      height: auto;
-      width: auto;
-    }
-  }
-
-  .placeholder-image {
-    background: url("/_resources/dyn/files/1064457zcfeece0/_fn/blog-bg2.png") top center no-repeat;
-    background-size: contain;
-    width: 497px;
-    height: 322px;
-    max-width: 100%;
-  }
 
   @include breakpoint($bp-tablets-portrait) {
     display: block;
+		padding-bottom: $spacing-between-boxes;
+		margin-bottom: $spacing-between-boxes;
+		border-bottom: 1px solid $color-black;
 
-    .post {
-      display: inline-block;
-      vertical-align: top;
-      width: 47%;
-      text-align: center;
+		h3 {
+			text-align: center;
+		}
 
-      + .post {
-        margin-left: 3%;
-      }
-    }
-  }
-  @include breakpoint($bp-tablets-landscape) {
-    .post {
-      width: 48.25%;
+		.post {
+			display: inline-block;
+			vertical-align: top;
+			width: 50%;
+			padding-right: 10px;
 
-      + .post {
-        margin-left: 3%;
-      }
-    }
+			&:nth-child(even) {
+				padding-left: 10px;
+			}
+
+			.detail-link {
+				color: $color-black;
+				display: block;
+			}
+
+			.title {
+				font-family: $font-handwriting;
+				font-size: 25px;
+				text-align: center;
+				margin-top: 8px;
+			}
+
+			.image {
+				background-size: cover;
+				background-position: top center;
+				background-repeat: no-repeat;
+				height: 300px;
+			}
+
+			&.post-placeholder-image {
+				.image {
+					background-image: url("/_resources/dyn/files/1064457zcfeece0/_fn/blog-bg2.png");
+
+				}
+			}
+		}
   }
 }
 
