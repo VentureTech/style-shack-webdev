@@ -1,67 +1,39 @@
 @import "../config/base-import";
 
 .top-cta {
-  display: none;
-  max-height: 415px;
-  height: 415px;
-  background: url("/_resources/dyn/files/1058377z36f15d8f/_fn/home-cta-bg.jpg") top center no-repeat;
-  text-align: center;
-  margin-bottom: 30px;
+	display: none;
 
-  .your-style {
-    padding: 25px 40px;
-    margin: 0 auto;
-    position: relative;
-    max-width: 300px;
-    background-color: $color-white;
-    top: 80px;
+	@include breakpoint($bp-tablets-portrait) {
+		display: block;
+		height: 415px;
+		background: url("/_resources/dyn/files/1058377z36f15d8f/_fn/home-cta-bg.jpg") top center no-repeat;
+		margin-bottom: 10px;
 
-    &:before {
-      background: transparent;
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      bottom: 10px;
-      left: 10px;
-      content: '';
-      border: 1px solid $color-black;
-    }
+		.your-style {
+			position: relative;
+			top: 80px;
+			max-width: 300px;
+			padding: 15px 25px;
+			margin: 0 auto;
+			text-align: center;
+			background-color: $color-white;
+			border: 1px solid $color-black;
+			box-shadow: 0 0 0 10px $color-white;
+		}
 
-    h2 {
-      margin: 10px 0;
-      font-size: 30px;
-    }
+		.your-style-heading,
+		.your-style-subheading {
+			font-family: $font-italic;
+			font-size: 30px;
+			line-height: 1.3;
+		}
 
-    p {
-      position: relative;
-      z-index: 2;
-      margin: 5px 0;
-      color: $color-white;
-    }
-
-    .cta {
-      display: inline-block;
-      background: $color-black;
-      padding: 13px 8px;
-      font-family: $font-opensans;
-      text-transform: uppercase;
-      color: $color-white;
-      text-decoration: none;
-      font-size: 16px;
-      margin-bottom: 4px;
-    }
-
-    a {
-      text-decoration: underline;
-      color: $color-black;
-      font-family: $font-italic;
-      font-size: 18px;
-    }
-  }
-
-  @include breakpoint($bp-tablets-portrait) {
-    display: block;
-  }
+		.your-style-cta {
+			position: relative;
+			z-index: 2;
+			margin-top: 10px;
+		}
+	}
 }
 
 .store-links {
