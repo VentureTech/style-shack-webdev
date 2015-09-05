@@ -39,3 +39,7 @@ button.btn {
 .btn-std {
 	@include style-button-base;
 }
+
+.btn-large {
+	@include style-button-large;
+}
