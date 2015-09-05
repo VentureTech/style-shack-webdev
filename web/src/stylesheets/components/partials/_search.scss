@@ -1,0 +1,39 @@
+/* Search UI*/
+.search-wrapper {
+	.search_bar,
+	.search-bar {
+		margin-top: 10px;
+		margin-bottom: 10px;
+
+		.actions {
+			display: inline-block;
+			vertical-align: top;
+			margin-top: 19px;
+
+			button.btn {
+				margin: 0;
+
+				+ button.btn {
+					margin-left: 10px;
+				}
+			}
+		}
+	}
+
+	.constraint {
+		display: inline-block;
+		vertical-align: top;
+		margin-right: 30px;
+		margin-bottom: 5px;
+
+		label {
+			display: block;
+			font-weight: bold;
+		}
+
+		select {
+			font-size: 12px;
+			text-align: left;
+		}
+	}
+}

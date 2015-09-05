@@ -12,13 +12,16 @@
 @include fontFace('OpenSans_Bold', '/OpenSans', 'open_sans_700-webfont');
 @include createIconFonts;
 
+@import "../components/partials/base-elements";
 @import "../components/partials/calendar";
 @import "../components/partials/pager";
 @import "../components/partials/tabs";
 @import "../components/partials/property-editor";
 @import "../components/partials/messages";
+@import "../components/partials/tables-trees";
+@import "../components/partials/buttons";
+@import "../components/partials/search";
 
-@import "template--base/base-elements";
 @import "template--base/structure";
 @import "template--base/navigation";
 @import "template--base/template-overrides";
