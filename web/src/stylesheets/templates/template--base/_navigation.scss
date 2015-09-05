@@ -1,0 +1,177 @@
+
+.spotlight-trends {
+	display: none;
+}
+
+#main-nav {
+	text-align: center;
+	border-bottom: 1px solid $color-grey-99;
+	margin-bottom: 15px;
+
+	.mi {
+		display: none;
+		padding: 18px 15px 15px;
+
+		.spotlight-trends {
+			display: block;
+		}
+	}
+
+	.women,
+	.men,
+	.stores {
+		display: inline-block;
+		width: 30%;
+		text-align: center;
+	}
+
+	.women {
+		text-align: left;
+	}
+
+	.stores {
+		text-align: right;
+	}
+
+	.sale {
+		.menuitemlabel {
+			color: $color-orange-red;
+		}
+	}
+
+	.menuitemlabel {
+		color: $color-black;
+		display: block;
+		cursor: pointer;
+	}
+
+
+	@include breakpoint($bp-tablets-portrait) {
+		border-bottom: 1px solid $color-black;
+		margin-bottom: 35px;
+
+		.mi {
+			display: inline-block;
+			vertical-align: top;
+			padding: 20px 20px 25px;
+			position: relative;
+
+			&.women,
+			&.men,
+			&.stores {
+				width: auto;
+				text-align: center;
+			}
+
+			.menu {
+				max-height: 0;
+				opacity: 0;
+				overflow: hidden;
+				position: absolute;
+				top: 100%;
+				width: 200px;
+				left: 50%;
+				margin-left: -100px;
+				background: $color-white;
+				transition: .3s ease opacity, .3s ease max-height;
+				z-index: 999;
+
+				.mi {
+					display: block;
+					padding: 0;
+
+					+ .mi {
+						border-top: 1px solid $color-black;
+					}
+
+					.menuitemlabel {
+						display: block;
+						padding: 12px 10px 10px;
+						border-bottom: 2px solid $color-white;
+
+						&:hover {
+							border-bottom: 2px solid $color-black;
+						}
+					}
+				}
+			}
+
+			&.over {
+
+				.menu {
+					max-height: 2000px;
+					opacity: 1;
+					border: 1px solid $color-black;
+				}
+			}
+		}
+
+	}
+
+	@include breakpoint($bp-tablets-landscape) {
+		.mi {
+			padding: 20px 30px 25px;
+		}
+	}
+}
+
+
+.social-nav {
+	margin-top: $spacing-between-boxes;
+	text-align: right;
+
+	.mi {
+		display: inline-block;
+
+		+ .mi {
+			margin-left: 10px;
+		}
+	}
+
+	.menuitemlabel {
+		display: block;
+		background: url("/_resources/dyn/files/1058943z17264f83/_fn/social-sprite.png") no-repeat;
+		height: 45px;
+		width: 46px;
+		white-space: nowrap;
+		cursor: pointer;
+
+		.mil {
+			display: none;
+		}
+	}
+
+	.facebook {
+		.menuitemlabel {
+			background-position: 0 0;
+		}
+	}
+
+	.twitter {
+		.menuitemlabel {
+			background-position: -56px 0;
+		}
+	}
+
+	.instagram {
+		.menuitemlabel {
+			background-position: -113px 0;
+		}
+	}
+
+	.pinterest {
+		.menuitemlabel {
+			background-position: -169px 0;
+		}
+	}
+
+	.contact {
+		.menuitemlabel {
+			background-position: -225px 0;
+		}
+	}
+
+	@include breakpoint($bp-tablets-portrait) {
+		display: block;
+	}
+}

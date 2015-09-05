@@ -1,0 +1,310 @@
+
+/** Overrides for Blog Template **/
+#t_blog {
+	#top_nav {
+		text-align: left;
+		min-height: 40px;
+	}
+
+	.logout {
+		position: absolute;
+		right: 10px;
+		top: 8px;
+
+		a {
+			display: inline-block;
+			background: $color-red none repeat scroll 0 0;
+			color: #FFF;
+			font-size: 14px;
+			font-weight: bold;
+			padding: 5px 8px;
+			margin-left: 10px;
+			border-radius: 3px;
+			cursor: pointer;
+			box-shadow: none;
+			text-shadow: none;
+
+			&:hover {
+				background-color: $color-dark-red;
+			}
+		}
+	}
+
+	#header {
+		padding: 65px 0 55px;
+
+		h1 {
+			margin: 0;
+			font-size: 45px;
+
+		}
+
+	}
+
+	#main_nav {
+		margin-bottom: 50px;
+	}
+
+	#footer {
+		background-color: transparent;
+
+		#footer-nav {
+			display: inline-block;
+			vertical-align: top;
+			width: 40%;
+
+
+			.mi-parent {
+				width: auto;
+
+				+ .mi-parent {
+					margin-left: 50px;
+				}
+			}
+
+			.menuitemlabel {
+				color: $color-grey-80;
+			}
+		}
+
+		.ad {
+			display: inline-block;
+			vertical-align: top;
+			width: 25%;
+
+			img {
+				max-width: 100%;
+				height: auto;
+				width: auto;
+			}
+		}
+
+		.newsletter {
+			display: inline-block;
+			vertical-align: top;
+			width: 30%;
+			color: $color-grey-80;
+
+			.title {
+				text-transform: uppercase;
+			}
+
+			p {
+				font-family: $font-opensanslight;
+			}
+		}
+
+
+
+		.box-wc {
+			border-top: 1px solid $color-black;
+		}
+	}
+
+	@include breakpoint($bp-tablets-portrait) {
+		#main_content,
+		#aside_content {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		#main_content {
+			width: 60%;
+
+			&.wide {
+				width: 100%;
+			}
+		}
+
+		#aside_content {
+			width: 40%;
+			padding-left: 50px;
+		}
+	}
+	@include breakpoint($bp-tablets-landscape) {
+		#main_content {
+			width: 65%;
+		}
+		#aside_content {
+			width: 35%;
+			padding-left: 100px;
+		}
+	}
+}
+
+#t_store {
+	#header {
+		padding-top: 70px;
+	}
+
+	#main_enclose {
+		padding-bottom: $spacing-between-boxes;
+		border-bottom: 1px solid $color-black;
+		margin-bottom: 30px;
+	}
+
+	@include breakpoint($bp-tablets-portrait) {
+		#main_content,
+		#aside_content {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		#main_content {
+			width: 60%;
+		}
+
+		#aside_content {
+			width: 40%;
+			padding-left: 50px;
+		}
+	}
+	@include breakpoint($bp-tablets-landscape) {
+		#main_content {
+			width: 74%;
+		}
+		#aside_content {
+			width: 25%;
+			padding-left: 40px;
+		}
+	}
+}
+
+#t_catalog {
+	#header {
+		padding-top: 70px;
+	}
+
+	#main_enclose {
+		padding-bottom: $spacing-between-boxes;
+		border-bottom: 1px solid $color-black;
+		margin-bottom: 30px;
+	}
+
+	@include breakpoint($bp-tablets-portrait) {
+		#main_content,
+		#aside_content {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		#main_content {
+			width: 70%;
+			padding-left: 25px;
+
+			&.wide {
+				width: 100%;
+				padding: 0;
+			}
+		}
+
+		#aside_content {
+			width: 30%;
+			border-right: 1px solid $color-grey-d0;
+			padding-right: 25px;
+		}
+	}
+	@include breakpoint($bp-tablets-landscape) {
+		#main_content {
+			width: 80%;
+			padding-left: 30px;
+		}
+
+		#aside_content {
+			width: 20%;
+			padding-right: 10px;
+		}
+	}
+}
+
+#t_store_admin,
+#t_admin {
+	#header {
+		padding-top: 70px;
+	}
+
+	#top_nav {
+		text-align: left;
+		min-height: 40px;
+	}
+
+	.logout {
+		position: absolute;
+		right: 10px;
+		top: 8px;
+
+		a {
+			display: inline-block;
+			background: $color-red none repeat scroll 0 0;
+			color: #FFF;
+			font-size: 14px;
+			font-weight: bold;
+			padding: 5px 8px;
+			margin-left: 10px;
+			border-radius: 3px;
+			cursor: pointer;
+			box-shadow: none;
+			text-shadow: none;
+
+			&:hover {
+				background-color: $color-dark-red;
+			}
+		}
+	}
+
+	#content_enclosing {
+		@include breakpoint($bp-tablets-portrait) {
+			padding-bottom: $spacing-admin-footer-height + $spacing-between-boxes;
+		}
+	}
+
+	#footer {
+		height: 100px;
+		margin-top: -100px;
+	}
+}
+
+#t_store_admin {
+	#top_nav {
+		.store-nav {
+			.mi {
+				+ .mi {
+					border-left: 1px solid $color-white;
+				}
+			}
+
+			.menuitemlabel {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+		}
+	}
+}
+
+#t_shopper {
+	#header {
+		padding: 20px 0;
+		text-align: center;
+
+		#logo {
+			display: block;
+		}
+	}
+}
+
+#t_admin {
+	#top_nav {
+		.admin-nav {
+			> ul > .mi {
+				+ .mi {
+					border-left: 1px solid $color-white;
+				}
+			}
+
+			.menuitemlabel {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+		}
+	}
+}

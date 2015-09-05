@@ -7,8 +7,6 @@
 /* Form Elements
    ========================================================================== */
 
-@import "base-vars";
-
 
 .prop-wrapper {
   input,
@@ -45,18 +43,9 @@
     padding: 4px 8px;
     margin-right: 5px;
     border: 1px solid #B7B7B5;
-    -moz-border-radius: 4px;
     border-radius: 4px;
 
-    -webkit-text-shadow: 1px 1px 0 rgba($color-white,0.8);
-    -moz-text-shadow: 1px 1px 0 rgba($color-white,0.8);
-    -ms-text-shadow: 1px 1px 0 rgba($color-white,0.8);
-    -o-text-shadow: 1px 1px 0 rgba($color-white,0.8);
     text-shadow: 1px 1px 0 rgba($color-white,0.8);
-    -webkit-box-shadow: 1px 1px 0 rgba($color-white, 0.8) inset,
-    -1px -1px 0 rgba($color-black,0.05) inset;
-    -moz-box-shadow: 1px 1px 0 rgba($color-white, 0.8) inset,
-    -1px -1px 0 rgba($color-black,0.05) inset;
     box-shadow: 1px 1px 0 rgba($color-white, 0.8) inset,
     -1px -1px 0 rgba($color-black,0.05) inset;
   }
@@ -75,12 +64,9 @@
   }
 
   // Messages
+  //FIXME this should be converted to use standard messages for look and feel
   .message-container {
     margin: 15px 0;
-
-    &.empty {
-      margin: 0;
-    }
 
     .message {
       text-align: center;
@@ -117,7 +103,7 @@
       display: inline-block;
       *display: inline;
       zoom: 1;
-      -width: 100px;
+      width: 100px;
       text-align: right;
       margin-right: 10px;
       font-weight: bold;
@@ -163,18 +149,4 @@
   .prop-editor {
     padding: 5px;
   }
-}
-
-.message {
-  background-color: $color-dark-red;
-  color: $color-white;
-  padding: 10px;
-
-  + .message {
-    margin-top: 10px;
-  }
-}
-
-.message-container {
-  margin-bottom: 30px;
 }
