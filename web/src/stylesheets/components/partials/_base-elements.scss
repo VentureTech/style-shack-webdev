@@ -81,4 +81,24 @@ select {
 		line-height: 1.5;
 		color: $color-grey-33;
 	}
+
+	ul.menu {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		.mi {
+			text-transform: uppercase;
+		}
+
+		.menuitemlabel {
+			text-decoration: none;
+		}
+
+		@include breakpoint($bp-tablets-portrait) {
+			.mi {
+				display: inline-block;
+			}
+		}
+	}
 }

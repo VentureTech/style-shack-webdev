@@ -8,6 +8,12 @@
 	border-bottom: 1px solid $color-grey-99;
 	margin-bottom: 15px;
 
+	.menu {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
 	.mi {
 		display: none;
 		padding: 18px 15px 15px;
@@ -43,6 +49,8 @@
 		color: $color-black;
 		display: block;
 		cursor: pointer;
+		text-transform: uppercase;
+		text-decoration: none;
 	}
 
 

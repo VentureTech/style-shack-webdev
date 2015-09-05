@@ -14,50 +14,45 @@
 	}
 }
 
-ul.menu {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-
-	.mi {
-		text-transform: uppercase;
-	}
-
-	.menuitemlabel {
-		text-decoration: none;
-	}
-
-
-	@include breakpoint($bp-tablets-portrait) {
-		.mi {
-			display: inline-block;
-		}
-	}
-}
-
 /*** BEGIN SECTION STYLES ***/
 
 .l-top-nav {
 	background-color: $color-black;
 	color: $color-white;
-	text-align: right;
+	font-family: $font-stack-sans;
+	font-size: 16px;
 	position: relative;
 
 	.shop-cta,
 	.store-signup {
 		display: none;
-		position: absolute;
-		z-index: 10;
-		top: 1px;
+	}
+
+	.menu {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.menuitemlabel {
+		display: block;
+		color: $color-white;
+		text-transform: uppercase;
+		text-decoration: none;
 	}
 
 	.menu-t1 {
 		> .mi {
-			position: relative;
+			&:hover {
+				background: $color-grey-1b;
+			}
 
-			.menuitemlabel {
+			> .menuitemlabel {
 				padding: 8px 20px;
-				display: block;
+			}
+
+			> div.menuitemlabel {
+				cursor: default;
 			}
 		}
 	}
@@ -68,35 +63,28 @@ ul.menu {
 		max-height: 0;
 		opacity: 0;
 		overflow: hidden;
-		transition: .4s ease all;
-		background-color: #000;
-		text-align: center;
+		transition: 400ms ease all;
+		background-color: $color-black;
 		border: 1px solid $color-white;
 
-		.mi {
-			display: block;
+		> .mi {
 			white-space: nowrap;
 
 			+ .mi {
-				border-top: 1px solid $color-white;
+				border-top: 1px solid $color-grey-33;
 			}
+		}
 
-			.menuitemlabel {
-				display: block;
-				padding: 10px;
+		.menuitemlabel {
+			padding: 8px 20px;
 
-				&:hover {
-					background: $color-grey-33;
-				}
+			&:hover {
+				background: $color-grey-33;
 			}
 		}
 	}
 
 	.mi-parent {
-		.menuitemlabel {
-			display: block;
-		}
-
 		&:hover,
 		&.over {
 			.menu-t2 {
@@ -107,16 +95,8 @@ ul.menu {
 	}
 
 	.user-links {
-		position: absolute;
-		right: 0;
-		top: 0;
-
 		.mi {
 			display: none;
-		}
-
-		.menuitemlabel {
-			padding: 0 20px;
 		}
 
 		.shack,
@@ -143,24 +123,10 @@ ul.menu {
 				background-image: url("/_resources/dyn/files/1060007zf9e2272e/_fn/shopping-bag.png");
 			}
 		}
-
-	}
-
-	.menuitemlabel {
-		color: $color-white;
-		font-family: $font-stack-sans;
-		font-size: 16px;
 	}
 
 	#logo-mobile {
-		text-align: center;
-		padding-top: 3px;
-
-		img {
-			max-width: 220px;
-			width: auto;
-			height: auto;
-		}
+		display: none;
 	}
 
 	@include breakpoint($bp-mobile-landscape) {
@@ -174,7 +140,24 @@ ul.menu {
 	}
 
 	@include breakpoint($bp-mobile-only) {
+		#logo-mobile {
+			display: block;
+			text-align: center;
+			padding-top: 3px;
+
+			img {
+				max-width: 220px;
+				width: auto;
+				height: auto;
+			}
+		}
+
 		.user-links {
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+
 			.shack {
 				display: block;
 
@@ -186,19 +169,17 @@ ul.menu {
 	}
 
 	@include breakpoint($bp-tablets-portrait) {
-		#logo-mobile {
-			display: none;
-		}
-
 		.shop-cta,
 		.store-signup {
 			display: block;
+			position: absolute;
+			z-index: 10;
+			top: 1px;
 		}
 
 		.user-links {
 			position: relative;
-			top: auto;
-			right: auto;
+			text-align: right;
 
 			.mi {
 				display: inline-block;
@@ -213,11 +194,6 @@ ul.menu {
 				display: inline-block;
 				vertical-align: middle;
 			}
-
-			.menuitemlabel:hover {
-				background-color: $color-grey-1b;
-			}
-
 
 			.shack,
 			.shopping-bag {
