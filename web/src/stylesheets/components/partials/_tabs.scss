@@ -13,7 +13,6 @@ ul.tab-items {
 }
 
 .tab-items {
-
   li {
     display: inline-block;
     *display: inline;
@@ -22,7 +21,6 @@ ul.tab-items {
 
   a {
     display: block;
-    text-decoration: none;
     background-color: #F9F9F7;
     color: #000;
     padding: 5px 10px;
@@ -36,9 +34,10 @@ ul.tab-items {
   }
 }
 
+/*
 .tab-content {
   border: 1px solid #dddaaa;
   border-radius: 0 8px 8px 8px;
   padding: 20px;
   background-color: #FAF9E2;
-}
+}*/
