@@ -1,7 +1,7 @@
 
 
-button.btn {
-	background: $color-red none repeat scroll 0 0;
+.btn {
+	/*background: $color-red none repeat scroll 0 0;
 	border: 1px solid $color-dark-red;
 	color: #FFF;
 	font-size: 14px;
@@ -16,7 +16,12 @@ button.btn {
 
 	&:hover {
 		background: $color-dark-red;
-	}
+	}*/
+}
+
+//FIXME will check out if we need red button again
+.btn {
+	@include style-button-base;
 
 	&.add {
 		float: right !important;
@@ -26,18 +31,11 @@ button.btn {
 	&.reset,
 	&.delete {
 		background-color: $color-grey-aa;
-		border: 1px solid $color-grey-77;
 
 		&:hover {
 			background-color: $color-grey-99;
 		}
 	}
-}
-
-//FIXME this needs to be .btn button need to find out more details
-//  - Homepage has btn-std
-.btn-std {
-	@include style-button-base;
 }
 
 .btn-large {
