@@ -23,9 +23,35 @@
 	font-size: 16px;
 	position: relative;
 
+    .box-wc {
+	  position: relative;
+    }
+
 	.shop-cta,
 	.store-signup {
 		display: none;
+	}
+
+  	.logout {
+	  position: absolute;
+	  right: 10px;
+	  top: 4px;
+
+	  a {
+		display: inline-block;
+		background: $color-red none repeat scroll 0 0;
+		color: #FFF;
+		font-size: 14px;
+		font-weight: bold;
+		padding: 5px 8px;
+		margin-left: 10px;
+		border-radius: 3px;
+		cursor: pointer;
+
+		&:hover {
+		  background-color: $color-dark-red;
+		}
+	  }
 	}
 
 	.menu {
@@ -36,7 +62,6 @@
 		display: block;
 		color: $color-white;
 		text-transform: uppercase;
-		text-decoration: none;
 	}
 
 	.menu-t1 {
@@ -92,7 +117,9 @@
 		}
 	}
 
-	.user-links {
+	.menu-con {
+	  	display: inline-block;
+
 		.mi {
 			display: none;
 		}
@@ -150,7 +177,7 @@
 			}
 		}
 
-		.user-links {
+		.menu-con {
 			position: absolute;
 			right: 0;
 			top: 50%;
@@ -175,17 +202,19 @@
 			top: 1px;
 		}
 
-		.user-links {
+		.menu-con {
 			position: relative;
-			text-align: right;
+		  	border-right: 1px solid $color-grey-33;
+
+		    &.user-links {
+		  	  text-align: right;
+				display: block;
+		    }
 
 			.mi {
 				display: inline-block;
 				vertical-align: middle;
-
-				+ .mi {
-					border-left: 1px solid $color-grey-33;
-				}
+			  	border-left: 1px solid $color-grey-33;
 			}
 
 			.mil {
