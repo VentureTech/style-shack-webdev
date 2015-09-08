@@ -1,7 +1,9 @@
 @import "../config/base-import";
+@import "../components/partials/social-feed-tabs";
+@import "../components/partials/mailchimp-newsletter";
 @import "../components/partials/pager";
 
-#aside_content {
+.l-aside-content {
   padding-top: 30px;
 
   p {
@@ -12,6 +14,10 @@
     padding-bottom: 30px;
     border-bottom: 1px solid $color-grey-b3;
 
+    .inner {
+      position: relative;
+    }
+
     label {
       &.hide {
         display: none;
@@ -19,52 +25,48 @@
     }
 
     span.query.input {
-      display: inline-block;
-      width: 65%;
-      vertical-align: top;
+      display: block;
+      padding-right: 90px;
     }
 
     span.actions {
-      display: inline-block;
-      vertical-align: top;
-      width: 35%;
-      margin-left: -10px;
+      position: absolute;
+      right: 0;
+      top: 0;
     }
 
     input[type="text"] {
-      border-radius: 3px 0 0 3px;
-      border: 1px solid $color-grey-80;
-      line-height: 30px;
-      width: 100%;
-      font-family: $font-italic;
-      vertical-align: top;
-      text-align: center;
-
-      &:focus {
-        outline: 0;
-      }
+      @include genericInputStyle;
     }
 
     input[type="submit"] {
-      border-radius: 7px;
-      background-color: $color-black;
-      color: $color-white;
-      text-transform: uppercase;
-      border: 0;
-      height: 34px;
-      width: 100%;
+      @include style-button-base;
     }
   }
 
   .about {
-    padding-bottom: 20px;
+    padding-bottom: $spacing-between-boxes/2;
     border-bottom: 1px solid $color-grey-b3;
-    margin-bottom: 20px;
+    margin-bottom: $spacing-between-boxes/2;
 
     a {
       color: $color-orange-red;
       font-family: $font-opensansbold;
       text-transform: uppercase;
+    }
+  }
+
+  .newsletter {
+    padding-bottom: $spacing-between-boxes/2;
+    border-bottom: 1px solid $color-grey-b3;
+    margin-bottom: $spacing-between-boxes/2;
+
+    .title {
+      text-transform: uppercase;
+      font-size: 24px;
+      font-weight: normal;
+      font-family: $font-opensans;
+      margin-bottom: .75em;
     }
   }
 
@@ -86,16 +88,12 @@
   }
 }
 
-#main_content {
-
-}
-
 .post {
   font-size: 22px;
   font-family: $font-opensanslight;
 
   + .post {
-    margin-top: $spacing-between-boxes;
+    margin-top: $spacing-between-boxes*2;
   }
 
   strong {
