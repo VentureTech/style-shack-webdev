@@ -80,7 +80,7 @@
 				margin-left: -100px;
 				background: $color-white;
 				transition: .3s ease opacity, .3s ease max-height;
-				z-index: 999;
+				z-index: 9999;
 
 				.mi {
 					display: block;
@@ -118,70 +118,5 @@
 		.mi {
 			padding: 20px 30px 25px;
 		}
-	}
-}
-
-
-.social-nav {
-	margin-top: $spacing-between-boxes;
-	text-align: right;
-
-	.menu {
-		@include resetMenu;
-	}
-
-	.mi {
-		display: inline-block;
-
-		+ .mi {
-			margin-left: 10px;
-		}
-	}
-
-	.menuitemlabel {
-		display: block;
-		background: url("/_resources/dyn/files/1058943z17264f83/_fn/social-sprite.png") no-repeat;
-		height: 45px;
-		width: 46px;
-		white-space: nowrap;
-		cursor: pointer;
-
-		.mil {
-			display: none;
-		}
-	}
-
-	.facebook {
-		.menuitemlabel {
-			background-position: 0 0;
-		}
-	}
-
-	.twitter {
-		.menuitemlabel {
-			background-position: -56px 0;
-		}
-	}
-
-	.instagram {
-		.menuitemlabel {
-			background-position: -113px 0;
-		}
-	}
-
-	.pinterest {
-		.menuitemlabel {
-			background-position: -169px 0;
-		}
-	}
-
-	.contact {
-		.menuitemlabel {
-			background-position: -225px 0;
-		}
-	}
-
-	@include breakpoint($bp-tablets-portrait) {
-		display: block;
 	}
 }
