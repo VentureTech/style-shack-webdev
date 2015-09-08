@@ -22,6 +22,10 @@ jQuery(function($){
                 preloadOpts($select, opts, serializedPreloadValues);
             }
 
+            else if (serializedPreloadValues == null) {
+                $select.select2($.extend({}, selectDefaults, opts));
+            }
+
             else {
                 $select.select2($.extend({}, selectDefaults, opts, {placeholder: 'Select an option'}));
                 $select.find("option.empty").remove();
