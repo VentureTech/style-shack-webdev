@@ -1,0 +1,30 @@
+.social-tab {
+
+    .tab-items {
+        .first {
+            background-position: -169px 0;
+        }
+
+        #ntab1 {
+            background-position: -113px 0;
+        }
+
+        #ntab2 {
+            background-position: -56px 0;
+        }
+
+        li {
+            display: inline-block;
+            background: url("/_resources/dyn/files/1058943z17264f83/_fn/social-sprite.png") no-repeat;
+            height: 45px;
+            width: 46px;
+            white-space: nowrap;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        span.label {
+            display: none;
+        }
+    }
+}

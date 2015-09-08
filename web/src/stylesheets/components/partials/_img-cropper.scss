@@ -1,0 +1,160 @@
+@import "../../libs/jquery.Jcrop";
+
+/*
+ * Copyright (c) Interactive Information R & D (I2RD) LLC.
+ * All Rights Reserved.
+ *
+ * This software is confidential and proprietary information of
+ * I2RD LLC ("Confidential Information"). You shall not disclose
+ * such Confidential Information and shall use it only in
+ * accordance with the terms of the license agreement you entered
+ * into with I2RD.
+ */
+
+.picture-editor {
+    text-align: center;
+    max-width: 500px;
+
+    &.mode-view {
+        max-width: 200px;
+    }
+
+    &.mode-crop {
+        background-color: white;
+        position: relative;
+        z-index: 100;
+        padding: 10px;
+        border: 2px solid #ccc;
+        -webkit-box-shadow: 0 0 20px 10px rgba(0,0,0,0.6);
+        -moz-box-shadow: 0 0 20px 10px rgba(0,0,0,0.6);
+        box-shadow: 0 0 20px 10px rgba(0,0,0,0.6);
+        text-align: center;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        margin: 10px 0;
+    }
+
+    .drop-zone {
+        margin-bottom: 5px;
+    }
+
+    .option {
+        text-align: left;
+        margin-bottom: 2px;
+
+        &.hidden {
+            display: none;
+        }
+
+        &.locked .message-locked,
+        &.unlocked .message-unlocked {
+            display: block;
+        }
+
+        &:after {
+            content: " ";
+            clear: both;
+            display: table;
+        }
+
+        label {
+            font-weight: normal;
+            font-family: OpenSans, Arial, sans-serif;
+            float: left;
+            width: 150px;
+        }
+
+        .message {
+            display: none;
+            margin-left: 160px;
+        }
+    }
+
+    .message {
+        border: 1px solid #1a608a;
+        background-color: #cdebfd;
+        color: #1a608a;
+        margin-bottom: 10px;
+        text-align: left;
+        padding: 5px;
+        line-height: 1.4;
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+    input[type="file"] {
+        width: 200px;
+        border: 0;
+        padding: 0;
+        display: block;
+        margin: 20px auto;
+    }
+
+    .actions {
+        position: relative;
+
+        button {
+            &.cancel {
+                margin-left: 5px;
+                margin-right: 0;
+            }
+        }
+    }
+
+}
+
+.property {
+    .image {
+        .picture-editor {
+            &.mode-crop {
+                position: absolute;
+
+                .drop-zone {
+                    position: relative;
+                    z-index: 200;
+                    margin: 0 auto 20px;
+                    border: 1px solid #333;
+                    overflow: hidden;
+                }
+
+                .jcrop-wrapper {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    z-index: 100;
+                    opacity: 0.70;
+                }
+            }
+            &.mode-view{
+                &.no-image-selected {
+                    .jcrop-wrapper {
+                        background-color: #ccc;
+                        width: 200px;
+                        height: 300px;
+
+                        > div:first-child {
+                            background-color: #fff;
+                        }
+                    }
+                }
+                &.image-selected {
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+}
+
+#cropper-canvas {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+

@@ -1,0 +1,18 @@
+/* Mailchimp subscription form */
+.mailchimp-form-inner {
+    position: relative;
+
+    .mailchimp-email {
+        padding-right: 110px;
+    }
+
+    .mailchimp-input {
+        width: 100%;
+    }
+
+    .mailchimp-action {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
