@@ -1,5 +1,6 @@
 @import "../config/base-import";
 @import "../components/partials/dialogbox";
+@import "../components/partials/img-cropper";
 
 .prop-body {
   &:after {
@@ -37,7 +38,7 @@ h2 {
   margin-top: -10px;
 }
 
-#aside_content {
+.l-aside-content {
   width: 25%;
   display: inline-block;
   vertical-align: top;
@@ -68,6 +69,7 @@ h2 {
   }
 
   ul.menu {
+    @include resetMenu;
     margin-top: 10px;
     border-top: 1px solid $color-grey-cc;
 
