@@ -7,6 +7,10 @@
     clear: both;
   }
 
+	.menu {
+		@include resetMenu;
+	}
+
   .inner {
     position: relative;
   }
