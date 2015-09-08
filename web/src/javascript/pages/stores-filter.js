@@ -23,7 +23,7 @@ jQuery(function($) {
         $filterGroups.each(function(idx, filterGroup){
             var $filterGroup = $(filterGroup);
             var $filterGroupLabel = $filterGroup.find(".filter_label");
-            var $filterEls = $filterGroup.find(".mi");
+            var $filterEls = $filterGroup.find(".filter-option");
             var $activeFilterList = $('<div class="active-filters" />').appendTo($filterCon.find(".box"));
 
             var initialActiveFilters = $filterGroup.data("activeFilters") ? $filterGroup.data("activeFilters").split("|") : [];
@@ -47,7 +47,7 @@ jQuery(function($) {
             });
 
             $activeFilterList.on("click", ".tag", function(e) {
-                $filterGroup.find('.mi[data-filter-id="' + $(this).data("filterId") + '"]').trigger("ss:filter-inactive");
+                $filterGroup.find('[data-filter-id="' + $(this).data("filterId") + '"]').trigger("ss:filter-inactive");
             });
 
 
@@ -108,7 +108,7 @@ jQuery(function($) {
     }
 
     function initSortCon($context) {
-        var $sortItems = $context.find('.mi');
+        var $sortItems = $context.find('.sort-option');
         var $sortInputs = $context.find('input');
         var $form = $context.closest('form');
         var $activeSortCon = $('<div class="active-sort" />').appendTo($context);
@@ -133,7 +133,7 @@ jQuery(function($) {
             }
         });
 
-        $context.on('click', '.mi', function() {
+        $context.on('click', '.sort-option', function() {
             var $sortItem = $(this);
             var $sortInput = $sortItem.find("input");
             var sortInputKey = $sortInput.val();
