@@ -22,6 +22,7 @@
 	font-family: $font-stack-sans;
 	font-size: 16px;
 	position: relative;
+	min-height: 35px;
 
     .box-wc {
 	  position: relative;
@@ -168,7 +169,7 @@
 		#logo-mobile {
 			display: block;
 			text-align: center;
-			padding-top: 3px;
+			padding-top: 7px;
 
 			img {
 				max-width: 220px;
@@ -202,14 +203,14 @@
 			top: 1px;
 		}
 
+		.menu-comp {
+			text-align: right;
+			display: block;
+		}
+
 		.menu-con {
 			position: relative;
 		  	border-right: 1px solid $color-grey-33;
-
-		    &.user-links {
-		  	  text-align: right;
-				display: block;
-		    }
 
 			.mi {
 				display: inline-block;
