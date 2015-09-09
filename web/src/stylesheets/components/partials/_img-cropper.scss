@@ -16,7 +16,18 @@
     max-width: 500px;
 
     &.mode-view {
-        max-width: 200px;
+        max-width: 500px;
+
+        &.no-image-selected {
+            .jcrop-wrapper {
+                background-color: #ccc;
+                width: 200px;
+                height: 300px;
+            }
+        }
+        &.image-selected {
+            overflow: hidden;
+        }
     }
 
     &.mode-crop {
@@ -33,10 +44,34 @@
         -moz-box-sizing: content-box;
         box-sizing: content-box;
         margin: 10px 0;
+
+        .drop-zone {
+            position: relative;
+            z-index: 200;
+            margin: 0 auto 20px;
+            border: 1px solid #333;
+            overflow: hidden;
+        }
+
+        .jcrop-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 100;
+            opacity: 0.70;
+        }
     }
 
     .drop-zone {
         margin-bottom: 5px;
+    }
+
+    .jcrop-holder {
+        > div:first-child {
+            background-color: #fff;
+        }
     }
 
     .option {
@@ -54,7 +89,6 @@
 
         &:after {
             content: " ";
-            clear: both;
             display: table;
         }
 
@@ -67,7 +101,6 @@
 
         .message {
             display: none;
-            margin-left: 160px;
         }
     }
 
@@ -103,48 +136,13 @@
             }
         }
     }
-
 }
 
 .property {
-    .image {
+    &.image {
         .picture-editor {
             &.mode-crop {
                 position: absolute;
-
-                .drop-zone {
-                    position: relative;
-                    z-index: 200;
-                    margin: 0 auto 20px;
-                    border: 1px solid #333;
-                    overflow: hidden;
-                }
-
-                .jcrop-wrapper {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    z-index: 100;
-                    opacity: 0.70;
-                }
-            }
-            &.mode-view{
-                &.no-image-selected {
-                    .jcrop-wrapper {
-                        background-color: #ccc;
-                        width: 200px;
-                        height: 300px;
-
-                        > div:first-child {
-                            background-color: #fff;
-                        }
-                    }
-                }
-                &.image-selected {
-                    overflow: hidden;
-                }
             }
         }
     }
