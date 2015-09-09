@@ -189,7 +189,6 @@ button.product-options-trigger,
 button.store-images-trigger,
 button.store-members-trigger {
   background: transparent;
-  border: 1px solid $color-grey-cc;
   background: $color-red;
   margin-top: 2px;
   position: relative;
@@ -210,10 +209,6 @@ button.store-members-trigger {
     &:before {
       content: "\2013";
     }
-  }
-
-  &:hover {
-    background: transparent;
   }
 }
 
@@ -246,11 +241,7 @@ label.store-members-label {
     vertical-align: top;
     width: 47%;
     text-align: center;
-
-    + .picture-editor-list-item,
-    + .prop {
-      margin-left: 3%;
-    }
+    margin: 0 10px;
 
     label {
       margin-bottom: 3px;
