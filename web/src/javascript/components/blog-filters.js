@@ -3,7 +3,11 @@
  */
 jQuery(function($){
     var $mainNav = $(".main-nav");
-    var $spotlightCon =  $('.spotlight-trends');
+    var $spotlightCon =  $('.spotlights');
+    var $trendsCon =  $('.trends');
+    var $shackCon =  $('.lifeshack');
 
-    $mainNav.find(".mi.trends").append($spotlightCon);
+    $mainNav.find(".mi.spotlight").append($spotlightCon);
+    $mainNav.find(".mi.trends").append($trendsCon);
+    $mainNav.find(".mi.lifeshack").append($shackCon);
 });
