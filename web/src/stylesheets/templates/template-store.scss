@@ -36,9 +36,19 @@
     color: $color-black;
   }
 
+  .logo {
+    margin: $spacing-between-boxes/4 0 0;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      width: auto;
+    }
+  }
+
   .store-description {
     &.trunc {
-      max-height: 330px;
+      max-height: 323px;
       overflow: hidden;
     }
   }
@@ -46,10 +56,11 @@
   .read-more {
     color: $color-orange-red;
     font-family: $font-italic;
+    cursor: default;
   }
 
   .title {
-    margin-top: $spacing-between-boxes;
+    margin-top: $spacing-between-boxes/1.5;
     color: $color-black;
     font-family: $font-opensansbold;
   }
