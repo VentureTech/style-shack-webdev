@@ -1,7 +1,10 @@
 
-.spotlight-trends {
+.trends,
+.spotlights,
+.lifeshack {
 	display: none;
 }
+
 
 .main-nav {
 	text-align: center;
@@ -16,7 +19,11 @@
 		display: none;
 		padding: 18px 15px 15px;
 
-		.spotlight-trends {
+		.trends,
+		.spotlights,
+		.lifeshack {
+			position: absolute;
+			top: 100%;
 			display: block;
 		}
 	}
@@ -103,7 +110,6 @@
 			}
 
 			&.over {
-
 				.menu {
 					max-height: 2000px;
 					opacity: 1;
