@@ -1,10 +1,15 @@
+/** Overrides for Home Template **/
+#t_home {
+	.l-top-nav {
+		.box-wc {
+			padding-left:300px;
+		}
+	}
+}
+
 
 /** Overrides for Blog Template **/
 #t_blog {
-
-	.l-top-nav {
-		min-height: 35px;
-	}
 
 	.l-header {
 		padding: 65px 0 55px;
@@ -195,6 +200,13 @@
 
 #t_store_admin,
 #t_admin {
+	.box-wc {
+		@include breakpoint($bp-desktop) {
+			max-width: 1280px;
+			padding: 0;
+		}
+	}
+
 	.l-header {
 		padding-top: 70px;
 	}
