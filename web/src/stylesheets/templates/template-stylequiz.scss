@@ -64,10 +64,11 @@ table.procedure-navigation {
   }
 }
 
-.formentry {
+form {
   text-align: center;
   font-family: $font-stack-serif;
 }
+
 
 .form_field {
   + .form_field,
@@ -166,6 +167,7 @@ input[type="password"] {
   border-radius: 2px;
   padding: 10px 15px;
   margin: 8px;
+  color: $color-black;
 
   &:hover {
     background: $color-grey-f2;
