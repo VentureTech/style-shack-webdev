@@ -189,12 +189,13 @@
   .social {
     margin-top: 15px;
 
-    .addthis_button_facebook {
+    .addthis_button_facebook_like {
       height: 45px;
       width: 46px;
       background: url("/_resources/dyn/files/1058943z17264f83/_fn/social-sprite.png") 0 0 no-repeat;
 
-      .aticon-facebook {
+      .aticon-facebook,
+      .pluginConnectButton {
         display: none;
       }
     }
