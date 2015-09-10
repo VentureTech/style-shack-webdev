@@ -8,6 +8,7 @@
     width: auto;
   }
 
+
   .thumbs {
     width: 10%;
     display: inline-block;
@@ -27,22 +28,50 @@
     vertical-align: top;
     margin-left: 10px;
     position: relative;
+    text-align: center;
+
+
+    .loading {
+      background: rgba($color-white, .9) url('/_resources/dyn/files/1080595z7fd581c1/_fn/ajax-loader.gif') center center no-repeat;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 99;
+    }
 
     img {
       transition: 1s ease height;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      transition: .5s ease opacity;
 
       &.old {
-        position: absolute;
+        /*position: absolute;
         top: 0;
         left: 0;
-        z-index: 5;
+        z-index: 5;*/
 
         &.remove {
           opacity: 0;
         }
       }
+
+      &.new {
+        position: absolute;
+        top: 0;
+        opacity: 0;
+
+        &.loaded {
+          position: static;
+          opacity: 1;
+        }
+      }
     }
   }
+
 
   @include breakpoint($bp-tablets-portrait) {
     display: inline-block;
