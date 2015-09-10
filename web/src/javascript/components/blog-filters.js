@@ -3,11 +3,19 @@
  */
 jQuery(function($){
     var $mainNav = $(".main-nav");
-    var $spotlightCon =  $('.spotlights');
-    var $trendsCon =  $('.trends');
-    var $shackCon =  $('.lifeshack');
+    var blogCats = [".spotlights", ".trends", ".lifeshack"];
 
-    $mainNav.find(".mi.spotlight").append($spotlightCon);
-    $mainNav.find(".mi.trends").append($trendsCon);
-    $mainNav.find(".mi.lifeshack").append($shackCon);
+
+    for (var i = 0; i < blogCats.length; i++) {
+        var $con = $(blogCats[i]+".render");
+        if ($con.length) {
+            appendBlogCatsToMenu($con, blogCats[i]);
+        }
+    }
+
+    function appendBlogCatsToMenu($con, classname) {
+        $mainNav.find(classname).append($con);
+    }
 });
+
+
