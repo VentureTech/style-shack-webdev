@@ -1,10 +1,13 @@
 jQuery(function($){
     var $infoCon = $(".more-info > div");
+    var $loadingDiv = $('<div class="loading" />');
     var $photoCon = $(".images");
     var $forms = $("form");
+
     var CSS_OPEN_CLASS = "open";
     var CSS_EMPTY_CLASS = "empty";
     var CSS_REMOVE_CLASS = "remove";
+    var CSS_LOADED_CLASS = "loaded";
     var CSS_OLD_CLASS = "old";
     var CSS_NEW_CLASS = "new";
 
@@ -52,9 +55,15 @@ jQuery(function($){
         var largeUrl = url;
 
         $img.removeClass(CSS_NEW_CLASS).addClass(CSS_OLD_CLASS);
+        $con.append('<div class="loading" />');
         $img = $('<img />').attr("src", largeUrl).addClass(CSS_NEW_CLASS);
         $con.append($img);
-        $con.find(".old").addClass(CSS_REMOVE_CLASS).delay(500).remove();
+        $con.find(".old").addClass(CSS_REMOVE_CLASS);
+        setTimeout(function(){
+            $con.find(".loading").remove();
+            $img.addClass("loaded");
+            $con.find(".old").remove();
+        }, 500);
     }
 
 
