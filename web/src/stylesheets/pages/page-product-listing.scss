@@ -42,10 +42,18 @@
     }
   }
 
-  .price {
+  .price,
+  .price-sale {
     font-family: $font-opensans;
     color: $color-grey-80;
     font-size: 13px;
+  }
+
+
+  .price-sale {
+    font-family: $font-opensansbold;
+    color: $color-orange-red;
+    margin-top: 3px;
   }
 
   .store-type,
