@@ -3,161 +3,165 @@
 @import "../components/partials/img-cropper";
 
 .prop-body {
-  &:after {
-    display: block;
-    clear: both;
-    content: '';
-  }
+    &:after {
+        display: block;
+        clear: both;
+        content: '';
+    }
 }
 
 .prop-wrapper {
-  .prop {
-    padding: 5px 0;
-    display: block;
-  }
-
-  .actions {
-    &:after {
-      content: '';
-      display: block;
-      clear: both;
+    .prop {
+        padding: 5px 0;
+        display: block;
     }
-  }
 
-  .persistence-actions {
-    button {
-      + button {
-        margin-left: 5px;
-      }
+    .actions {
+        &:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
     }
-  }
+
+    .persistence-actions {
+        button {
+            + button {
+                margin-left: 5px;
+            }
+        }
+    }
 }
 
 h2 {
-  padding: 10px 40px;
-  margin-top: -10px;
+    padding: 10px 40px;
+    margin-top: -10px;
 }
 
 .l-aside-content {
-  width: 25%;
-  display: inline-block;
-  vertical-align: top;
-
-  border: 1px solid $color-grey-cc;
-  background-color: $color-grey-f9;
-
-  .box-wc {
-    padding: 0;
-  }
-
-
-  .store-info {
-    padding: 15px;
-
-    img {
-      max-width: 100%;
-      height: auto;
-      width: auto;
-    }
-
-    .name {
-      font-weight: bold;
-      font-size: 20px;
-      margin-top: 5px;
-      text-transform: uppercase;
-    }
-  }
-
-  ul.menu {
-    @include resetMenu;
-    margin-top: 10px;
-    border-top: 1px solid $color-grey-cc;
-
-    .mi {
-      display: block;
-
-      + .mi {
-        border-top: 1px solid $color-grey-cc;
-      }
-    }
-
-    .menuitemlabel {
-      color: $color-black;
-      display: block;
-      padding: 5px 15px;
-
-      &:hover {
-        box-shadow: inset 0 3px 3px rgba($color-black, .1);
-        background-color: darken($color-grey-f9, .5);
-      }
-    }
-  }
-}
-
-#main_content {
-  width: 75%;
-  display: inline-block;
-  vertical-align: top;
-
-  &.wide {
-    display: block;
-    width: 100%;
-  }
-
-  .main-container {
-
-    input {
-      margin: 0;
-    }
-
-    .val {
-      max-width: 100%;
-      font-size: 14px;
-      color: $color-grey-33;
-      line-height: 1.5;
-    }
-  }
-
-  .left-container,
-  .right-container {
+    width: 25%;
     display: inline-block;
     vertical-align: top;
-    float: none;
-    width: 47%;
 
-    &:after {
-      display: block;
-      clear: both;
-      content: '';
+    border: 1px solid $color-grey-cc;
+    background-color: $color-grey-f9;
+
+    .box-wc {
+        padding: 0;
     }
-  }
 
-  .right-container {
-    margin-left: 3%;
-  }
+    .store-info {
+        padding: 15px;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            width: auto;
+        }
+
+        .name {
+            font-weight: bold;
+            font-size: 20px;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+    }
+
+    ul.menu {
+        @include resetMenu;
+        margin-top: 10px;
+        border-top: 1px solid $color-grey-cc;
+
+        .mi {
+            display: block;
+
+            + .mi {
+                border-top: 1px solid $color-grey-cc;
+            }
+        }
+
+        .menuitemlabel {
+            color: $color-black;
+            display: block;
+            padding: 5px 15px;
+
+            &:hover {
+                box-shadow: inset 0 3px 3px rgba($color-black, .1);
+                background-color: darken($color-grey-f9, .5);
+            }
+        }
+    }
+}
+
+.l-primary-content {
+    width: 75%;
+    display: inline-block;
+    vertical-align: top;
+
+    &.wide {
+        display: block;
+        width: 100%;
+    }
+
+    > div {
+        h1 {
+            margin-left: 20px;
+        }
+    }
+
+    .main-container {
+        input {
+            margin: 0;
+        }
+
+        .val {
+            max-width: 100%;
+            font-size: 14px;
+            color: $color-grey-33;
+            line-height: 1.5;
+        }
+    }
+
+    .left-container,
+    .right-container {
+        display: inline-block;
+        vertical-align: top;
+        float: none;
+        width: 47%;
+
+        &:after {
+            display: block;
+            clear: both;
+            content: '';
+        }
+    }
+
+    .right-container {
+        margin-left: 3%;
+    }
 }
 
 .product-editor,
 .product-management,
 .store-profile-viewer,
 .store-profile-editor {
-  //padding: 10px 20px;
-  margin-left: 20px;
+    //padding: 10px 20px;
+    margin-left: 20px;
 
-  > div {
-    + div {
-      margin-top: $spacing-between-boxes/2;
-    }
+    > div {
+        + div {
+            margin-top: $spacing-between-boxes/2;
+        }
 
-    &.prop-body {
-      margin-top: 0;
+        &.prop-body {
+            margin-top: 0;
+        }
     }
-  }
 }
 
 .product-editor {
-  padding: 10px 20px;
-  margin-top: -105px;
+    padding: 10px 20px;
+    margin-top: -105px;
 }
 
 button.product-info-trigger,
@@ -174,11 +178,11 @@ button.store-images-trigger,
 label.store-images-label,
 button.store-members-trigger,
 label.store-members-label {
-  display: inline-block;
-  vertical-align: middle;
-  height: auto;
-  margin: 0;
-  padding: 5px 0;
+    display: inline-block;
+    vertical-align: middle;
+    height: auto;
+    margin: 0;
+    padding: 5px 0;
 }
 
 button.product-info-trigger,
@@ -188,28 +192,28 @@ button.product-images-trigger,
 button.product-options-trigger,
 button.store-images-trigger,
 button.store-members-trigger {
-  background: transparent;
-  background: $color-red;
-  margin-top: 2px;
-  position: relative;
-  border-radius: 0;
-  padding: 5px;
+    background: transparent;
+    background: $color-red;
+    margin-top: 2px;
+    position: relative;
+    border-radius: 0;
+    padding: 5px;
 
-  &:before {
-    content: "+";
-    display: block;
-    height: 100%;
-    width: 100%;
-    line-height: .7;
-    color: $color-white;
-    font-family: $font-opensanslight;
-  }
-
-  &.custom-expand-collapse-trigger-expanded {
     &:before {
-      content: "\2013";
+        content: "+";
+        display: block;
+        height: 100%;
+        width: 100%;
+        line-height: .7;
+        color: $color-white;
+        font-family: $font-opensanslight;
     }
-  }
+
+    &.custom-expand-collapse-trigger-expanded {
+        &:before {
+            content: "\2013";
+        }
+    }
 }
 
 label.product-info-label,
@@ -219,96 +223,93 @@ label.product-images-label,
 label.product-options-label,
 label.store-images-label,
 label.store-members-label {
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-left: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 15px;
 }
 
-
 .actions {
-  text-align: right;
+    text-align: right;
 }
 
 .picture-list,
 .store-images {
-  border: 1px solid $color-grey-cc;
-  padding: 20px;
+    border: 1px solid $color-grey-cc;
+    padding: 20px;
 
-  > .picture-editor-list-item,
-  > .prop {
-    display: inline-block;
-    vertical-align: top;
-    width: 47%;
-    text-align: center;
-    margin: 0 10px;
+    > .picture-editor-list-item,
+    > .prop {
+        display: inline-block;
+        vertical-align: top;
+        width: 47%;
+        text-align: center;
+        margin: 0 10px;
 
-    label {
-      margin-bottom: 3px;
+        label {
+            margin-bottom: 3px;
+        }
     }
-  }
 }
-
 
 /** CREATE GLYPH BUTTONS **/
 td.action-column {
-  .actions {
-    text-align: left;
-  }
+    .actions {
+        text-align: left;
+    }
 
-  .btn {
-    &.order-up {
-      @include arrowUpButtonGlyph;
+    .btn {
+        &.order-up {
+            @include arrowUpButtonGlyph;
+        }
+        &.order-down {
+            @include arrowDownButtonGlyph;
+        }
+        &.edit {
+            @include editButtonGlyph;
+        }
+        &.delete {
+            @include deleteButtonGlyph;
+        }
+        &.edit-images {
+            @include editImageButtonGlyph;
+        }
     }
-    &.order-down {
-      @include arrowDownButtonGlyph;
-    }
-    &.edit {
-      @include editButtonGlyph;
-    }
-    &.delete {
-      @include deleteButtonGlyph;
-    }
-    &.edit-images {
-      @include editImageButtonGlyph;
-    }
-  }
 }
 
-
 .custom-expand-collapse-collapsed {
-  display: none !important;
+    display: none !important;
 }
 
 /** OVERRIDE IMG CROPPER STYLES **/
 .option.locked {
-  border: 1px solid #1a608a;
-  background-color: #cdebfd;
-  margin-bottom: 10px;
-  padding: 10px;
-  font-family: $font-stack-sans;
-  color: #1a608a;
+    border: 1px solid #1a608a;
+    background-color: #cdebfd;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-family: $font-stack-sans;
+    color: #1a608a;
 }
 
 .picture-editor {
-  .option {
-    label {
-      float: none !important;
-      font-family: $font-stack-sans !important;
+    .option {
+        label {
+            float: none !important;
+            font-family: $font-stack-sans !important;
+        }
     }
-  }
 
-  .message {
-    font-size: 12px;
-    background: transparent !important;
-    border: 0 !important;
-    padding: 0 !important;
-    margin-bottom: 0 !important;
-  }
+    .message {
+        font-size: 12px;
+        background: transparent !important;
+        border: 0 !important;
+        padding: 0 !important;
+        margin-bottom: 0 !important;
+    }
 }
 
 .picture-editor-list-item {
-  button + button {
-    margin-left: 5px;
-  }
+    button + button {
+        margin-left: 5px;
+    }
 }
