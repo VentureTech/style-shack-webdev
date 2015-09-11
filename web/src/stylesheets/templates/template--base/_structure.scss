@@ -1,322 +1,321 @@
-
 .box-wc {
-	max-width: 100%;
-	padding: 0 $spacing-mobile-horizontal;
+    max-width: 100%;
+    padding: 0 $spacing-mobile-horizontal;
 
-	@include breakpoint($bp-tablets-landscape) {
-		max-width: 1024px;
-		margin: 0 auto;
-	}
+    @include breakpoint($bp-tablets-landscape) {
+        max-width: 1024px;
+        margin: 0 auto;
+    }
 
-	@include breakpoint($bp-desktop) {
-		max-width: 1030px;
-		padding: 0;
-	}
+    @include breakpoint($bp-desktop) {
+        max-width: 1030px;
+        padding: 0;
+    }
 }
 
 /*** BEGIN SECTION STYLES ***/
 
 .l-top-nav {
-	background-color: $color-black;
-	color: $color-white;
-	font-family: $font-stack-sans;
-	font-size: 16px;
-	position: relative;
-	min-height: 35px;
+    background-color: $color-black;
+    color: $color-white;
+    font-family: $font-stack-sans;
+    font-size: 16px;
+    position: relative;
+    min-height: 35px;
 
     .box-wc {
-	  position: relative;
+        position: relative;
     }
 
-	.shop-cta,
-	.store-signup {
-		display: none;
-	}
+    .shop-cta,
+    .store-signup {
+        display: none;
+    }
 
-  	.logout {
-	  position: absolute;
-	  right: 10px;
-	  top: 4px;
+    .logout {
+        display: inline-block;
+        padding: 0 0 0 20px;
 
-	  a {
-		display: inline-block;
-		background: $color-red none repeat scroll 0 0;
-		color: #FFF;
-		font-size: 14px;
-		font-weight: bold;
-		padding: 5px 8px;
-		margin-left: 10px;
-		border-radius: 3px;
-		cursor: pointer;
+        a {
+            display: inline-block;
+            vertical-align: middle;
+            background: $color-red none repeat scroll 0 0;
+            color: #FFF;
+            font-weight: bold;
+            padding: 6px 8px 5px;
+            margin-left: 10px;
+            cursor: pointer;
+            line-height: 1;
 
-		&:hover {
-		  background-color: $color-dark-red;
-		}
-	  }
-	}
+            &:hover {
+                background-color: $color-dark-red;
+                text-decoration: none;
+            }
+        }
+    }
 
-	.menu {
-		@include resetMenu;
-	}
+    .menu {
+        @include resetMenu;
+    }
 
-	.menuitemlabel {
-		display: block;
-		color: $color-white;
-		text-transform: uppercase;
-	}
+    .menuitemlabel {
+        display: block;
+        color: $color-white;
+        text-transform: uppercase;
+    }
 
-	.menu-t1 {
-		> .mi {
-			&:hover {
-				background: $color-grey-1b;
-			}
+    .menu-t1 {
+        > .mi {
+            &:hover {
+                background: $color-grey-1b;
+            }
 
-			> .menuitemlabel {
-				padding: 8px 20px;
-			}
+            > .menuitemlabel {
+                padding: 8px 20px;
+            }
 
-			> div.menuitemlabel {
-				cursor: default;
-			}
-		}
-	}
+            > div.menuitemlabel {
+                cursor: default;
+            }
+        }
+    }
 
-	.menu-t2 {
-		position: absolute;
-		left: 0;
-		max-height: 0;
-		opacity: 0;
-		overflow: hidden;
-		transition: 400ms ease all;
-		background-color: $color-black;
-		border: 1px solid $color-white;
+    .menu-t2 {
+        position: absolute;
+        left: 0;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: 400ms ease all;
+        background-color: $color-black;
+        border: 1px solid $color-white;
 
-		> .mi {
-			white-space: nowrap;
+        > .mi {
+            white-space: nowrap;
 
-			+ .mi {
-				border-top: 1px solid $color-grey-33;
-			}
-		}
+            + .mi {
+                border-top: 1px solid $color-grey-33;
+            }
+        }
 
-		.menuitemlabel {
-			padding: 8px 20px;
+        .menuitemlabel {
+            padding: 8px 20px;
 
-			&:hover {
-				background: $color-grey-33;
-			}
-		}
-	}
+            &:hover {
+                background: $color-grey-33;
+            }
+        }
+    }
 
-	.mi-parent {
-		&:hover,
-		&.over {
-			.menu-t2 {
-				max-height: 2000px;
-				opacity: 1;
-			}
-		}
-	}
+    .mi-parent {
+        &:hover,
+        &.over {
+            .menu-t2 {
+                max-height: 2000px;
+                opacity: 1;
+            }
+        }
+    }
 
-	.menu-con {
-	  	display: inline-block;
+    .menu-con {
+        display: inline-block;
 
-		.mi {
-			display: none;
-		}
+        .mi {
+            display: none;
+        }
 
-		.shack,
-		.shopping-bag {
-			.menuitemlabel:after {
-				content: '';
-				display: inline-block;
-				vertical-align: middle;
-				height: 18px;
-				width: 18px;
-				background-size: contain;
-				background-repeat: no-repeat;
-			}
-		}
+        .shack,
+        .shopping-bag {
+            .menuitemlabel:after {
+                content: '';
+                display: inline-block;
+                vertical-align: middle;
+                height: 18px;
+                width: 18px;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
 
-		.shack {
-			.menuitemlabel:after {
-				background-image: url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png");
-			}
-		}
+        .shack {
+            .menuitemlabel:after {
+                background-image: url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png");
+            }
+        }
 
-		.shopping-bag {
-			.menuitemlabel:after {
-				background-image: url("/_resources/dyn/files/1060007zf9e2272e/_fn/shopping-bag.png");
-			}
-		}
-	}
+        .shopping-bag {
+            .menuitemlabel:after {
+                background-image: url("/_resources/dyn/files/1060007zf9e2272e/_fn/shopping-bag.png");
+            }
+        }
+    }
 
-	#logo-mobile {
-		display: none;
-	}
+    #logo-mobile {
+        display: none;
+    }
 
-	@include breakpoint($bp-mobile-landscape) {
-		#logo-mobile {
-			padding: 0;
+    @include breakpoint($bp-mobile-landscape) {
+        #logo-mobile {
+            padding: 0;
 
-			img {
-				max-width: 400px;
-			}
-		}
-	}
+            img {
+                max-width: 400px;
+            }
+        }
+    }
 
-	@include breakpoint($bp-mobile-only) {
-		#logo-mobile {
-			display: block;
-			text-align: center;
-			padding-top: 7px;
+    @include breakpoint($bp-mobile-only) {
+        #logo-mobile {
+            display: block;
+            text-align: center;
+            padding-top: 7px;
 
-			img {
-				max-width: 220px;
-				width: auto;
-				height: auto;
-			}
-		}
+            img {
+                max-width: 220px;
+                width: auto;
+                height: auto;
+            }
+        }
 
-		.menu-con {
-			position: absolute;
-			right: 0;
-			top: 50%;
-			transform: translateY(-50%);
+        .menu-con {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
 
-			.shack {
-				display: block;
+            .shack {
+                display: block;
 
-				.mil {
-					display: none;
-				}
-			}
-		}
-	}
+                .mil {
+                    display: none;
+                }
+            }
+        }
+    }
 
-	@include breakpoint($bp-tablets-portrait) {
-		.shop-cta,
-		.store-signup {
-			display: block;
-			position: absolute;
-			z-index: 10;
-			top: 1px;
-		}
+    @include breakpoint($bp-tablets-portrait) {
+        .shop-cta,
+        .store-signup {
+            display: block;
+            position: absolute;
+            z-index: 10;
+            top: 1px;
+            left: 0;
+        }
 
-		.menu-comp {
-			text-align: right;
-			display: block;
-		}
+        .menu-comp {
+            text-align: right;
+            display: block;
+        }
 
-		.menu-con {
-			position: relative;
-		  	border-right: 1px solid $color-grey-33;
+        .menu-con {
+            position: relative;
+            border-right: 1px solid $color-grey-33;
 
-			.mi {
-				display: inline-block;
-				vertical-align: middle;
-			  	border-left: 1px solid $color-grey-33;
-			}
+            .mi {
+                display: inline-block;
+                vertical-align: middle;
+                border-left: 1px solid $color-grey-33;
+            }
 
-			.mil {
-				display: inline-block;
-				vertical-align: middle;
-			}
+            .mil {
+                display: inline-block;
+                vertical-align: middle;
+            }
 
-			.shack,
-			.shopping-bag {
-				.menuitemlabel:after {
-					margin-top: -5px;
-					margin-left: 10px;
-				}
-			}
-		}
-	}
+            .shack,
+            .shopping-bag {
+                .menuitemlabel:after {
+                    margin-top: -5px;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
 }
 
 .l-header {
-	text-align: center;
+    text-align: center;
 
-	#logo {
-		display: none;
+    #logo {
+        display: none;
 
-		img {
-			max-width: 100%;
-			height: auto;
-			width: auto;
-		}
-	}
+        img {
+            max-width: 100%;
+            height: auto;
+            width: auto;
+        }
+    }
 
-	@include breakpoint($bp-tablets-portrait) {
-		padding: 90px 0 45px;
+    @include breakpoint($bp-tablets-portrait) {
+        padding: 90px 0 45px;
 
-		#logo {
-			display: block;
-		}
-	}
+        #logo {
+            display: block;
+        }
+    }
 }
 
 .e-content {
-	@include breakpoint($bp-tablets-portrait) {
-		padding-bottom: $spacing-footer-height + $spacing-between-boxes;
-	}
+    @include breakpoint($bp-tablets-portrait) {
+        padding-bottom: $spacing-footer-height + $spacing-between-boxes;
+    }
 }
 
 .l-cta {
-	padding-bottom: $spacing-between-boxes;
+    padding-bottom: $spacing-between-boxes;
 
-	@include breakpoint($bp-tablets-portrait) {
-		border-bottom: 1px solid $color-black;
-		margin-bottom: $spacing-between-boxes;
-	}
+    @include breakpoint($bp-tablets-portrait) {
+        border-bottom: 1px solid $color-black;
+        margin-bottom: $spacing-between-boxes;
+    }
 }
 
-
 .l-footer {
-	display: none;
+    display: none;
 
-	@include breakpoint($bp-tablets-portrait) {
-		display: block;
-		height: $spacing-footer-height;
-		margin-top: -$spacing-footer-height;
-		background: $color-black;
+    @include breakpoint($bp-tablets-portrait) {
+        display: block;
+        height: $spacing-footer-height;
+        margin-top: -$spacing-footer-height;
+        background: $color-black;
 
-		.box-wc {
-			padding-top: $spacing-between-boxes;
-			padding-bottom: $spacing-between-boxes;
-		}
+        .box-wc {
+            padding-top: $spacing-between-boxes;
+            padding-bottom: $spacing-between-boxes;
+        }
 
-		#footer-nav {
-			.menu {
-				@include resetMenu;
-			}
+        #footer-nav {
+            .menu {
+                @include resetMenu;
+            }
 
-			.mi {
-				display: inline-block;
-				vertical-align: top;
+            .mi {
+                display: inline-block;
+                vertical-align: top;
 
-				&.mi-parent {
-					width: 40%;
+                &.mi-parent {
+                    width: 40%;
 
-					&:last-child {
-						width: 20%;
-					}
-				}
-			}
+                    &:last-child {
+                        width: 20%;
+                    }
+                }
+            }
 
-			.menuitemlabel {
-				color: $color-white;
-			}
+            .menuitemlabel {
+                color: $color-white;
+            }
 
-			.menu-t2 {
-				font-family: $font-opensanslight;
-				margin-top: 20px;
+            .menu-t2 {
+                font-family: $font-opensanslight;
+                margin-top: 20px;
 
-				.mi {
-					display: block;
-					margin-bottom: 3px;
-				}
-			}
-		}
-	}
+                .mi {
+                    display: block;
+                    margin-bottom: 3px;
+                }
+            }
+        }
+    }
 }
