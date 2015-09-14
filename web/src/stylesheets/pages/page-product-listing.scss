@@ -56,6 +56,13 @@
     margin-top: 3px;
   }
 
+  .my-shack {
+    margin-top: 3px;
+    input[type="submit"] {
+      @include style-button-base;
+    }
+  }
+
   .store-type,
   .location {
     font-size: 14px;
