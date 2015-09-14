@@ -1,5 +1,12 @@
 @import "../config/base-import";
 
+.prop-wrapper {
+  .prop {
+    margin: 0;
+    padding: 0;
+  }
+}
+
 .reservation-confirmation,
 .reservation-thank-you {
   label,
@@ -14,6 +21,8 @@
   }
 
   .actions {
+    margin-top: $spacing-between-boxes/2;
+
     button.btn {
       + button.btn {
         margin-left: 10px;
@@ -23,6 +32,8 @@
 
   .reservation-number {
     margin-bottom: $spacing-between-boxes/2;
+    padding: 10px;
+    background-color: $color-light-yellow;
 
     label,
     .val {
@@ -35,14 +46,29 @@
     }
   }
 
+  .store-name {
+    margin: $spacing-between-boxes 0 $spacing-between-boxes/1.5;
+
+    label {
+      display: none;
+    }
+
+    .val {
+      text-transform: uppercase;
+      font-size: 24px;
+      color: $color-black;
+    }
+  }
 
   .reserved-time,
   .expire-time {
     margin-top: 10px;
+    padding: 8px 0;
   }
 
+
   .reserved-product {
-    margin-top: $spacing-between-boxes/2;
+    margin-top: $spacing-between-boxes/1.5;
 
     > label {
       margin-bottom: 5px;
@@ -68,18 +94,22 @@
   }
 
   @include breakpoint($bp-tablets-portrait) {
-    .store-name,
     .reserved-time,
     .expire-time {
       margin-top: 0;
       display: inline-block;
       vertical-align: top;
-      width: 32%;
+      width: 50%;
+
+      label {
+        display: inline-block;
+        margin-right: 5px;
+      }
     }
 
-    .reserved-time,
     .expire-time {
-      margin-left: 2%;
+      padding-left: $spacing-between-boxes;
+      border-left: 1px solid $color-grey-80;
     }
 
     .reserved-product,
