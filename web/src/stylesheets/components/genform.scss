@@ -1,5 +1,4 @@
 @import "../config/base-import";
-
 @import "partials/property-editor";
 
 .fields {
@@ -85,5 +84,22 @@ button {
   font-style: italic;
   padding: 3px 0;
 }
+
+.extension_label-con {
+  span {
+    display: block;
+    padding: 0 5px;
+    font-size: 12px;
+    font-style: italic;
+  }
+}
+
+.actions {
+  .btn + .btn {
+    margin-left: 5px;
+  }
+}
+
+
 
 
