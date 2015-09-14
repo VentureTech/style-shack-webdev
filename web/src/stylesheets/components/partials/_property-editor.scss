@@ -1,3 +1,5 @@
+@import "../../config/base-vars";
+
 /* ==========================================================================
    Basic Styles for Property Editor/Viewer
    baiken@vipasolutions.com, sbenes, knoone
@@ -26,36 +28,12 @@
   input[type="submit"],
   input[type="reset"],
   .prop-wrapper .constraints a[data-features~="submit"] {
-    /*font-family: $font-stack-sans;
-    font-size: 12px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: $color-grey-33;
-    white-space: nowrap;
-
-    background: #e5e5e3;*/
-
     display: inline-block;
     zoom: 1;
     *display: inline;
     cursor: pointer;
 
-    //padding: 4px 8px;
     margin-right: 5px;
-    /*border: 1px solid #B7B7B5;
-    border-radius: 4px;
-
-    text-shadow: 1px 1px 0 rgba($color-white,0.8);
-    box-shadow: 1px 1px 0 rgba($color-white, 0.8) inset,
-    -1px -1px 0 rgba($color-black,0.05) inset;*/
-  }
-
-  button,
-  input[type="submit"],
-  input[type="reset"] {
-    &:hover {
-      //background-color: #DDDAAA;
-    }
   }
 
   button::-moz-focus-inner {
@@ -65,7 +43,7 @@
 
   // Messages
   //FIXME this should be converted to use standard messages for look and feel
-  .message-container {
+  /*.message-container {
     margin: 15px 0;
 
     .message {
@@ -82,7 +60,7 @@
         color: #9E0013;
       }
     }
-  }
+  }*/
 
   //Content
   .prop-header-title {
@@ -100,12 +78,6 @@
   .prop {
     > label,
     > .tal {
-      /*display: inline-block;
-      *display: inline;
-      zoom: 1;
-      width: 100px;
-      text-align: right;
-      margin-right: 10px;*/
       font-weight: bold;
     }
 
@@ -130,6 +102,24 @@
   .prop {
     margin-bottom: 10px;
     padding: 5px;
+
+    &.address {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  .address {
+    .part,
+    .address_lines > .address_line {
+      margin-bottom: 10px;
+      padding: 5px 0;
+
+      &.last {
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+    }
   }
 
   .user-entry-required {
