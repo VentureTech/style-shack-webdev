@@ -32,26 +32,25 @@
         display: none;
     }
 
-    .logout {
+    .deferred-logout {
         display: inline-block;
         padding: 0 0 0 20px;
 
-        a {
+        .user {
             display: inline-block;
             vertical-align: middle;
-            background: $color-red none repeat scroll 0 0;
-            color: #FFF;
-            font-weight: bold;
-            padding: 6px 8px 5px;
-            margin-left: 10px;
-            cursor: pointer;
-            line-height: 1;
-
-            &:hover {
-                background-color: $color-dark-red;
-                text-decoration: none;
-            }
         }
+
+        a {
+            border-left: 1px solid $color-grey-33;
+            display: inline-block;
+            vertical-align: middle;
+            color: #FFF;
+            padding: 4px 15px 5px;
+            margin-left: 5px;
+            font-size: 18px;
+        }
+
     }
 
     .menu {
@@ -71,7 +70,7 @@
             }
 
             > .menuitemlabel {
-                padding: 8px 20px;
+                padding: 8px 15px;
             }
 
             > div.menuitemlabel {
