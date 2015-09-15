@@ -19,7 +19,7 @@ jQuery(function($){
 
     function updateWindowWidth() {
         windowWidth = $window.width();
-        orderStores();
+        orderProducts();
     }
 
     function addResizeWatcher() {
