@@ -1,6 +1,7 @@
 @import "../config/base-import";
 @import "../components/partials/social-feed-tabs";
 @import "../components/partials/mailchimp-newsletter";
+@import "../components/partials/addthis-menu";
 @import "../components/partials/pager";
 
 .l-aside-content {
@@ -187,63 +188,6 @@
     color: $color-orange-red;
     font-family: $font-italic;
     margin-top: 7px;
-  }
-
-
-  .social {
-    margin-top: 15px;
-
-    .addthis_counter {
-      a {
-        font-family: $font-opensanslight !important;
-      }
-    }
-
-    .addthis_counter_facebook,
-    .addthis_counter_twitter {
-      position: relative;
-      display: inline-block;
-      float: none !important;
-
-      .addthis_native_counter {
-        margin-top: 6px;
-      }
-    }
-
-
-    .addthis_button_facebook_like,
-    .addthis_button_facebook {
-      height: 45px;
-      width: 46px;
-      background: url("/_resources/dyn/files/1058943z17264f83/_fn/social-sprite.png") 0 0 no-repeat;
-
-      .aticon-facebook,
-      .pluginConnectButton {
-        display: none;
-      }
-    }
-
-    .addthis_button_twitter {
-      margin-left: 10px;
-      height: 45px;
-      width: 46px;
-      background: url("/_resources/dyn/files/1058943z17264f83/_fn/social-sprite.png") -56px 0 no-repeat;
-
-      .aticon-twitter {
-        display: none;
-      }
-    }
-
-    .label,
-    .addthis_toolbox {
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    .label {
-      margin-left: 10px;
-      color: $color-grey-80;
-    }
   }
 }
 
