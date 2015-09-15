@@ -13,8 +13,8 @@
     }
 }
 
-/*** BEGIN SECTION STYLES ***/
 
+/*** BEGIN SECTION STYLES ***/
 .l-top-nav {
     background-color: $color-black;
     color: $color-white;
@@ -27,13 +27,13 @@
         position: relative;
     }
 
-    .shop-cta,
+    /*.shop-cta,
     .store-signup {
         display: none;
-    }
+    }*/
 
     .deferred-logout {
-        display: inline-block;
+        display: none;
         padding: 0 0 0 20px;
 
         .user {
@@ -50,7 +50,6 @@
             margin-left: 5px;
             font-size: 18px;
         }
-
     }
 
     .menu {
@@ -119,9 +118,9 @@
     .menu-con {
         display: inline-block;
 
-        .mi {
+        /*.mi {
             display: none;
-        }
+        }*/
 
         .shack,
         .shopping-bag {
@@ -161,6 +160,7 @@
                 max-width: 400px;
             }
         }
+
     }
 
     @include breakpoint($bp-mobile-only) {
@@ -200,6 +200,10 @@
             z-index: 10;
             top: 1px;
             left: 0;
+        }
+
+        .deferred-logout {
+            display: inline-block;
         }
 
         .menu-comp {
@@ -256,9 +260,7 @@
 }
 
 .e-content {
-    @include breakpoint($bp-tablets-portrait) {
-        padding-bottom: $spacing-footer-height + $spacing-between-boxes;
-    }
+    padding-bottom: $spacing-footer-height + $spacing-between-boxes;
 }
 
 .l-cta {
@@ -271,29 +273,53 @@
 }
 
 .l-footer {
-    display: none;
+    display: block;
+    height: $spacing-mobile-footer-height;
+    margin-top: -$spacing-footer-height;
+    background: $color-black;
 
-    @include breakpoint($bp-tablets-portrait) {
-        display: block;
-        height: $spacing-footer-height;
-        margin-top: -$spacing-footer-height;
-        background: $color-black;
+    .box-wc {
+        padding-top: $spacing-between-boxes;
+        padding-bottom: $spacing-between-boxes;
+    }
 
-        .box-wc {
-            padding-top: $spacing-between-boxes;
-            padding-bottom: $spacing-between-boxes;
+    #footer-nav {
+        .menu {
+            @include resetMenu;
         }
 
-        #footer-nav {
-            .menu {
-                @include resetMenu;
-            }
+        .mi-parent {
+            font-size: 14px;
 
+            + .mi-parent {
+                margin-top: $spacing-between-boxes/2;
+            }
+        }
+
+        .menuitemlabel {
+            color: $color-white;
+        }
+
+        .menu-t2 {
+            margin-top: $spacing-between-boxes/4;
+            font-family: $font-opensanslight;
+            font-size: 12px;
+
+            .mi {
+                display: block;
+                margin-bottom: 3px;
+            }
+        }
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        #footer-nav {
             .mi {
                 display: inline-block;
                 vertical-align: top;
 
                 &.mi-parent {
+                    margin-top: 0;
                     width: 40%;
 
                     &:last-child {
@@ -302,18 +328,26 @@
                 }
             }
 
-            .menuitemlabel {
-                color: $color-white;
+            .menu-t2 {
+                margin-top: $spacing-between-boxes/2;
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        height: $spacing-footer-height;
+
+        #footer-nav {
+            .menu {
+                @include resetMenu;
+            }
+
+            .mi-parent {
+                font-size: 16px;
             }
 
             .menu-t2 {
-                font-family: $font-opensanslight;
-                margin-top: 20px;
-
-                .mi {
-                    display: block;
-                    margin-bottom: 3px;
-                }
+                font-size: 16px;
             }
         }
     }
