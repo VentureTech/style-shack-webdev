@@ -2,300 +2,274 @@
 @import "../components/partials/mailchimp-newsletter";
 
 .top-cta {
-	display: none;
+    display: none;
 
-	@include breakpoint($bp-tablets-portrait) {
-		display: block;
-		height: 415px;
-		background: url("/_resources/dyn/files/1058377z36f15d8f/_fn/home-cta-bg.jpg") top center no-repeat;
-		margin-bottom: 10px;
+    @include breakpoint($bp-tablets-portrait) {
+        display: block;
+        height: 415px;
+        background: url("/_resources/dyn/files/1058377z36f15d8f/_fn/home-cta-bg.jpg") top center no-repeat;
+        margin-bottom: 10px;
 
-		.your-style {
-			position: relative;
-			top: 80px;
-			max-width: 300px;
-			padding: 15px 25px;
-			margin: 0 auto;
-			text-align: center;
-			background-color: $color-white;
-			border: 1px solid $color-black;
-			box-shadow: 0 0 0 10px $color-white;
-		}
+        .your-style {
+            position: relative;
+            top: 80px;
+            max-width: 300px;
+            padding: 15px 25px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: $color-white;
+            border: 1px solid $color-black;
+            box-shadow: 0 0 0 10px $color-white;
+        }
 
-		.your-style-heading,
-		.your-style-subheading {
-			font-family: $font-italic;
-			font-size: 30px;
-			line-height: 1.3;
-		}
+        .your-style-heading,
+        .your-style-subheading {
+            font-family: $font-italic;
+            font-size: 30px;
+            line-height: 1.3;
+        }
 
-		.your-style-cta {
-			position: relative;
-			z-index: 2;
-			margin-top: 10px;
-		}
-	}
+        .your-style-cta {
+            position: relative;
+            z-index: 2;
+            margin-top: 10px;
+        }
+    }
 }
 
 .store-links {
-  display: none;
+    display: none;
 
-  .menu {
-		@include resetMenu;
-  }
-
-  .mi {
-    display: inline-block;
-		vertical-align: top;
-    width: 33.333333%;
-
-    &:first-child .menuitemlabel {
-      margin-left: 0;
+    .menu {
+        @include resetMenu;
     }
-  }
 
-  .menuitemlabel {
-	  display: block;
-	  padding-top: 350px;
-	  background-repeat: no-repeat;
-	  background-position: top center;
-	  background-size: cover;
-	  margin-left: 10px;
-	  text-decoration: none;
-  }
+    .mi {
+        display: inline-block;
+        vertical-align: top;
+        width: 33.333333%;
 
-	.mil {
-		display: block;
-		background-color: $color-white;
-		font-family: $font-opensans;
-		text-transform: uppercase;
-		color: $color-black;
-		text-align: center;
-		padding: 10px 5px;
-	}
+        &:first-child .menuitemlabel {
+            margin-left: 0;
+        }
+    }
 
-  .mens {
     .menuitemlabel {
-      background-image: url("/_resources/dyn/files/1058611z8f039dd7/_fn/mens.jpg");
+        display: block;
+        padding-top: 350px;
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: cover;
+        margin-left: 10px;
+        text-decoration: none;
     }
-  }
 
-  .new-arrivals {
-    .menuitemlabel {
-			background-image: url("/_resources/dyn/files/1058612z160acc6d/_fn/new-arrivals.jpg");
+    .mil {
+        display: block;
+        background-color: $color-white;
+        font-family: $font-opensans;
+        text-transform: uppercase;
+        color: $color-black;
+        text-align: center;
+        padding: 10px 5px;
     }
-  }
 
-  .sale {
-    .menuitemlabel {
-			background-image: url("/_resources/dyn/files/1058613z610dfcfb/_fn/summer-sale.jpg");
+    .mens {
+        .menuitemlabel {
+            background-image: url("/_resources/dyn/files/1058611z8f039dd7/_fn/mens.jpg");
+        }
     }
-  }
 
-  @include breakpoint($bp-tablets-portrait) {
-    display: block;
-  }
+    .new-arrivals {
+        .menuitemlabel {
+            background-image: url("/_resources/dyn/files/1058612z160acc6d/_fn/new-arrivals.jpg");
+        }
+    }
+
+    .sale {
+        .menuitemlabel {
+            background-image: url("/_resources/dyn/files/1058613z610dfcfb/_fn/summer-sale.jpg");
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        display: block;
+    }
 }
 
 .mobile-content-links {
-  .menu {
-		@include resetMenu;
-    display: table;
-  }
-
-  .mi {
-    display: table-row;
-  }
-
-  .menuitemlabel {
-    display: table-cell;
-		position: relative;
-    vertical-align: middle;
-    color: $color-white;
-    text-align: center;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 1.4;
-    height: 130px;
-    padding: 0 10px;
-
-    .mil {
-      position: relative;
-      z-index: 2;
+    .menu {
+        @include resetMenu;
+        display: table;
     }
-  }
 
-  .shop-local,
-  .shop-style,
-  .shop-city {
-    .menuitemlabel:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-image: url("/_resources/dyn/files/1060234z4842f139/_fn/shop-local-bg.jpg");
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: cover;
+    .mi {
+        display: table-row;
     }
-  }
 
-  .shop-style,
-  .shop-city {
     .menuitemlabel {
-      height: 140px;
-      padding-top: 20px;
+        display: table-cell;
+        position: relative;
+        vertical-align: middle;
+        color: $color-white;
+        text-align: center;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 1.4;
+        height: 130px;
+        padding: 0 10px;
 
-      &:before {
-        top: 20px;
-      }
+        .mil {
+            position: relative;
+            z-index: 2;
+        }
     }
-  }
 
-  @include breakpoint($bp-mobile-portrait-wide) {
-    .menuitemlabel {
-      padding: 0 40px;
+    .shop-local,
+    .shop-style,
+    .shop-city {
+        .menuitemlabel:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-image: url("/_resources/dyn/files/1060234z4842f139/_fn/shop-local-bg.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
     }
 
-  }
+    .shop-style,
+    .shop-city {
+        .menuitemlabel {
+            height: 140px;
+            padding-top: 20px;
 
-  @include breakpoint($bp-mobile-landscape) {
-    .menuitemlabel {
-      height: 310px;
-      font-size: 40px;
+            &:before {
+                top: 20px;
+            }
+        }
     }
-  }
 
-  @include breakpoint($bp-tablets-portrait) {
-    display: none;
-  }
+    @include breakpoint($bp-mobile-portrait-wide) {
+        .menuitemlabel {
+            padding: 0 40px;
+        }
+
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        .menuitemlabel {
+            height: 310px;
+            font-size: 40px;
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        display: none;
+    }
 }
 
 .l-notes {
-  display: none;
+    display: none;
 
-  @include breakpoint($bp-tablets-portrait) {
-    display: block;
-		padding-bottom: $spacing-between-boxes;
-		margin-bottom: $spacing-between-boxes;
-		border-bottom: 1px solid $color-black;
+    @include breakpoint($bp-tablets-portrait) {
+        display: block;
+        padding-bottom: $spacing-between-boxes;
+        margin-bottom: $spacing-between-boxes;
+        border-bottom: 1px solid $color-black;
 
-		h3 {
-			text-align: center;
-		}
+        h3 {
+            text-align: center;
+        }
 
-		.post {
-			display: inline-block;
-			vertical-align: top;
-			width: 50%;
-			padding-right: 10px;
+        .post {
+            display: inline-block;
+            vertical-align: top;
+            width: 50%;
+            padding-right: 10px;
 
-			&:nth-child(even) {
-				padding-left: 10px;
-			}
+            &:nth-child(even) {
+                padding-left: 10px;
+            }
 
-			.detail-link {
-				color: $color-black;
-				display: block;
-			}
+            .detail-link {
+                color: $color-black;
+                display: block;
+            }
 
-			.title {
-				font-family: $font-handwriting;
-				font-size: 25px;
-				text-align: center;
-				margin-top: 8px;
-			}
+            .title {
+                font-family: $font-handwriting;
+                font-size: 25px;
+                text-align: center;
+                margin-top: 8px;
+            }
 
-			.image {
-				background-size: cover;
-				background-position: top center;
-				background-repeat: no-repeat;
-				height: 300px;
-			}
+            .image {
+                background-size: cover;
+                background-position: top center;
+                background-repeat: no-repeat;
+                height: 300px;
+            }
 
-			&.post-placeholder-image {
-				.image {
-					background-image: url("/_resources/dyn/files/1064457zcfeece0/_fn/blog-bg2.png");
+            &.post-placeholder-image {
+                .image {
+                    background-image: url("/_resources/dyn/files/1064457zcfeece0/_fn/blog-bg2.png");
 
-				}
-			}
-		}
-  }
+                }
+            }
+        }
+    }
 }
 
 .about-con {
-  background: $color-grey-e6;
-  padding: 30px 20px;
-  line-height: 1.5;
+    background: $color-grey-e6;
+    padding: 30px 20px;
+    line-height: 1.5;
 
-  .about-mobile {
-		.menu {
-			@include resetMenu;
-		}
+    .info {
+        font-family: $font-opensanslight;
 
-    .mi {
-      display: inline-block;
-			vertical-align: top;
-      width: 50%;
-			padding-left: 10px;
+        &.about {
+            display: none;
+        }
 
-			&:first-child {
-				padding-left: 0;
-				padding-right: 10px;
-			}
+        h4 {
+            margin-top: 0;
+        }
     }
 
-    .menuitemlabel {
-			@include style-button-base;
-			text-align: center;
-			width: 100%;
+
+    @include breakpoint($bp-tablets-portrait) {
+        .info {
+            display: inline-block;
+            vertical-align: top;
+            width: 50%;
+            padding-right: 20px;
+
+            + .info {
+                padding-right: 0;
+                padding-left: 20px;
+            }
+
+            &.about {
+                display: inline-block;
+            }
+        }
     }
-  }
 
-	.info {
-		display: none;
-	}
-
-	@include breakpoint($bp-mobile-only) {
-		margin-left: -20px;
-		margin-right: -20px;
-	}
-
-  @include breakpoint($bp-tablets-portrait) {
-		.about-mobile {
-			display: none;
-		}
-
-		.info {
-			display: inline-block;
-			vertical-align: top;
-			width: 50%;
-			font-family: $font-opensanslight;
-			padding-right: 20px;
-
-			+ .info {
-				padding-right: 0;
-				padding-left: 20px;
-			}
-
-			h4 {
-				margin-top: 0;
-			}
-		}
-  }
-
-  @include breakpoint($bp-tablets-landscape) {
-    padding: 40px;
-  }
+    @include breakpoint($bp-tablets-landscape) {
+        padding: 40px;
+    }
 }
 
-
 .social-nav {
-  display: none;
+    text-align: center;
 
-  @include breakpoint($bp-tablets-portrait) {
-    display: block;
-  }
+    @include breakpoint($bp-tablets-portrait) {
+        display: block;
+    }
 }
