@@ -1,0 +1,32 @@
+@import "../config/base-import";
+
+h2 {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: normal;
+    font-family: $font-opensans;
+    margin-bottom: .75em;
+    padding-bottom: .25em;
+    border-bottom: 1px solid $color-grey-66;
+}
+
+.user-profile {
+    border-top: 1px solid $color-grey-66;
+    border-bottom: 1px solid $color-grey-66;
+    padding: $spacing-between-boxes/4 0;
+
+
+    ul {
+        @include resetMenu;
+
+        li {
+            font-size: 14px;
+            margin: 8px 0;
+        }
+    }
+
+    a {
+        color: $color-grey-80;
+        font-family: $font-opensanslight;
+    }
+}
