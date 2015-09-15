@@ -1,8 +1,37 @@
 /** Overrides for Home Template **/
 #t_home {
-	.l-top-nav {
-		.box-wc {
-			padding-left:300px;
+	@include breakpoint($bp-tablets-landscape) {
+		.l-top-nav {
+			.box-wc {
+				padding-left: 300px;
+			}
+		}
+	}
+}
+
+/** Overrides for Metro Template **/
+#t_metro_home {
+	.metro-ad {
+		margin-bottom: $spacing-between-boxes/2;
+		text-align: center;
+		padding-left: 20px;
+
+		img {
+			max-width: 100%;
+			height: auto;
+			width: auto;
+		}
+	}
+
+	@include breakpoint($bp-tablets-portrait) {
+		#footer-nav {
+			width: 80%;
+		}
+
+		.metro-ad {
+			float: right;
+			width: 20%;
+			margin-bottom: 0;
 		}
 	}
 }
@@ -224,12 +253,30 @@
 
 
 #t_shopper {
-	.l-header {
-		padding: 20px 0;
-		text-align: center;
 
-		#logo {
-			display: block;
+	@include breakpoint($bp-tablets-portrait) {
+		.l-primary-content,
+		.l-aside-content {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		.l-primary-content {
+			width: 60%;
+		}
+
+		.l-aside-content {
+			width: 40%;
+			padding-right: 50px;
+		}
+	}
+	@include breakpoint($bp-tablets-landscape) {
+		.l-primary-content{
+			width: 74%;
+		}
+		.l-aside-content {
+			width: 25%;
+			padding-right: 40px;
 		}
 	}
 }
