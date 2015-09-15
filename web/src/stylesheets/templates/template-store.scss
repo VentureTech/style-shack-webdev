@@ -13,7 +13,7 @@
   margin-top: $spacing-between-boxes/2;
 }
 
-#aside_content {
+.l-aside-content {
   .store_profile {
     margin-top: $spacing-between-boxes/2;
     font-size: 14px;
@@ -27,6 +27,10 @@
       &:hover {
         text-decoration: none;
       }
+    }
+
+    .my-shack {
+      margin: 10px 0 20px;
     }
   }
 
