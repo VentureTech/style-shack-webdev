@@ -155,4 +155,8 @@
   @include addButtonGlyph('\e079');
 }
 
+@mixin externalSiteButtonGlyph() {
+  @include addButtonGlyph('\e064');
+}
+
 
