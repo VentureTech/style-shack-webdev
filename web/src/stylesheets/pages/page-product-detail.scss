@@ -2,250 +2,246 @@
 @import "../components/partials/addthis-menu";
 
 .images {
-  position: relative;
-  border-bottom: 1px solid $color-grey-66;
-  margin-bottom: $spacing-between-boxes/2;
-
-  img {
-    max-width: 100%;
-    height: auto;
-    width: auto;
-  }
-
-  .loading {
-    background: rgba($color-white, .9) url('/_resources/dyn/files/1080595z7fd581c1/_fn/ajax-loader.gif') center center no-repeat;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 99;
-  }
-
-
-  .thumbs {
-    width: 10%;
-    display: inline-block;
-    vertical-align: top;
-    padding-right: 10px;
-
-    .image {
-      + .image {
-        margin-top: 7px;
-      }
-    }
-  }
-
-  .main {
-    width: 85%;
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 10px;
     position: relative;
-    text-align: center;
-
+    border-bottom: 1px solid $color-grey-66;
+    margin-bottom: $spacing-between-boxes/2;
 
     img {
-      transition: 1s ease height;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      transition: .5s ease opacity;
+        max-width: 100%;
+        height: auto;
+        width: auto;
+    }
 
-      &.old {
-        &.remove {
-          opacity: 0;
-        }
-      }
-
-      &.new {
+    .loading {
+        background: rgba($color-white, .9) url('/_resources/dyn/files/1080595z7fd581c1/_fn/ajax-loader.gif') center center no-repeat;
         position: absolute;
         top: 0;
-        opacity: 0;
-
-        &.loaded {
-          position: static;
-          opacity: 1;
-        }
-      }
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 99;
     }
-  }
 
+    .thumbs {
+        width: 10%;
+        display: inline-block;
+        vertical-align: top;
+        padding-right: 10px;
 
-  @include breakpoint($bp-tablets-portrait) {
-    display: inline-block;
-    width: 55%;
-    vertical-align: top;
-    border-bottom: 0;
-    margin-bottom: 0;
-  }
+        .image {
+            + .image {
+                margin-top: 7px;
+            }
+        }
+    }
+
+    .main {
+        width: 85%;
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 10px;
+        position: relative;
+        text-align: center;
+
+        img {
+            transition: 1s ease height;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            transition: .5s ease opacity;
+
+            &.old {
+                &.remove {
+                    opacity: 0;
+                }
+            }
+
+            &.new {
+                position: absolute;
+                top: 0;
+                opacity: 0;
+
+                &.loaded {
+                    position: static;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        display: inline-block;
+        width: 55%;
+        vertical-align: top;
+        border-bottom: 0;
+        margin-bottom: 0;
+    }
 
 }
 
 .product-info {
-  @include breakpoint($bp-tablets-portrait) {
-    display: inline-block;
-    width: 45%;
-    vertical-align: top;
-  }
+    @include breakpoint($bp-tablets-portrait) {
+        display: inline-block;
+        width: 45%;
+        vertical-align: top;
+    }
 }
 
 .store-name {
-  color: $color-grey-80;
-  margin-bottom: 20px;
-
-  a {
     color: $color-grey-80;
-  }
+    margin-bottom: 20px;
+
+    a {
+        color: $color-grey-80;
+    }
 }
 
 .product-name {
-  font-weight: bold;
-  font-size: 24px;
-  margin-bottom: 3px;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 3px;
 }
 
 .price {
-  font-size: 18px;
-  margin: 5px 0 25px;
+    font-size: 18px;
+    margin: 5px 0 25px;
 }
 
-
 .more-info {
-  margin-top: $spacing-between-boxes/1.5;
+    margin-top: $spacing-between-boxes/1.5;
 
-  > div {
-    padding: $spacing-between-boxes/3 5px;
-    border-top: 1px solid $color-grey-66;
+    > div {
+        padding: $spacing-between-boxes/3 5px;
+        border-top: 1px solid $color-grey-66;
 
-    &.boutique-info {
-      border-bottom: 1px solid $color-grey-66;
-    }
-  }
-
-  .title {
-      text-transform: uppercase;
-      color: $color-grey-80;
-      position: relative;
-
-      &:after {
-        content: '';
-        border-left: 7px solid transparent;
-        border-right: 7px solid transparent;
-        border-top: 7px solid $color-grey-66;
-        height: 10px;
-        width: 10px;
-        display: block;
-        position: absolute;
-        right: 0;
-        top: 6px;
-      }
-
-      &.open {
-        &:after {
-          border-left: 7px solid transparent;
-          border-right: 7px solid transparent;
-          border-bottom: 7px solid $color-grey-66;
-          border-top: 0;
-          top: 2px;
+        &.boutique-info {
+            border-bottom: 1px solid $color-grey-66;
         }
-      }
     }
 
-  .content {
-    max-height: 0;
-    opacity: 0;
-    transition: .4s ease all;
-    overflow: hidden;
-    line-height: 1.5;
-    font-size: 13px;
+    .title {
+        text-transform: uppercase;
+        color: $color-grey-80;
+        position: relative;
 
-    &.open {
-      max-height: 2000px;
-      opacity: 1;
-      margin-top: 10px;
+        &:after {
+            content: '';
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 7px solid $color-grey-66;
+            height: 10px;
+            width: 10px;
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 6px;
+        }
+
+        &.open {
+            &:after {
+                border-left: 7px solid transparent;
+                border-right: 7px solid transparent;
+                border-bottom: 7px solid $color-grey-66;
+                border-top: 0;
+                top: 2px;
+            }
+        }
     }
-  }
+
+    .content {
+        max-height: 0;
+        opacity: 0;
+        transition: .4s ease all;
+        overflow: hidden;
+        line-height: 1.5;
+        font-size: 13px;
+
+        &.open {
+            max-height: 2000px;
+            opacity: 1;
+            margin-top: 10px;
+        }
+    }
 }
 
 .product-option {
-  display: inline-block;
-  margin: 5px 0;
+    display: inline-block;
+    margin: 5px 0;
 
-  + .product-option {
-    margin-left: 5px;
-  }
+    + .product-option {
+        margin-left: 5px;
+    }
 
-  button {
-    @include style-button-base;
-  }
+    button {
+        @include style-button-base;
+    }
 }
 
 .orderitembutton {
-  margin: 10px 0;
+    margin: 10px 0;
 
-  > span {
-    display: inline-block;
+    > span {
+        display: inline-block;
 
-    + span {
-      margin-left: 10px;
+        + span {
+            margin-left: 10px;
+        }
     }
-  }
 
-  button,
-  input[type=button]{
-    background: $color-black;
-    color: $color-white;
-    border: 0;
-    outline: 0;
-    text-transform: uppercase;
-    padding: 8px 10px 7px;
-    line-height: 1;
+    button,
+    input[type=button] {
+        background: $color-black;
+        color: $color-white;
+        border: 0;
+        outline: 0;
+        text-transform: uppercase;
+        padding: 8px 10px 7px;
+        line-height: 1;
 
-    &:hover {
-      background: $color-grey-55;
+        &:hover {
+            background: $color-grey-55;
+        }
     }
-  }
 }
 
 .product-variant-manager {
 
-  .optionset-con {
-    display: block;
+    .optionset-con {
+        display: block;
 
-    + .optionset-con {
-      margin-top: $spacing-between-boxes/3;
+        + .optionset-con {
+            margin-top: $spacing-between-boxes/3;
+        }
     }
-  }
 
-  .quantity-con {
-    display: block;
-    margin: $spacing-between-boxes/3 0;
-  }
+    .quantity-con {
+        display: block;
+        margin: $spacing-between-boxes/3 0;
+    }
 
-  label {
-    width: 70px;
-    display: inline-block;
-  }
+    label {
+        width: 70px;
+        display: inline-block;
+    }
 
-  select,
-  input {
-    display: inline-block;
-    margin-left: 4px;
-  }
+    select,
+    input {
+        display: inline-block;
+        margin-left: 4px;
+    }
 }
 
 .product-listing {
-  display: none;
+    display: none;
 
-  @include breakpoint($bp-tablets-portrait) {
-    text-align: center;
-    border-top: 1px solid $color-grey-66;
-    margin-top: $spacing-between-boxes;
+    @include breakpoint($bp-tablets-portrait) {
+        text-align: center;
+        border-top: 1px solid $color-grey-66;
+        margin-top: $spacing-between-boxes;
 
-    h4 {
-      margin-bottom: $spacing-between-boxes;
+        h4 {
+            margin-bottom: $spacing-between-boxes;
+        }
     }
-  }
 }
 
