@@ -2,10 +2,24 @@
 @import "../components/partials/addthis-menu";
 
 .images {
+  position: relative;
+  border-bottom: 1px solid $color-grey-66;
+  margin-bottom: $spacing-between-boxes/2;
+
   img {
     max-width: 100%;
     height: auto;
     width: auto;
+  }
+
+  .loading {
+    background: rgba($color-white, .9) url('/_resources/dyn/files/1080595z7fd581c1/_fn/ajax-loader.gif') center center no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
   }
 
 
@@ -31,16 +45,6 @@
     text-align: center;
 
 
-    .loading {
-      background: rgba($color-white, .9) url('/_resources/dyn/files/1080595z7fd581c1/_fn/ajax-loader.gif') center center no-repeat;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      z-index: 99;
-    }
-
     img {
       transition: 1s ease height;
       max-height: 100%;
@@ -49,11 +53,6 @@
       transition: .5s ease opacity;
 
       &.old {
-        /*position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 5;*/
-
         &.remove {
           opacity: 0;
         }
@@ -77,6 +76,8 @@
     display: inline-block;
     width: 55%;
     vertical-align: top;
+    border-bottom: 0;
+    margin-bottom: 0;
   }
 
 }
@@ -92,6 +93,10 @@
 .store-name {
   color: $color-grey-80;
   margin-bottom: 20px;
+
+  a {
+    color: $color-grey-80;
+  }
 }
 
 .product-name {
@@ -100,12 +105,14 @@
   margin-bottom: 3px;
 }
 
-.pricelist {
+.price {
+  font-size: 18px;
   margin: 5px 0 25px;
 }
 
+
 .more-info {
-  margin-top: $spacing-between-boxes;
+  margin-top: $spacing-between-boxes/1.5;
 
   > div {
     padding: $spacing-between-boxes/3 5px;
@@ -161,8 +168,17 @@
   }
 }
 
-.productoption {
+.product-option {
+  display: inline-block;
   margin: 5px 0;
+
+  + .product-option {
+    margin-left: 5px;
+  }
+
+  button {
+    @include style-button-base;
+  }
 }
 
 .orderitembutton {
@@ -192,15 +208,44 @@
   }
 }
 
-form#pcor_form {
-  label,
-  .productquantitylabel {
+.product-variant-manager {
+
+  .optionset-con {
+    display: block;
+
+    + .optionset-con {
+      margin-top: $spacing-between-boxes/3;
+    }
+  }
+
+  .quantity-con {
+    display: block;
+    margin: $spacing-between-boxes/3 0;
+  }
+
+  label {
     width: 70px;
     display: inline-block;
   }
 
-  input.productquantity {
+  select,
+  input {
+    display: inline-block;
     margin-left: 4px;
+  }
+}
+
+.product-listing {
+  display: none;
+
+  @include breakpoint($bp-tablets-portrait) {
+    text-align: center;
+    border-top: 1px solid $color-grey-66;
+    margin-top: $spacing-between-boxes;
+
+    h4 {
+      margin-bottom: $spacing-between-boxes;
+    }
   }
 }
 
