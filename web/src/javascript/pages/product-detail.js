@@ -1,4 +1,6 @@
 jQuery(function($){
+    var $bodyCon = $("body");
+    var $productVariantManager = $(".product-variant-manager");
     var $infoCon = $(".more-info > div");
     var $loadingDiv = $('<div class="loading" />');
     var $photoCon = $(".images");
@@ -84,24 +86,40 @@ jQuery(function($){
         });
     }
 
+    function updateImageManager(variantID) {
+        var updateURL = $(".image-manager").data('updateUrl');
+        var productID = $(".image-manager").data('productId');
+        var updateData = {
+            product: productID,
+            variant: variantID
+        };
+
+        $.get(updateURL, updateData, function(html){
+            $('.image-manager').html(html);
+            setupProductPhotos();
+        });
+    }
+
+
     function init() {
         setupDescriptionToggle();
         setupProductPhotos();
 
-        $forms.each(function (idx, form) {
-            var $form = $(form);
-
-            function setupVariantSwitch() {
-                console.log("switch");
+        $bodyCon.on("ss:pvm-loading", function(e){
+            console.log("loading");
+            $photoCon.find('.image').off();
+            if ($photoCon.find(".loaded").length >= 0) {
+                $photoCon.append($loadingDiv);
             }
+            $photoCon.find(".main").empty();
+            $photoCon.find(".thumbs").empty();
+        });
 
-            if (!this.submit_options) {
-                this.submit_options = {};
-            }
+        $bodyCon.on("ss:pvm-loaded", function(e){
+            var productVariantID = $productVariantManager.find("> div").data("pvId");
+            updateImageManager(productVariantID);
+            $photoCon.find(".loading").remove();
 
-            this.submit_options.postUpdate = function () {
-                setupVariantSwitch();
-            };
         });
     }
 
