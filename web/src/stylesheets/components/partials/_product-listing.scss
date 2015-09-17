@@ -128,7 +128,6 @@
         &.col2 + .col3 {
             padding-left: 3%;
         }
-
     }
 
     @include breakpoint($bp-tablets-landscape) {
@@ -169,5 +168,30 @@
                 padding-left: 3%;
             }
         }
+
+        .sale & {
+            width: 20.5%;
+
+            &.col1 {
+                width: 17.5%;
+            }
+
+            &.col1 + &.col2 {
+                padding-left: 3%;
+            }
+
+            &.col2 + &.col3 {
+                padding-left: 3%;
+            }
+
+            &.col3 + &.col4 {
+                padding-left: 3%;
+            }
+
+            &.col4 + &.col5 {
+                padding-left: 3%;
+            }
+        }
+
     }
 }
