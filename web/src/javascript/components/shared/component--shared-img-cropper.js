@@ -252,7 +252,7 @@
       if (!$img.length) {
         $img = $('<img />');
         $dropZone.find('.jcrop-wrapper').append($img);
-        canvas.get(0).getContext('2d').fillText('Drop image here or choose below', 75, 80);
+        canvas.getContext('2d').fillText('Drop image here or choose below', 75, 80);
       }
 
       $img.on('load', function() {
