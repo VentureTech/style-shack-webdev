@@ -32,11 +32,10 @@ jQuery(function($) {
         }
 
         if ($con.length) {
-            $con
-                .select2(DEFAULT_SELECT_OPTIONS)
-                .addClass(CSS_CLASS_SELECT_INIT)
-                .filter('[data-features~="watch"]')
-                .on('change', miwt.observerFormSubmit);
+            $con.select2(DEFAULT_SELECT_OPTIONS);
+            $con.addClass(CSS_CLASS_SELECT_INIT);
+            $con.filter('[data-features~="watch"]');
+            $con.on('change', miwt.observerFormSubmit);
         }
     }
 
