@@ -59,6 +59,19 @@
   width: 100%;
 }
 
+@mixin externalSiteGlyph() {
+  &:before {
+    display: block;
+    font-family: 'Icons';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    content: '\e064';
+    color: $color-grey-80;
+    font-size: 14px;
+  }
+}
+
 @mixin standardGlyphOverride() {
   position: relative;
   font-family: 'Icons';
@@ -155,8 +168,5 @@
   @include addButtonGlyph('\e079');
 }
 
-@mixin externalSiteButtonGlyph() {
-  @include addButtonGlyph('\e064');
-}
 
 
