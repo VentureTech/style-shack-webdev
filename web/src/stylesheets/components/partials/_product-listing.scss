@@ -5,6 +5,12 @@
     transition: .3s ease all;
     position: relative;
 
+    .external {
+        position: relative;
+        display: block;
+        @include externalSiteGlyph;
+    }
+
     .image {
         margin-bottom: 10px;
 
