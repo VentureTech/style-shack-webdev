@@ -1,12 +1,15 @@
 @import "../components/partials/img-cropper";
-@import "../components/partials/property-editor";
 
+.label,
+label {
+  font-weight: bold;
+  font-size: 14px !important;
+}
 
-.address {
-    .label {
-        label {
-            font-weight: bold;
-        }
+.prop-wrapper {
+  .prop {
+    > .val {
+      display: block !important;
     }
-
+  }
 }
