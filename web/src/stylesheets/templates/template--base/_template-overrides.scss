@@ -1,282 +1,284 @@
 /** Overrides for Home Template **/
 #t_home {
-	@include breakpoint($bp-tablets-landscape) {
-		.l-top-nav {
-			.box-wc {
-				padding-left: 300px;
-			}
-		}
-	}
+    @include breakpoint($bp-tablets-landscape) {
+        .l-top-nav {
+            .box-wc {
+                padding-left: 300px;
+            }
+        }
+    }
 }
 
 /** Overrides for Metro Template **/
 #t_metro_home {
-	.metro-ad {
-		margin-bottom: $spacing-between-boxes/2;
-		text-align: center;
-		padding-left: 20px;
+    .metro-ad {
+        margin-bottom: $spacing-between-boxes/2;
+        text-align: center;
+        padding-left: 20px;
 
-		img {
-			max-width: 100%;
-			height: auto;
-			width: auto;
-		}
-	}
+        img {
+            max-width: 100%;
+            height: auto;
+            width: auto;
+        }
+    }
 
-	@include breakpoint($bp-tablets-portrait) {
-		#footer-nav {
-			width: 80%;
-		}
+    @include breakpoint($bp-tablets-portrait) {
+        #footer-nav {
+            width: 80%;
+        }
 
-		.metro-ad {
-			float: right;
-			width: 20%;
-			margin-bottom: 0;
-		}
-	}
+        .metro-ad {
+            float: right;
+            width: 20%;
+            margin-bottom: 0;
+        }
+    }
 }
-
 
 /** Overrides for Blog Template **/
 #t_blog {
-	.l-header {
-		padding: 65px 0 55px;
+    .l-header {
+        padding: 65px 0 55px;
 
-		h1 {
-			margin: 0;
-			font-size: 45px;
+        h1 {
+            margin: 0;
+            font-size: 45px;
 
-		}
+        }
 
-	}
+    }
 
-	.l-main-nav {
-		margin-bottom: 50px;
-	}
+    .l-main-nav {
+        margin-bottom: 50px;
+    }
 
-	.l-footer {
-		background-color: transparent;
+    .l-footer {
+        background-color: transparent;
 
-		#footer-nav {
-			display: inline-block;
-			vertical-align: top;
-			width: 40%;
+        #footer-nav {
+            display: inline-block;
+            vertical-align: top;
+            width: 40%;
 
+            .mi-parent {
+                width: auto;
 
-			.mi-parent {
-				width: auto;
+                + .mi-parent {
+                    margin-left: 50px;
+                }
+            }
 
-				+ .mi-parent {
-					margin-left: 50px;
-				}
-			}
+            .menuitemlabel {
+                color: $color-grey-80;
+            }
+        }
 
-			.menuitemlabel {
-				color: $color-grey-80;
-			}
-		}
+        .ad {
+            display: inline-block;
+            vertical-align: top;
+            width: 25%;
 
-		.ad {
-			display: inline-block;
-			vertical-align: top;
-			width: 25%;
+            img {
+                max-width: 100%;
+                height: auto;
+                width: auto;
+            }
+        }
 
-			img {
-				max-width: 100%;
-				height: auto;
-				width: auto;
-			}
-		}
+        .newsletter {
+            display: inline-block;
+            vertical-align: top;
+            width: 30%;
+            color: $color-grey-80;
 
-		.newsletter {
-			display: inline-block;
-			vertical-align: top;
-			width: 30%;
-			color: $color-grey-80;
+            .title {
+                text-transform: uppercase;
+            }
 
-			.title {
-				text-transform: uppercase;
-			}
+            p {
+                font-family: $font-opensanslight;
+            }
+        }
 
-			p {
-				font-family: $font-opensanslight;
-			}
-		}
+        .box-wc {
+            border-top: 1px solid $color-black;
+        }
+    }
 
+    @include breakpoint($bp-tablets-portrait) {
+        .l-primary-content,
+        .l-aside-content {
+            display: inline-block;
+            vertical-align: top;
+        }
 
+        .l-primary-content {
+            width: 60%;
 
-		.box-wc {
-			border-top: 1px solid $color-black;
-		}
-	}
+            &.wide {
+                width: 100%;
+            }
+        }
 
-	@include breakpoint($bp-tablets-portrait) {
-		.l-primary-content,
-		.l-aside-content {
-			display: inline-block;
-			vertical-align: top;
-		}
-
-	    .l-primary-content {
-			width: 60%;
-
-			&.wide {
-				width: 100%;
-			}
-		}
-
-		.l-aside-content {
-			width: 40%;
-			padding-left: 50px;
-		}
-	}
-	@include breakpoint($bp-tablets-landscape) {
-	    .l-primary-content {
-			width: 65%;
-		}
-		.l-aside-content {
-			width: 35%;
-			padding-left: 100px;
-		}
-	}
+        .l-aside-content {
+            width: 40%;
+            padding-left: 50px;
+        }
+    }
+    @include breakpoint($bp-tablets-landscape) {
+        .l-primary-content {
+            width: 65%;
+        }
+        .l-aside-content {
+            width: 35%;
+            padding-left: 100px;
+        }
+    }
 }
 
 #t_store {
-	.l-header {
-		padding-top: 70px;
-	}
+    .l-header {
+        padding-top: 70px;
+    }
 
-	#main_enclose {
-		padding-bottom: $spacing-between-boxes;
-		border-bottom: 1px solid $color-black;
-		margin-bottom: 30px;
-	}
+    #main_enclose {
+        padding-bottom: $spacing-between-boxes;
+        border-bottom: 1px solid $color-black;
+        margin-bottom: 30px;
+    }
 
-	@include breakpoint($bp-tablets-portrait) {
-	    .l-primary-content,
-		.l-aside-content {
-			display: inline-block;
-			vertical-align: top;
-		}
+    @include breakpoint($bp-tablets-portrait) {
+        .l-primary-content,
+        .l-aside-content {
+            display: inline-block;
+            vertical-align: top;
+        }
 
-	    .l-primary-content {
-			width: 60%;
-		}
+        .l-primary-content {
+            width: 60%;
+        }
 
-		.l-aside-content {
-			width: 40%;
-			padding-left: 50px;
-		}
-	}
-	@include breakpoint($bp-tablets-landscape) {
-	    .l-primary-content{
-			width: 74%;
-		}
-		.l-aside-content {
-			width: 25%;
-			padding-left: 40px;
-		}
-	}
+        .l-aside-content {
+            width: 40%;
+            padding-left: 50px;
+        }
+    }
+    @include breakpoint($bp-tablets-landscape) {
+        .l-primary-content {
+            width: 74%;
+        }
+        .l-aside-content {
+            width: 25%;
+            padding-left: 40px;
+        }
+    }
 }
 
 #t_catalog {
-	.l-header {
-		padding-top: 70px;
-	}
+    .l-header {
+        padding-top: 70px;
+    }
 
-	#main_enclose {
-		padding-bottom: $spacing-between-boxes;
-		border-bottom: 1px solid $color-black;
-		margin-bottom: 30px;
-	}
+    #main_enclose {
+        padding-bottom: $spacing-between-boxes;
+        border-bottom: 1px solid $color-black;
+        margin-bottom: 30px;
+    }
 
-	@include breakpoint($bp-tablets-portrait) {
-		.l-primary-content,
-		.l-aside-content {
-			display: inline-block;
-			vertical-align: top;
-		}
+    @include breakpoint($bp-tablets-portrait) {
+        .l-primary-content,
+        .l-aside-content {
+            display: inline-block;
+            vertical-align: top;
+        }
 
-		.l-primary-content {
-			width: 70%;
-			padding-left: 25px;
+        .l-primary-content {
+            width: 70%;
+            padding-left: 25px;
 
-			&.wide {
-				width: 100%;
-				padding: 0;
-			}
-		}
+            &.wide {
+                width: 100%;
+                padding: 0;
+            }
+        }
 
-		.l-aside-content {
-			width: 30%;
-			border-right: 1px solid $color-grey-d0;
-			padding-right: 25px;
-		}
-	}
-	@include breakpoint($bp-tablets-landscape) {
-		.l-primary-content {
-			width: 80%;
-			padding-left: 30px;
-		}
+        .l-aside-content {
+            width: 30%;
+            border-right: 1px solid $color-grey-d0;
+            padding-right: 25px;
+        }
+    }
+    @include breakpoint($bp-tablets-landscape) {
+        .l-primary-content {
+            width: 80%;
+            padding-left: 30px;
+        }
 
-		.l-aside-content {
-			width: 20%;
-			padding-right: 10px;
-		}
-	}
+        .l-aside-content {
+            width: 20%;
+            padding-right: 10px;
+        }
+    }
 }
 
 #t_store_admin,
 #t_admin {
-	.box-wc {
-		@include breakpoint($bp-desktop) {
-			max-width: 1280px;
-			padding: 0;
-		}
-	}
+    .box-wc {
+        @include breakpoint($bp-desktop) {
+            max-width: 1280px;
+            padding: 0;
+        }
+    }
 
-	.l-header {
-		padding-top: 70px;
-	}
+    .l-header {
+        padding-top: 70px;
+    }
 
-	#content_enclosing {
-		@include breakpoint($bp-tablets-portrait) {
-			padding-bottom: $spacing-admin-footer-height + $spacing-between-boxes;
-		}
-	}
+    #content_enclosing {
+        @include breakpoint($bp-tablets-portrait) {
+            padding-bottom: $spacing-admin-footer-height + $spacing-between-boxes;
+        }
+    }
 
-	.l-footer{
-		height: 100px;
-		margin-top: -100px;
-	}
+    .l-footer {
+        height: 100px;
+        margin-top: -100px;
+    }
 }
 
-
 #t_shopper {
+    @include breakpoint($bp-tablets-portrait) {
+        .l-primary-content,
+        .l-aside-content {
+            display: inline-block;
+            vertical-align: top;
+        }
 
-	@include breakpoint($bp-tablets-portrait) {
-		.l-primary-content,
-		.l-aside-content {
-			display: inline-block;
-			vertical-align: top;
-		}
+        .l-primary-content {
+            width: 60%;
 
-		.l-primary-content {
-			width: 60%;
-		}
+            &.wide {
+                width: 100%;
+            }
+        }
 
-		.l-aside-content {
-			width: 40%;
-			padding-right: 50px;
-		}
-	}
-	@include breakpoint($bp-tablets-landscape) {
-		.l-primary-content{
-			width: 74%;
-		}
-		.l-aside-content {
-			width: 25%;
-			padding-right: 40px;
-		}
-	}
+        .l-aside-content {
+            width: 40%;
+            padding-right: 50px;
+        }
+    }
+    @include breakpoint($bp-tablets-landscape) {
+        .l-primary-content {
+            width: 74%;
+
+            &.wide {
+                width: 100%;
+            }
+        }
+        .l-aside-content {
+            width: 25%;
+            padding-right: 40px;
+        }
+    }
 }
