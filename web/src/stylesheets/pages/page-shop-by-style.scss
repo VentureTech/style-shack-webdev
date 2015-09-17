@@ -1,0 +1,38 @@
+@import "../config/base-import";
+
+.product-listing {
+    + .product-listing {
+        margin-top: $spacing-between-boxes;
+        padding-top: $spacing-between-boxes;
+        border-top: 1px solid $color-grey-66;
+    }
+
+    .product {
+        margin-bottom: 0;
+    }
+}
+
+.heading {
+    margin-bottom: 10px;
+}
+
+.style-name {
+    font-family: $font-italic;
+    font-size: 20px;
+    display: inline-block;
+
+    .label {
+        display: inline-block;
+        font-family: $font-opensans;
+        text-transform: uppercase;
+        margin-right: 3px;
+    }
+}
+
+a.more {
+    float: right;
+    display: inline-block;
+    text-decoration: underline;
+    font-family: $font-italic;
+    color: $color-black;
+}
