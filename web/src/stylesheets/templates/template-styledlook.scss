@@ -4,12 +4,12 @@
 .styled-look {
     .info-wrap {
         margin-bottom: $spacing-between-boxes/2;
+        border-bottom: 1px solid $color-grey-c5;
+        padding-bottom: $spacing-between-boxes/3;
 
         .collage {
-            display: inline-block;
-            vertical-align: top;
-            width: 55%;
-
+            text-align: center;
+            margin-bottom: $spacing-between-boxes/2;
             img {
                 border: 1px solid $color-grey-c5;
                 max-width: 100%;
@@ -19,18 +19,33 @@
         }
 
         .info {
-            display: inline-block;
-            vertical-align: top;
-            width: 44%;
-            padding-left: $spacing-between-boxes/2;
-
             .title {
                 margin: 0;
             }
 
             .description {
-                max-height: 210px;
+                max-height: 230px;
                 overflow: hidden;
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+        .info-wrap {
+            border-bottom: 0;
+            padding-bottom: 0;
+
+            .collage {
+                display: inline-block;
+                vertical-align: top;
+                width: 55%;
+            }
+
+            .info {
+                display: inline-block;
+                vertical-align: top;
+                width: 44%;
+                padding-left: $spacing-between-boxes/2;
             }
         }
     }
