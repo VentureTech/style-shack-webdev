@@ -1,12 +1,5 @@
-
-.trends,
-.spotlights,
-.lifeshack {
-	display: none;
-}
-
-
 .main-nav {
+	display: none;
 	text-align: center;
 	border-bottom: 1px solid $color-grey-99;
 	margin-bottom: 15px;
@@ -27,22 +20,6 @@
 		}
 	}
 
-	.women,
-	.men,
-	.stores {
-		display: inline-block;
-		width: 30%;
-		text-align: center;
-	}
-
-	.women {
-		text-align: left;
-	}
-
-	.stores {
-		text-align: right;
-	}
-
 	.sale {
 		.menuitemlabel {
 			color: $color-orange-red;
@@ -59,6 +36,7 @@
 
 
 	@include breakpoint($bp-tablets-portrait) {
+		display: block;
 		border-bottom: 1px solid $color-black;
 		margin-bottom: 35px;
 
