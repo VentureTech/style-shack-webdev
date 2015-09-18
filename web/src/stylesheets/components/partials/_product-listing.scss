@@ -79,6 +79,13 @@
             margin-top: 8px;
 
             &[value="Remove From Shack"] {
+                height: 23px;
+                width: 23px;
+                margin-right: 5px;
+                margin-top: 5px
+            }
+
+            &:hover {
                 height: 25px;
                 width: 25px;
                 margin-right: 5px;
