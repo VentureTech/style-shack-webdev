@@ -39,9 +39,7 @@ h2 {
 }
 
 .l-aside-content {
-    width: 25%;
-    display: inline-block;
-    vertical-align: top;
+    display: none;
 
     border: 1px solid $color-grey-cc;
     background-color: $color-grey-f9;
@@ -91,12 +89,15 @@ h2 {
             }
         }
     }
+
+    @include breakpoint($bp-tablets-landscape) {
+        width: 25%;
+        display: inline-block;
+        vertical-align: top;
+    }
 }
 
 .l-primary-content {
-    width: 75%;
-    display: inline-block;
-    vertical-align: top;
 
     &.wide {
         display: block;
@@ -138,6 +139,12 @@ h2 {
 
     .right-container {
         margin-left: 3%;
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+        width: 75%;
+        display: inline-block;
+        vertical-align: top;
     }
 }
 
@@ -191,7 +198,8 @@ button.purchase-options-trigger,
 button.product-images-trigger,
 button.product-options-trigger,
 button.store-images-trigger,
-button.store-members-trigger {
+button.store-members-trigger,
+button.shipping-fees-trigger {
     background: transparent;
     background: $color-red;
     margin-top: 2px;
@@ -222,7 +230,8 @@ label.purchase-options-label,
 label.product-images-label,
 label.product-options-label,
 label.store-images-label,
-label.store-members-label {
+label.store-members-label,
+label.shipping-fees-label {
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
