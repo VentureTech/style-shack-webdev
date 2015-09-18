@@ -13,7 +13,6 @@
     }
 }
 
-
 /*** BEGIN SECTION STYLES ***/
 .l-top-nav {
     background-color: $color-black;
@@ -21,16 +20,16 @@
     font-family: $font-stack-sans;
     font-size: 16px;
     position: relative;
-    min-height: 35px;
+    min-height: 45px;
 
     .box-wc {
         position: relative;
     }
 
-    /*.shop-cta,
-    .store-signup {
+    .shop-cta,
+    .menu-comp {
         display: none;
-    }*/
+    }
 
     .deferred-logout {
         display: none;
@@ -118,10 +117,6 @@
     .menu-con {
         display: inline-block;
 
-        /*.mi {
-            display: none;
-        }*/
-
         .shack,
         .shopping-bag {
             .menuitemlabel:after {
@@ -146,53 +141,49 @@
                 background-image: url("/_resources/dyn/files/1060007zf9e2272e/_fn/shopping-bag.png");
             }
         }
+
+        .mi {
+            display: none;
+        }
     }
 
     #logo-mobile {
-        display: none;
+        display: block;
+        text-align: center;
+        padding-top: 14px;
+
+        img {
+            max-width: 170px;
+            margin-right: 15px;
+            width: auto;
+            height: auto;
+        }
     }
 
     @include breakpoint($bp-mobile-landscape) {
         #logo-mobile {
-            padding: 0;
+            padding-top: 14px;
 
             img {
-                max-width: 400px;
+                max-width: 210px;
             }
         }
 
     }
 
-    @include breakpoint($bp-mobile-only) {
+    @include breakpoint($bp-tablets-landscape) {
+        min-height: 35px;
+
         #logo-mobile {
-            display: block;
-            text-align: center;
-            padding-top: 7px;
-
-            img {
-                max-width: 220px;
-                width: auto;
-                height: auto;
-            }
+            display: none;
         }
 
-        .menu-con {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-
-            .shack {
-                display: block;
-
-                .mil {
-                    display: none;
-                }
-            }
+        .menu-comp {
+            display: inline-block;
+            float: right;
+            text-align: right;
         }
-    }
 
-    @include breakpoint($bp-tablets-portrait) {
         .shop-cta,
         .store-signup {
             display: block;
@@ -206,12 +197,15 @@
             display: inline-block;
         }
 
-        .menu-comp {
-            text-align: right;
-            display: block;
+        .shack {
+            .mil {
+                display: block;
+            }
         }
 
         .menu-con {
+            text-align: right;
+            display: inline-block;
             position: relative;
             border-right: 1px solid $color-grey-33;
 
@@ -240,6 +234,20 @@
 .l-header {
     text-align: center;
 
+    .box-wc {
+        position: relative;
+    }
+
+    .site-search {
+        position: absolute;
+        top: 10px;
+        right: 0;
+
+        button {
+            @include style-button-base;
+        }
+    }
+
     #logo {
         display: none;
 
@@ -250,8 +258,10 @@
         }
     }
 
-    @include breakpoint($bp-tablets-portrait) {
-        padding: 90px 0 45px;
+    @include breakpoint($bp-tablets-landscape) {
+        .box-wc {
+            padding: 90px 0 45px;
+        }
 
         #logo {
             display: block;
@@ -261,15 +271,6 @@
 
 .e-content {
     padding-bottom: $spacing-footer-height + $spacing-between-boxes;
-}
-
-.l-cta {
-    padding-bottom: $spacing-between-boxes;
-
-    @include breakpoint($bp-tablets-portrait) {
-        border-bottom: 1px solid $color-black;
-        margin-bottom: $spacing-between-boxes;
-    }
 }
 
 .l-footer {
@@ -290,6 +291,7 @@
 
         .mi-parent {
             font-size: 14px;
+            font-family: $font-opensansbold;
 
             + .mi-parent {
                 margin-top: $spacing-between-boxes/2;
