@@ -17,27 +17,32 @@ ul.tab-items {
     display: inline-block;
     *display: inline;
     zoom:1;
+
+    + li {
+      margin-left: 6px;
+    }
   }
 
   a {
     display: block;
-    background-color: #F9F9F7;
-    color: #000;
+    background-color: $color-grey-f9;
+    color: $color-black;
     padding: 5px 10px;
-    border-radius: 8px 8px 0 0;
-    border: 1px solid #DDDAAA;
+    border: 1px solid $color-grey-cc;
     border-bottom: none;
   }
 
   .tab-selected a {
-    background-color: #FAF9E2;
+    background-color: $color-grey-cc;
   }
 }
 
-/*
 .tab-content {
-  border: 1px solid #dddaaa;
-  border-radius: 0 8px 8px 8px;
+  border: 1px solid $color-grey-cc;
   padding: 20px;
-  background-color: #FAF9E2;
-}*/
+  background-color: $color-grey-f9;
+
+  .tab-container {
+    margin-top: 20px;
+  }
+}
