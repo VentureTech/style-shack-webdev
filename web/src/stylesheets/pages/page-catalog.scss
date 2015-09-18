@@ -1,0 +1,71 @@
+@import "../config/base-import";
+
+.layout {
+  > .table_view.search_results {
+    width: 100%;
+  }
+}
+
+.table_view.search_results {
+  table {
+    @include style-generic-table;
+  }
+}
+
+.current_name {
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+.layout_group.search_bar {
+  margin-bottom: 10px;
+}
+
+.btn {
+  margin-left: 10px;
+
+  &.add_catalog_node_button,
+  &.add_search_option_button {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  &.add_search_option_button {
+    margin-top: 10px;
+  }
+}
+
+.browse_link,
+.detail_link,
+.content_chunks,
+.name-con,
+.prog-name-con{
+  margin-top: $spacing-between-boxes/2;
+}
+
+.buttons {
+  margin-top: 10px;
+
+  input,
+  select {
+    margin-right: 10px;
+  }
+
+  .btn {
+    margin-left: 0;
+
+    + .btn {
+      margin-left: 10px;
+    }
+  }
+}
+
+.category_list {
+  > div {
+    + div {
+      margin-top: 10px;
+    }
+  }
+}
