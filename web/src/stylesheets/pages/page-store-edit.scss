@@ -1,5 +1,6 @@
 @import "../config/base-import";
 
+
 .mode-view {
   .logo-image,
   .banner-image {
@@ -28,18 +29,17 @@
   box-shadow: 0 0 2px #959595;
 }
 
-.store-images-wrapper {
+.store-images-wrapper,
+.store-shipping-fees,
+.store-members-wrapper {
   margin-top: $spacing-between-boxes;
   padding: 10px 20px;
   border: 1px solid #ccc;
   box-shadow: 0 0 2px #959595;
 
-  .actions {
-    .btn {
-      + .btn {
-        margin-left: 5px;
-      }
-    }
+  .actions,
+  .entity-actions {
+
   }
 }
 
@@ -47,16 +47,9 @@
   margin-top: $spacing-between-boxes;
 
   .store-members {
-    border: 1px solid $color-grey-cc;
-    padding: 20px;
-
     .entity-actions {
       width: 100%;
       float: left;
-
-      .btn {
-        float: right;
-      }
     }
   }
 }
