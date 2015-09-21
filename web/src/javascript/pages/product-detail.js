@@ -1,6 +1,6 @@
 jQuery(function($){
     var $bodyCon = $("body");
-    var $productVariantManager = $(".product-variant-manager");
+    var $productVariantManager = $("#variant-mgr-id");
     var $infoCon = $(".more-info > div");
     var $loadingDiv = $('<div class="loading" />');
     var $photoCon = $(".images");
@@ -95,7 +95,8 @@ jQuery(function($){
         };
 
         $.get(updateURL, updateData, function(html){
-            $('.image-manager').html(html);
+            var $newNodes = $($.parseHTML(html));
+            $('.image-manager').empty().append($newNodes.find(".image-manager").children());
             setupProductPhotos();
         });
     }
@@ -106,7 +107,6 @@ jQuery(function($){
         setupProductPhotos();
 
         $bodyCon.on("ss:pvm-loading", function(e){
-            console.log("loading");
             $photoCon.find('.image').off();
             if ($photoCon.find(".loaded").length >= 0) {
                 $photoCon.append($loadingDiv);
