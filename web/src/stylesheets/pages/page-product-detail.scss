@@ -1,10 +1,17 @@
 @import "../config/base-import";
+@import "../components/partials/addtoshack";
 @import "../components/partials/addthis-menu";
 
 .images {
     position: relative;
     border-bottom: 1px solid $color-grey-66;
     margin-bottom: $spacing-between-boxes/2;
+    padding-bottom: $spacing-between-boxes/2;
+
+    .my-shack {
+        top: auto;
+        bottom: -$spacing-between-boxes;
+    }
 
     img {
         max-width: 100%;
@@ -23,28 +30,31 @@
     }
 
     .thumbs {
-        width: 10%;
-        display: inline-block;
+        display: none;
+        width: 18%;
+        padding-right: 20px;
         vertical-align: top;
-        padding-right: 10px;
 
         .image {
+            margin: 0 10px;
+
             + .image {
                 margin-top: 7px;
             }
         }
+
+        .variants {
+            border-bottom: 1px solid $color-grey-cc;
+            padding-bottom: 10px;
+            margin-bottom: 5px;
+        }
     }
 
     .main {
-        width: 85%;
-        display: inline-block;
-        vertical-align: top;
-        margin-left: 10px;
         position: relative;
         text-align: center;
 
         img {
-            transition: 1s ease height;
             max-height: 100%;
             width: auto;
             height: auto;
@@ -75,6 +85,24 @@
         vertical-align: top;
         border-bottom: 0;
         margin-bottom: 0;
+        padding-right: $spacing-between-boxes;
+
+        .my-shack {
+            right: $spacing-between-boxes;
+            bottom: auto;
+            top: 0;
+        }
+
+        .thumbs {
+            display: inline-block;
+        }
+
+        .main {
+            width: 77%;
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 10px;
+        }
     }
 
 }
