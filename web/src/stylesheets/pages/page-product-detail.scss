@@ -196,12 +196,16 @@
     display: inline-block;
     margin: 5px 0;
 
-    + .product-option {
-        margin-left: 5px;
+
+    button,
+    a {
+        @include style-button-base;
     }
 
-    button {
-        @include style-button-base;
+    @include breakpoint($bp-tablets-portrait) {
+        + .product-option {
+            margin-left: 5px;
+        }
     }
 }
 
