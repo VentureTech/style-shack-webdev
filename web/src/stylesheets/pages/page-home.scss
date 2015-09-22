@@ -30,7 +30,7 @@
         margin-top: 10px;
     }
 
-    @include breakpoint($bp-tablets-landscape) {
+    @include breakpoint($bp-tablets-portrait) {
         height: 415px;
         display: block;
 
@@ -72,7 +72,8 @@
     }
 
     .your-style {
-        background: url("/_resources/dyn/files/1058377z36f15d8f/_fn/home-cta-bg.jpg") center center no-repeat;
+        background: url("/_resources/dyn/files/1107713z3b10da4f/_fn/style-mix.jpg") center center no-repeat;
+        background-size: 400px;
     }
 
     .shop-local {
@@ -82,7 +83,7 @@
         border-top: 1px solid $color-white;
     }
 
-    @include breakpoint($bp-tablets-landscape) {
+    @include breakpoint($bp-tablets-portrait) {
         display: none;
     }
 }
@@ -137,7 +138,7 @@
         }
     }
 
-    @include breakpoint($bp-tablets-landscape) {
+    @include breakpoint($bp-tablets-portrait) {
         display: block;
         padding: 0;
 
