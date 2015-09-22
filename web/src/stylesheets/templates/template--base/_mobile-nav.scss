@@ -6,7 +6,7 @@
     box-sizing: content-box;
     height: 25px;
     width: 25px;
-    padding: 12px 10px;
+    padding: 10px;
 
     .line {
         display: block;
@@ -15,11 +15,11 @@
         width: 100%;
 
         + .line {
-            margin-top: 4px;
+            margin-top: 5px;
         }
     }
 
-    @include breakpoint($bp-tablets-landscape) {
+    @include breakpoint($bp-tablets-portrait) {
         display: none;
     }
 }
@@ -35,7 +35,7 @@
 .l-top-nav {
     .mobile-main,
     .login-main {
-        > .menu {
+        > .menu-t1 {
             background: $color-black;
             position: absolute;
             max-height: 0;
@@ -47,17 +47,49 @@
             transition: .5s ease-in max-height;
 
             .mi {
+                position: relative;
+
                 + .mi {
                     border-top: 1px solid $color-white;
                 }
+
+                .collapse {
+                    display: block;
+                    z-index: 8500;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    background-color: $color-grey-1b;
+                    padding-top: 7px;
+                    width: 40px;
+                    height: 33px;
+                    text-align: center;
+
+                    span {
+                        display: inline-block;
+                        height: 0;
+                        width: 0;
+                        border-left: 6px solid transparent;
+                        border-right: 6px solid transparent;
+                        border-top: 6px solid $color-white;
+                    }
+                }
+
+
+                &.over,
+                &.open {
+                    .collapse {
+                        span {
+                            border-bottom: 6px solid $color-white;
+                            border-top: none;
+                        }
+                    }
+                }
+
             }
 
             .menuitemlabel {
                 padding: 8px 30px 8px 15px;
-
-                &:hover {
-                    background: $color-grey-33;
-                }
             }
         }
 
@@ -104,7 +136,7 @@
             }
         }
 
-        @include breakpoint($bp-tablets-landscape) {
+        @include breakpoint($bp-tablets-portrait) {
             display: none;
         }
     }
