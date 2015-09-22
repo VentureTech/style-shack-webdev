@@ -19,10 +19,9 @@
     color: $color-white;
     font-family: $font-stack-sans;
     font-size: 16px;
-    position: relative;
-    min-height: 45px;
 
     .box-wc {
+        min-height: 45px;
         position: relative;
     }
 
@@ -63,7 +62,8 @@
 
     .menu-t1 {
         > .mi {
-            &:hover {
+            &.over,
+            &.open {
                 background: $color-grey-1b;
             }
 
@@ -78,14 +78,11 @@
     }
 
     .menu-t2 {
-        position: absolute;
-        left: 0;
         max-height: 0;
         opacity: 0;
         overflow: hidden;
         transition: 400ms ease all;
-        background-color: $color-black;
-        border: 1px solid $color-white;
+        background-color: $color-white;
 
         > .mi {
             white-space: nowrap;
@@ -95,18 +92,22 @@
             }
         }
 
+
         .menuitemlabel {
             padding: 8px 20px;
+            color: $color-black;
 
-            &:hover {
-                background: $color-grey-33;
+            &.over,
+            &.open {
+                background: $color-grey-c5;
             }
         }
+
     }
 
     .mi-parent {
-        &:hover,
-        &.over {
+        &.over,
+        &.open {
             .menu-t2 {
                 max-height: 2000px;
                 opacity: 1;
@@ -171,8 +172,25 @@
 
     }
 
-    @include breakpoint($bp-tablets-landscape) {
-        min-height: 35px;
+    @include breakpoint($bp-tablets-portrait) {
+        .box-wc {
+            min-height: 35px;
+        }
+
+        .menu-t2 {
+            position: absolute;
+            left: 0;
+            background-color: $color-black;
+            border: 1px solid $color-white;
+
+            .menuitemlabel {
+                color: $color-white;
+
+                &:hover {
+                    background-color: $color-grey-33;
+                }
+            }
+        }
 
         #logo-mobile {
             display: none;
@@ -258,7 +276,7 @@
         }
     }
 
-    @include breakpoint($bp-tablets-landscape) {
+    @include breakpoint($bp-tablets-portrait) {
         .box-wc {
             padding: 90px 0 45px;
         }
@@ -270,7 +288,12 @@
 }
 
 .e-content {
+    padding-top: $spacing-between-boxes;
     padding-bottom: $spacing-footer-height + $spacing-between-boxes;
+
+    @include breakpoint($bp-tablets-landscape) {
+        padding-top: 0;
+    }
 }
 
 .l-footer {
