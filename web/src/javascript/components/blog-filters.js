@@ -14,7 +14,7 @@ jQuery(function($){
     }
 
     function appendBlogCatsToMenu($con, classname) {
-        $mainNav.find(classname).append($con);
+        $mainNav.find(classname).addClass("mi-parent").append($con);
     }
 });
 
