@@ -1,6 +1,15 @@
 @import "../config/base-import";
 @import "../components/partials/filters";
 
+p.back {
+    text-align: center;
+
+    a {
+        font-family: $font-italic;
+        font-size: 18px;
+    }
+}
+
 .store {
     text-align: center;
     margin-bottom: $spacing-between-boxes;
