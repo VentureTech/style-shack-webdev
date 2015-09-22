@@ -37,12 +37,11 @@ jQuery(function($){
         };
 
         $success
-            .find('.listing')
+            .find('.store-listing')
             .load(dataURL, params, function(){
                 $wait.hide();
                 $timedOut.hide();
                 $success.show();
-
             });
     };
 
