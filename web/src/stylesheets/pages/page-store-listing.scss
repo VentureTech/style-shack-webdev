@@ -18,12 +18,17 @@ p.back {
     .image {
         margin-bottom: 10px;
 
-        img {
-            max-width: 100%;
-            width: 100%;
-            height: auto;
+        a {
+            display: block;
+            padding-top: 100%;
+            text-indent: -9999px;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
         }
     }
+
+
 
     .name {
         text-transform: uppercase;
