@@ -17,17 +17,13 @@
         margin-bottom: 10px;
         position: relative;
 
-        img {
-            position: absolute;
-            top: -9999px;
-            bottom: -9999px;
-            left: -9999px;
-            right: -9999px;
-            margin: auto;
-
-            max-height: 100%;
+        a {
+            display: block;
             height: 100%;
-            width: auto;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            text-indent: -9999px;
         }
     }
 
