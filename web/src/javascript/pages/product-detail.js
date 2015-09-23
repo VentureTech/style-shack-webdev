@@ -5,6 +5,9 @@ jQuery(function($){
     var $loadingDiv = $('<div class="loading" />');
     var $photoCon = $(".images");
     var $forms = $("form");
+    var $nav = $('<ul class="nav" />');
+    var $prev = $('<div class="navi prev"><span></span></div>').appendTo($nav);
+    var $next = $('<div class="navi next"><span></span></div>').appendTo($nav);
 
     var CSS_OPEN_CLASS = "open";
     var CSS_EMPTY_CLASS = "empty";
@@ -12,6 +15,34 @@ jQuery(function($){
     var CSS_LOADED_CLASS = "loaded";
     var CSS_OLD_CLASS = "old";
     var CSS_NEW_CLASS = "new";
+    var CSS_PREVIOUS_CLASS = "prev";
+    var CSS_NEXT_CLASS = "next";
+    var CSS_CURRENT_CLASS = "current";
+    var transitionProperty = Modernizr.csstransforms ? "transform" : "left";
+    var BREAKPOINT_TABLET_PORTRAIT = 767;
+    var RESIZE_THROTTLE_TIME = 200;
+
+    var resizeThrottleId;
+    var slideWidth;
+
+    var $window = $(window);
+    var windowWidth = $window.width();
+
+    var isTouch = (Modernizr && Modernizr.touch) || navigator.maxTouchPoints;
+
+    function updateWindowWidth() {
+        windowWidth = $window.width();
+    }
+
+    function addResizeWatcher() {
+        $window.on('resize', function() {
+            clearTimeout(resizeThrottleId);
+            resizeThrottleId = setTimeout(function() {
+                updateWindowWidth();
+            }, RESIZE_THROTTLE_TIME);
+        });
+    }
+
 
     function setupDescriptionToggle() {
         $infoCon.each(function (idx, con) {
@@ -26,21 +57,15 @@ jQuery(function($){
         });
     }
 
-    function loadActivePictureInfo(thumb) {
+    /*function loadActivePictureInfo(thumb) {
         var $thumb = $(thumb);
         var largeUrl = $thumb.data("large");
         var xlUrl = $thumb.data("xl");
 
         var $con = $(".main > .image");
-        var $img = $con.hasClass(CSS_EMPTY_CLASS) ? $([]) : $con.find('img');
 
-        if (!$img.length) {
-            $img = $('<img />').attr("src", largeUrl);
-            $con.append($img);
-        }
-        else {
-            updateImage($con, $img, largeUrl);
-        }
+        $con.css('background-image', largeUrl);
+        updateImage(largeUrl);
 
 
         $img.one('load', function() {
@@ -49,42 +74,139 @@ jQuery(function($){
         }).each(function(){
             if (this.complete) $img.load();
         });
-    }
+    }*/
 
-    function updateImage(con, img, url) {
-        var $con = $(con);
-        var $img = $(img);
+    function updateImage(url) {
+        var $image = $photoCon.find(".main .image");
         var largeUrl = url;
 
-        $img.removeClass(CSS_NEW_CLASS).addClass(CSS_OLD_CLASS);
-        $con.append('<div class="loading" />');
-        $img = $('<img />').attr("src", largeUrl).addClass(CSS_NEW_CLASS);
-        $con.append($img);
-        $con.find(".old").addClass(CSS_REMOVE_CLASS);
+        //$img.removeClass(CSS_NEW_CLASS).addClass(CSS_OLD_CLASS);
+        $image.append('<div class="loading" />');
+
+        $image.css('background-image', largeUrl);
+
+
+        //$img = $('<img />').attr("src", largeUrl).addClass(CSS_NEW_CLASS);
+        //$con.append($img);
+        //$con.find(".old").addClass(CSS_REMOVE_CLASS);
+
         setTimeout(function(){
-            $con.find(".loading").remove();
-            $img.addClass("loaded");
-            $con.find(".old").remove();
+            $image.find(".loading").remove();
+            $image.addClass("loaded");
+            //$con.find(".old").remove();
         }, 500);
     }
 
 
     function setupProductPhotos() {
-        $photoCon.each(function(idx, con) {
-            var $con = $(con);
-            var $thumbs = $con.find(".thumbs .image");
+        if (windowWidth < BREAKPOINT_TABLET_PORTRAIT) {
+            $photoCon.find('.image').off();
+            $photoCon.find('.main').empty();
+            setupMobileSlides();
+        }
+        else {
+            $photoCon.each(function (idx, con) {
+                var $con = $(con);
+                var $thumbs = $con.find(".thumbs .image");
 
-            $thumbs.each(function(idx, thumb){
-                var $thumb = $(thumb);
+                $thumbs.each(function (idx, thumb) {
+                    var $thumb = $(thumb);
+                    var largeUrl = $thumb.data("large");
 
-                $thumb.on("click", function(e){
-                    loadActivePictureInfo(this);
+                    $thumb.on("click", function(e) {
+                        updateImage(largeUrl);
+                    });
                 });
-            });
 
-            $thumbs.first().trigger("click");
-        });
+                $thumbs.first().trigger("click");
+            });
+        }
     }
+
+
+    function setupMobileSlides() {
+        var $thumbCon = $photoCon.find(".thumbs");
+        var $slides = $thumbCon.find(".image");
+
+        $thumbCon.wrapInner('<div class="wrapper"></div>');
+        var $wrapper = $(".wrapper");
+        $wrapper.wrapInner('<div class="scrollpane"></div>');
+        var $scrollPane = $(".scrollpane");
+
+        $thumbCon.addClass('rotating-slider');
+
+        if (isTouch) {
+            $thumbCon.addClass("mobi");
+        }
+
+        $nav.prependTo($thumbCon);
+        $nav.wrap('<div class="nav_con" />');
+
+        var curSlideIdx = 0;
+        $thumbCon.eq(curSlideIdx).addClass('current');
+        slideWidth = $slides.width();
+
+
+        $nav.on('click', '.navi.next', function(evt){
+            nextSlide("left");
+        });
+
+        $nav.on('click', '.navi.prev', function(evt){
+            nextSlide("right");
+        });
+
+        $thumbCon.on("swipeleft", function(event) {
+            nextSlide("left");
+        });
+
+        $thumbCon.on("swiperight", function(event) {
+            nextSlide("right");
+        });
+
+        $thumbCon.on("movestart", function(e) {
+            // allows swipe up and down on mobile
+            if ((e.distX > e.distY && e.distX < -e.distY) ||
+                (e.distX < e.distY && e.distX > -e.distY)) {
+                e.preventDefault();
+            }
+        });
+
+
+        function nextSlide(direction) {
+            if (direction == "left" && (curSlideIdx + 1) < $slides.length) {
+                curSlideIdx++;
+            }
+            else if (direction == "right" && curSlideIdx > 0) {
+                curSlideIdx--;
+            }
+
+            moveSlide();
+
+            setOrderClasses();
+
+        }
+
+        function moveSlide() {
+            var transitionValue = -(slideWidth*curSlideIdx);
+            if (Modernizr.csstransforms) {
+                transitionValue = "translateX(" + transitionValue + "px)";
+            }
+            $scrollPane.css(transitionProperty, transitionValue);
+        }
+
+        function setOrderClasses() {
+            if ((curSlideIdx + 1) >= $slides.length) $thumbCon.removeClass(CSS_NEXT_CLASS);
+            else $thumbCon.eq(curSlideIdx + 1).addClass(CSS_NEXT_CLASS).siblings().removeClass(CSS_NEXT_CLASS);
+
+            if (curSlideIdx == 0) $thumbCon.removeClass(CSS_PREVIOUS_CLASS);
+            else $thumbCon.eq(curSlideIdx - 1).addClass(CSS_PREVIOUS_CLASS).siblings().removeClass(CSS_PREVIOUS_CLASS);
+
+            $thumbCon.eq(curSlideIdx).addClass(CSS_CURRENT_CLASS).siblings().removeClass(CSS_CURRENT_CLASS);
+        }
+    }
+
+
+
 
     function updateImageManager(variantID) {
         var updateURL = $(".image-manager").data('updateUrl');
@@ -102,8 +224,10 @@ jQuery(function($){
     }
 
 
+
     function init() {
         setupDescriptionToggle();
+        addResizeWatcher();
         setupProductPhotos();
 
         $bodyCon.on("ss:pvm-loading", function(e){
