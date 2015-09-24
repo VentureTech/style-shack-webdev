@@ -28,6 +28,7 @@
 
 @mixin style-generic-table {
 	width: 100%;
+	max-width: 100%;
 	border-collapse: separate;
 	border-radius: 4px;
 	border-spacing: 0;
@@ -44,12 +45,16 @@
 		margin-left: 10px;
 	}
 
+	.summary {
+		display: none;
+	}
+
 	th {
 		background: transparent linear-gradient(to bottom, $color-blue-grey 0%, $color-grey-66 100%) repeat scroll 0 0;
-		font-size: 14px;
+		font-size: 11px;
 		color: $color-white;
 		font-weight: normal;
-		padding: 10px 15px;
+		padding: 10px 5px;
 		text-align: left;
 		border-bottom: 1px solid $color-grey-c5;
 
@@ -75,9 +80,9 @@
 	}
 
 	td {
-		padding: 10px 15px;
+		padding: 10px 5px;
 		border-bottom: 1px solid $color-grey-c5;
-		font-size: 14px;
+		font-size: 11px;
 		background-color: $color-white;
 
 		+ td {
@@ -96,7 +101,8 @@
 		}
 
 		.btn {
-			&.view {
+			&.view,
+			&.details_button {
 				@include viewButtonGlyph;
 			}
 			&.order-up {
@@ -118,13 +124,18 @@
 		}
 	}
 
-
 	td.action {
 		a[title="Order History"] {
 			@include viewButtonGlyph;
 		}
-	}
 
+		.checkout-order {
+			a[title="Order History"] {
+				@include cartButtonGlyph;
+				top: -1px;
+			}
+		}
+	}
 
 	.column-visibility {
 		.btn {
@@ -141,6 +152,21 @@
 			}
 		}
 	}
+
+	@include breakpoint($bp-tablets-portrait) {
+		th {
+			font-size: 14px;
+			padding: 10px 15px;
+		}
+		td {
+			padding: 10px 15px;
+			font-size: 14px;
+		}
+
+		.summary {
+			display: table-cell;
+		}
+	}
 }
 
 @mixin style-generic-table-search {
@@ -148,31 +174,107 @@
 	margin-bottom: 10px;
   	max-width: 100%;
 
+	.disabled {
+		display: none;
+	}
+
 	.actions {
-		display: inline-block;
-		vertical-align: top;
+		display: block;
 	}
 
-	input[type="submit"],
-	a[title="Order History"]{
-		@include style-button-base;
-		margin: 0 3px;
+	select {
+		font-size: 12px;
+		text-align: left;
 	}
 
-	span {
-		display: inline-block;
-		vertical-align: top;
-		margin-right: 30px;
-		margin-bottom: 5px;
+	.constraint {
+		margin-bottom: 20px;
 
 		label {
-			font-weight: bold;
-			margin-right: 3px;
+			display: block;
+			font-size: 14px;
+			font-family: $font-opensansbold;
+			margin-bottom: 3px;
 		}
 
+		input,
 		select {
-			font-size: 12px;
-			text-align: left;
+			width: 80%;
+		}
+
+		&.date {
+			input {
+				width: auto;
+			}
+		}
+	}
+
+	.layout_group {
+		margin-top: $spacing-between-boxes/2;
+		border-top: 1px solid $color-grey-66;
+		padding-top: $spacing-between-boxes/2;
+	}
+
+	.recent_search {
+		display: inline-block;
+		margin-right: 5px;
+		margin-bottom: 10px;
+	}
+
+	.result_limit {
+		display: inline-block;
+		margin-left: $spacing-between-boxes/2;
+	}
+
+	.shipping_address_button {
+		margin: 10px 0;
+	}
+
+
+	input[type="submit"],
+	a[title="Order History"] {
+		@include style-button-base;
+		margin: 0 3px;
+		width: 47.5%;
+		text-align: center;
+	}
+
+	@include breakpoint($bp-mobile-landscape) {
+		.constraint {
+			display: inline-block;
+			width: 48.5%;
+
+			+ .constraint {
+				margin-right: 5px;
+			}
+		}
+	}
+
+	@include breakpoint($bp-tablets-portrait) {
+		.actions {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		.constraint {
+			width: 32%;
+		}
+
+		input[type="submit"],
+		a[title="Order History"] {
+			width: inherit;
+		}
+
+		.shipping_address_button {
+			float: right;
+			margin: -$spacing-between-boxes 0 0 0;
+		}
+	}
+
+	@include breakpoint($bp-desktop) {
+
+		.constraint {
+			width: 24%;
 		}
 	}
 }
