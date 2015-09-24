@@ -8,8 +8,11 @@ jQuery(function($){
     var $header = $(".l-top-nav > .box-wc");
     var $loginMenuItems = $header.find(".menu-comp .mi").not('.shopping-bag');
     var $mobileLoginMenu = $('<ul class="menu-t1 menu"/>').append($loginMenuItems.clone());
+
     var $mainMenu = $(".main-nav > .menu");
     var $userMenu = $(".user-profile > .menu");
+    var $storeMenu = $(".store-menu-nav > .menu");
+    var $adminMenu = $(".admin-nav > .menu");
 
     var $mobileNav,
         $loginNav;
@@ -21,20 +24,55 @@ jQuery(function($){
 
     var resizeThrottleId;
     var windowWidth = 0;
+    var pollCount = 0;
 
     var isTouch = (Modernizr && Modernizr.touch) || navigator.maxTouchPoints;
+
+
+
+    /* Function to find logout component after it is loaded */
+    function pollForLogin() {
+        setTimeout(function(){
+            if ($(".deferred-logout.loaded").length || pollCount > 101) {
+                $loginMobileNav.find(".menu-t1").append($(".logout").clone());
+                $loginMobileNav.find(".logout").wrap('<li class="mi"></li>')
+            }
+            else {
+                pollForLogin();
+            }
+        },50);
+        pollCount++;
+    }
 
     /* Append new toggle elements to top header. Clone menus out of current location
     and into new menu in top header. Trigger toggle setup **/
     function setupMobileHeader() {
-        $header.append($navTrigger);
-        $header.append($shackTrigger);
-        $primaryMobileNav.append($mainMenu.clone());
-        $primaryMobileNav.append($userMenu.clone());
-        $loginMobileNav.append($mobileLoginMenu);
-        $header.append($primaryMobileNav);
-        $header.append($loginMobileNav);
 
+
+        if ($mainMenu.length) {
+            $header.append($navTrigger);
+            $primaryMobileNav.append($mainMenu.clone());
+            $header.append($primaryMobileNav);
+        }
+        else if ($storeMenu.length) {
+            $header.append($navTrigger);
+            $primaryMobileNav.append($storeMenu.clone());
+            $header.append($primaryMobileNav);
+        }
+
+        if ($userMenu.length) {
+            $header.append($shackTrigger);
+            $loginMobileNav.append($mobileLoginMenu);
+            $header.append($loginMobileNav);
+        }
+
+        else if ($adminMenu.length) {
+            $header.append($shackTrigger);
+            $loginMobileNav.append($adminMenu.clone());;
+            $header.append($loginMobileNav);
+        }
+
+        pollForLogin();
         setupNavToggles();
     }
 
