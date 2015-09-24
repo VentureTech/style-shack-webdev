@@ -7,6 +7,18 @@
     transition: .3s ease all;
     position: relative;
 
+    display: inline-block;
+    vertical-align: top;
+    width: 51%;
+
+    &.col1 {
+        width: 48%;
+    }
+
+    &.col1 + &.col2 {
+        padding-left: 3%;
+    }
+
     .external {
         position: relative;
         display: block;
@@ -16,6 +28,9 @@
     .image {
         margin-bottom: 10px;
         position: relative;
+        max-height: 200px;
+        height: 200px;
+        overflow: hidden;
 
         a {
             display: block;
@@ -74,26 +89,6 @@
     }
 
     @include breakpoint($bp-mobile-landscape) {
-        display: inline-block;
-        vertical-align: top;
-        width: 51%;
-
-        &.col1 {
-            width: 48%;
-        }
-
-        &.col1 + &.col2 {
-            padding-left: 3%;
-        }
-
-        .image {
-            max-height: 250px;
-            height: 250px;
-            overflow: hidden;
-        }
-    }
-
-    @include breakpoint($bp-tablets-portrait) {
         width: 33.6%;
 
         &.col1 {
@@ -106,6 +101,11 @@
 
         &.col2 + .col3 {
             padding-left: 3%;
+        }
+
+        .image {
+            max-height: 250px;
+            height: 250px;
         }
     }
 
