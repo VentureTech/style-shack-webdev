@@ -1,12 +1,12 @@
 
 .archetype-menu {
-  margin-bottom: $spacing-between-boxes/4;
+  margin-bottom: $spacing-between-boxes/2;
 
   ul {
     @include resetMenu;
 
     + ul {
-      margin-top: $spacing-between-boxes/4;
+      margin-top: $spacing-between-boxes/2;
     }
   }
 
@@ -16,20 +16,22 @@
 
   .menu-t1 {
     > .mi {
-      > .menuitemlabel {
-        position: relative;
+      display: block;
+      position: relative;
 
-        &:after {
-          position: absolute;
-          top: 8px;
-          right: 5px;
-          width: 0;
-          height: 0;
-          border-left: 6px solid transparent;
-          border-right: 6px solid transparent;
-          border-top: 6px solid $color-black;
-          content: '';
-        }
+      &:after {
+        position: absolute;
+        top: 8px;
+        right: 5px;
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 6px solid $color-black;
+        content: '';
+      }
+
+      > .menuitemlabel {
 
       }
 
@@ -64,7 +66,7 @@
     @include resetMenu;
 
     + ul {
-      margin-top: $spacing-between-boxes/4;
+      margin-top: $spacing-between-boxes/2;
     }
   }
 
@@ -81,7 +83,7 @@
 
     > .mi {
       + .mi {
-        margin-top: $spacing-between-boxes/4;
+        margin-top: $spacing-between-boxes/2;
       }
 
       &.catalogcategory.mi-parent {
@@ -90,7 +92,7 @@
 
         &:after {
           position: absolute;
-          top: 8px;
+          top: 7px;
           right: 5px;
           width: 0;
           height: 0;
@@ -100,10 +102,13 @@
           content: '';
         }
 
-        &.over:after {
-          border-bottom: 6px solid $color-black;
-          border-top: none;
+        &.over {
+          &:after {
+            border-bottom: 6px solid $color-black;
+            border-top: none;
+          }
         }
+
       }
     }
 
@@ -119,9 +124,24 @@
           font-size: 12px;
         }
       }
+
+
+      &.menu-t1 {
+        .mi-parent {
+          padding-top: 5px;
+
+          > .menuitemlabel {
+            color: $color-black;
+            font-family: $font-opensansbold;
+          }
+        }
+      }
     }
+
   }
+
 }
+
 
 
 .catalogpath {
