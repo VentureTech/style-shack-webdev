@@ -57,27 +57,20 @@
         background-color: transparent;
 
         #footer-nav {
-            display: inline-block;
-            vertical-align: top;
-            width: 40%;
-
             .mi-parent {
                 width: auto;
 
                 + .mi-parent {
-                    margin-left: 50px;
+                    margin-top: $spacing-between-boxes;
                 }
             }
-
             .menuitemlabel {
                 color: $color-grey-80;
             }
         }
 
         .ad {
-            display: inline-block;
-            vertical-align: top;
-            width: 25%;
+            margin-top: $spacing-between-boxes;
 
             img {
                 max-width: 100%;
@@ -87,18 +80,18 @@
         }
 
         .newsletter {
-            display: inline-block;
-            vertical-align: top;
-            width: 30%;
             color: $color-grey-80;
+            margin-top: $spacing-between-boxes;
 
             .title {
                 text-transform: uppercase;
+                margin-top: 0;
             }
 
             p {
                 font-family: $font-opensanslight;
             }
+
         }
 
         .box-wc {
@@ -124,6 +117,37 @@
         .l-aside-content {
             width: 40%;
             padding-left: 50px;
+        }
+
+        .l-footer {
+            #footer-nav {
+                display: inline-block;
+                vertical-align: top;
+                width: 40%;
+
+                .mi-parent {
+                    width: auto;
+
+                    + .mi-parent {
+                        margin-top: 0;
+                        margin-left: 50px;
+                    }
+                }
+            }
+
+            .ad {
+                margin-top: 0;
+                display: inline-block;
+                vertical-align: top;
+                width: 25%;
+            }
+
+            .newsletter {
+                margin-top: 0;
+                display: inline-block;
+                vertical-align: top;
+                width: 30%;
+            }
         }
     }
     @include breakpoint($bp-tablets-landscape) {
@@ -220,26 +244,26 @@
 
 #t_store_admin,
 #t_admin {
-    .box-wc {
-        @include breakpoint($bp-desktop) {
+    .l-top-nav {
+        .shack-nav-trigger {
+            right: 0;
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .box-wc {
             max-width: 1280px;
             padding: 0;
         }
-    }
 
-    .l-header {
-        padding-top: 70px;
-    }
-
-    #content_enclosing {
-        @include breakpoint($bp-tablets-portrait) {
+        .e-content {
+            padding-top: $spacing-between-boxes;
             padding-bottom: $spacing-admin-footer-height + $spacing-between-boxes;
         }
-    }
 
-    .l-footer {
-        height: 100px;
-        margin-top: -100px;
+        .l-header {
+            padding-top: 40px;
+        }
     }
 }
 
