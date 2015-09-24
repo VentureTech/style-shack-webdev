@@ -2,7 +2,6 @@
 @import "../components/partials/calendar";
 
 .order-list {
-
     .constraints {
         @include style-generic-table-search;
     }
@@ -95,7 +94,6 @@
 
 
     @include breakpoint($bp-desktop) {
-
         .receipt-actions {
             position: absolute;
             top: 0;
@@ -119,6 +117,36 @@
                     display: inline-block;
                 }
             }
+        }
+    }
+}
+
+.order-list {
+    td.action {
+        font-size: 0;
+        width: 7%;
+
+        .checkout-order,
+        .order-details {
+            font-size: inherit;
+        }
+
+        .order-details {
+            margin-top: 3px;
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .checkout-order,
+        .order-details {
+            display: inline-block;
+            vertical-align: middle;
+            vertical-align: top;
+        }
+
+        .order-details {
+            margin-top: 0;
+            margin-left: 5px;
         }
     }
 }
