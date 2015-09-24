@@ -1,9 +1,51 @@
-.constraint-con {
-    padding-right: 30px;
-    padding-bottom: 30px;
+@import "../config/base-import";
+
+.search-constraints {
+    @include style-generic-table-search;
+}
+
+.miwt-table-con {
+    .table_view {
+        @include style-generic-table;
+    }
+}
+
+.export_actions {
+    margin-top: 10px;
 
     label {
-        display: block;
-        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    a {
+        margin-right: 10px;
+        font-size: 0;
+        display: inline-block;
+        vertical-align: middle;
+
+        &:before {
+            display: block;
+            width: 30px;
+            height: 40px;
+            background-repeat: none;
+            background-size: cover;
+            content: '';
+        }
+
+        &.export_pdf {
+            &:before {
+                background-image: url('/_resources/dyn/files/1125138z4ab0861c/_fn/pdf.png');
+            }
+        }
+        &.export_xls {
+            &:before {
+                background-image: url('/_resources/dyn/files/1125137zda0f9b8d/_fn/excel.png');
+            }
+        }
+        &.export_csv {
+            &:before {
+                background-image: url('/_resources/dyn/files/1125136zad08ab1b/_fn/csv.png');
+            }
+        }
     }
 }
