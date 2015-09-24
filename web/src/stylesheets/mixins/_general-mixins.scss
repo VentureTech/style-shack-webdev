@@ -129,6 +129,10 @@
   @include addButtonGlyph('\e0a3');
 }
 
+@mixin cartButtonGlyph() {
+  @include addButtonGlyph('\e031');
+}
+
 @mixin arrowUpButtonGlyph() {
   @include addButtonGlyph('\e013');
 }
