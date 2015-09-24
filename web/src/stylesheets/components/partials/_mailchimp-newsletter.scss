@@ -1,18 +1,36 @@
 /* Mailchimp subscription form */
+#mailchimp-form-inner,
 .mailchimp-form-inner {
     position: relative;
 
+
     .mailchimp-email {
-        padding-right: 110px;
+        padding-right: 0;
+    }
+
+    .mailchimp-action {
+        display: block;
+        margin-top: 5px;
+        position: relative;
     }
 
     .mailchimp-input {
         width: 100%;
+        background: transparent;
     }
 
-    .mailchimp-action {
-        position: absolute;
-        right: 0;
-        top: 0;
+
+
+    @include breakpoint($bp-tablets-portrait) {
+        .mailchimp-email {
+            padding-right: 110px;
+        }
+
+        .mailchimp-action {
+            margin: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
     }
 }
