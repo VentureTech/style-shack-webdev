@@ -33,7 +33,9 @@
     .deferred-logout {
         display: none;
         padding: 0 0 0 20px;
+    }
 
+    .logout {
         .user {
             display: inline-block;
             vertical-align: middle;
@@ -44,7 +46,7 @@
             display: inline-block;
             vertical-align: middle;
             color: #FFF;
-            padding: 4px 15px 5px;
+            padding: 7px 15px;
             margin-left: 5px;
             font-size: 18px;
         }
@@ -86,6 +88,7 @@
 
         > .mi {
             white-space: nowrap;
+            display: block;
 
             + .mi {
                 border-top: 1px solid $color-grey-33;
@@ -213,6 +216,7 @@
 
         .deferred-logout {
             display: inline-block;
+            vertical-align: top;
         }
 
         .shack {
@@ -257,12 +261,11 @@
     }
 
     .site-search {
-        position: absolute;
-        top: 10px;
-        right: 0;
+        margin: 10px 0;
 
         button {
             @include style-button-base;
+            margin-top: 5px;
         }
     }
 
@@ -284,22 +287,34 @@
         #logo {
             display: block;
         }
+
+        .site-search {
+            position: absolute;
+            top: 10px;
+            right: 0;
+            margin: 0;
+
+            button {
+                margin: 0;
+            }
+        }
     }
 }
 
 .e-content {
     padding-top: $spacing-between-boxes;
-    padding-bottom: $spacing-footer-height + $spacing-between-boxes;
+    padding-bottom: $spacing-mobile-footer-height + $spacing-between-boxes;
 
     @include breakpoint($bp-tablets-landscape) {
         padding-top: 0;
+        padding-bottom: $spacing-footer-height + $spacing-between-boxes;
     }
 }
 
 .l-footer {
     display: block;
     height: $spacing-mobile-footer-height;
-    margin-top: -$spacing-footer-height;
+    margin-top: -$spacing-mobile-footer-height;
     background: $color-black;
 
     .box-wc {
@@ -361,6 +376,7 @@
 
     @include breakpoint($bp-tablets-portrait) {
         height: $spacing-footer-height;
+        margin-top: -$spacing-footer-height;
 
         #footer-nav {
             .menu {
