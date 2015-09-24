@@ -35,7 +35,8 @@
 .l-top-nav {
     .mobile-main,
     .login-main {
-        > .menu-t1 {
+        > .menu-t1,
+        > .menu-t0 {
             background: $color-black;
             position: absolute;
             max-height: 0;
@@ -105,6 +106,14 @@
             left: 0;
             right: 0;
         }
+
+        .logout {
+            padding-left: 15px;
+        }
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+
     }
 
     .shop-menu-con {
