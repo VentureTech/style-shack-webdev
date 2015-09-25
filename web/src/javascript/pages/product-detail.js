@@ -1,4 +1,17 @@
 jQuery(function($){
+    var CSS_OPEN_CLASS = "open";
+    var CSS_PREVIOUS_CLASS = "prev";
+    var CSS_NEXT_CLASS = "next";
+    var CSS_CURRENT_CLASS = "current";
+    var CSS_ACTIVE_CLASS = "active";
+    var leftTransitionProperty = Modernizr.csstransforms ? "transform" : "left";
+    var topTransitionProperty = Modernizr.csstransforms ? "transform" : "top";
+    var BREAKPOINT_TABLET_PORTRAIT = 767;
+    var RESIZE_THROTTLE_TIME = 200;
+    var THUMB_PANE_HEIGHT = 360;
+    var MAX_THUMBS_VISIBLE = 8;
+
+
     var $bodyCon = $("body");
     var $productVariantManager = $("#variant-mgr-id");
     var $infoCon = $(".more-info > div");
@@ -6,21 +19,12 @@ jQuery(function($){
     var $photoCon = $(".images");
     var $forms = $("form");
     var $nav = $('<ul class="nav" />');
-    var $prev = $('<div class="navi prev"><span></span></div>').appendTo($nav);
-    var $next = $('<div class="navi next"><span></span></div>').appendTo($nav);
+    var $prev = $('<div class="navi prev"><span></span></div>').addClass(CSS_ACTIVE_CLASS).appendTo($nav);
+    var $next = $('<div class="navi next"><span></span></div>').addClass(CSS_ACTIVE_CLASS).appendTo($nav);
+    var $wrapper = $('<div class="wrapper" />');
+    var $hScrollpane = $('<div class="horizontal-scrollpane" />');
+    var $vScrollpane = $('<div class="vertical-scrollpane" />');
 
-    var CSS_OPEN_CLASS = "open";
-    var CSS_EMPTY_CLASS = "empty";
-    var CSS_REMOVE_CLASS = "remove";
-    var CSS_LOADED_CLASS = "loaded";
-    var CSS_OLD_CLASS = "old";
-    var CSS_NEW_CLASS = "new";
-    var CSS_PREVIOUS_CLASS = "prev";
-    var CSS_NEXT_CLASS = "next";
-    var CSS_CURRENT_CLASS = "current";
-    var transitionProperty = Modernizr.csstransforms ? "transform" : "left";
-    var BREAKPOINT_TABLET_PORTRAIT = 767;
-    var RESIZE_THROTTLE_TIME = 200;
 
     var resizeThrottleId;
     var slideWidth;
@@ -44,6 +48,80 @@ jQuery(function($){
     }
 
 
+    function createThumbFunctionality() {
+        var $overallCon = $photoCon.find(".overall");
+        var $overallWrapper,
+            $overallScrollpane;
+        var $nextBtn;
+        var $prevBtn;
+        var paneHeight = THUMB_PANE_HEIGHT;
+        var thumbCount;
+        var thumbPageCount = 0;
+        var transitionValue = 0;
+        var newTransitionValue;
+        var thumbCount = $overallCon.find(".image").length;
+
+        function setupThumbWrapper() {
+            if (thumbCount > MAX_THUMBS_VISIBLE) {
+                $overallCon.wrapInner($wrapper);
+                $overallWrapper = $overallCon.find(".wrapper");
+                $overallWrapper.wrapInner($vScrollpane);
+                $overallScrollpane = $overallWrapper.find(".vertical-scrollpane");
+                $overallCon.append($nav);
+                $nextBtn = $overallCon.find(".next");
+                $prevBtn = $overallCon.find(".prev");
+            }
+        }
+
+        function scrollThumbs(dir) {
+            if (dir == "up") {
+                transitionValue = transitionValue + paneHeight;
+                thumbPageCount--;
+            }
+            else {
+                transitionValue = transitionValue - paneHeight;
+                thumbPageCount++;
+            }
+
+            if (Modernizr.csstransforms) {
+                newTransitionValue = "translateY(" + transitionValue + "px)";
+            }
+            else {
+                newTransitionValue = transitionValue;
+            }
+            $overallScrollpane.css(topTransitionProperty, newTransitionValue);
+
+            updateThumbPaging();
+        }
+
+
+        function updateThumbPaging() {
+
+            $nextBtn.addClass(CSS_ACTIVE_CLASS);
+            $prevBtn.addClass(CSS_ACTIVE_CLASS);
+
+            if ((thumbCount - MAX_THUMBS_VISIBLE*thumbPageCount) < MAX_THUMBS_VISIBLE) {
+                $nextBtn.removeClass(CSS_ACTIVE_CLASS);
+            }
+            if (thumbPageCount == 0) {
+                $prevBtn.removeClass(CSS_ACTIVE_CLASS);
+            }
+        }
+
+
+        setupThumbWrapper();
+
+
+        $overallCon.on('click', '.next.active', function(e){
+            scrollThumbs('down');
+        });
+
+        $overallCon.on('click', '.prev.active', function(e){
+            scrollThumbs('up');
+        });
+    }
+
+
     function setupDescriptionToggle() {
         $infoCon.each(function (idx, con) {
             var $con = $(con);
@@ -57,52 +135,27 @@ jQuery(function($){
         });
     }
 
-    /*function loadActivePictureInfo(thumb) {
-        var $thumb = $(thumb);
-        var largeUrl = $thumb.data("large");
-        var xlUrl = $thumb.data("xl");
-
-        var $con = $(".main > .image");
-
-        $con.css('background-image', largeUrl);
-        updateImage(largeUrl);
-
-
-        $img.one('load', function() {
-            $con.removeClass(CSS_EMPTY_CLASS);
-
-        }).each(function(){
-            if (this.complete) $img.load();
-        });
-    }*/
+    function setupThumbs() {
+        if (windowWidth > BREAKPOINT_TABLET_PORTRAIT) {
+            createThumbFunctionality();
+        }
+        else {
+            setupMobileSlides();
+        }
+    }
 
     function updateImage(url) {
         var $image = $photoCon.find(".main .image");
         var largeUrl = url;
 
-        //$img.removeClass(CSS_NEW_CLASS).addClass(CSS_OLD_CLASS);
-        $image.append('<div class="loading" />');
-
-        $image.css('background-image', largeUrl);
-
-
-        //$img = $('<img />').attr("src", largeUrl).addClass(CSS_NEW_CLASS);
-        //$con.append($img);
-        //$con.find(".old").addClass(CSS_REMOVE_CLASS);
-
-        setTimeout(function(){
-            $image.find(".loading").remove();
-            $image.addClass("loaded");
-            //$con.find(".old").remove();
-        }, 500);
+        $image.css('background-image', 'url(' + largeUrl + ')');
     }
-
 
     function setupProductPhotos() {
         if (windowWidth < BREAKPOINT_TABLET_PORTRAIT) {
             $photoCon.find('.image').off();
             $photoCon.find('.main').empty();
-            setupMobileSlides();
+            setupThumbs();
         }
         else {
             $photoCon.each(function (idx, con) {
@@ -128,10 +181,10 @@ jQuery(function($){
         var $thumbCon = $photoCon.find(".thumbs");
         var $slides = $thumbCon.find(".image");
 
-        $thumbCon.wrapInner('<div class="wrapper"></div>');
-        var $wrapper = $(".wrapper");
-        $wrapper.wrapInner('<div class="scrollpane"></div>');
-        var $scrollPane = $(".scrollpane");
+        $thumbCon.wrapInner($wrapper);
+        var $mobileWrapper = $(".wrapper");
+        $mobileWrapper.wrapInner($hScrollpane);
+        var $mobileScrollpane = $mobileWrapper.find(".horizontal-scrollpane");
 
         $thumbCon.addClass('rotating-slider');
 
@@ -191,7 +244,7 @@ jQuery(function($){
             if (Modernizr.csstransforms) {
                 transitionValue = "translateX(" + transitionValue + "px)";
             }
-            $scrollPane.css(transitionProperty, transitionValue);
+            $mobileScrollpane.css(leftTransitionProperty, transitionValue);
         }
 
         function setOrderClasses() {
@@ -204,8 +257,6 @@ jQuery(function($){
             $thumbCon.eq(curSlideIdx).addClass(CSS_CURRENT_CLASS).siblings().removeClass(CSS_CURRENT_CLASS);
         }
     }
-
-
 
 
     function updateImageManager(variantID) {
@@ -243,7 +294,6 @@ jQuery(function($){
             var productVariantID = $productVariantManager.find("> div").data("pvId");
             updateImageManager(productVariantID);
             $photoCon.find(".loading").remove();
-
         });
     }
 
