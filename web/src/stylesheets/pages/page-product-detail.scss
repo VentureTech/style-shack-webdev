@@ -35,17 +35,22 @@
 
         .image {
             max-width: 300px;
+            height: 300px;
             width: 100%;
             margin: 0 auto;
             float: left;
             text-align: center;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            cursor: pointer;
         }
 
         .wrapper {
             overflow: hidden;
         }
 
-        .scrollpane {
+        .horizontal-scrollpane {
             position: relative;
             width: 4000px;
             -moz-transition: 0.5s all ease;
@@ -58,40 +63,25 @@
         display: none;
         position: relative;
         text-align: center;
+        height: 600px;
 
-        img {
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            transition: .5s ease opacity;
+        .image {
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
 
-            &.old {
-                &.remove {
-                    opacity: 0;
-                }
-            }
-
-            &.new {
-                position: absolute;
-                top: 0;
-                opacity: 0;
-
-                &.loaded {
-                    position: static;
-                    opacity: 1;
-                }
-            }
         }
     }
 
     @include breakpoint($bp-tablets-portrait) {
         display: inline-block;
-        width: 55%;
+        width: 65%;
         vertical-align: top;
         border-bottom: 0;
         margin-bottom: 0;
         padding-right: $spacing-between-boxes;
-
 
         .thumbs {
             display: inline-block;
@@ -102,12 +92,9 @@
             .image {
                 float: none;
                 display: inline-block;
-                width: 48%;
-                height: 100px;
+                width: 45%;
+                height: 80px;
                 margin-bottom: 7px;
-                background-size: cover;
-                background-position: center center;
-                background-repeat: no-repeat;
             }
 
             .variants {
@@ -115,11 +102,67 @@
                 padding-bottom: 10px;
                 margin-bottom: 10px;
                 background: $color-white;
+                max-height: 180px;
+                overflow: scroll;
+            }
+
+            .overall {
+                padding: 20px 0;
+                position: relative;
             }
 
             &.mobi {
                 .nav_con {
                     display: none;
+                }
+            }
+
+            .wrapper {
+                max-height: 350px;
+                overflow: hidden;
+            }
+
+            .scrollpane {
+                position: relative;
+                height: 4000px;
+                -moz-transition: 0.5s all ease;
+                -webkit-transition: 0.5s all ease;
+                transition: 0.5s all ease;
+            }
+
+            .next {
+                position: absolute;
+                bottom: 10px;
+                left: 38%;
+                display: block;
+
+                &.active {
+                    height: 0;
+                    width: 0;
+                    margin: 0 auto;
+                    border-left: 7px solid transparent;
+                    border-right: 7px solid transparent;
+                    border-top: 7px solid $color-grey-d0;
+                    border-top: 7px solid $color-grey-80;
+                    cursor: pointer;
+                }
+            }
+
+            .prev {
+                position: absolute;
+                top: 10px;
+                left: 38%;
+                display: block;
+
+                &.active {
+                    height: 0;
+                    width: 0;
+                    margin: 0 auto;
+                    border-left: 7px solid transparent;
+                    border-right: 7px solid transparent;
+                    border-bottom: 7px solid $color-grey-d0;
+                    border-bottom: 7px solid $color-grey-80;
+                    cursor: pointer;
                 }
             }
         }
@@ -130,6 +173,10 @@
             vertical-align: top;
             padding-left: 10px;
         }
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+        width: 55%;
     }
 
 }
@@ -156,14 +203,28 @@
         width: 79%;
     }
 
-    input, select, textarea {
-        font-size: 16px;
+    input,
+    select,
+    textarea,
+    label {
+        font-size: 14px;
     }
+
 
     @include breakpoint($bp-tablets-portrait) {
         display: inline-block;
-        width: 45%;
+        width: 35%;
         vertical-align: top;
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+        width: 45%;
+    }
+
+    @include breakpoint($bp-mobile-only) {
+        input, select, textarea {
+            font-size: 16px;
+        }
     }
 }
 
@@ -206,7 +267,7 @@
         font-size: 18px;
 
         &:hover {
-            cursor: default;
+            cursor: pointer;
         }
 
         &:after {
@@ -234,7 +295,6 @@
             }
         }
     }
-
 
     .content {
         max-height: 0;
@@ -265,6 +325,12 @@
     + .product-option {
         margin-left: 5px;
     }
+}
+
+.purchase-option-container {
+    margin-top: 10px;
+    color: $color-orange-red;
+    font-family: $font-italic;
 }
 
 .phone {
@@ -334,6 +400,10 @@
         display: inline-block;
         margin-left: 4px;
     }
+}
+
+.social {
+    margin-top: $spacing-between-boxes/2;
 }
 
 .product-listing {
