@@ -50,10 +50,10 @@ p.back {
     @include breakpoint($bp-mobile-landscape) {
         display: inline-block;
         vertical-align: top;
-        width: 49.5%;
+        width: 51%;
 
         &.col1 {
-            width: 47.5%;
+            width: 49%;
         }
 
         &.col1 + &.col2 {
@@ -67,10 +67,10 @@ p.back {
     }
 
     @include breakpoint($bp-tablets-portrait) {
-        width: 33.6%;
+        width: 34%;
 
         &.col1 {
-            width: 31.6%;
+            width: 32%;
         }
 
         &.col1 + &.col2 {
@@ -84,5 +84,6 @@ p.back {
         .image {
             max-height: 310px;
         }
+
     }
 }
