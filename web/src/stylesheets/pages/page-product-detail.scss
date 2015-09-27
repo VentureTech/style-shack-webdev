@@ -35,12 +35,12 @@
 
         .image {
             max-width: 300px;
-            height: 300px;
+            height: 400px;
             width: 100%;
             margin: 0 auto;
             float: left;
             text-align: center;
-            background-size: cover;
+            background-size: contain;
             background-position: center center;
             background-repeat: no-repeat;
             cursor: pointer;
@@ -52,7 +52,7 @@
 
         .horizontal-scrollpane {
             position: relative;
-            width: 4000px;
+            width: 9000px;
             -moz-transition: 0.5s all ease;
             -webkit-transition: 0.5s all ease;
             transition: 0.5s all ease;
@@ -94,7 +94,9 @@
                 display: inline-block;
                 width: 45%;
                 height: 80px;
+                padding-top: 0;
                 margin-bottom: 7px;
+                background-size: cover;
             }
 
             .variants {
@@ -103,7 +105,7 @@
                 margin-bottom: 10px;
                 background: $color-white;
                 max-height: 180px;
-                overflow: scroll;
+                overflow: hidden;
             }
 
             .overall {
@@ -182,12 +184,11 @@
 }
 
 .product-info {
+    position: relative;
     .my-shack {
-        position: relative;
-        display: inline-block;
-        vertical-align: top;
-        margin-top: 7px;
-        width: 20%;
+        position: absolute;
+        top: 7px;
+        width: 50px;
         text-align: right;
 
         input[type="submit"] {
@@ -199,8 +200,8 @@
     }
 
     .product-name {
-        display: inline-block;
-        width: 79%;
+        display: block;
+        padding-right: 50px;
     }
 
     input,
@@ -423,7 +424,6 @@
 .nav_con {
     position: relative;
     z-index: 5000;
-    display: none;
 
     .navi {
         cursor: pointer;
