@@ -30,11 +30,11 @@
     }
 
     .thumbs {
-        max-width: 300px;
+        max-width: 250px;
         margin: 0 auto;
 
         .image {
-            max-width: 300px;
+            max-width: 250px;
             height: 400px;
             width: 100%;
             margin: 0 auto;
@@ -63,15 +63,12 @@
         display: none;
         position: relative;
         text-align: center;
-        height: 600px;
+        height: 560px;
+        overflow: hidden;
 
         .image {
             height: 100%;
             width: 100%;
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-
         }
     }
 
@@ -174,6 +171,19 @@
             display: inline-block;
             vertical-align: top;
             padding-left: 10px;
+
+            .image {
+                height: 100%;
+                width: 100%;
+                text-align: center;
+
+                img {
+                    max-width: none;
+                    height: 100%;
+                    width: auto;
+                    display: inline-block;
+                }
+            }
         }
     }
 
@@ -185,6 +195,7 @@
 
 .product-info {
     position: relative;
+
     .my-shack {
         position: absolute;
         top: 7px;
@@ -228,6 +239,7 @@
         }
     }
 }
+
 
 .store-name {
     color: $color-grey-80;
@@ -330,8 +342,6 @@
 
 .purchase-option-container {
     margin-top: 10px;
-    color: $color-orange-red;
-    font-family: $font-italic;
 }
 
 .phone {
@@ -377,7 +387,6 @@
 }
 
 .product-variant-manager {
-
     .optionset-con {
         display: block;
 
@@ -389,6 +398,11 @@
     .quantity-con {
         display: block;
         margin: $spacing-between-boxes/3 0;
+        font-size: 14px;
+
+        input {
+            margin-left: 14px;
+        }
     }
 
     label {
@@ -411,6 +425,7 @@
     display: none;
 
     @include breakpoint($bp-tablets-portrait) {
+        display: block;
         text-align: center;
         border-top: 1px solid $color-grey-66;
         margin-top: $spacing-between-boxes;
