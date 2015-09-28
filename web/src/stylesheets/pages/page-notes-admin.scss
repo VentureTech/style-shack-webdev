@@ -22,7 +22,9 @@
 .post {
   label {
     font-family: $font-opensansbold;
-    font-size: 16px;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 3px;
   }
 
   &.featured,
