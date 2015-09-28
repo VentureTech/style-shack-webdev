@@ -107,14 +107,19 @@
   }
 
   img {
-    margin: 10px 20px;
+    margin: 10px 0;
+    max-width: 100% !important;
+    height: auto !important;
+    width: auto !important;
 
     &[style*="float:left"] {
       margin-left: 0;
+      margin-right: 20px;
     }
 
     &[style*="float:right"] {
       margin-right: 0;
+      margin-left: 20px;
     }
   }
 
@@ -138,11 +143,13 @@
 
   .image {
     margin: 20px 0;
+    overflow: hidden;
 
     img {
       max-width: 100%;
       height: auto;
-      width: auto;
+      margin: 0;
+      width: 100%;
     }
   }
 
