@@ -60,7 +60,7 @@ jQuery(function($){
             $header.append($primaryMobileNav);
         }
 
-        if ($userMenu.length) {
+        if ($loginMenuItems.length) {
             $header.append($shackTrigger);
             $loginMobileNav.append($mobileLoginMenu);
             $header.append($loginMobileNav);
