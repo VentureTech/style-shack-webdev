@@ -19,9 +19,11 @@
         background: transparent;
     }
 
+}
 
-
-    @include breakpoint($bp-tablets-portrait) {
+@include breakpoint($bp-tablets-portrait) {
+    #mailchimp-form-inner,
+    .mailchimp-form-inner {
         .mailchimp-email {
             padding-right: 110px;
         }
