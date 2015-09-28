@@ -25,7 +25,6 @@ jQuery(function ($) {
     var $variantConWrap = $('<div class="variants collection" />');
     var $overallConWrap = $('<div class="overall collection" />');
 
-
     var resizeThrottleId;
     var slideWidth;
 
@@ -112,7 +111,6 @@ jQuery(function ($) {
 
 
         function updateThumbPaging() {
-
             $nextBtn.addClass(CSS_ACTIVE_CLASS);
             $prevBtn.addClass(CSS_ACTIVE_CLASS);
 
@@ -244,12 +242,29 @@ jQuery(function ($) {
         }
     }
 
-    function updateImage(url) {
-        var $image = $photoCon.find(".main .image");
+    function updateMainImageCon(url, xlUrl) {
+        var $imageCon = $photoCon.find(".main .image");
         var largeUrl = url;
+        var xlUrl = xlUrl ? xlUrl : largeUrl;
+        var $newImg = $('<img src="' + largeUrl + '" />');
+        var $zoomImg = $('<img src="' + xlUrl + '" />');
+        var $zoomImgDiv = $('<div mag-zoom="inner" class="zoom-img" />');
 
-        $image.css('background-image', 'url(' + largeUrl + ')');
+        function setupZoom() {
+            $zoomImgDiv.append($zoomImg);
+            $zoomImgDiv.insertAfter($imageCon);
+            $imageCon.mag();
+        }
+
+        function updateImages() {
+            $imageCon.empty().append($newImg);
+            $('.zoom-img').remove();
+            setupZoom();
+        };
+
+        updateImages();
     }
+
 
     function setupProductPhotos() {
         $photoCon.find('.image').off();
@@ -263,9 +278,10 @@ jQuery(function ($) {
             $thumbs.each(function (idx, thumb) {
                 var $thumb = $(thumb);
                 var largeUrl = $thumb.data("large");
+                var xlUrl = $thumb.data("xl");
 
                 $thumb.on("click", function (e) {
-                    updateImage(largeUrl);
+                    updateMainImageCon(largeUrl, xlUrl);
                 });
             });
 
@@ -289,8 +305,6 @@ jQuery(function ($) {
     }
 
 
-
-
     function updateImageManager(variantID) {
         var updateURL = $(".image-manager").data('updateUrl');
         var productID = $(".image-manager").data('productId');
@@ -312,9 +326,9 @@ jQuery(function ($) {
         addResizeWatcher();
         setupProductPhotos();
 
-        $bodyCon.on("ss:pvm-loading", function (e) {
-            $photoCon.find('.image').off();
-        });
+        /*$bodyCon.on("ss:pvm-loading", function (e) {
+
+        });*/
 
         $bodyCon.on("ss:pvm-loaded", function (e) {
             var productVariantID = $productVariantManager.find("> div").data("pvId");
