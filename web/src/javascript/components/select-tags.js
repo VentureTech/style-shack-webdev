@@ -1,5 +1,20 @@
 jQuery(function($){
    var $forms = $("form.miwt-form");
+    var newErrorMessage = true;
+
+    function initScrollPage(context) {
+        var $con = $(context || document);
+
+        if ($con.find(".message-container .message").length) {
+            if (newErrorMessage == true) {
+                newErrorMessage = false;
+                $('html,body').scrollTop(100);
+            }
+        }
+        else {
+            newErrorMessage == true;
+        }
+    }
 
     $forms.each(function (idx, form) {
         var $form = $(form);
@@ -69,6 +84,14 @@ jQuery(function($){
             createTagField($tags);
             createTagField($categories);
         }
+
+        if (!this.submit_options) {
+            this.submit_options = {};
+        }
+
+        this.submit_options.postUpdate = function() {
+            initScrollPage(this);
+        };
 
         init();
     });
