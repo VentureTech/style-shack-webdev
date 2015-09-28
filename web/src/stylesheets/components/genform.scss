@@ -2,103 +2,104 @@
 @import "partials/property-editor";
 
 .fields {
-  text-align: left;
+    text-align: left;
 }
 
 .question {
-  + .question {
-    margin-top: 20px;
-  }
-
-  .part {
-    + .part {
-      margin-top: 20px;
-    }
-  }
-
-  > .form_field {
-    + .form_field {
-      margin-top: 20px;
+    + .question {
+        margin-top: 20px;
     }
 
-    > .label {
-      font-weight: bold;
+    .part {
+        + .part {
+            margin-top: 20px;
+        }
     }
-  }
 
-  div.address_line {
-    + div.address_line {
-      margin-top: 10px;
+    > .form_field {
+        + .form_field {
+            margin-top: 20px;
+        }
+
+        > .label {
+            font-weight: bold;
+        }
     }
-  }
+
+    div.address_line {
+        + div.address_line {
+            margin-top: 10px;
+        }
+    }
 }
 
 .rtb {
-  display: inline-block;
-
-  + .rtb {
-    margin-left: 5px;
-  }
-
-  .label,
-  label {
     display: inline-block;
-  }
 
-  input[type="radio"] {
-    + label,
-    + .label {
-      margin-left: 5px;
+    + .rtb {
+        margin-left: 5px;
     }
-  }
+
+    .label,
+    label {
+        display: inline-block;
+    }
+
+    input[type="radio"] {
+        + label,
+        + .label {
+            margin-left: 5px;
+        }
+    }
 }
 
 .label {
-  display: block;
-  margin-bottom: 3px;
-  font-size: 14px;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 14px;
 }
 
 label {
-  font-size: 12px;
-  margin-bottom: 3px;
-  display: block;
+    font-size: 12px;
+    margin-bottom: 3px;
+    display: block;
 }
 
 input[type="text"],
 textarea {
-  @include genericInputStyle;
+    @include genericInputStyle;
 }
 
 input[type="submit"],
 button {
-  @include genericButtonStyle;
+    @include genericButtonStyle;
 }
 
 .submit_button {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .example-con {
-  font-size: 12px;
-  font-style: italic;
-  padding: 3px 0;
+    font-size: 12px;
+    font-style: italic;
+    padding: 3px 0;
 }
 
 .extension_label-con {
-  span {
-    display: block;
-    padding: 0 5px;
-    font-size: 12px;
-    font-style: italic;
-  }
+    span {
+        display: block;
+        padding: 0 5px;
+        font-size: 12px;
+        font-style: italic;
+    }
 }
 
 .actions {
-  .btn + .btn {
-    margin-left: 5px;
-  }
+    .btn + .btn {
+        margin-left: 5px;
+    }
 }
+
 
 
 
