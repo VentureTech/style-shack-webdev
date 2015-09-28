@@ -302,3 +302,15 @@
         }
     }
 }
+
+#t-stylequiz {
+    .e-content {
+        padding-top: $spacing-between-boxes;
+        padding-bottom: $spacing-stylequiz-footer-height + $spacing-between-boxes;
+    }
+
+    .l-footer {
+        height: $spacing-stylequiz-footer-height;
+        margin-top: -$spacing-stylequiz-footer-height;
+    }
+}
