@@ -16,7 +16,7 @@
   textarea {
     border: 1px solid $color-grey-b3;
     padding: 2px;
-    margin: 2px;
+    margin: 2px 0;
     font-family: Arial, Verdana, sans-serif;
 
     &:focus {
@@ -79,7 +79,8 @@
     > label,
     > .tal {
       font-weight: bold;
-      margin-right: 3px;
+      margin-bottom: 3px;
+      display: block;
     }
 
     > .val {
@@ -108,6 +109,39 @@
       margin-bottom: 0;
       padding-bottom: 0;
     }
+
+    .phone_number_form {
+
+      .phone_number_format {
+        margin-bottom: 5px;
+      }
+
+      label,
+      .nanp_example {
+        display: block;
+        font-size: 14px;
+      }
+
+      .extension_label {
+        display: inline-block;
+        padding: 0 3px;
+        font-size: 14px;
+      }
+
+      .rtb {
+        display: inline-block;
+
+        label {
+          display: inline-block;
+          margin-left: 3px;
+        }
+
+        + .rtb {
+          margin-left: 5px;
+        }
+      }
+    }
+
   }
 
   .address {
@@ -119,6 +153,13 @@
       &.last {
         margin-bottom: 0;
         padding-bottom: 0;
+      }
+    }
+
+    .part {
+      label {
+        display: block;
+        font-size: 14px;
       }
     }
   }
