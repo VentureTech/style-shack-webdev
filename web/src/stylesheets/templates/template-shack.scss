@@ -1,6 +1,7 @@
 @import "../config/base-import";
 @import "../components/partials/filters";
 @import "../components/partials/product-listing";
+@import "../components/partials/img-cropper";
 
 h2 {
     text-transform: uppercase;
@@ -10,6 +11,34 @@ h2 {
     margin-bottom: .75em;
     padding-bottom: .25em;
     border-bottom: 1px solid $color-grey-66;
+}
+
+.product-count,
+.store-count {
+    display: none;
+}
+
+.user-info {
+    .profile-pic {
+        display: none;
+        height: 200px;
+        width: 200px;
+        margin: 20px;
+        border-radius: 100%;
+        shape-outside: circle();
+    }
+
+    a {
+        font-family: $font-italic;
+        color: $color-black;
+        margin-top: 3px;
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .profile-pic {
+            display: block;
+        }
+    }
 }
 
 .user-profile {
@@ -27,8 +56,76 @@ h2 {
         }
     }
 
+    .mi-active {
+        .menuitemlabel {
+            color: $color-black;
+            font-family: $font-opensans;
+        }
+    }
+
     .menuitemlabel {
         color: $color-grey-80;
         font-family: $font-opensanslight;
+    }
+}
+
+.user-archetype {
+    margin-top: $spacing-between-boxes/2;
+
+    .img {
+        display: none;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    .name {
+        text-transform: uppercase;
+        margin: $spacing-between-boxes/4 0;
+    }
+
+    .description {
+        display: none;
+        color: $color-grey-80;
+        font-size: 13px;
+    }
+
+    .style-quiz {
+        margin-top: $spacing-between-boxes/4;
+        font-size: 13px;
+
+        a {
+            color: $color-black;
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .img,
+        .description {
+            display: block;
+        }
+    }
+
+}
+
+.archetype-banner-img {
+    margin-top: $spacing-between-boxes/2;
+    border-top: 1px solid $color-black;
+    padding-top: $spacing-between-boxes/2;
+
+    margin-bottom: 10px;
+
+    img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        margin-top: 0;
+        border-top: none;
+        padding-top: 0;
     }
 }
