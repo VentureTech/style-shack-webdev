@@ -1,0 +1,10 @@
+@import "../config/base-import";
+
+.social-title {
+    text-align: center;
+
+    @include breakpoint($bp-tablets-portrait) {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
