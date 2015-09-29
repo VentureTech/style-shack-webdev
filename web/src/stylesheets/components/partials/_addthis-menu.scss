@@ -8,16 +8,17 @@
     }
 
     .addthis_counter_facebook,
-    .addthis_counter_twitter {
+    .addthis_counter_twitter,
+    .addthis_counter_pinterest_share {
         position: relative;
         display: inline-block;
+        vertical-align: top;
         float: none !important;
 
         .addthis_native_counter {
             margin-top: 6px !important;
         }
     }
-
 
     .addthis_button_facebook_like,
     .addthis_button_facebook {
@@ -42,6 +43,7 @@
         }
     }
 
+
     .label,
     .addthis_toolbox {
         display: inline-block;
@@ -56,5 +58,16 @@
 
     @include breakpoint($bp-tablets-portrait) {
         margin-bottom: 0;
+    }
+}
+
+.pin-it {
+    a {
+        display: block;
+        height: 45px  !important;
+        width: 46px !important;
+        background: url("/_resources/dyn/files/1058943z17264f83/_fn/social-sprite.png") -169px 0 no-repeat !important;
+        background-size: auto !important;
+        text-indent: -9999px;
     }
 }
