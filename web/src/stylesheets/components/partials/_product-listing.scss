@@ -110,10 +110,10 @@
     }
 
     @include breakpoint($bp-tablets-landscape) {
-        width: 25.25%;
+        width: 25.22%;
 
         &.col1 {
-            width: 23.25%;
+            width: 23.2%;
         }
 
         &.col1 + &.col2 {
