@@ -79,7 +79,8 @@
         }
     }
 
-    .menu-t2 {
+    .menu-t2,
+    .menu-t3 {
         max-height: 0;
         opacity: 0;
         overflow: hidden;
@@ -95,7 +96,6 @@
             }
         }
 
-
         .menuitemlabel {
             padding: 8px 20px;
             color: $color-black;
@@ -105,18 +105,23 @@
                 background: $color-grey-c5;
             }
         }
-
     }
+
+    .menu-t3 {
+        display: block;
+    }
+
 
     .mi-parent {
         &.over,
         &.open {
-            .menu-t2 {
+            > .menu {
                 max-height: 2000px;
                 opacity: 1;
             }
         }
     }
+
 
     .menu-con {
         display: inline-block;
