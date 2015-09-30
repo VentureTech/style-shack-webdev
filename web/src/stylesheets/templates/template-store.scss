@@ -18,7 +18,7 @@
     margin-top: $spacing-between-boxes/2;
     font-size: 14px;
     color: $color-grey-66;
-    line-height: 1.6;
+    position: relative;
 
     a {
       color: $color-grey-66;
@@ -51,6 +51,8 @@
   }
 
   .store-description {
+    line-height: 1.6;
+
     &.trunc {
       max-height: 323px;
       overflow: hidden;
