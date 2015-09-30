@@ -10,6 +10,8 @@ jQuery(function($){
     var $mobileLoginMenu = $('<ul class="menu-t1 menu"/>').append($loginMenuItems.clone());
 
     var $mainMenu = $(".main-nav > .menu");
+    var $archetypeMenu = $(".archetype-menu > .menu");
+    var $catalogMenu = $(".catalog > .menu");
     var $userMenu = $(".user-profile > .menu");
     var $storeMenu = $(".store-menu-nav > .menu");
     var $adminMenu = $(".admin-nav > .menu");
@@ -48,10 +50,24 @@ jQuery(function($){
     and into new menu in top header. Trigger toggle setup **/
     function setupMobileHeader() {
 
-
         if ($mainMenu.length) {
+            var $newMenu = $('<ul class="menu menu-t1" />');
+            $newMenu.append($mainMenu.find("> .mi").clone());
             $header.append($navTrigger);
-            $primaryMobileNav.append($mainMenu.clone());
+
+            if ($archetypeMenu.length) {
+                $newMenu.append($archetypeMenu.find("> .mi").clone());
+            }
+            if ($catalogMenu.length) {
+                var $mobileCatalogMenu = $catalogMenu.find("> .mi").clone();
+                $mobileCatalogMenu.each(function(idx, menuitem) {
+                    var $mi = $(menuitem);
+                    $mi.find("ul.menu-t2").addClass("menu-t3").removeClass("menu-t2");
+                    $mi.find("ul.menu-t1").addClass("menu-t2").removeClass("menu-t1");
+                });
+                $newMenu.append($mobileCatalogMenu);
+            }
+            $primaryMobileNav.append($newMenu);
             $header.append($primaryMobileNav);
         }
         else if ($storeMenu.length) {
