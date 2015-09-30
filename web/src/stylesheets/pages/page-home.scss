@@ -148,7 +148,6 @@
     margin-bottom: $spacing-between-boxes/3;
 
     @include breakpoint($bp-tablets-portrait) {
-        border-bottom: 1px solid $color-black;
         margin-bottom: $spacing-between-boxes;
     }
 }
