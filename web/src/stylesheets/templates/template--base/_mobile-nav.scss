@@ -7,6 +7,7 @@
     height: 25px;
     width: 25px;
     padding: 10px;
+    cursor: pointer;
 
     .line {
         display: block;
@@ -54,7 +55,7 @@
                     border-top: 1px solid $color-white;
                 }
 
-                .collapse {
+                > .collapse {
                     display: block;
                     z-index: 8500;
                     position: absolute;
@@ -63,7 +64,7 @@
                     background-color: $color-grey-1b;
                     padding-top: 7px;
                     width: 40px;
-                    height: 33px;
+                    height: 34px;
                     text-align: center;
 
                     span {
@@ -79,20 +80,79 @@
 
                 &.over,
                 &.open {
-                    .collapse {
+                    > .collapse {
                         span {
                             border-bottom: 6px solid $color-white;
                             border-top: none;
                         }
                     }
                 }
-
             }
 
             .menuitemlabel {
                 padding: 8px 30px 8px 15px;
             }
         }
+
+        .menu-t2 {
+
+            .mi {
+                + .mi {
+                    border-top: 1px solid $color-grey-d0;
+                }
+
+                .collapse {
+                    background-color: $color-grey-d0;
+
+                    span {
+                        border-top: 6px solid $color-grey-66;
+                    }
+                }
+
+                &.over,
+                &.open {
+                    .collapse {
+                        span {
+                            border-bottom: 6px solid $color-grey-66;
+                            border-top: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .menu-t3 {
+            background: $color-grey-d0;
+            max-height: 0;
+            overflow: hidden;
+            transition: .5s ease-in max-height;
+
+            .mi {
+                .collapse {
+                    background-color: $color-grey-d0;
+
+                    span {
+                        border-top: 6px solid $color-black;
+                    }
+                }
+
+                &.over,
+                &.open {
+                    .collapse {
+                        span {
+                            border-bottom: 6px solid $color-black;
+                            border-top: none;
+                        }
+                    }
+                }
+
+                .menuitemlabel {
+                    text-transform: none;
+                    font-size: 13px;
+                }
+            }
+        }
+
 
         &.open {
             > .menu {
