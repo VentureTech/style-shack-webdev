@@ -147,6 +147,8 @@ jQuery(function ($) {
                 $content.toggleClass(CSS_OPEN_CLASS);
             });
         });
+
+        $infoCon.eq(0).find(".title").trigger('click');
     }
 
     function setupThumbs() {
