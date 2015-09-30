@@ -1,5 +1,5 @@
-
 .archetype-menu {
+  display: none;
   margin-bottom: $spacing-between-boxes/2;
 
   ul {
@@ -58,8 +58,14 @@
       font-size: 12px;
     }
   }
+
+  @include breakpoint($bp-tablets-portrait) {
+    display: block;
+  }
 }
+
 .catalog {
+  display: none;
   margin-bottom: $spacing-between-boxes;
 
   ul {
@@ -140,6 +146,9 @@
 
   }
 
+  @include breakpoint($bp-tablets-portrait) {
+    display: block;
+  }
 }
 
 
