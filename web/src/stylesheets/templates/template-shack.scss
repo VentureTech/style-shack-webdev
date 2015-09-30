@@ -28,6 +28,11 @@ h2 {
         shape-outside: circle();
     }
 
+    .name {
+        font-size: 28px;
+        margin-bottom: 5px;
+    }
+
     a {
         font-family: $font-italic;
         color: $color-black;
