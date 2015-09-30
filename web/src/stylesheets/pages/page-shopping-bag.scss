@@ -1,140 +1,298 @@
 @import "../config/base-import";
 @import "../components/partials/property-editor";
 
-table.orderitems,
-table.order_detail {
-  border: 1px solid $color-grey-80;
-  width: 100%;
-
-  th {
-    background: $color-black;
-    color: $color-white;
-    padding: 10px;
-    text-align: left;
-  }
-
-  td {
-    padding: 10px;
-    border: 0;
-    border-bottom: 1px solid $color-black;
-    font-size: 14px;
-  }
-
-  .option {
-    font-style: italic;
-    font-size: 12px;
-  }
-
-  tr {
-    &.total {
-      td {
-        font-weight: bold;
-      }
-    }
-  }
+.shopping-cart {
+    margin-top: $spacing-between-boxes/2;
+    padding-top: $spacing-between-boxes/2;
+    border-top: 1px solid $color-black;
 }
 
+.order {
+    margin-top: $spacing-between-boxes/2;
+    padding-top: $spacing-between-boxes/2;
+    border-top: 1px solid $color-grey-cc;
+}
+
+.store-info {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: $spacing-between-boxes/2;
+}
+
+.order-items {
+    width: 100%;
+    margin-bottom: $spacing-between-boxes;
+
+    /** structure **/
+    .column-header {
+        background: $color-black;
+        color: $color-white;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .table-header-row {
+        display: none;
+    }
+
+    .table-cell {
+        text-align: left;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+
+    /** specific cells **/
+    .option {
+        font-style: italic;
+        font-size: 12px;
+    }
+
+    .product {
+        width: 100%;
+
+        .amount-con {
+            padding: 0;
+        }
+    }
+
+    .image-con {
+        float: left;
+        width: 50%;
+        padding: 10px 20px;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            width: auto;
+        }
+    }
+
+
+    .quantity-con {
+        input {
+            max-width: 100%;
+            float: right;
+            width: 50%;
+            margin-bottom: 5px;
+            margin-top: 20px;
+        }
+    }
+
+    .discount {
+        border-bottom: 1px solid $color-grey-cc;
+
+        .name {
+            text-align: right;
+            font-family: $font-handwriting;
+            display: inline-block;
+            width: 60%;
+        }
+
+        .amount-con {
+            display: inline-block;
+            width: 40%;
+            text-align: center;
+        }
+
+        .image-con,
+        .quantity-con {
+            display: none;
+        }
+    }
+
+    .shipping {
+        &:after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+
+        .quantity-con,
+        .name {
+            display: none;
+        }
+
+        .selection-con {
+            width: 60%;
+            display: inline-block;
+            text-align: right;
+
+            .rtb {
+                display: block;
+
+                + .rtb {
+                    margin-top: 10px;
+                }
+            }
+        }
+
+        .cost-con {
+            width: 40%;
+            text-align: center;
+            display: inline-block;
+        }
+    }
+
+    .subtotal {
+        font-weight: bold;
+
+        &.table-row {
+            border-top: 1px solid $color-black;
+        }
+
+        .name-con,
+        .image-con {
+            display: none;
+        }
+
+        .subtotal-con,
+        .table-cell.subtotal {
+            display: inline-block;
+        }
+
+        .subtotal-con {
+            display: inline-block;
+            text-align: right;
+            width: 60%;
+        }
+
+        .table-cell.subtotal {
+            width: 40%;
+            text-align: center;
+        }
+    }
+
+    .actions {
+        clear: both;
+
+        a {
+            @include style-button-base;
+            text-align: center;
+            width: 49%;
+            padding: 10px 0;
+
+            + a {
+                margin-left: 5px;
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        display: table;
+        border: 1px solid $color-grey-80;
+
+        /** table structure **/
+        .column-header {
+            display: table-cell;
+        }
+        .table-header-row {
+            display: table-header-group;
+        }
+
+        .table-row {
+            display: table-row;
+        }
+
+        .table-cell {
+            display: table-cell;
+            vertical-align: top;
+            border-bottom: 1px solid $color-black;
+        }
+
+        .rtb + .rtb {
+            margin-left: 10px;
+        }
+
+        /** specific cells **/
+        .image-con {
+            max-width: 100px;
+
+            img {
+                max-width: 100%;
+                height: auto;
+                width: auto;
+            }
+        }
+
+        .quantity-con {
+            width: 50px;
+
+            input {
+                width: 100%;
+            }
+        }
+    }
+}
 
 button {
-  @include genericButtonStyle;
+    @include style-button-base;
 }
 
-.actions {
-  &.quantity_update {
-    margin-top: 10px;
-  }
-
-  &.checkout {
-    float: right;
-    margin-top: -27px;
-  }
-}
-
-fieldset {
-  margin-top: $spacing-between-boxes;
-  font-size: 14px;
-
-  > div {
-    + div {
-      margin-top: $spacing-between-boxes/2;
+/*.actions {
+    &.quantity_update {
+        margin-top: 10px;
     }
 
-    > div {
-      + div {
-        margin-top: $spacing-between-boxes/3;
-      }
+    &.checkout {
+        float: right;
+        margin-top: -27px;
     }
-  }
-}
-
-legend {
-  font-weight: bold;
-}
+}*/
 
 label {
-  display: block;
-  margin-bottom: 3px;
-}
+    display: block;
+    margin-bottom: 3px;
 
-.nanp_button,
-.intl_button {
-  label {
-    display: inline-block;
-    padding-left: 5px;
-  }
-}
-
-.shipping_same_as_billing {
-  margin-bottom: $spacing-between-boxes/2;
-
-  input,
-  label {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 5px;
-  }
-}
-
-.phone_number {
-
-  .format {
-    > span {
-      display: inline-block;
-
-      + span {
-        margin-left: 10px;
-      }
+    &.tbl {
+        display: inline-block;
+        margin: 0 0 0 3px;
     }
-  }
+}
 
-  .nanp {
-    > input,
-    > label {
-      display: inline-block;
+.promotion-codes-con {
+    margin-bottom: $spacing-between-boxes;
 
-      + input,
-      + label {
-        margin-left: 5px;
-      }
+    label {
+        font-weight: bold;
     }
-  }
-
-  .nanp_example {
-    font-style: italic;
-    font-size: 12px;
-    margin-top: 3px;
-  }
 }
 
-.city_state_postalcode,
-.payment_method_options {
-  > div {
-    margin-top: $spacing-between-boxes/3;
-  }
+.right.column {
+    .actions {
+        text-align: center;
+
+        .total {
+            display: block;
+            margin-bottom: 5px;
+
+            .total-label {
+                font-weight: bold;
+            }
+        }
+
+        .checkout {
+            .btn {
+                @include style-button-large;
+                background-color: $color-red;
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .actions {
+            float: right;
+
+            .total {
+                display: inline-block;
+                margin-right: 20px;
+                margin-bottom: 0;
+
+                .total-label {
+                    margin-right: 3px;
+                }
+            }
+        }
+    }
 }
 
-form[name="checkout"] {
-  .checkout {
-    margin-top: 3px;
-  }
-}
