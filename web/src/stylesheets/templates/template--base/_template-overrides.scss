@@ -39,14 +39,15 @@
 /** Overrides for Blog Template **/
 #t_blog {
     .l-header {
-        padding: 65px 0 55px;
+        .box-wc {
+            padding-top: $spacing-between-boxes;
+        }
 
         h1 {
             margin: 0;
             font-size: 45px;
 
         }
-
     }
 
     .l-main-nav {
@@ -100,6 +101,11 @@
     }
 
     @include breakpoint($bp-tablets-portrait) {
+        .l-header {
+            .box-wc {
+                padding-top: $spacing-between-boxes;
+            }
+        }
         .l-primary-content,
         .l-aside-content {
             display: inline-block;
@@ -162,9 +168,6 @@
 }
 
 #t_store {
-    .l-header {
-        padding-top: 70px;
-    }
 
     #main_enclose {
         padding-bottom: $spacing-between-boxes;
