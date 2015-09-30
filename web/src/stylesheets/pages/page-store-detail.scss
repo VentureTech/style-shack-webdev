@@ -3,10 +3,17 @@
 @import "../components/partials/product-listing";
 
 .store_profile {
-    .my-shack {
-        input[type="submit"] {
-            @include style-button-base;
-            @include style-button-sm;
-        }
+
+  .store-name {
+    padding-right: 50px;
+  }
+
+  .my-shack {
+    input[type="submit"] {
+      height: 35px;
+      width: 35px;
+      display: inline-block;
+      margin: 0;
     }
+  }
 }
