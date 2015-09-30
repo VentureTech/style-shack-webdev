@@ -90,7 +90,8 @@
             .image {
                 float: none;
                 display: inline-block;
-                width: 45%;
+                width: 44%;
+                margin: 0 2px;
                 height: 80px;
                 padding-top: 0;
                 margin-bottom: 7px;
@@ -277,6 +278,7 @@
 
         &.product-desc {
             margin-top: $spacing-between-boxes;
+            border-top: 1px solid $color-grey-cc;
             padding-top: $spacing-between-boxes/2;
 
             .title.open {
@@ -325,7 +327,12 @@
         opacity: 0;
         transition: .4s ease all;
         overflow: hidden;
-        line-height: 1.5;
+
+        p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
 
         &.open {
             max-height: 2000px;
