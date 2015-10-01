@@ -267,6 +267,17 @@
         .l-header {
             padding-top: 40px;
         }
+
+        .l-primary-content {
+            padding: 0 $spacing-mobile-horizontal;
+        }
+    }
+
+
+    @include breakpoint($bp-desktop) {
+        .l-primary-content {
+            padding: 0 0 0 20px;
+        }
     }
 }
 
@@ -279,7 +290,8 @@
         }
 
         .l-primary-content {
-            width: 60%;
+            width: 70%;
+            padding: 0 $spacing-mobile-horizontal;
 
             &.wide {
                 width: 100%;
@@ -287,10 +299,11 @@
         }
 
         .l-aside-content {
-            width: 40%;
+            width: 30%;
             padding-right: 50px;
         }
     }
+
     @include breakpoint($bp-tablets-landscape) {
         .l-primary-content {
             width: 74%;
@@ -302,6 +315,12 @@
         .l-aside-content {
             width: 25%;
             padding-right: 40px;
+        }
+    }
+
+    @include breakpoint($bp-desktop) {
+        .l-primary-content {
+            padding: 0 0 0 20px;
         }
     }
 }
