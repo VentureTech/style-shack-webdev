@@ -113,7 +113,7 @@
         width: 25.22%;
 
         &.col1 {
-            width: 23.2%;
+            width: 22.2%;
         }
 
         &.col1 + &.col2 {
@@ -147,6 +147,7 @@
                 padding-left: 3%;
             }
         }
+
 
         .sale & {
             width: 20.5%;
