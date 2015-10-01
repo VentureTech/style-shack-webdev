@@ -1,0 +1,11 @@
+@import "../config/base-import";
+
+
+.metro-profile-editor,
+.metro-images-wrapper,
+.metro-viewer {
+    margin-top: $spacing-between-boxes;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 2px $color-grey-99;
+}

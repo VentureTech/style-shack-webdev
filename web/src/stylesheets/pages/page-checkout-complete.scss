@@ -1,0 +1,11 @@
+@import "../config/base-import";
+
+fieldset {
+    &.address-info {
+        margin-top: $spacing-between-boxes/2;
+    }
+    &.items {
+        margin-top: $spacing-between-boxes;
+    }
+}
+
