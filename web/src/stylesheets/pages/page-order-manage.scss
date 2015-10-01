@@ -4,11 +4,119 @@
     @include style-generic-table-search;
 }
 
-.miwt-table-con {
-    .table_view {
+table.table_view {
+    width: 100%;
+}
+
+.table_view_paging_table {
+    table {
         @include style-generic-table;
+        width: 100%;
+
+        @include breakpoint($bp-mobile-only) {
+            th, td {
+                &.modified,
+                &.journal,
+                &.time {
+                    display: none;
+                }
+            }
+        }
     }
 }
+
+
+.order_detail {
+    width: 100%;
+
+    td {
+        > table {
+            @include style-generic-table;
+        }
+    }
+
+    .payment_info-con {
+        padding: 0;
+    }
+
+    .payment_info {
+        padding: 5px 15px;
+
+        .miwt-collapsable {
+            margin-top: 5px;
+        }
+    }
+
+    .billing_address_container,
+    .journal_entry {
+        border: 0;
+
+        table {
+            border: 0;
+        }
+
+        td {
+            border: 0;
+            padding: 0;
+        }
+    }
+
+    td.buttons-con {
+        padding: 10px 0;
+
+        .btn {
+            + .btn {
+                margin-left: 5px;
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .payment_info {
+            padding: 0 15px;
+
+            .miwt-collapsable {
+                display: inline-block;
+                margin: 3px 5px;
+            }
+        }
+    }
+}
+
+.btn {
+    &.cancel_search {
+        margin-top: $spacing-between-boxes/2;
+    }
+
+    &.trigger {
+        @include style-button-sm;
+    }
+}
+
+.miwt-collapsable-content {
+    padding: 20px;
+    background: $color-white;
+    border: 1px solid $color-grey-66;
+
+    .shown & {
+        position: relative !important;
+    }
+
+    .close {
+        @include closeButtonGlyph;
+        float: right;
+        margin-top: 0;
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        box-shadow: 0 0 15px rgba($color-black, .65);
+
+        .shown & {
+            position: absolute !important;
+        }
+    }
+}
+
 
 .export_actions {
     margin-top: 10px;
