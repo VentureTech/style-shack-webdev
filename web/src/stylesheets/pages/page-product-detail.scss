@@ -9,11 +9,6 @@
     margin-bottom: $spacing-between-boxes/2;
     padding-bottom: $spacing-between-boxes/2;
 
-    .my-shack {
-        top: auto;
-        bottom: -$spacing-between-boxes;
-    }
-
     img {
         max-width: 100%;
         height: auto;
@@ -195,22 +190,29 @@
 
 }
 
+.my-shack {
+    input[type="submit"] {
+        @include style-button-base;
+        background-image: none;
+        position: relative;
+
+        &:before {
+            content: '';
+            background-image: url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png");
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+            display: block;
+            position: absolute;
+            left: 3px;
+            top: 3px;
+        }
+    }
+}
+
 .product-info {
     position: relative;
 
-    .my-shack {
-        position: absolute;
-        top: 7px;
-        width: 50px;
-        text-align: right;
 
-        input[type="submit"] {
-            height: 35px;
-            width: 35px;
-            display: inline-block;
-            margin: 0;
-        }
-    }
 
     .product-name {
         display: block;
@@ -328,6 +330,12 @@
         transition: .4s ease all;
         overflow: hidden;
 
+        .inner-title {
+            margin-top: $spacing-between-boxes/1.5;
+            color: $color-black;
+            font-family: $font-opensansbold;
+        }
+
         p {
             font-size: 14px;
             color: #666;
@@ -340,6 +348,38 @@
             margin-top: 10px;
         }
     }
+}
+
+/** OVERRIDE SOCIAL STYLES **/
+.social-con {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.social {
+    .label {
+        display: none;
+    }
+
+    .addthis_native_counter_parent {
+        display: block;
+        max-width: 45px;
+        max-height: 45px;
+        overflow: hidden;
+
+        + .addthis_native_counter_parent {
+            margin-top: 5px;
+        }
+
+        .addthis_button_twitter {
+            margin-left: 0;
+        }
+    }
+}
+
+.pin-it {
+    display: block;
+    margin-top: 5px;
 }
 
 .product-option {
