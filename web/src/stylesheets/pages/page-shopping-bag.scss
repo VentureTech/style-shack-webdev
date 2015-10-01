@@ -114,6 +114,12 @@
       clear: both;
     }
 
+    &.adjustment {
+      &:after {
+        display: none;
+      }
+    }
+
     .quantity-con,
     .name {
       display: none;
