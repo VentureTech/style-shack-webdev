@@ -4,13 +4,32 @@
 .order-list {
     .constraints {
         @include style-generic-table-search;
+
+
+        label {
+            font-size: 14px;
+            display: block;
+            margin-bottom: 3px;
+            font-weight: bold;
+        }
+
+        .actions {
+            margin-top: 10px;
+        }
     }
 
     > table {
         @include style-generic-table;
     }
-}
 
+    @include breakpoint($bp-tablets-portrait) {
+        .constraints {
+            .actions {
+                margin-top: 0;
+            }
+        }
+    }
+}
 
 .order-confirmation {
     .header p {
@@ -43,17 +62,40 @@
 
     .order-info-wrapper {
         font-size: 0;
+
         > span {
             display: block;
-            font-size: 16px;
-            padding: 10px 0;
+            font-size: 14px;
 
+            + span {
+                margin-top: 5px;
+            }
+
+            span {
+                &.label {
+                    font-weight: bold;
+                    padding-right: 5px;
+                }
+            }
+        }
+
+        @include breakpoint($bp-tablets-portrait) {
             > span {
                 display: inline-block;
 
-                &.label {
-                    font-weight: bold;
-                    margin-right: 6px;
+                + span {
+                    display: inline-block;
+                    border-left: 1px solid $color-grey-cc;
+                    padding-left: 10px;
+                }
+
+                span {
+                    padding: 0 10px 0 0;
+
+                    &.label {
+                        display: inline-block;
+                        padding: 0 10px 0 0;
+                    }
                 }
             }
         }
@@ -63,17 +105,30 @@
         padding: $spacing-between-boxes/2;
 
         h3 {
-            font-size: 20px;
-            margin: 0;
+            font-size: 18px;
+            font-family: $font-opensansbold;
+            margin: 5px 0;
         }
 
         > div {
-            display: inline-block;
-            width: 45%;
+            font-size: 14px;
+            line-height: 1.5;
 
             + div {
-                margin-top: 0;
-                padding-left: $spacing-between-boxes/3;
+                margin-top: $spacing-between-boxes/2;
+            }
+        }
+
+
+        @include breakpoint($bp-tablets-portrait) {
+            > div {
+                display: inline-block;
+                width: 45%;
+
+                + div {
+                    margin-top: 0;
+                    padding-left: $spacing-between-boxes/3;
+                }
             }
         }
     }
@@ -91,7 +146,6 @@
             margin-top: $spacing-between-boxes*1.5;
         }
     }
-
 
     @include breakpoint($bp-desktop) {
         .receipt-actions {
@@ -132,15 +186,31 @@
         }
 
         .order-details {
+            display: block;
             margin-top: 3px;
+            margin-left: 2px;
         }
     }
 
+    @include breakpoint($bp-mobile-only) {
+        &.multiorderhistoryelement {
+            margin-top: $spacing-between-boxes/2;
+            padding-top: $spacing-between-boxes/2;
+            border-top: 1px solid $color-black;
+        }
+    }
+
+
     @include breakpoint($bp-tablets-portrait) {
+        > table {
+            th, td {
+                padding: 5px;
+            }
+        }
+
         .checkout-order,
         .order-details {
             display: inline-block;
-            vertical-align: middle;
             vertical-align: top;
         }
 
@@ -149,4 +219,109 @@
             margin-left: 5px;
         }
     }
+
+    @include breakpoint($bp-tablets-landscape) {
+        > table {
+            th, td {
+                padding: 10px 15px;
+            }
+        }
+    }
+}
+
+.order-detail {
+    margin-top: $spacing-between-boxes;
+    border: 1px solid $color-grey-cc;
+    padding: 20px;
+
+    .summary {
+        th,
+        td {
+            font-size: 14px;
+            padding: 5px;
+
+            &:first-child {
+                text-align: left;
+            }
+        }
+    }
+
+    fieldset {
+        margin-top: $spacing-between-boxes;
+
+        legend {
+            font-family: $font-opensanslight;
+            font-size: 18px;
+        }
+
+        &.items:nth-of-type(2n) {
+            border: 0;
+            padding: 0;
+
+            legend {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+
+
+    .items {
+        h3 {
+            margin: 5px 0;
+            font-family: $font-opensansbold;
+            font-size: 16px;
+        }
+
+        > div {
+            font-size: 14px;
+
+            + div {
+                margin-top: 10px;
+            }
+        }
+
+        @include breakpoint($bp-tablets-portrait) {
+            > div {
+                display: inline-block;
+                width: 45%;
+                padding-left: 20px;
+
+                + div {
+                    margin-top: 0;
+                    padding-left: $spacing-between-boxes;
+                    width: 50%;
+                    border-left: 1px solid $color-grey-cc;
+                }
+            }
+
+        }
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+        .summary {
+            tr, th, td {
+                display: inline-block;
+            }
+
+            tr {
+                padding: 0 10px 0 0;
+
+                + tr {
+                    border-left: 1px solid $color-grey-cc;
+                    padding-left: 10px;
+                }
+            }
+
+            td {
+                padding: 0 10px 0 0;
+            }
+
+        }
+    }
+}
+
+table.orderitems {
+    @include style-generic-table;
+    border-collapse: collapse;
 }
