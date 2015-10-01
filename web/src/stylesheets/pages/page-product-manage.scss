@@ -1,35 +1,33 @@
 .search-wrapper {
-  .entity-actions {
-    .btn {
-      float: right;
-      margin-bottom: 5px;
-      margin-right: 0;
+    .entity-actions {
+        float: right;
 
-      + .btn {
-        margin-right: 10px;
-      }
+        .btn {
+            margin-bottom: 5px;
+            margin-right: 0;
 
-      &.add {
-        margin-top: 0;
-      }
+            + .btn {
+                margin-right: 5px;
+            }
+        }
     }
-  }
 }
 
-  .product-management {
+.product-management {
     .pager-search-results img {
-      width: 100px;
+        width: 100px;
     }
-  }
-  .product-images-list {
+}
+
+.product-images-list {
     .picture-editor.mode-view img {
-      width: 100px;
+        width: 100px;
     }
 
     .product-options {
-      .picture-editor.mode-view img,
-      .pager-search-results img {
-        width: 100px;
-      }
+        .picture-editor.mode-view img,
+        .pager-search-results img {
+            width: 100px;
+        }
     }
-  }
+}
