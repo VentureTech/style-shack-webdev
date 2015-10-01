@@ -190,28 +190,13 @@
 
 }
 
-.my-shack {
-    input[type="submit"] {
-        @include style-button-base;
-        background-image: none;
-        position: relative;
 
-        &:before {
-            content: '';
-            background-image: url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png");
-            background-repeat: no-repeat;
-            background-size: 20px 20px;
-            display: block;
-            position: absolute;
-            left: 3px;
-            top: 3px;
-        }
-    }
-}
+
+
+
 
 .product-info {
     position: relative;
-
 
 
     .product-name {
@@ -224,6 +209,33 @@
     textarea,
     label {
         font-size: 14px;
+    }
+
+    .my-shack {
+        position: relative;
+        display: block;
+        text-align: left;
+
+        input[type="submit"] {
+            @include style-button-base;
+            background: $color-black url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png") 10px 6px no-repeat;
+            background-size: 20px;
+            position: relative;
+            text-indent: 0;
+            width: auto;
+            height: auto;
+            transition: none;
+            padding: 8px 15px 8px 40px;
+
+
+            &:hover {
+                background: $color-grey-66 url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png") 10px 6px no-repeat;
+                background-size: 20px;
+                width: auto;
+                height: auto;
+                margin: 0;
+            }
+        }
     }
 
 
@@ -356,20 +368,23 @@
     top: 0;
     right: 0;
 }
+
+
 .social {
+    margin-top: 0;
+    display: block;
+
     .label {
         display: none;
     }
 
     .addthis_native_counter_parent {
         display: block;
+        margin-bottom: 10px;
         max-width: 45px;
         max-height: 45px;
         overflow: hidden;
 
-        + .addthis_native_counter_parent {
-            margin-top: 5px;
-        }
 
         .addthis_button_twitter {
             margin-left: 0;
@@ -377,9 +392,9 @@
     }
 }
 
+
 .pin-it {
     display: block;
-    margin-top: 5px;
 }
 
 .product-option {
@@ -476,17 +491,6 @@
     }
 }
 
-.social {
-    margin-top: $spacing-between-boxes;
-    display: inline-block;
-}
-
-.pin-it {
-    margin-top: $spacing-between-boxes;
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 10px;
-}
 
 
 .product-listing {
