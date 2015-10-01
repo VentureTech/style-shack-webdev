@@ -23,11 +23,6 @@
 .btn {
 	@include style-button-base;
 
-	&.add {
-		float: right !important;
-		margin-top: 18px;
-	}
-
 	&.reset,
 	&.delete {
 		background-color: $color-grey-aa;
