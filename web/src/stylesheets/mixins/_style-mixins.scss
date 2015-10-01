@@ -30,7 +30,7 @@
 @mixin style-generic-table {
 	width: 100%;
 	max-width: 100%;
-	border-collapse: separate;
+	border-collapse: collapse;
 	border-radius: 4px;
 	border-spacing: 0;
 	border-width: 1px 1px medium;
@@ -43,20 +43,26 @@
 	border-image: none;
 
 	.action-column button + button {
-		margin-left: 10px;
+		margin-left: 5px;
+
+		@include breakpoint($bp-tablets-landscape) {
+			margin-left: 10px;
+		}
 	}
 
 	.summary {
 		display: none;
 	}
 
+	td, th {
+		font-size: 12px;
+		padding: 10px 5px;
+	}
+
 	th {
 		background: transparent linear-gradient(to bottom, $color-blue-grey 0%, $color-grey-66 100%) repeat scroll 0 0;
-		font-size: 11px;
 		color: $color-white;
 		font-weight: normal;
-		padding: 10px 5px;
-		text-align: left;
 		border-bottom: 1px solid $color-grey-c5;
 
 		+ th {
@@ -66,6 +72,55 @@
 		span.column-label {
 			display: block;
 		}
+
+		span.sortarrow {
+			display: inline-block;
+			vertical-align: middle;
+			margin-left: 2px;
+			height: 0;
+			width: 0;
+
+			span {
+				display: none;
+			}
+
+			&.sortarrowup {
+				border-top: 3px solid $color-white;
+				border-left: 3px solid transparent;
+				border-right: 3px solid transparent;
+			}
+
+			&.sortarrowdown {
+				border-bottom: 3px solid $color-white;
+				border-left: 3px solid transparent;
+				border-right: 3px solid transparent;
+			}
+		}
+
+		span.sort-indicator {
+			display: inline-block;
+			vertical-align: middle;
+			margin-left: 2px;
+			height: 0;
+			width: 0;
+
+			img {
+				display: none;
+			}
+
+			&.descending {
+				border-top: 3px solid $color-white;
+				border-left: 3px solid transparent;
+				border-right: 3px solid transparent;
+			}
+
+			&.ascending {
+				border-bottom: 3px solid $color-white;
+				border-left: 3px solid transparent;
+				border-right: 3px solid transparent;
+			}
+		}
+
 
 		&.first-column {
 			border-top-left-radius: 3px;
@@ -81,13 +136,20 @@
 	}
 
 	td {
-		padding: 10px 5px;
 		border-bottom: 1px solid $color-grey-c5;
-		font-size: 11px;
 		background-color: $color-white;
 
 		+ td {
 			border-left: 1px solid $color-grey-c5;
+		}
+
+		&.empty-con {
+			padding: 0;
+			border-bottom: 0;
+		}
+
+		@include breakpoint($bp-tablets-landscape) {
+			padding: 10px 15px;
 		}
 	}
 
@@ -99,6 +161,7 @@
 	td.action-column {
 		.actions {
 			text-align: left;
+			margin-top: 0;
 		}
 
 		.btn {
@@ -154,18 +217,20 @@
 		}
 	}
 
-	@include breakpoint($bp-tablets-portrait) {
-		th {
-			font-size: 14px;
-			padding: 10px 15px;
-		}
-		td {
-			padding: 10px 15px;
+	@include breakpoint($bp-tablets-landscape) {
+		th, td {
 			font-size: 14px;
 		}
 
 		.summary {
 			display: table-cell;
+		}
+	}
+
+	@include breakpoint($bp-desktop) {
+		th, td {
+			padding: 10px 15px;
+
 		}
 	}
 }
@@ -273,7 +338,6 @@
 	}
 
 	@include breakpoint($bp-desktop) {
-
 		.constraint {
 			width: 24%;
 		}
