@@ -6,22 +6,19 @@ jQuery(function($){
     var $loginMobileNav = $('<div class="login-main" />');
 
     var $header = $(".l-top-nav > .box-wc");
-    var $loginMenuItems = $header.find(".menu-comp .mi").not('.shopping-bag');
-    var $mobileLoginMenu = $('<ul class="menu-t1 menu"/>').append($loginMenuItems.clone());
+    var $loginMenuItems = $header.find(".menu-comp .menu-t1 > .mi").not('.shopping-bag');
 
     var $mainMenu = $(".main-nav > .menu");
     var $archetypeMenu = $(".archetype-menu > .menu");
     var $catalogMenu = $(".catalog > .menu");
-    var $userMenu = $(".user-profile > .menu");
     var $storeMenu = $(".store-menu-nav > .menu");
-    var $adminMenu = $(".admin-nav > .menu");
 
     var $mobileNav,
         $loginNav;
 
     var CSS_ACTIVE_CLASS = "active";
     var CSS_OPEN_CLASS = "open";
-    var BREAKPOINT_WIDTH_TOUCH = 767;
+    var BREAKPOINT_WIDTH_TOUCH = 1023;
     var RESIZE_THROTTLE_TIME = 200;
 
     var resizeThrottleId;
@@ -67,26 +64,29 @@ jQuery(function($){
                 });
                 $newMenu.append($mobileCatalogMenu);
             }
+
             $primaryMobileNav.append($newMenu);
             $header.append($primaryMobileNav);
         }
+
         else if ($storeMenu.length) {
+            var $newMenu = $('<ul class="menu menu-t1" />');
+            $newMenu.append($storeMenu.find("> .mi").clone());
             $header.append($navTrigger);
-            $primaryMobileNav.append($storeMenu.clone());
+
+            $primaryMobileNav.append($newMenu);
             $header.append($primaryMobileNav);
         }
 
-        if ($loginMenuItems.length) {
+        if ($loginMenuItems.length || $(".deferred-logout").length) {
+            var $newMenu = $('<ul class="menu menu-t1" />');
+            $newMenu.append($loginMenuItems.clone());
             $header.append($shackTrigger);
-            $loginMobileNav.append($mobileLoginMenu);
+
+            $loginMobileNav.append($newMenu);
             $header.append($loginMobileNav);
         }
 
-        else if ($adminMenu.length) {
-            $header.append($shackTrigger);
-            $loginMobileNav.append($adminMenu.clone());;
-            $header.append($loginMobileNav);
-        }
 
         pollForLogin();
         setupNavToggles();
