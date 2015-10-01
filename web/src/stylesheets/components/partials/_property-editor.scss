@@ -9,176 +9,156 @@
 /* Form Elements
    ========================================================================== */
 
-
 .prop-wrapper {
-  input,
-  select,
-  textarea {
-    border: 1px solid $color-grey-b3;
-    padding: 2px;
-    margin: 2px 0;
-    font-family: Arial, Verdana, sans-serif;
+    input,
+    select,
+    textarea {
+        border: 1px solid $color-grey-b3;
+        padding: 2px;
+        margin: 2px 0;
+        font-family: Arial, Verdana, sans-serif;
 
-    &:focus {
-      background-color: $color-grey-f2;
-    }
-  }
-
-  button,
-  input[type="submit"],
-  input[type="reset"],
-  .prop-wrapper .constraints a[data-features~="submit"] {
-    display: inline-block;
-    zoom: 1;
-    *display: inline;
-    cursor: pointer;
-
-    margin-right: 5px;
-  }
-
-  button::-moz-focus-inner {
-    border: 0;
-    padding: 0;
-  }
-
-  // Messages
-  //FIXME this should be converted to use standard messages for look and feel
-  /*.message-container {
-    margin: 15px 0;
-
-    .message {
-      text-align: center;
-      color: #D74300;
-      font-weight: bold;
-      background-color: #FFF7C2;
-      border: 2px solid #FFE180;
-      padding: 10px 15px;
-
-      &.error {
-        background-color: #FFD9DA;
-        border-color: #FFABAD;
-        color: #9E0013;
-      }
-    }
-  }*/
-
-  //Content
-  .prop-header-title {
-    font-size: 22px;
-    font-weight: bold;
-    margin: 1em 0;
-  }
-
-  .prop-group-title {
-    font-weight: bold;
-    font-size: 16px;
-    margin: 10px 0;
-  }
-
-  .prop {
-    > label,
-    > .tal {
-      font-weight: bold;
-      margin-bottom: 3px;
-      display: block;
+        &:focus {
+            background-color: $color-grey-f2;
+        }
     }
 
-    > .val {
-      display: inline-block;
-      *display: inline;
-      zoom: 1;
-    }
-
-    > .localizable > .val {
-      display: inline-block;
-      *display: inline;
-      zoom: 1;
-    }
-  }
-
-  .actions {
-    margin: 10px 0;
-    text-align: right;
-  }
-
-  .prop {
-    margin-bottom: 10px;
-    padding: 5px;
-
-    &.address {
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .phone_number_form {
-
-      .phone_number_format {
-        margin-bottom: 5px;
-      }
-
-      label,
-      .nanp_example {
-        display: block;
-        font-size: 14px;
-      }
-
-      .extension_label {
-        display: inline-block;
-        padding: 0 3px;
-        font-size: 14px;
-      }
-
-      .rtb {
-        display: inline-block;
-
+    .rtb,
+    .ctb {
         label {
-          display: inline-block;
-          margin-left: 3px;
+            display: inline-block;
+            margin-left: 3px;
+        }
+    }
+
+    button,
+    input[type="submit"],
+    input[type="reset"],
+    .prop-wrapper .constraints a[data-features~="submit"] {
+        display: inline-block;
+        zoom: 1;
+        *display: inline;
+        cursor: pointer;
+
+        margin-right: 5px;
+    }
+
+    button::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+
+    //Content
+    .prop-header-title {
+        font-size: 22px;
+        font-weight: bold;
+        margin: 1em 0;
+    }
+
+    .prop-group-title {
+        font-weight: bold;
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    .prop {
+        > label,
+        > .tal {
+            font-weight: bold;
+            margin-bottom: 3px;
+            display: block;
         }
 
-        + .rtb {
-          margin-left: 5px;
+        > .val {
+            display: inline-block;
+            *display: inline;
+            zoom: 1;
         }
-      }
+
+        > .localizable > .val {
+            display: inline-block;
+            *display: inline;
+            zoom: 1;
+        }
     }
 
-  }
-
-  .address {
-    .part,
-    .address_lines > .address_line {
-      margin-bottom: 10px;
-      padding: 5px 0;
-
-      &.last {
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
+    .actions {
+        margin: 10px 0;
+        text-align: right;
     }
 
-    .part {
-      label {
-        display: block;
-        font-size: 14px;
-      }
-    }
-  }
+    .prop {
+        margin-bottom: 10px;
+        padding: 5px;
 
-  .user-entry-required {
-    label:after {
-      content: "*";
-      color: $color-red;
-    }
-  }
+        &.address {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
 
-  .validation-error {
-    input[type="text"] {
-      border: 1px solid $color-red;
-    }
-  }
+        .phone_number_form {
+            .phone_number_format {
+                margin-bottom: 5px;
+            }
 
-  .prop-viewer,
-  .prop-editor {
-    padding: 5px;
-  }
+            label,
+            .nanp_example {
+                display: inline-block;
+                font-size: 14px;
+            }
+
+            .extension_label {
+                display: inline-block;
+                padding: 0 3px;
+                font-size: 14px;
+            }
+
+            .rtb {
+                display: inline-block;
+
+                + .rtb {
+                    margin-left: 5px;
+                }
+            }
+        }
+
+    }
+
+    .address {
+        .part,
+        .address_lines > .address_line {
+            margin-bottom: 10px;
+            padding: 5px 0;
+
+            &.last {
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+        }
+
+        .part {
+            label {
+                display: block;
+                font-size: 14px;
+            }
+        }
+    }
+
+    .user-entry-required {
+        label:after {
+            content: "*";
+            color: $color-red;
+        }
+    }
+
+    .validation-error {
+        input[type="text"] {
+            border: 1px solid $color-red;
+        }
+    }
+
+    .prop-viewer,
+    .prop-editor {
+        padding: 5px;
+    }
 }
