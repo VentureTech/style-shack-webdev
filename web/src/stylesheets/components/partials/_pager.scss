@@ -2,6 +2,10 @@
 .pager {
   text-align: center;
 
+  .controls {
+    margin: 0 5px;
+  }
+
   .pager-top,
   .pager-bottom {
     margin: 10px 0;
@@ -11,6 +15,13 @@
   a {
     color: $color-grey-80;
     font-family: $font-opensanslight;
+  }
+
+  th,
+  td {
+    a {
+      font-family: $font-stack-sans;
+    }
   }
 
   .prev {
