@@ -1,7 +1,8 @@
 /* Search UI*/
 .search-wrapper {
 	.search_bar,
-	.search-bar {
+	.search-bar,
+	.search {
 		margin-top: 10px;
 		margin-bottom: 10px;
 
@@ -10,11 +11,11 @@
 			vertical-align: top;
 			margin-top: 19px;
 
-			button.btn {
+			.btn {
 				margin: 0;
 
-				+ button.btn {
-					margin-left: 10px;
+				+ .btn {
+					margin-left: 5px;
 				}
 			}
 		}
