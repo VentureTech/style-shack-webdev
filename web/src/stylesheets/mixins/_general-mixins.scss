@@ -141,6 +141,10 @@
   @include addButtonGlyph('\e008');
 }
 
+@mixin closeButtonGlyph() {
+  @include addButtonGlyph('\e0db');
+}
+
 @mixin deleteButtonGlyph() {
   @include addButtonGlyph('\e0cf');
   background-color: transparent;
