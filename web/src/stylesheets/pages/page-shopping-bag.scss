@@ -2,231 +2,385 @@
 @import "../components/partials/property-editor";
 
 .shopping-cart {
-    margin-top: $spacing-between-boxes/2;
-    padding-top: $spacing-between-boxes/2;
-    border-top: 1px solid $color-black;
+  margin-top: $spacing-between-boxes/2;
+  padding-top: $spacing-between-boxes/2;
+  border-top: 1px solid $color-black;
+
+  @include breakpoint($bp-tablets-portrait) {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
 }
 
 .order {
-    margin-top: $spacing-between-boxes/2;
-    padding-top: $spacing-between-boxes/2;
-    border-top: 1px solid $color-grey-cc;
+  margin-top: $spacing-between-boxes/2;
+  padding-top: $spacing-between-boxes/2;
+  border-top: 1px solid $color-grey-cc;
 }
 
 .store-info {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: $spacing-between-boxes/2;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: $spacing-between-boxes/2;
 }
 
-.order-items {
-    width: 100%;
-    margin-bottom: $spacing-between-boxes;
+.order-items,
+.items {
+  width: 100%;
+  margin-bottom: $spacing-between-boxes;
 
-    /** structure **/
-    .column-header {
-        background: $color-black;
-        color: $color-white;
-        padding: 10px;
-        text-align: left;
+  /** structure **/
+  .column-header {
+    background: $color-black;
+    color: $color-white;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .table-header-row {
+    display: none;
+  }
+
+  .table-cell {
+    text-align: left;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  /** specific cells **/
+  .option {
+    font-style: italic;
+    font-size: 12px;
+  }
+
+  .product {
+    width: 100%;
+
+    .amount-con {
+      padding: 0;
+    }
+  }
+
+  .image-con {
+    float: left;
+    width: 50%;
+    padding: 10px 20px;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      width: auto;
+    }
+  }
+
+  .quantity-con {
+    input {
+      max-width: 100%;
+      float: right;
+      width: 50%;
+      margin-bottom: 5px;
+      margin-top: 20px;
+    }
+  }
+
+  .discount {
+    border-bottom: 1px solid $color-grey-cc;
+
+    .name,
+    .name-con {
+      text-align: right;
+      font-family: $font-handwriting;
+      display: inline-block;
+      width: 60%;
     }
 
+    .amount-con {
+      display: inline-block;
+      width: 40%;
+      text-align: center;
+    }
+
+    .image-con,
+    .quantity-con {
+      display: none;
+    }
+  }
+
+  .shipping {
+    &:after {
+      display: block;
+      content: '';
+      clear: both;
+    }
+
+    .quantity-con,
+    .name {
+      display: none;
+    }
+
+    .selection-con {
+      width: 60%;
+      display: inline-block;
+      text-align: right;
+
+      .rtb {
+        display: block;
+
+        + .rtb {
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .cost-con {
+      width: 40%;
+      text-align: center;
+      display: inline-block;
+    }
+  }
+
+  .subtotal {
+    font-weight: bold;
+
+    &.table-row {
+      border-top: 1px solid $color-black;
+    }
+
+    .name-con,
+    .image-con {
+      display: none;
+    }
+
+    .subtotal-con,
+    .table-cell.subtotal {
+      display: inline-block;
+    }
+
+    .subtotal-con {
+      display: inline-block;
+      text-align: right;
+      width: 60%;
+    }
+
+    .table-cell.subtotal {
+      width: 40%;
+      text-align: center;
+    }
+  }
+
+  .actions {
+    clear: both;
+
+    a {
+      @include style-button-base;
+      text-align: center;
+      width: 49%;
+      padding: 10px 0;
+
+      + a {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    display: table;
+    border: 1px solid $color-grey-80;
+
+    /** table structure **/
+    .column-header {
+      display: table-cell;
+    }
     .table-header-row {
-        display: none;
+      display: table-header-group;
+    }
+
+    .table-row {
+      display: table-row;
     }
 
     .table-cell {
-        text-align: left;
-        padding: 10px;
-        font-size: 14px;
+      display: table-cell;
+      vertical-align: top;
+      border-bottom: 1px solid $color-black;
     }
 
+    .rtb + .rtb {
+      margin-left: 10px;
+    }
 
     /** specific cells **/
-    .option {
-        font-style: italic;
-        font-size: 12px;
+    .image-con {
+      float: none;
+      padding: 10px;
+      width: 20%;
+
+      img {
+        max-width: 100%;
+        height: auto;
+        width: auto;
+      }
+    }
+
+    .name-con {
+      width: 40%;
     }
 
     .product {
-        width: 100%;
-
-        .amount-con {
-            padding: 0;
-        }
+      .amount-con {
+        padding: 10px;
+      }
     }
-
-    .image-con {
-        float: left;
-        width: 50%;
-        padding: 10px 20px;
-
-        img {
-            max-width: 100%;
-            height: auto;
-            width: auto;
-        }
-    }
-
 
     .quantity-con {
-        input {
-            max-width: 100%;
-            float: right;
-            width: 50%;
-            margin-bottom: 5px;
-            margin-top: 20px;
-        }
-    }
+      width: 15%;
 
-    .discount {
-        border-bottom: 1px solid $color-grey-cc;
-
-        .name {
-            text-align: right;
-            font-family: $font-handwriting;
-            display: inline-block;
-            width: 60%;
-        }
-
-        .amount-con {
-            display: inline-block;
-            width: 40%;
-            text-align: center;
-        }
-
-        .image-con,
-        .quantity-con {
-            display: none;
-        }
-    }
-
-    .shipping {
-        &:after {
-            display: block;
-            content: '';
-            clear: both;
-        }
-
-        .quantity-con,
-        .name {
-            display: none;
-        }
-
-        .selection-con {
-            width: 60%;
-            display: inline-block;
-            text-align: right;
-
-            .rtb {
-                display: block;
-
-                + .rtb {
-                    margin-top: 10px;
-                }
-            }
-        }
-
-        .cost-con {
-            width: 40%;
-            text-align: center;
-            display: inline-block;
-        }
-    }
-
-    .subtotal {
-        font-weight: bold;
-
-        &.table-row {
-            border-top: 1px solid $color-black;
-        }
-
-        .name-con,
-        .image-con {
-            display: none;
-        }
-
-        .subtotal-con,
-        .table-cell.subtotal {
-            display: inline-block;
-        }
-
-        .subtotal-con {
-            display: inline-block;
-            text-align: right;
-            width: 60%;
-        }
-
-        .table-cell.subtotal {
-            width: 40%;
-            text-align: center;
-        }
+      input {
+        width: 100%;
+        float: none;
+        margin-top: 0;
+      }
     }
 
     .actions {
-        clear: both;
+      a {
+        display: block;
+        width: 100%;
+        padding: 5px 15px;
 
-        a {
-            @include style-button-base;
-            text-align: center;
-            width: 49%;
-            padding: 10px 0;
-
-            + a {
-                margin-left: 5px;
-            }
+        + a {
+          margin-left: 0;
+          margin-top: 5px;
         }
+      }
     }
 
-    @include breakpoint($bp-tablets-portrait) {
-        display: table;
-        border: 1px solid $color-grey-80;
+    .shipping {
+      .name,
+      .quantity-con,
+      .selection-con,
+      .cost-con {
+        width: auto;
+        display: table-cell
+      }
 
-        /** table structure **/
-        .column-header {
-            display: table-cell;
+      .name {
+        width: 5%;
+      }
+
+      .selection-con {
+        width: 55%;
+
+        .rtb {
+          display: inline-block;
+
+          + .rtb {
+            margin-left: 5px;
+            margin-top: 0;
+          }
         }
-        .table-header-row {
-            display: table-header-group;
-        }
+      }
 
-        .table-row {
-            display: table-row;
-        }
+      .cost-con {
+        text-align: left;
+      }
 
-        .table-cell {
-            display: table-cell;
-            vertical-align: top;
-            border-bottom: 1px solid $color-black;
-        }
-
-        .rtb + .rtb {
-            margin-left: 10px;
-        }
-
-        /** specific cells **/
-        .image-con {
-            max-width: 100px;
-
-            img {
-                max-width: 100%;
-                height: auto;
-                width: auto;
-            }
-        }
-
-        .quantity-con {
-            width: 50px;
-
-            input {
-                width: 100%;
-            }
-        }
     }
+
+    .discount {
+      .image-con,
+      .table-cell.name,
+      .amount-con,
+      .quantity-con {
+        display: table-cell;
+      }
+
+      .image-con {
+        width: 20%;
+      }
+
+      .table-cell.name,
+      .table-cell.name-con {
+        width: 30%;
+        text-align: right;
+        display: table-cell;
+      }
+
+      .amount-con {
+        width: 45%;
+        text-align: left;
+      }
+
+      .quantity-con {
+        width: 5%;
+      }
+    }
+
+    .subtotal {
+      .table-cell {
+        border-bottom: 0;
+      }
+
+      .image-con,
+      .name-con {
+        display: table-cell;
+        width: 5%;
+      }
+
+      .subtotal-con {
+        display: table-cell;
+        width: 50%;
+      }
+
+      .table-cell.subtotal {
+        display: table-cell;
+      }
+    }
+  }
+}
+
+
+@include breakpoint($bp-mobile-only) {
+  /** checkout specific "items" table **/
+  .items {
+    .table-row {
+      > .item-name,
+      > .quantity,
+      > .price {
+        display: inline-block;
+      }
+
+      > .item-name {
+        width: 35%;
+      }
+
+      > .quantity {
+        width: 26%;
+      }
+
+      > .price {
+        text-align: center;
+        width: 39%;
+      }
+    }
+
+    .subtotal {
+      .name-con {
+        width: 60%;
+        display: inline-block;
+      }
+
+      /* sp error in DOM */
+      .quantiy-con {
+        display: none;
+      }
+    }
+  }
 }
 
 button {
-    @include style-button-base;
+  @include style-button-base;
 }
 
 /*.actions {
@@ -241,58 +395,58 @@ button {
 }*/
 
 label {
-    display: block;
-    margin-bottom: 3px;
+  display: block;
+  margin-bottom: 3px;
 
-    &.tbl {
-        display: inline-block;
-        margin: 0 0 0 3px;
-    }
+  &.tbl {
+    display: inline-block;
+    margin: 0 0 0 3px;
+  }
 }
 
 .promotion-codes-con {
-    margin-bottom: $spacing-between-boxes;
+  margin-bottom: $spacing-between-boxes;
 
-    label {
-        font-weight: bold;
-    }
+  label {
+    font-weight: bold;
+  }
 }
 
 .right.column {
+  .actions {
+    text-align: center;
+
+    .total {
+      display: block;
+      margin-bottom: 5px;
+
+      .total-label {
+        font-weight: bold;
+      }
+    }
+
+    .checkout {
+      .btn {
+        @include style-button-large;
+        background-color: $color-red;
+      }
+    }
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
     .actions {
-        text-align: center;
+      float: right;
 
-        .total {
-            display: block;
-            margin-bottom: 5px;
+      .total {
+        display: inline-block;
+        margin-right: 20px;
+        margin-bottom: 0;
 
-            .total-label {
-                font-weight: bold;
-            }
+        .total-label {
+          margin-right: 3px;
         }
-
-        .checkout {
-            .btn {
-                @include style-button-large;
-                background-color: $color-red;
-            }
-        }
+      }
     }
-
-    @include breakpoint($bp-tablets-portrait) {
-        .actions {
-            float: right;
-
-            .total {
-                display: inline-block;
-                margin-right: 20px;
-                margin-bottom: 0;
-
-                .total-label {
-                    margin-right: 3px;
-                }
-            }
-        }
-    }
+  }
 }
 
