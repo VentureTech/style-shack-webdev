@@ -116,6 +116,7 @@
         &.over,
         &.open {
             > .menu {
+                z-index: 9000;
                 max-height: 2000px;
                 opacity: 1;
             }
@@ -150,10 +151,6 @@
                 background-image: url("/_resources/dyn/files/1060007zf9e2272e/_fn/shopping-bag.png");
             }
         }
-
-        .mi {
-            display: none;
-        }
     }
 
     #logo-mobile {
@@ -180,7 +177,7 @@
 
     }
 
-    @include breakpoint($bp-tablets-portrait) {
+    @include breakpoint($bp-tablets-landscape) {
         .box-wc {
             min-height: 35px;
         }
@@ -208,6 +205,17 @@
             display: inline-block;
             float: right;
             text-align: right;
+
+            .menu-t1 {
+                > .mi-parent {
+                    position: relative;
+
+                    .menu-t2 {
+                        left: auto;
+                        right: 0;
+                    }
+                }
+            }
         }
 
         .shop-cta,
@@ -236,10 +244,12 @@
             position: relative;
             border-right: 1px solid $color-grey-33;
 
-            .mi {
-                display: inline-block;
-                vertical-align: middle;
-                border-left: 1px solid $color-grey-33;
+            .menu-t1 {
+                > .mi {
+                    display: inline-block;
+                    vertical-align: middle;
+                    border-left: 1px solid $color-grey-33;
+                }
             }
 
             .mil {
