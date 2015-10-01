@@ -20,7 +20,7 @@
         }
     }
 
-    @include breakpoint($bp-tablets-portrait) {
+    @include breakpoint($bp-tablets-landscape) {
         display: none;
     }
 }
@@ -172,7 +172,7 @@
         }
     }
 
-    @include breakpoint($bp-tablets-portrait) {
+    @include breakpoint($bp-tablets-landscape) {
         .mobile-main,
         .login-main {
             display: none;
@@ -208,7 +208,7 @@
             }
         }
 
-        @include breakpoint($bp-tablets-portrait) {
+        @include breakpoint($bp-tablets-landscape) {
             display: none;
         }
     }
