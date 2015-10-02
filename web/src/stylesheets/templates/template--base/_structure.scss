@@ -49,6 +49,7 @@
             padding: 7px 15px;
             margin-left: 5px;
             font-size: 18px;
+            text-transform: uppercase;
         }
     }
 
@@ -180,11 +181,13 @@
     @include breakpoint($bp-tablets-landscape) {
         .box-wc {
             min-height: 35px;
+            text-align: right;
         }
 
         .menu-t2 {
             position: absolute;
             left: 0;
+            text-align: left;
             background-color: $color-black;
             border: 1px solid $color-white;
 
@@ -203,7 +206,6 @@
 
         .menu-comp {
             display: inline-block;
-            float: right;
             text-align: right;
 
             .menu-t1 {
@@ -310,7 +312,7 @@
             margin: 0;
 
             button {
-                margin: 0;
+                margin: 0 0 0 5px;
             }
         }
     }
