@@ -1,40 +1,39 @@
 /* Search UI*/
-.search-wrapper {
-	.search_bar,
-	.search-bar,
-	.search {
-		margin-top: 10px;
-		margin-bottom: 10px;
 
-		.actions {
-			display: inline-block;
-			vertical-align: top;
-			margin-top: 19px;
+.search_bar,
+.search-bar,
+.search {
+    margin-top: 10px;
+    margin-bottom: 10px;
 
-			.btn {
-				margin: 0;
+    .actions {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 19px;
 
-				+ .btn {
-					margin-left: 5px;
-				}
-			}
-		}
-	}
+        .btn {
+            margin: 0;
 
-	.constraint {
-		display: inline-block;
-		vertical-align: top;
-		margin-right: 30px;
-		margin-bottom: 5px;
+            + .btn {
+                margin-left: 5px;
+            }
+        }
+    }
 
-		label {
-			display: block;
-			font-weight: bold;
-		}
+    .constraint {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 30px;
+        margin-bottom: 5px;
 
-		select {
-			font-size: 12px;
-			text-align: left;
-		}
-	}
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        select {
+            font-size: 12px;
+            text-align: left;
+        }
+    }
 }
