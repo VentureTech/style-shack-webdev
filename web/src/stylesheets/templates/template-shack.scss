@@ -21,11 +21,14 @@ h2 {
 .user-info {
     .profile-pic {
         display: none;
-        height: 200px;
-        width: 200px;
-        margin: 20px;
+        padding-top: 100%;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
         border-radius: 100%;
         shape-outside: circle();
+        background-position: center center !important;
+        background-size: 102% !important;
     }
 
     .name {
@@ -132,5 +135,11 @@ h2 {
         margin-top: 0;
         border-top: none;
         padding-top: 0;
+    }
+}
+
+.shopper-viewer {
+    .empty {
+        display: none;
     }
 }
