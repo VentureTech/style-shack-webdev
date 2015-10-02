@@ -9,11 +9,29 @@
   }
 
   .my-shack {
+    position: relative;
+    display: block;
+    text-align: left;
+
     input[type="submit"] {
-      height: 35px;
-      width: 35px;
-      display: inline-block;
-      margin: 0;
+      @include style-button-base;
+      background: $color-black url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png") 10px 6px no-repeat;
+      background-size: 20px;
+      position: relative;
+      text-indent: 0;
+      width: auto;
+      height: auto;
+      transition: none;
+      padding: 8px 15px 8px 40px;
+
+
+      &:hover {
+        background: $color-grey-66 url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png") 10px 6px no-repeat;
+        background-size: 20px;
+        width: auto;
+        height: auto;
+        margin: 0;
+      }
     }
   }
 }
