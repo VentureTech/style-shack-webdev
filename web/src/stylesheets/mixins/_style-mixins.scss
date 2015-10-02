@@ -160,8 +160,9 @@
 	/** CREATE GLYPH BUTTONS **/
 	td.action-column {
 		.actions {
-			text-align: left;
+			text-align: center;
 			margin-top: 0;
+			width: 100%;
 		}
 
 		.btn {
@@ -333,7 +334,7 @@
 
 		.shipping_address_button {
 			float: right;
-			margin: -$spacing-between-boxes 0 0 0;
+			margin: -47px 0 0 0;
 		}
 	}
 
