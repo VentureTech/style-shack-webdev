@@ -9,6 +9,20 @@
 .table_view.search_results {
   table {
     @include style-generic-table;
+
+    td.action-column {
+      .actions {
+        text-align: center;
+
+        .catalog_edit_button {
+          @include editButtonGlyph;
+        }
+
+        .catalog_delete_button {
+          @include deleteButtonGlyph;
+        }
+      }
+    }
   }
 }
 
@@ -23,8 +37,11 @@
   margin-bottom: 10px;
 }
 
+
 .btn {
-  margin-left: 10px;
+  +.btn {
+    margin-left: 5px;
+  }
 
   &.add_catalog_node_button,
   &.add_search_option_button {
@@ -32,18 +49,26 @@
     margin-bottom: 10px;
   }
 
+  &.add_catalog_node_button {
+    float: right;
+  }
+
   &.add_search_option_button {
     margin-top: 10px;
   }
+
 }
 
 .browse_link,
 .detail_link,
-.content_chunks,
-.name-con,
-.prog-name-con{
+.content_chunks {
   margin-top: $spacing-between-boxes/2;
+
+  .btn {
+    margin-left: 5px;
+  }
 }
+
 
 .buttons {
   margin-top: 10px;
@@ -53,19 +78,105 @@
     margin-right: 10px;
   }
 
+  /*.btn {
+    margin-left: 5px;
+  }*/
+}
+
+
+.catalog_node_name_con,
+.category_list,
+.search-options-main {
+  a {
+    color: $color-black;
+    font-weight: bold;
+  }
+
   .btn {
-    margin-left: 0;
+    margin-left: 10px;
+  }
 
-    + .btn {
-      margin-left: 10px;
-    }
+  .edit {
+    @include editButtonGlyph;
   }
 }
 
-.category_list {
-  > div {
-    + div {
-      margin-top: 10px;
-    }
+.catalog_node_name_con {
+  .catalog_node_name {
+    font-family: $font-italic;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 10px;
   }
 }
+
+.category_list,
+.search-options-main {
+  clear: right;
+
+  .category_list_label {
+    font-size: 18px;
+    font-family: $font-opensansbold;
+  }
+
+  .category {
+    padding: 10px;
+    background-color: $color-white;
+
+    &:nth-child(odd){
+      background-color: $color-grey-f2;
+    }
+  }
+
+  .search-options-list,
+  .prog-name-con {
+    padding: 10px;
+    background-color: $color-grey-f2;
+  }
+
+  .name-con {
+    padding: 10px;
+    background-color: $color-white;
+  }
+
+  .select,
+  .search-option {
+    text-align: right;
+
+    a,
+    label {
+      float: left;
+    }
+  }
+
+  input,
+  select {
+    margin-left: 10px;
+  }
+
+  .edit {
+    @include editButtonGlyph;
+  }
+  .variables {
+    @include cogButtonGlyph;
+  }
+  .move_up,
+  .up {
+    @include arrowUpButtonGlyph;
+  }
+  .move_down,
+  .down {
+    @include arrowDownButtonGlyph;
+  }
+  .action-top {
+    @include arrowTopButtonGlyph;
+  }
+  .action-bottom {
+    @include arrowBottomButtonGlyph;
+  }
+  .delete {
+    @include deleteButtonGlyph;
+  }
+}
+
+
