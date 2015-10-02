@@ -1,71 +1,117 @@
 @import "../config/base-import";
 
 .blog.entry {
-  border: 1px solid $color-grey-cc;
-  padding: 20px;
+    .column {
+        border: 1px solid $color-grey-cc;
+        padding: 20px;
 
-  .actions {
-    text-align: right;
-    margin-top: $spacing-between-boxes/2;
+        + .column {
+            margin-top: $spacing-between-boxes/2;
+        }
 
-    button + button {
-      margin-left: 5px;
+        > .actions {
+            text-align: center;
+            margin-left: -10px;
+            margin-right: -10px;
+
+            .btn {
+                padding: 7px 10px;
+                font-size: 12px;
+            }
+        }
     }
-  }
+
+    .actions {
+        text-align: right;
+        margin-top: $spacing-between-boxes/2;
+
+
+        .btn + .btn {
+            margin-left: 5px;
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .column {
+            display: inline-block;
+            vertical-align: top;
+
+            + .column {
+                margin-top: 0;
+                margin-left: 10px;
+            }
+
+            &.left {
+                width: 70%;
+            }
+
+            &.right {
+                width: 28%;
+            }
+        }
+    }
 }
 
-
 .file {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 .post {
-  label {
-    font-family: $font-opensansbold;
-    font-size: 14px;
-    display: block;
-    margin-bottom: 3px;
-  }
+    &.featured,
+    &.approved {
+        input,
+        label.tbl {
+            display: inline-block;
+        }
 
-  &.featured,
-  &.approved{
-    input,
-    label.tbl {
-      display: inline-block;
+        input {
+            float: left;
+            margin-top: 10px;
+            margin-right: 5px;
+        }
     }
 
-    input {
-      float: left;
-      margin-top: 10px;
-      margin-right: 5px;
+    + .post {
+        margin-top: $spacing-between-boxes;
     }
-  }
 
-  .file-name,
-  .post.author {
-    font-size: 14px;
-    margin-right: 20px;
-  }
-
-  .select2-selection__choice,
-  .select2-selection__rendered {
-    font-size: 12px;
-  }
-
-  &.tags,
-  &.categories {
-    > input[type="text"] {
-      display: none;
+    label {
+        font-family: $font-opensansbold;
+        font-size: 14px;
+        display: block;
+        margin-bottom: 3px;
     }
-  }
+
+    .file-name,
+    .post.author {
+        font-size: 14px;
+        margin-right: 20px;
+    }
+
+    .select2-selection__choice,
+    .select2-selection__rendered {
+        font-size: 12px;
+    }
+
+    select,
+    .select2-container {
+        max-width: 100% !important;
+    }
+
+    &.tags,
+    &.categories {
+        > input[type="text"] {
+            display: none;
+        }
+    }
 
 }
 
 span.select2-results {
-  > ul.select2-results__options {
-    > li.empty {
-      display: none;
+    > ul.select2-results__options {
+        > li.empty {
+            display: none;
+        }
     }
-  }
 }
 
