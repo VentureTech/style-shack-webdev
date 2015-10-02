@@ -14,6 +14,13 @@
 }
 
 .l-aside-content {
+  p,
+  .address,
+  .address-line {
+    line-height: 1.6;
+  }
+
+
   .store_profile {
     margin-top: $spacing-between-boxes/2;
     font-size: 14px;
@@ -51,7 +58,6 @@
   }
 
   .store-description {
-    line-height: 1.6;
 
     &.trunc {
       max-height: 323px;
