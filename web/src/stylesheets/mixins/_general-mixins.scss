@@ -133,12 +133,24 @@
   @include addButtonGlyph('\e031');
 }
 
+@mixin cogButtonGlyph() {
+  @include addButtonGlyph('\e041');
+}
+
 @mixin arrowUpButtonGlyph() {
   @include addButtonGlyph('\e013');
 }
 
+@mixin arrowTopButtonGlyph() {
+  @include addButtonGlyph('\e00c');
+}
+
 @mixin arrowDownButtonGlyph() {
   @include addButtonGlyph('\e008');
+}
+
+@mixin arrowBottomButtonGlyph() {
+  @include addButtonGlyph('\e009');
 }
 
 @mixin closeButtonGlyph() {
