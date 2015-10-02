@@ -273,7 +273,7 @@
 
 .price {
     font-size: 18px;
-    margin: 5px 0 25px;
+    margin: 20px 0 25px;
 }
 
 .more-info {
@@ -348,7 +348,8 @@
             font-family: $font-opensansbold;
         }
 
-        p {
+        p,
+        ul {
             font-size: 14px;
             color: #666;
             line-height: 1.6;
