@@ -103,7 +103,7 @@
     @include breakpoint($bp-tablets-portrait) {
         .l-header {
             .box-wc {
-                padding-top: $spacing-between-boxes;
+                padding: $spacing-between-boxes*2 0 50px;
             }
         }
         .l-primary-content,
