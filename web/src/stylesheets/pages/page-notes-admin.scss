@@ -9,6 +9,12 @@
             margin-top: $spacing-between-boxes/2;
         }
 
+        &.left {
+            input[type="text"] {
+                width: 100%;
+            }
+        }
+
         > .actions {
             text-align: center;
             margin-left: -10px;
@@ -70,6 +76,7 @@
             margin-right: 5px;
         }
     }
+
 
     + .post {
         margin-top: $spacing-between-boxes;
