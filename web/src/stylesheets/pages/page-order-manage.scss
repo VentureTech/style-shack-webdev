@@ -8,6 +8,10 @@ table.table_view {
     width: 100%;
 }
 
+.miwt.disabled {
+    display: none;
+}
+
 .table_view_paging_table {
     table {
         @include style-generic-table;
@@ -32,6 +36,42 @@ table.table_view {
     td {
         > table {
             @include style-generic-table;
+        }
+    }
+
+    .addresses-con {
+        padding: 0;
+
+        table {
+            border: 0;
+
+            td {
+                border: 0;
+                width: 50%;
+
+                &.label-con,
+                legend {
+                    font-family: $font-opensansbold;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+
+    .order_items-con {
+        padding: 0;
+
+        table {
+            border: 0;
+
+            .column_heading-con {
+                background-color: $color-grey-f2;
+            }
+
+            .order_total-con,
+            .order_total_price-con {
+                font-weight: bold;
+            }
         }
     }
 
