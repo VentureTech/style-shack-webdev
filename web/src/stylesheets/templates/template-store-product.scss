@@ -313,6 +313,13 @@ td.action-column {
     }
 }
 
+.banner-image {
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
 .picture-editor-list-item {
     button + button {
         margin-left: 5px;
