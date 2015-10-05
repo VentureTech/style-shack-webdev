@@ -234,7 +234,15 @@
     border: 1px solid $color-grey-cc;
     padding: 20px;
 
+    .receipt {
+        @include style-button-base;
+        float: right;
+        margin-bottom: $spacing-between-boxes/2;
+    }
+
     .summary {
+        clear: right;
+
         th,
         td {
             font-size: 14px;
