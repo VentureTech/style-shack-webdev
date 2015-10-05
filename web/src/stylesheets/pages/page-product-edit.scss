@@ -102,7 +102,8 @@
     }
 
     .option-label {
-        font-weight: bold;
+        font-family: $font-italic;
+        display: block;
     }
 
     .catalog-node-tree {
@@ -124,10 +125,10 @@
 
     .search-option-con {
         .ctb {
-            display: block;
+            display: inline-block;
 
             + .ctb {
-                margin-top: 3px;
+                margin-left: 10px;
             }
         }
 
@@ -162,6 +163,14 @@
 
     + .node-level-1 {
         margin-top: 10px;
+    }
+
+}
+
+.node-level-1,
+.node-level-2 {
+    > .node-label {
+        font-size: 14px;
     }
 }
 
