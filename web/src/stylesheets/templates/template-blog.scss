@@ -3,6 +3,25 @@
 @import "../components/partials/mailchimp-newsletter";
 @import "../components/partials/addthis-menu";
 
+.l-header {
+    .notes-header {
+        position: relative;
+        padding: 60px 0 25px;
+        border-top: 1px solid $color-black;
+        border-bottom: 1px solid $color-black;
+
+        .notes-logo {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -100px;
+            width: 200px;
+            height: auto;
+        }
+
+    }
+}
+
 .l-aside-content {
     padding-top: 30px;
 
