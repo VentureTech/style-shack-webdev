@@ -234,9 +234,25 @@
     border: 1px solid $color-grey-cc;
     padding: 20px;
 
+    .order-detail-actions {
+        a[title="Order History"] {
+            @include closeButtonGlyph;
+            float: right;
+        }
+
+        &.bottom {
+            padding: 10px 0;
+
+            &:after {
+                clear: both;
+                display: block;
+                content: '';
+            }
+        }
+    }
+
     .receipt {
         @include style-button-base;
-        float: right;
         margin-bottom: $spacing-between-boxes/2;
     }
 
