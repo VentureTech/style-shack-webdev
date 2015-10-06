@@ -1,5 +1,5 @@
 jQuery(function($){
-    var $root = $("#e-content");
+    var $root = $('#e-content');
     var $productsListingCon = $(".product-listing");
     var MOBILE_BREAKPOINT = 480;
     var TABLET_BREAKPOINT = 1024;
@@ -31,9 +31,9 @@ jQuery(function($){
 
 
     $productsListingCon.each(function(idx, listing){
-        var $products = $(listing).find(".product");
 
         function orderProducts() {
+            var $products = $(listing).find(".product");
             $products.each(function (idx, product) {
                 var $product = $(product);
                 $product.removeClass(COL_ONE_CLASS).removeClass(COL_TWO_CLASS).removeClass(COL_THREE_CLASS).removeClass(COL_FOUR_CLASS);
