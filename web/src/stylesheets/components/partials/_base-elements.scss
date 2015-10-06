@@ -63,14 +63,14 @@ input[type="tel"],
 input[type="color"],
 select {
 	height: 30px;
-	line-height: 26px;
 	font-family: $font-opensans;
 	font-size: 14px;
 	padding: 2px 5px;
 	border: 1px solid $color-grey-cc;
 	border-radius: 3px;
-	background: transparent linear-gradient(to bottom, $color-grey-f2 0%, $color-white 100%) repeat scroll 0% 0%;
+	background: transparent linear-gradient(to bottom, $color-grey-f2 0%, $color-white 100%) repeat scroll 0 0;
 }
+
 
 .l-primary-content {
 	ul,
