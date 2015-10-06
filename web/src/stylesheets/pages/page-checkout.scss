@@ -15,9 +15,12 @@ label {
 }
 
 input[type="text"],
-textarea {
+textarea,
+select {
   width: auto;
+  max-width: 100%;
 }
+
 
 .ctb {
   display: block;
