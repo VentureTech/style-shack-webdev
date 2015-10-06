@@ -1,5 +1,15 @@
 @import "../config/base-import";
 
+.promotion-add-wrapper {
+    text-align: right;
+    margin-bottom: $spacing-between-boxes;
+}
+
+.promotion-editor {
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
 .prop-body {
     > div {
         margin-bottom: 10px;
@@ -14,6 +24,18 @@
         input[type="number"] {
             width: 200px;
         }
+    }
+
+    .coupon-code-con {
+        padding: 10px 20px;
+        margin-top: 10px;
+        border: 1px solid $color-grey-cc;
+    }
+
+    .promotion-type {
+        font-family: $font-opensans;
+        font-size: 16px;
+        margin-bottom: 5px;
     }
 
     .discount-amount,
