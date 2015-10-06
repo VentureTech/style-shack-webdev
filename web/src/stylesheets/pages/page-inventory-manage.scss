@@ -1,0 +1,13 @@
+@import "../config/base-import";
+
+.critical_low_inventory {
+    td {
+        font-weight: bold;
+    }
+}
+
+@include breakpoint($bp-tablets-portrait) {
+    .layout_group.entity_actions {
+        text-align: right;
+    }
+}
