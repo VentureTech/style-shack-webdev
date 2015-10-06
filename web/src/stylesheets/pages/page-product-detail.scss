@@ -238,6 +238,11 @@
         }
     }
 
+    .price {
+        font-size: 18px;
+        margin: $spacing-between-boxes 0 25px;
+    }
+
 
     @include breakpoint($bp-tablets-portrait) {
         display: inline-block;
@@ -269,11 +274,6 @@
     font-weight: bold;
     font-size: 24px;
     margin-bottom: 3px;
-}
-
-.price {
-    font-size: 18px;
-    margin: $spacing-between-boxes 0 25px;
 }
 
 .more-info {
