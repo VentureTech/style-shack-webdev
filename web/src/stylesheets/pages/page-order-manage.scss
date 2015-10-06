@@ -4,6 +4,11 @@
     @include style-generic-table-search;
 }
 
+.order-management {
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
 table.table_view {
     width: 100%;
 }
@@ -36,23 +41,58 @@ table.table_view {
     td {
         > table {
             @include style-generic-table;
+            border: 0;
+
+            tr:nth-child(even) td{
+                background-color: transparent;
+            }
+
+            td {
+                border: 0;
+                padding: 10px 0;
+
+                + td {
+                    border-left: 0;
+                }
+
+                &.label-con,
+                legend {
+                    font-weight: bold;
+                }
+            }
         }
     }
 
     .addresses-con {
         padding: 0;
 
-        table {
-            border: 0;
+        .addresses {
+            @include style-generic-table;
+
+            tr:nth-child(even) td {
+                background-color: transparent;
+            }
+
+            > tbody {
+                > tr:first-child td {
+                    border-bottom: 1px solid $color-grey-cc;
+                }
+
+                .billing_address_container-con {
+                    width: 50%;
+                }
+            }
 
             td {
-                border: 0;
-                width: 50%;
+                + td {
+                    border-left: 0;
+                }
+            }
 
-                &.label-con,
-                legend {
-                    font-family: $font-opensansbold;
-                    text-transform: uppercase;
+            .billing_address_container {
+                td {
+                    padding: 10px 0;
+                    border: 0;
                 }
             }
         }
@@ -61,16 +101,28 @@ table.table_view {
     .order_items-con {
         padding: 0;
 
-        table {
-            border: 0;
+        .order_items {
+            @include style-generic-table;
+            border-top: 0;
 
-            .column_heading-con {
-                background-color: $color-grey-f2;
+            tr:nth-child(even) td{
+                background-color: transparent;
             }
 
-            .order_total-con,
-            .order_total_price-con {
-                font-weight: bold;
+            td {
+                border: 0;
+
+                + td {
+                    border-left: 0;
+                }
+            }
+
+            .empty-con {
+                padding: 0;
+            }
+
+            .column_heading-con {
+                border-bottom: 1px solid $color-grey-cc;
             }
         }
     }
@@ -93,13 +145,19 @@ table.table_view {
 
         table {
             border: 0;
+            margin: 10px 0;
         }
 
         td {
             border: 0;
             padding: 0;
+
+            &.note-con {
+                padding: 20px 0;
+            }
         }
     }
+
 
     td.buttons-con {
         padding: 10px 0;
@@ -113,7 +171,7 @@ table.table_view {
 
     @include breakpoint($bp-tablets-portrait) {
         .payment_info {
-            padding: 0 15px;
+            padding: 0 15px 0 0;
 
             .miwt-collapsable {
                 display: inline-block;
