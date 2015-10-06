@@ -148,7 +148,7 @@
     margin-bottom: $spacing-between-boxes/3;
 
     @include breakpoint($bp-tablets-portrait) {
-        margin-bottom: $spacing-between-boxes;
+        margin: 0 0 $spacing-between-boxes;
     }
 }
 
