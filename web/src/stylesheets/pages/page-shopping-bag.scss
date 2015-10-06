@@ -263,17 +263,21 @@
     }
 
     .shipping {
+
+      &:after {
+        display: table-cell;
+        clear: none;
+        border-bottom: 1px solid $color-black;
+      }
+
       .name,
       .quantity-con,
       .selection-con,
       .cost-con {
         width: auto;
-        display: table-cell
+        display: table-cell;
       }
 
-      .name {
-        width: 5%;
-      }
 
       .selection-con {
         width: 55%;
@@ -282,7 +286,7 @@
           display: inline-block;
 
           + .rtb {
-            margin-left: 5px;
+            margin-left: 10px;
             margin-top: 0;
           }
         }
@@ -389,16 +393,6 @@ button {
   @include style-button-base;
 }
 
-/*.actions {
-    &.quantity_update {
-        margin-top: 10px;
-    }
-
-    &.checkout {
-        float: right;
-        margin-top: -27px;
-    }
-}*/
 
 label {
   display: block;
