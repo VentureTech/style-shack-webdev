@@ -3,5 +3,31 @@
 
 .filters {
     margin: $spacing-between-boxes/2 0 $spacing-between-boxes;
+
+    @include breakpoint($bp-tablets-portrait) {
+        margin: 0 0 $spacing-between-boxes;
+
+        .title {
+            margin-top: 10px;
+        }
+
+        .filter_controls {
+            > .search-option {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+        .filter_controls {
+            width: 85%;
+        }
+    }
+}
+
+@include breakpoint($bp-tablets-portrait) {
+    .sort-by {
+        margin-top: 10px;
+    }
 }
 
