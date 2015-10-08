@@ -1,6 +1,4 @@
-.trends,
-.spotlights,
-.lifeshack {
+.render {
 	display: none;
 }
 
@@ -17,18 +15,50 @@
 	.mi {
 		display: none;
 		padding: 18px 15px 15px;
+		position: relative;
 
-		.trends,
-		.spotlights,
-		.lifeshack {
+		.render{
 			top: 100%;
 			display: block;
 		}
 
+		> .collapse {
+			display: block;
+			z-index: 8500;
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding-top: 15px;
+			width: 20px;
+			height: 55px;
+			text-align: center;
+
+			span {
+				display: inline-block;
+				height: 0;
+				width: 0;
+				border-left: 6px solid transparent;
+				border-right: 6px solid transparent;
+				border-top: 6px solid $color-black;
+			}
+		}
+
+
+		&.over,
+		&.open {
+			> .collapse {
+				span {
+					border-bottom: 6px solid $color-black;
+					border-top: none;
+				}
+			}
+		}
+
 	}
 
-	.sale {
-		.menuitemlabel {
+	.sale,
+	.featured-picks {
+		> .menuitemlabel {
 			color: $color-orange-red;
 		}
 	}
@@ -42,7 +72,7 @@
 	}
 
 
-	@include breakpoint($bp-tablets-portrait) {
+	@include breakpoint($bp-tablets-landscape) {
 		display: block;
 		border-bottom: 1px solid $color-black;
 		margin-bottom: 35px;
@@ -52,6 +82,10 @@
 			vertical-align: top;
 			padding: 20px 20px 25px;
 			position: relative;
+
+			&.mi-parent {
+				padding: 20px 25px 25px 20px;
+			}
 
 			&.women,
 			&.men,
@@ -105,9 +139,4 @@
 
 	}
 
-	@include breakpoint($bp-tablets-landscape) {
-		.mi {
-			padding: 20px 30px 25px;
-		}
-	}
 }
