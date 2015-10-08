@@ -2,7 +2,7 @@
 
     function initHeader() {
         var $mainNav = $(".main-nav");
-        var blogCats = [".spotlights", ".trends", ".lifeshack"];
+        var blogCats = [".spotlights", ".trends", ".lifeshack", ".local"];
 
         for (var i = 0; i < blogCats.length; i++) {
             var $con = $(blogCats[i] + ".render");
