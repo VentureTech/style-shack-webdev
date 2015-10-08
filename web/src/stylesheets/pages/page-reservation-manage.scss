@@ -4,3 +4,12 @@
     padding: 20px;
     border: 1px solid #ccc;
 }
+
+@include breakpoint($bp-tablets-portrait) {
+    .prop-wrapper {
+        > img {
+            float: right;
+            clear: right;
+        }
+    }
+}
