@@ -14,7 +14,8 @@ jQuery(function($){
     var $storeMenu = $(".store-menu-nav > .menu");
 
     var $mobileNav,
-        $loginNav;
+        $loginNav,
+        $mainNav = $(".main-nav");
 
     var CSS_ACTIVE_CLASS = "active";
     var CSS_OPEN_CLASS = "open";
@@ -132,7 +133,7 @@ jQuery(function($){
         setupMobileHeader();
 
         /* Find top level menus in top header and do work **/
-        $mobileNav.add($loginNav).each(function(idx, menu) {
+        $mobileNav.add($loginNav).add($mainNav).each(function(idx, menu) {
             var $menu = $(menu);
             var $parentMenuItems = $menu.find(".mi-parent");
 
