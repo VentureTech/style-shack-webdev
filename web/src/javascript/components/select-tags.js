@@ -85,12 +85,56 @@ jQuery(function($){
             createTagField($categories);
         }
 
+
+
+
+        function destroySelectUpdates(context) {
+            var $con = $(context || document);
+
+            if (!$con.hasClass(CSS_CLASS_SELECT_INIT)) {
+                $con = $con.find('select').filter('.' + CSS_CLASS_SELECT_INIT);
+            }
+
+            if ($con.length) {
+                $con.removeClass(CSS_CLASS_SELECT_INIT).select2('destroy');
+            }
+        }
+
+
+        function initSelectUpdates(context) {
+            var $con = $(context || document);
+
+            if (!$con.is('select')) {
+                $con = $con.find('select');
+            }
+
+            if ($con.length) {
+                $con.select2(DEFAULT_SELECT_OPTIONS);
+                $con.addClass(CSS_CLASS_SELECT_INIT);
+                $con.filter('[data-features~="watch"]');
+                $con.on('change', miwt.observerFormSubmit);
+            }
+        }
+
+
+
         if (!this.submit_options) {
             this.submit_options = {};
         }
 
         this.submit_options.postUpdate = function() {
             initScrollPage(this);
+        };
+
+        this.submit_options.preProcessNode = function(data) {
+            destroySelectUpdates(document.getElementById(data.refid));
+            return data.content;
+        };
+
+        this.submit_options.postProcessNode = function(data) {
+            $.each(data, function(idx, d) {
+                initSelectUpdates(d.node);
+            });
         };
 
         init();
