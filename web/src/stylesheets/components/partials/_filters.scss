@@ -47,6 +47,7 @@
       position: relative;
     }
   }
+
 }
 
 .sort-by {
@@ -271,10 +272,10 @@
       vertical-align: top;
       width: auto;
       position: static;
+      margin-right: 10px;
 
       + .search-option {
         margin-top: 0;
-        margin-left: 10px;
       }
 
       &.opened {
