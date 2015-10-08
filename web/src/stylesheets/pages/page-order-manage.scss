@@ -78,9 +78,20 @@ table.table_view {
                     border-bottom: 1px solid $color-grey-cc;
                 }
 
-                .billing_address_container-con {
-                    width: 50%;
+                > tr {
+                    td:nth-child(3n) {
+                        width: 0;
+                        font-size: 0;
+                    }
                 }
+
+                .billing_address_container-con,
+                .shipping_address_container-con {
+                    width: 50%;
+                    display: table-cell;
+                }
+
+
             }
 
             td {
@@ -89,7 +100,8 @@ table.table_view {
                 }
             }
 
-            .billing_address_container {
+            .billing_address_container,
+            .shipping_address_container {
                 td {
                     padding: 10px 0;
                     border: 0;
