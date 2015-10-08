@@ -1,0 +1,213 @@
+@import "../config/base-import";
+
+
+h5 {
+    text-transform: uppercase;
+    font-size: 18px;
+    color: $color-orange-red;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.affiliate-intro {
+    position: relative;
+    margin-bottom: $spacing-between-boxes;
+    min-height: 450px;
+    overflow: hidden;
+
+    .image {
+        position: absolute;
+    }
+
+    .intro-con {
+        position: absolute;
+        z-index: 400;
+        padding: 20px;
+        background: $color-white;
+        width: 100%;
+        max-width: 100%;
+        top: 50px;
+
+        .intro-text {
+            border: 1px solid $color-black;
+            padding: 10px 20px 0;
+            text-align: center;
+            font-family: $font-italic;
+            font-size: 30px;
+
+            p {
+                margin: 0;
+            }
+
+            a {
+                @include style-button-base;
+                @include style-button-large;
+                margin: 10px 0;
+            }
+        }
+
+        @include breakpoint($bp-mobile-landscape) {
+            left: 50%;
+            margin-left: -225px;
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        min-height: 690px;
+
+        .intro-con {
+            top: 200px;
+            width: 500px;
+
+            .intro-text {
+                padding: 10px 50px 0;
+            }
+        }
+    }
+}
+
+.featured-bloggers {
+    text-align: center;
+    margin-bottom: $spacing-between-boxes*2;
+
+    h4 {
+        margin-bottom: $spacing-between-boxes*2.5;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: $spacing-between-boxes;
+    }
+}
+
+.content-creation-con {
+    border-top: 1px solid $color-black;
+    padding: $spacing-between-boxes/1.5 0;
+
+    &:after {
+        clear: both;
+        display: block;
+        content: '';
+    }
+
+    h4 {
+        text-align: center;
+    }
+
+    .image {
+        margin-bottom: $spacing-between-boxes/2;
+        text-align: center;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+
+    @include breakpoint($bp-tablets-portrait) {
+        .image {
+            display: inline-block;
+            margin-bottom: 0;
+            margin-right: $spacing-between-boxes*2;
+        }
+
+        .content {
+            display: inline-block;
+            vertical-align: top;
+            max-width: 250px;
+        }
+    }
+
+}
+
+.monetization-con {
+    border-top: 1px solid $color-black;
+    padding: $spacing-between-boxes/1.5 0;
+
+    h4 {
+        text-align: center;
+        margin-bottom: $spacing-between-boxes;
+    }
+
+    .image {
+        margin-bottom: $spacing-between-boxes/2;
+        text-align: center;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .content {
+            max-width: 250px;
+        }
+    }
+}
+
+.signup-title {
+    border-top: 1px solid $color-black;
+    padding: $spacing-between-boxes/1.5 0;
+    text-align: center;
+}
+
+.signup-con {
+    position: relative;
+    min-height: 300px;
+    margin-bottom: $spacing-between-boxes;
+    overflow: hidden;
+    max-width: 100%;
+
+    .image {
+        position: absolute;
+    }
+
+    .content-con {
+        position: absolute;
+        z-index: 400;
+        padding: 20px;
+        background: $color-white;
+        width: 100%;
+        max-width: 100%;
+        top: 50px;
+
+        .content {
+            border: 1px solid $color-black;
+            padding: 10px 10px 0;
+            text-align: center;
+            font-family: $font-italic;
+            font-size: 30px;
+
+            p {
+                margin: 0;
+            }
+
+            a {
+                @include style-button-base;
+                @include style-button-large;
+                margin: 10px 0;
+            }
+        }
+
+        @include breakpoint($bp-mobile-landscape) {
+            left: 50%;
+            margin-left: -175px;
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        min-height: 690px;
+
+        .content-con {
+            top: 200px;
+            width: 350px;
+
+            .content {
+                padding: 10px 30px 0;
+            }
+        }
+    }
+}
