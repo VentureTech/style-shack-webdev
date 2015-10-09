@@ -296,7 +296,7 @@
         }
     }
 
-    @include breakpoint($bp-tablets-portrait) {
+    @include breakpoint($bp-tablets-landscape) {
         .box-wc {
             padding: 90px 0 45px;
         }
@@ -315,6 +315,7 @@
                 margin: 0 0 0 5px;
             }
         }
+
     }
 }
 
