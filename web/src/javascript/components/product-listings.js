@@ -2,7 +2,7 @@ jQuery(function($){
     var $root = $('#e-content');
     var $productsListingCon = $(".product-listing");
     var MOBILE_BREAKPOINT = 480;
-    var TABLET_BREAKPOINT = 1024;
+    var TABLET_BREAKPOINT = 768;
     var RESIZE_THROTTLE_TIME = 200;
 
     var resizeThrottleId;
@@ -39,7 +39,7 @@ jQuery(function($){
                 $product.removeClass(COL_ONE_CLASS).removeClass(COL_TWO_CLASS).removeClass(COL_THREE_CLASS).removeClass(COL_FOUR_CLASS);
 
                 /** HANDLE FOUR COLS ABOVE TABLET LANDSCAPE **/
-                if (windowWidth > TABLET_BREAKPOINT) {
+                if (windowWidth >= TABLET_BREAKPOINT) {
                     if (idx % 4 == 3) {
                         $product.addClass(COL_FOUR_CLASS);
                     }
@@ -55,7 +55,7 @@ jQuery(function($){
                 }
 
                 /** HANDLE THREE COLS BELOW TABLET LANDSCAPE AND ABOVE TABLET PORTRAIT **/
-                else if (windowWidth <= TABLET_BREAKPOINT && windowWidth > MOBILE_BREAKPOINT) {
+                else if (windowWidth < TABLET_BREAKPOINT && windowWidth > MOBILE_BREAKPOINT) {
                     if (idx % 3 == 2) {
                         $product.addClass(COL_THREE_CLASS);
                     }
