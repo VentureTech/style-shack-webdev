@@ -209,7 +209,7 @@
         margin-bottom: 30px;
     }
 
-    @include breakpoint($bp-tablets-portrait) {
+    @include breakpoint($bp-tablets-landscape) {
         .l-primary-content,
         .l-aside-content {
             display: inline-block;
@@ -217,25 +217,13 @@
         }
 
         .l-primary-content {
-            width: 70%;
-            padding-left: 25px;
+            width: 80%;
+            padding-left: 30px;
 
             &.wide {
                 width: 100%;
                 padding: 0;
             }
-        }
-
-        .l-aside-content {
-            width: 30%;
-            border-right: 1px solid $color-grey-d0;
-            padding-right: 25px;
-        }
-    }
-    @include breakpoint($bp-tablets-landscape) {
-        .l-primary-content {
-            width: 80%;
-            padding-left: 30px;
         }
 
         .l-aside-content {
