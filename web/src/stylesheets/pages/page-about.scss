@@ -1,0 +1,18 @@
+@import "../config/base-import";
+
+.about-top {
+    img {
+        float: left;
+        margin-right: $spacing-between-boxes;
+    }
+
+    &:after {
+        clear: both;
+        display: block;
+        content: '';
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        max-width: 630px;
+    }
+}

@@ -1,0 +1,89 @@
+@import "../config/base-import";
+
+.l-header {
+    h1 {
+        color: $color-orange-red;
+    }
+}
+
+.l-primary-content {
+    position: relative;
+    min-height: 800px;
+
+    .intro {
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h2 {
+            margin-left: 40px;
+            margin-top: 0;
+            font-size: 58px;
+        }
+    }
+
+    .shop-local {
+        display: none;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        z-index: 500;
+    }
+
+    .style-image {
+        display: none;
+        position: absolute;
+        right: 230px;
+        top: 200px;
+        z-index: 400;
+    }
+
+    h5 {
+        text-transform: uppercase;
+        color: $color-orange-red;
+        font-size: 21px;
+    }
+
+    .content {
+        p {
+            + p {
+                margin-top: .5em;
+            }
+        }
+
+        ul {
+            margin: 1em 0;
+        }
+
+        li {
+            + li {
+                margin-top: .5em;
+            }
+        }
+    }
+
+
+    @include breakpoint($bp-tablets-landscape) {
+        padding-right: 200px;
+
+        .intro {
+            img {
+                max-width: 780px;
+            }
+        }
+
+        .shop-local,
+        .style-image {
+            display: block;
+        }
+    }
+
+    @include breakpoint($bp-desktop) {
+        .intro {
+            h2 {
+                margin-left: 95px;
+            }
+        }
+    }
+}
