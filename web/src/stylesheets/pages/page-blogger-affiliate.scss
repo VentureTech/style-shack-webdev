@@ -1,6 +1,12 @@
 @import "../config/base-import";
 
 
+.l-header {
+    h1 {
+        color: $color-orange-red;
+    }
+}
+
 h5 {
     text-transform: uppercase;
     font-size: 18px;
@@ -37,6 +43,7 @@ h5 {
 
             p {
                 margin: 0;
+                line-height: 1.3;
             }
 
             a {
@@ -91,6 +98,12 @@ h5 {
         content: '';
     }
 
+    .content {
+        p {
+            line-height: 1.3;
+        }
+    }
+
     h4 {
         text-align: center;
     }
@@ -106,17 +119,21 @@ h5 {
     }
 
 
-    @include breakpoint($bp-tablets-portrait) {
+    @include breakpoint($bp-tablets-landscape) {
         .image {
             display: inline-block;
             margin-bottom: 0;
-            margin-right: $spacing-between-boxes*2;
+            margin-right: $spacing-between-boxes;
         }
 
         .content {
             display: inline-block;
             vertical-align: top;
             max-width: 250px;
+
+            h5 {
+                margin-top: 0;
+            }
         }
     }
 
