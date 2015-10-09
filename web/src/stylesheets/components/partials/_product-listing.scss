@@ -28,8 +28,8 @@
     .image {
         margin-bottom: 10px;
         position: relative;
-        max-height: 200px;
-        height: 200px;
+        max-height: 170px;
+        height: 170px;
         overflow: hidden;
 
         a {
@@ -109,7 +109,7 @@
         }
     }
 
-    @include breakpoint($bp-tablets-landscape) {
+    @include breakpoint($bp-tablets-portrait) {
         width: 25.22%;
 
         &.col1 {
@@ -171,6 +171,11 @@
             &.col4 + &.col5 {
                 padding-left: 3%;
             }
+        }
+
+        .image {
+            max-height: 230px;
+            height: 230px;
         }
 
     }
