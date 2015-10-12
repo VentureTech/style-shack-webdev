@@ -11,8 +11,4 @@
         display: block;
         content: '';
     }
-
-    @include breakpoint($bp-tablets-portrait) {
-        max-width: 630px;
-    }
 }
