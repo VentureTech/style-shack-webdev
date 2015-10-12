@@ -141,6 +141,11 @@
         position: absolute;
         right: 5px;
     }
+
+}
+
+.options-actions {
+    margin-top: $spacing-between-boxes/4;
 }
 
 
@@ -163,8 +168,8 @@
     + .node-level-1 {
         margin-top: 10px;
     }
-
 }
+
 
 .node-level-1,
 .node-level-2 {
