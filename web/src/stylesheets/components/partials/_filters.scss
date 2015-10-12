@@ -38,13 +38,22 @@
     }
 
     .filter-inner {
-      padding-right: 200px;
+      padding-right: 130px;
       position: static;
     }
 
     .filter_controls {
-      width: 75%;
+      width: 65%;
       position: relative;
+    }
+  }
+
+  @include breakpoint($bp-tablets-landscape) {
+    .filter-inner {
+      padding-right: 200px;
+    }
+    .filter_controls {
+      width: 75%;
     }
   }
 
@@ -114,8 +123,9 @@
     transition: .5s ease all;
     position: absolute;
     top: 100%;
-    left: 0px;
-    right: 0px;
+    left: 0;
+    right: 0;
+    z-index: 500;
     background: $color-white;
     border: 1px solid $color-grey-80;
 
@@ -302,8 +312,8 @@
       }
 
       .filter-option-con {
-        left: 0;
-        right: 0;
+        left: -40px;
+        right: -40px;
         background-color: $color-grey-80;
         top: 115%;
 
@@ -319,6 +329,15 @@
         max-width: 205px;
         white-space: nowrap;
         overflow: hidden;
+      }
+    }
+  }
+
+  @include breakpoint($bp-tablets-landscape) {
+    > .search-option {
+      .filter-option-con {
+        left: 0;
+        right: 0;
       }
     }
   }
