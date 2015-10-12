@@ -215,7 +215,8 @@ table.table_view {
     .close {
         @include closeButtonGlyph;
         float: right;
-        margin-top: 0;
+        margin-top: -10px;
+        margin-right: -10px;
     }
 
     @include breakpoint($bp-tablets-portrait) {
@@ -223,6 +224,9 @@ table.table_view {
 
         .shown & {
             position: absolute !important;
+            z-index: 9999;
+            max-height: 700px;
+            overflow: scroll;
         }
     }
 }
@@ -265,5 +269,12 @@ table.table_view {
                 background-image: url('/_resources/dyn/files/1125136zad08ab1b/_fn/csv.png');
             }
         }
+    }
+}
+
+.ctb {
+    label {
+        display: inline-block;
+        margin-right: 5px;
     }
 }
