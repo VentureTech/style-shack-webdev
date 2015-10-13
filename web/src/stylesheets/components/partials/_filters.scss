@@ -1,5 +1,5 @@
 .filters {
-  margin-bottom: $spacing-between-boxes/2;
+  margin-bottom: $spacing-between-boxes;
 
   &:after {
     content: "";
@@ -62,7 +62,7 @@
 .sort-by {
   text-transform: none;
   position: relative;
-  z-index: 8888;
+  z-index: 7000;
 
   .sort-option {
     &:hover {
