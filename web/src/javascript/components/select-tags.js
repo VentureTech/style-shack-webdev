@@ -1,6 +1,12 @@
 jQuery(function($){
-   var $forms = $("form.miwt-form");
+    var $forms = $("form.miwt-form");
     var newErrorMessage = true;
+    var CSS_CLASS_SELECT_INIT = "select2-offscreen";
+    var DEFAULT_SELECT_OPTIONS = {
+        placeholder: "Select",
+        allowClear: true,
+        minimumResultsForSearch: -1
+    };
 
     function initScrollPage(context) {
         var $con = $(context || document);
@@ -107,9 +113,8 @@ jQuery(function($){
             if (!$con.is('select')) {
                 $con = $con.find('select');
             }
-
-            if ($con.length) {
-                $con.select2(DEFAULT_SELECT_OPTIONS);
+            if ($con.length && $con.hasClass("val")) {
+                $con.select2($.extend({}, selectDefaults, {minimumResultsForSearch: -1}));
                 $con.addClass(CSS_CLASS_SELECT_INIT);
                 $con.filter('[data-features~="watch"]');
                 $con.on('change', miwt.observerFormSubmit);
