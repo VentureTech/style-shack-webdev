@@ -44,6 +44,7 @@ select {
   }
 }
 
+
 .email-con {
   .entry {
     + .entry {
@@ -51,6 +52,51 @@ select {
     }
   }
 }
+
+@include breakpoint($bp-tablets-portrait) {
+  .contact-info {
+    margin-bottom: $spacing-between-boxes;
+  }
+
+  .email-con,
+  .phone_number_form {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .email-con {
+    margin-right: $spacing-between-boxes/2;
+
+    .entry {
+      display: inline-block;
+
+      + .entry {
+        margin-left: $spacing-between-boxes/2;
+      }
+    }
+  }
+
+  .shipping-address-con,
+  .billing-address-con {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+  }
+
+
+  .billing-address-con {
+    padding-left: $spacing-between-boxes;
+    border-left: 1px solid $color-grey-cc;
+  }
+}
+
+@include breakpoint($bp-tablets-landscape) {
+  .billing-address-con {
+    padding-left: $spacing-between-boxes*2;
+  }
+}
+
+
 
 .phone_number_form,
 .shipping-address-con,
