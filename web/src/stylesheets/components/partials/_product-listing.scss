@@ -43,8 +43,12 @@
     }
 
     .info {
-        padding-bottom: 30px;
         min-height: 115px;
+    }
+
+    .my-shack {
+        margin: 10px auto 30px;
+        text-align: center;
     }
 
     .store-name {
@@ -59,7 +63,7 @@
 
     .name {
         text-transform: uppercase;
-        font-size: 14px;
+        font-size: 12px;
         margin-bottom: 4px;
         font-family: $font-opensansbold;
 
@@ -67,6 +71,7 @@
             color: $color-black;
         }
     }
+
 
     .price,
     .price-sale {
@@ -129,21 +134,17 @@
         }
 
         .sm & {
-            width: 25.25%;
+            width: 33.6%;
 
             &.col1 {
-                width: 22.25%;
+                width: 30.6%;
             }
 
             &.col1 + &.col2 {
                 padding-left: 3%;
             }
 
-            &.col2 + &.col3 {
-                padding-left: 3%;
-            }
-
-            &.col3 + &.col4 {
+            &.col2 + .col3 {
                 padding-left: 3%;
             }
         }
