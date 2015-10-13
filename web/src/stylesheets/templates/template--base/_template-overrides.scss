@@ -1,14 +1,3 @@
-/** Overrides for Home Template **/
-#t_home {
-    @include breakpoint($bp-tablets-landscape) {
-        .l-top-nav {
-            .box-wc {
-                padding-left: 300px;
-            }
-        }
-    }
-}
-
 /** Overrides for Metro Template **/
 #t_metro_home {
     .metro-ad {
@@ -283,6 +272,7 @@
 
             &.wide {
                 width: 100%;
+                padding: 0;
             }
         }
 
@@ -298,6 +288,7 @@
 
             &.wide {
                 width: 100%;
+                padding: 0;
             }
         }
         .l-aside-content {
@@ -309,6 +300,10 @@
     @include breakpoint($bp-desktop) {
         .l-primary-content {
             padding: 0 0 0 20px;
+
+            &.wide {
+                padding: 0;
+            }
         }
     }
 }
