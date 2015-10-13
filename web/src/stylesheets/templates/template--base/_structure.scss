@@ -30,6 +30,11 @@
         display: none;
     }
 
+    .product-count,
+    .store-count {
+        display: none;
+    }
+
     .deferred-logout {
         display: none;
         padding: 0 0 0 20px;
@@ -72,6 +77,12 @@
 
             > .menuitemlabel {
                 padding: 8px 15px;
+
+                .num {
+                    display: inline-block;
+                    margin-left: 5px;
+                    font-size: 12px;
+                }
             }
 
             > div.menuitemlabel {
@@ -147,10 +158,22 @@
             }
         }
 
-        .shopping-bag {
-            .menuitemlabel:after {
-                background-image: url("/_resources/dyn/files/1060007zf9e2272e/_fn/shopping-bag.png");
-            }
+    }
+
+    .shopping-bag-quick {
+        padding: 8px 15px;
+        text-transform: uppercase;
+
+        .view_order_link a {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            height: 18px;
+            width: 18px;
+            font-size: 0;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url("/_resources/dyn/files/1060007zf9e2272e/_fn/shopping-bag.png");
         }
     }
 
@@ -196,6 +219,22 @@
 
                 &:hover {
                     background-color: $color-grey-33;
+                }
+            }
+        }
+
+        .shopping-bag-quick {
+            display: inline-block;
+            vertical-align: middle;
+            border-left: 1px solid $color-grey-33;
+
+            .view_order_text,
+            .view_order_link {
+                display: inline-block;
+                vertical-align: top;
+
+                a {
+                    display: block;
                 }
             }
         }
@@ -286,7 +325,8 @@
         }
     }
 
-    #logo {
+    #logo,
+    #logo-top {
         display: none;
 
         img {
@@ -301,7 +341,8 @@
             padding: 90px 0 45px;
         }
 
-        #logo {
+        #logo,
+        #logo-top{
             display: block;
         }
 
