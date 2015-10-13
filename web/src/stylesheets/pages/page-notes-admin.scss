@@ -60,6 +60,10 @@
 
 .file {
     font-size: 14px;
+
+    a {
+        word-break: break-all;
+    }
 }
 
 .post {
