@@ -7,6 +7,27 @@
     }
 }
 
+a#top {
+    color: $color-grey-cc;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    bottom: -20px;
+
+    &:before {
+        content: '';
+        display: block;
+        margin: 3px auto;
+        height: 0;
+        width: 0;
+        border-bottom: 7px solid $color-grey-cc;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+    }
+}
+
 h5 {
     text-transform: uppercase;
     font-size: 18px;
