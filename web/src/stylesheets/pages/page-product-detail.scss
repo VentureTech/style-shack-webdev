@@ -191,10 +191,6 @@
 }
 
 
-
-
-
-
 .product-info {
     position: relative;
 
@@ -211,36 +207,16 @@
         font-size: 14px;
     }
 
-    .my-shack {
-        position: relative;
-        display: block;
-        text-align: left;
-
-        input[type="submit"] {
-            @include style-button-base;
-            background: $color-black url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png") 10px 6px no-repeat;
-            background-size: 20px;
-            position: relative;
-            text-indent: 0;
-            width: auto;
-            height: auto;
-            transition: none;
-            padding: 8px 15px 8px 40px;
-
-
-            &:hover {
-                background: $color-grey-66 url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png") 10px 6px no-repeat;
-                background-size: 20px;
-                width: auto;
-                height: auto;
-                margin: 0;
-            }
-        }
-    }
-
     .price {
         font-size: 18px;
         margin: $spacing-between-boxes 0 25px;
+    }
+
+    .out-of-stock {
+        display: inline-block;
+        font-size: 13px;
+        color: $color-orange-red;
+        padding: 10px 0;
     }
 
 
@@ -291,7 +267,6 @@
         }
 
         &.product-desc {
-            margin-top: $spacing-between-boxes;
             border-top: 1px solid $color-grey-cc;
             padding-top: $spacing-between-boxes/2;
 
