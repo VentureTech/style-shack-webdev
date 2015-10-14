@@ -2,228 +2,273 @@
 @import "../components/partials/property-editor";
 
 label {
-  display: block;
-  font-size: 14px;
-  margin-bottom: 3px;
+    display: block;
+    font-size: 14px;
+    margin-bottom: 3px;
 
-  &.tbl {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 13px;
-    margin-right: 3px;
-  }
+    &.tbl {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 13px;
+        margin-right: 3px;
+    }
 }
 
 input[type="text"],
 textarea,
 select {
-  width: auto;
-  max-width: 100%;
+    width: auto;
+    max-width: 100%;
 }
 
-
 .ctb {
-  display: block;
-  margin: 5px 0;
+    display: block;
+    margin: 5px 0;
 }
 
 @include breakpoint($bp-mobile-only) {
-  .checkout.miwt {
-    margin-top: $spacing-between-boxes/2;
-    padding-top: $spacing-between-boxes/2;
-    border-top: 1px solid $color-black;
-  }
+    .checkout.miwt {
+        margin-top: $spacing-between-boxes/2;
+        padding-top: $spacing-between-boxes/2;
+        border-top: 1px solid $color-black;
+    }
 }
 
 .contact-info,
 .shipping-address-con,
 .billing-address-con {
-  > label {
-    font-size: 16px;
-    font-weight: bold;
-  }
+    > label {
+        font-size: 16px;
+        font-weight: bold;
+    }
 }
-
 
 .email-con {
-  .entry {
-    + .entry {
-      margin-top: 20px;
-    }
-  }
-}
-
-@include breakpoint($bp-tablets-portrait) {
-  .contact-info {
-    margin-bottom: $spacing-between-boxes;
-  }
-
-  .email-con,
-  .phone_number_form {
-    display: inline-block;
-    vertical-align: top;
-  }
-
-  .email-con {
-    margin-right: $spacing-between-boxes/2;
-
     .entry {
-      display: inline-block;
-
-      + .entry {
-        margin-left: $spacing-between-boxes/2;
-      }
+        + .entry {
+            margin-top: 20px;
+        }
     }
-  }
-
-  .shipping-address-con,
-  .billing-address-con {
-    display: inline-block;
-    vertical-align: top;
-    width: 50%;
-  }
-
-
-  .billing-address-con {
-    padding-left: $spacing-between-boxes;
-    border-left: 1px solid $color-grey-cc;
-  }
 }
-
-@include breakpoint($bp-tablets-landscape) {
-  .billing-address-con {
-    padding-left: $spacing-between-boxes*2;
-  }
-}
-
-
 
 .phone_number_form,
 .shipping-address-con,
 .billing-address-con,
 .payment-options {
-  margin-top: 20px;
+    margin-top: $spacing-between-boxes;
 }
 
 .name_form,
 .address_form {
-  .part {
-    + .part  {
-      margin-top: 20px;
+    .part {
+        + .part {
+            margin-top: 20px;
+        }
     }
-  }
 
-  div.address_line {
-    margin-top: 20px;
-  }
+    div.address_line {
+        margin-top: 20px;
+    }
 
-  &.shipping-address {
-    margin-top: 20px;
-  }
+    &.shipping-address,
+    &.billing-address {
+        margin-top: 20px;
+    }
 }
 
+
 .total-con {
-  label {
-    display: inline-block;
-    margin-right: 3px;
-    font-weight: bold;
-    font-size: 16px;
-  }
+    label {
+        display: inline-block;
+        margin-right: 3px;
+        font-weight: bold;
+        font-size: 16px;
+    }
+}
+
+@include breakpoint($bp-tablets-landscape) {
+    .contact-info-con {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+
+        input[type="text"] {
+            width: 100%;
+        }
+    }
+
+    .order-con {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+        padding-left: $spacing-between-boxes*2;
+
+        >div:first-of-type{
+            margin-top: 0;
+            padding-top: 0;
+            border-top: 0;
+        }
+    }
+
+    .email-con {
+        .entry {
+            display: inline-block;
+            vertical-align: top;
+            width: 50%;
+
+            + .entry {
+                padding-left: 20px;
+                margin-top: 0;
+            }
+        }
+    }
+
+    .name_form {
+        .part {
+            display: inline-block;
+            vertical-align: top;
+            width: 33%;
+
+            + .part {
+                padding-left: 20px;
+                margin-top: 0;
+            }
+        }
+    }
+
+    .address_form {
+        .address_container {
+            margin-bottom: 20px;
+        }
+
+
+        div.address_line {
+            margin-top: 0;
+            display: inline-block;
+            vertical-align: top;
+            width: 50%;
+
+            + div.address_line {
+                padding-left: 20px;
+            }
+        }
+
+        .city_container,
+        .region_container,
+        .postal_code_container {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .part.city_container {
+            width: 33%;
+        }
+
+        .region_container {
+            width: 33%;
+            padding-left: 20px;
+        }
+
+        .postal_code_container {
+            width: 33%;
+            padding-left: 20px;
+        }
+    }
 }
 
 /** PAYMENT TABLE **/
 .payment_form {
-  border: 1px solid $color-grey-cc;
-  padding-top: 10px;
-
-  td {
-    padding: 10px 0;
-
-    &.label-con {
-      width: 200px;
-      padding: 10px;
-      text-align: right;
-    }
-
-    &.payment-con {
-      padding-top: 0;
-    }
-
-    &.expires-con {
-      td {
-        font-size: 14px;
-        padding: 0;
-
-        &:nth-of-type(2n) {
-          padding: 0 10px;
-        }
-      }
-    }
-  }
-
-  @include breakpoint($bp-mobile-only) {
-    table {
-      display: block;
-    }
-
-    tr {
-      display: block;
-    }
+    border: 1px solid $color-grey-cc;
+    padding-top: 10px;
 
     td {
-      display: inline-block;
+        padding: 10px 0;
 
-      input,
-      select {
-        margin-left: 10px;
-      }
-
-      &.label-con {
-        text-align: left;
-        display: block;
-        width: 100%;
-        padding: 0 10px;
-      }
-
-      &.expires-con {
-        padding: 0 10px;
-
-        input,
-        select {
-          margin-left: 0;
+        &.label-con {
+            width: 200px;
+            padding: 10px;
+            text-align: right;
         }
 
-        table {
-          tr {
-            display: table-row;
-          }
-          td {
-            width: 50%;
-            display: table-cell;
-          }
+        &.payment-con {
+            padding-top: 0;
         }
-      }
+
+        &.expires-con {
+            td {
+                font-size: 14px;
+                padding: 0;
+
+                &:nth-of-type(2n) {
+                    padding: 0 10px;
+                }
+            }
+        }
     }
-  }
+
+    @include breakpoint($bp-mobile-only) {
+        table {
+            display: block;
+        }
+
+        tr {
+            display: block;
+        }
+
+        td {
+            display: inline-block;
+
+            input,
+            select {
+                margin-left: 10px;
+            }
+
+            &.label-con {
+                text-align: left;
+                display: block;
+                width: 100%;
+                padding: 0 10px;
+            }
+
+            &.expires-con {
+                padding: 0 10px;
+
+                input,
+                select {
+                    margin-left: 0;
+                }
+
+                table {
+                    tr {
+                        display: table-row;
+                    }
+                    td {
+                        width: 50%;
+                        display: table-cell;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .actions {
-  text-align: center;
-
-  .btn {
-    background-color: $color-red;
-    margin-top: 20px;
-    padding: 20px;
-  }
-
-  @include breakpoint($bp-tablets-portrait) {
-    text-align: left;
-    float: right;
-    margin-top: -30px;
+    text-align: center;
 
     .btn {
-      margin: 0;
-      padding: 5px 15px;
+        background-color: $color-red;
+        margin-top: 20px;
+        padding: 20px;
     }
-  }
+
+    @include breakpoint($bp-tablets-portrait) {
+        text-align: left;
+        float: right;
+        margin-top: -30px;
+
+        .btn {
+            margin: 0;
+            padding: 5px 15px;
+        }
+    }
 }
