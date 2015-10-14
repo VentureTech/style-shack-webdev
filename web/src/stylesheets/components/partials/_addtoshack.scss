@@ -1,25 +1,23 @@
 .my-shack {
-    position: relative;
+    position: absolute;
     display: block;
-    text-align: left;
+    width: 100%;
+    bottom: 0;
 
     input[type="submit"] {
         @include style-button-base;
         @include style-button-sm;
-        background: $color-black url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png") 7px 5px no-repeat;
+        background: $color-grey-66 url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png") 7px 5px no-repeat;
         background-size: 17px;
         position: relative;
         transition: none;
         padding: 6px 10px 6px 30px;
+        width: 100%;
         max-width: 100%;
 
-        &:hover,
-        &[value="Remove From Shack"] {
-            background: $color-grey-66 url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png") 7px 5px no-repeat;
+        &:hover {
+            background: $color-black url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png") 7px 5px no-repeat;
             background-size: 17px;
-            width: auto;
-            height: auto;
-            margin: 0;
         }
     }
 }
