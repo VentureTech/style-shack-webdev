@@ -200,6 +200,7 @@
         padding-right: 50px;
     }
 
+
     input,
     select,
     textarea,
@@ -234,6 +235,15 @@
         input, select, textarea {
             font-size: 16px;
         }
+    }
+}
+
+.my-shack {
+    position: relative;
+
+    input[type="submit"] {
+        width: auto;
+        text-align: left;
     }
 }
 
