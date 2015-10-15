@@ -29,7 +29,6 @@ jQuery(function($){
     var isTouch = (Modernizr && Modernizr.touch) || navigator.maxTouchPoints;
 
 
-
     /* Function to find logout component after it is loaded */
     function pollForLogin() {
         setTimeout(function(){
@@ -44,10 +43,10 @@ jQuery(function($){
         pollCount++;
     }
 
+
     /* Append new toggle elements to top header. Clone menus out of current location
     and into new menu in top header. Trigger toggle setup **/
     function setupMobileHeader() {
-
         if ($mainMenu.length) {
             var $newMenu = $('<ul class="menu menu-t1" />');
             $newMenu.append($mainMenu.find("> .mi").clone());
