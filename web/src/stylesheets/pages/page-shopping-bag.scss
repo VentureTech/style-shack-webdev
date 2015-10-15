@@ -122,6 +122,14 @@
       display: inline-block;
       width: 40%;
       text-align: center;
+      padding-right: 25px;
+      position: relative;
+
+      a {
+        @include closeButtonGlyph;
+        position: absolute;
+        right: 0;
+      }
     }
 
     .image-con,
@@ -343,6 +351,12 @@
       .amount-con {
         width: 45%;
         text-align: left;
+
+        a {
+          position: static;
+          right: auto;
+          margin-left: 10px;
+        }
       }
 
       .quantity-con {
