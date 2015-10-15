@@ -143,4 +143,53 @@ h2 {
     .empty {
         display: none;
     }
+
+    .shopper-info-wrapper,
+    .info-editor-parent,
+    .login-editor-parent {
+        margin-top: 40px;
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+    }
+
+    .shopper-info-header,
+    .info-editor-header,
+    .login-editor-header {
+        label {
+            display: inline-block;
+            vertical-align: middle;
+            height: auto;
+            margin: 0 15px 0 0;
+            padding: 5px 0;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+
+    .custom-expand-collapse {
+        background: $color-red;
+        margin-top: 2px;
+        position: relative;
+        border-radius: 0;
+        padding: 5px;
+        margin-right: 15px;
+
+        &:before {
+            content: "+";
+            display: block;
+            height: 100%;
+            width: 100%;
+            line-height: .7;
+            color: #fff;
+            font-family: "OpenSans_Light", Arial, Verdana, sans-serif;
+        }
+
+        &.custom-expand-collapse-trigger-expanded {
+            &:before {
+                content: "\2013";
+            }
+        }
+    }
+
 }
