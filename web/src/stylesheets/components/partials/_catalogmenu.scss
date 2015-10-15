@@ -59,7 +59,7 @@
     }
   }
 
-  @include breakpoint($bp-tablets-portrait) {
+  @include breakpoint($bp-tablets-landscape) {
     display: block;
   }
 }
@@ -146,7 +146,7 @@
 
   }
 
-  @include breakpoint($bp-tablets-portrait) {
+  @include breakpoint($bp-tablets-landscape) {
     display: block;
   }
 }
