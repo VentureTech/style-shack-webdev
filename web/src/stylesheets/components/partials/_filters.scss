@@ -49,6 +49,7 @@
   }
 
   @include breakpoint($bp-tablets-landscape) {
+
     .filter-inner {
       padding-right: 200px;
     }
