@@ -25,12 +25,13 @@ jQuery(function($){
             var $myShackItem = $menu.find(".shack .menuitemlabel");
             var $followingItem = $menu.find(".following .menuitemlabel");
             if ($productCount.text().length) {
-                $myShackItem.append("<span class='num'>(" + $productCount.text().trim() + ")</span>");
+                $myShackItem.append("<span class='num'>" + $productCount.text().trim() + "</span>");
             }
 
             if ($storeCount.text().length) {
-                $followingItem.append("<span class='num'>(" + $storeCount.text().trim() + ")</span>");
+                $followingItem.append("<span class='num'>" + $storeCount.text().trim() + "</span>");
             }
+
         });
     }
 
