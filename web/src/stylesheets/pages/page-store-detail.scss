@@ -10,6 +10,27 @@
     .my-shack {
         position: relative;
     }
+
+    .store-hours {
+        p {
+            margin: 0;
+        }
+    }
+
+    .phone,
+    .email {
+        line-height: 1.6;
+    }
+}
+
+.store-promo {
+    margin-top: $spacing-between-boxes*2;
+
+    img {
+        max-width: 100%;
+        height: auto;
+        width: auto;
+    }
 }
 
 .e-content {
