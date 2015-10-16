@@ -1,4 +1,5 @@
 @import "../config/base-import";
+@import "../components/partials/shoppingbag";
 
 fieldset {
     &.address-info {
@@ -6,6 +7,15 @@ fieldset {
     }
     &.items {
         margin-top: $spacing-between-boxes;
+    }
+}
+
+.print {
+    a {
+        @include style-button-base;
+        float: right;
+        position: relative;
+        bottom: -20px;
     }
 }
 
