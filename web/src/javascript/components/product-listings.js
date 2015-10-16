@@ -15,6 +15,7 @@ jQuery(function($){
     var COL_TWO_CLASS = "col2";
     var COL_THREE_CLASS = "col3";
     var COL_FOUR_CLASS = "col4";
+    var COL_FIVE_CLASS = "col5";
 
     function updateWindowWidth() {
         windowWidth = $window.width();
@@ -39,9 +40,59 @@ jQuery(function($){
                 var $product = $(product);
                 $product.removeClass(COL_ONE_CLASS).removeClass(COL_TWO_CLASS).removeClass(COL_THREE_CLASS).removeClass(COL_FOUR_CLASS);
 
-                if (windowWidth >= TABLET_BREAKPOINT) {
-                    if ($(listing).hasClass('sm')) {
-                        /** HANDLE THREE COLS ABOVE TABLET PORTRAIT **/
+                if (windowWidth >= DESKTOP_BREAKPOINT && $(listing).hasClass('sale')) {
+                    /** HANDLE FIVE COLS ABOVE TABLET PORTRAIT **/
+                    if (idx % 5 == 4) {
+                        $product.addClass(COL_FIVE_CLASS);
+                    }
+                    else if (idx % 5 == 3) {
+                        $product.addClass(COL_FOUR_CLASS);
+                    }
+                    else if (idx % 5 == 2) {
+                        $product.addClass(COL_THREE_CLASS);
+                    }
+                    else if (idx % 5 == 1) {
+                        $product.addClass(COL_TWO_CLASS);
+                    }
+                    else {
+                        $product.addClass(COL_ONE_CLASS);
+                    }
+                }
+                else {
+                    if (windowWidth >= TABLET_BREAKPOINT) {
+                        if ($(listing).hasClass('sm')) {
+                            /** HANDLE THREE COLS ABOVE TABLET PORTRAIT **/
+                            if (idx % 3 == 2) {
+                                $product.addClass(COL_THREE_CLASS);
+                            }
+                            else if (idx % 3 == 1) {
+                                $product.addClass(COL_TWO_CLASS);
+                            }
+                            else {
+                                $product.addClass(COL_ONE_CLASS);
+                            }
+                        }
+                        else {
+                            /** HANDLE FOUR COLS ABOVE TABLET PORTRAIT **/
+                            if (idx % 4 == 3) {
+                                $product.addClass(COL_FOUR_CLASS);
+                            }
+                            else if (idx % 4 == 2) {
+                                $product.addClass(COL_THREE_CLASS);
+                            }
+                            else if (idx % 4 == 1) {
+                                $product.addClass(COL_TWO_CLASS);
+                            }
+                            else {
+                                $product.addClass(COL_ONE_CLASS);
+                            }
+                        }
+                    }
+
+
+
+                    /** HANDLE THREE COLS BELOW TABLET LANDSCAPE AND ABOVE TABLET PORTRAIT **/
+                    else if (windowWidth < TABLET_BREAKPOINT && windowWidth > MOBILE_BREAKPOINT) {
                         if (idx % 3 == 2) {
                             $product.addClass(COL_THREE_CLASS);
                         }
@@ -52,44 +103,15 @@ jQuery(function($){
                             $product.addClass(COL_ONE_CLASS);
                         }
                     }
-                    else {
-                        /** HANDLE FOUR COLS ABOVE TABLET PORTRAIT **/
-                        if (idx % 4 == 3) {
-                            $product.addClass(COL_FOUR_CLASS);
-                        }
-                        else if (idx % 4 == 2) {
-                            $product.addClass(COL_THREE_CLASS);
-                        }
-                        else if (idx % 4 == 1) {
+
+                    /** HANDLE TWO COLS BELOW TABLET PORTRAIT AND ABOVE MOBILE LANDSCAPE **/
+                    else if (windowWidth <= MOBILE_BREAKPOINT) {
+                        if (idx % 2 == 1) {
                             $product.addClass(COL_TWO_CLASS);
                         }
                         else {
                             $product.addClass(COL_ONE_CLASS);
                         }
-                    }
-                }
-
-
-                /** HANDLE THREE COLS BELOW TABLET LANDSCAPE AND ABOVE TABLET PORTRAIT **/
-                else if (windowWidth < TABLET_BREAKPOINT && windowWidth > MOBILE_BREAKPOINT) {
-                    if (idx % 3 == 2) {
-                        $product.addClass(COL_THREE_CLASS);
-                    }
-                    else if (idx % 3 == 1) {
-                        $product.addClass(COL_TWO_CLASS);
-                    }
-                    else {
-                        $product.addClass(COL_ONE_CLASS);
-                    }
-                }
-
-                /** HANDLE TWO COLS BELOW TABLET PORTRAIT AND ABOVE MOBILE LANDSCAPE **/
-                else if (windowWidth <= MOBILE_BREAKPOINT) {
-                    if (idx % 2 == 1) {
-                        $product.addClass(COL_TWO_CLASS);
-                    }
-                    else {
-                        $product.addClass(COL_ONE_CLASS);
                     }
                 }
             });
