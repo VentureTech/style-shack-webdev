@@ -189,14 +189,16 @@
 	}
 
 	td.action {
-		a[title="Order History"] {
-			@include viewButtonGlyph;
-		}
-
 		.checkout-order {
-			a[title="Order History"] {
+			a {
 				@include cartButtonGlyph;
 				top: -1px;
+			}
+		}
+
+		.order-details {
+			a {
+				@include viewButtonGlyph;
 			}
 		}
 	}
