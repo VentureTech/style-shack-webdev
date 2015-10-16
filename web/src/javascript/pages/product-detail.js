@@ -24,6 +24,7 @@ jQuery(function ($) {
     var $vScrollpane = $('<div class="vertical-scrollpane" />');
     var $variantConWrap = $('<div class="variants collection" />');
     var $overallConWrap = $('<div class="overall collection" />');
+    var thumbCount;
 
     var resizeThrottleId;
     var slideWidth;
@@ -69,11 +70,10 @@ jQuery(function ($) {
         var $nextBtn;
         var $prevBtn;
         var paneHeight = THUMB_PANE_HEIGHT;
-        var thumbCount;
         var thumbPageCount = 0;
         var transitionValue = 0;
         var newTransitionValue;
-        var thumbCount = $overallCon.find(".image").length;
+        thumbCount = $overallCon.find(".image").length;
 
         function setupThumbWrappers() {
             if (thumbCount > MAX_THUMBS_VISIBLE) {
@@ -163,6 +163,7 @@ jQuery(function ($) {
     function setupMobileSlides() {
         var $thumbCon = $photoCon.find(".thumbs");
         var $slides = $thumbCon.find(".image");
+        thumbCount = $thumbCon.find(".image").length;
 
         $thumbCon.wrapInner($wrapper);
         var $mobileWrapper = $(".wrapper");
@@ -178,29 +179,31 @@ jQuery(function ($) {
             $thumbCon.removeClass("mobi");
         }
 
-        $nav.prependTo($thumbCon);
-        $nav.wrap('<div class="nav_con" />');
-
         var curSlideIdx = 0;
         $thumbCon.eq(curSlideIdx).addClass('current');
         slideWidth = $slides.width();
 
 
-        $nav.on('click', '.navi.next', function (evt) {
-            nextSlide("left");
-        });
+        if (thumbCount > 1) {
+            $nav.prependTo($thumbCon);
+            $nav.wrap('<div class="nav_con" />');
 
-        $nav.on('click', '.navi.prev', function (evt) {
-            nextSlide("right");
-        });
+            $nav.on('click', '.navi.next', function (evt) {
+                nextSlide("left");
+            });
 
-        $thumbCon.on("swipeleft", function (event) {
-            nextSlide("left");
-        });
+            $nav.on('click', '.navi.prev', function (evt) {
+                nextSlide("right");
+            });
 
-        $thumbCon.on("swiperight", function (event) {
-            nextSlide("right");
-        });
+            $thumbCon.on("swipeleft", function (event) {
+                nextSlide("left");
+            });
+
+            $thumbCon.on("swiperight", function (event) {
+                nextSlide("right");
+            });
+        }
 
         $thumbCon.on("movestart", function (e) {
             // allows swipe up and down on mobile
