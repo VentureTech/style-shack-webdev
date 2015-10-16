@@ -1,0 +1,123 @@
+@import "../config/base-import";
+@import "../components/partials/property-editor";
+@import "../components/partials/shoppingbag";
+
+
+.checkout-decision {
+    border-bottom: 1px solid $color-grey-cc;
+    margin-bottom: $spacing-between-boxes*2;
+
+    h1 {
+        margin-bottom: .3em;
+    }
+}
+
+.no-login {
+    margin: $spacing-between-boxes 0;
+}
+
+.signup,
+.guest-checkout {
+    a {
+        @include style-button-base;
+    }
+}
+
+.guest-checkout {
+    margin-top: $spacing-between-boxes;
+}
+
+
+.login-comp {
+    .title {
+        font-family: $font-handwriting;
+        margin-bottom: 5px;
+        font-size: 24px;
+    }
+
+    label {
+        font-weight: bold;
+        font-size: 13px;
+    }
+
+    .field {
+        + .field {
+            margin-top: 5px;
+        }
+    }
+
+    .actions {
+        margin-top: 10px;
+    }
+
+    .retrieve-password {
+        font-size: 12px;
+    }
+}
+
+
+.shopping-cart {
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.checkout {
+    display: none;
+}
+
+@include breakpoint($bp-tablets-portrait) {
+    .checkout-decision,
+    .checkout-con {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .checkout-decision {
+        border-bottom: 0;
+        margin-bottom: 0;
+        border-right: 1px solid $color-grey-cc;
+        padding-right: $spacing-between-boxes;
+        width: 45%;
+    }
+
+    .no-login {
+        margin-top: $spacing-between-boxes*2;
+    }
+
+    .checkout-con {
+        padding-left: $spacing-between-boxes;
+        width: 55%;
+    }
+
+    /*.order-items {
+        .discount {
+            .image-con,
+            .items .discount .image-con {
+                display: none;
+            }
+
+            .table-cell.name {
+                width: 50%;
+            }
+
+            &:before,
+            &:after {
+                display: table-cell;
+                content: '';
+                border-bottom: 1px solid $color-black;
+            }
+        }
+    }*/
+
+    .right.column {
+        .actions {
+            float: none;
+            margin-top: $spacing-between-boxes/2;
+            text-align: left;
+        }
+    }
+}
+
+
+
