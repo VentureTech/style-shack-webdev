@@ -219,6 +219,10 @@ table.table_view {
         margin-right: -10px;
     }
 
+    fieldset + fieldset {
+        margin-top: $spacing-between-boxes;
+    }
+
     @include breakpoint($bp-tablets-portrait) {
         box-shadow: 0 0 15px rgba($color-black, .65);
 
