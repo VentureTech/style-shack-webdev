@@ -1,6 +1,5 @@
 jQuery(function($){
     var $forms = $("form.miwt-form");
-    var newErrorMessage = true;
     var CSS_CLASS_SELECT_INIT = "select2-offscreen";
     var DEFAULT_SELECT_OPTIONS = {
         placeholder: "Select",
@@ -11,26 +10,42 @@ jQuery(function($){
     function initScrollPage(context) {
         var $con = $(context || document);
 
-        if ($con.find(".message-container .message").length) {
-            if (newErrorMessage == true) {
-                newErrorMessage = false;
-                $('html,body').scrollTop(100);
-            }
-        }
-        else {
-            newErrorMessage == true;
+        if (btnhitId = "" && ($con.find(".message-container .message").length)) {
+            $('html,body').scrollTop(100);
         }
     }
+
 
     $forms.each(function (idx, form) {
         var $form = $(form);
         var $tags = $form.find(".post.tags");
         var $categories = $form.find(".post.categories");
         var $status = $form.find(".post.status");
+        var selectChange = false;
         var selectDefaults = {
             maximumSelectionLength: 10,
             width: 360
         };
+
+        function onSubmitHandler() {
+            btnhitId = $form.find('.select2-container').val();
+
+            if (btnhitId.length) {
+                var $btnhitEl = $(document.getElementById(btnhitId));
+                var $cropper = $btnhitEl.closest(PICTURE_SELECTOR);
+
+                if ($btnhitEl.length && $cropper.length) {
+                    if ($btnhitEl.hasClass(CSS_CANCEL_BUTTON_CLASS)) {
+                        $cropper.data('image-cropper').clearCroppedImageData();
+                    } else if ($btnhitEl.hasClass(CSS_SAVE_BUTTON_CLASS)) {
+                        $cropper.data('image-cropper').saveCroppedImageData();
+                    }
+                }
+            }
+
+            return true;
+        }
+
 
         function initSelector(con, opts) {
             var $con = $(con);
@@ -45,12 +60,18 @@ jQuery(function($){
 
             else if (serializedPreloadValues == null) {
                 $select.select2($.extend({}, selectDefaults, opts));
+                $select.on("change", function(){
+                    selectChange = true;
+                });
             }
 
             else {
                 $select.select2($.extend({}, selectDefaults, opts, {placeholder: 'Select an option'}));
                 $select.find("option.empty").remove();
                 $select.next(".select2-container").find('select2-selection__choice__remove[value="x"]').remove();
+                $select.on("change", function(){
+                    selectChange = true;
+                });
             }
         }
 
@@ -61,6 +82,9 @@ jQuery(function($){
             var preloadValues = serializedPreloadValues.length ? serializedPreloadValues.split(',') : null;
 
             $select.select2($.extend({}, selectDefaults, opts));
+            $select.on("change", function(){
+                selectChange = true;
+            });
 
             if (preloadValues) {
                 $select.select2('val', preloadValues);
@@ -90,8 +114,6 @@ jQuery(function($){
             createTagField($tags);
             createTagField($categories);
         }
-
-
 
 
         function destroySelectUpdates(context) {
