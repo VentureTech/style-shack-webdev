@@ -2,6 +2,10 @@
 @import "../components/partials/addthis-menu";
 
 .styled-look {
+    h1 {
+        margin: 0;
+    }
+
     .info-wrap {
         margin-bottom: $spacing-between-boxes/2;
         border-bottom: 1px solid $color-grey-c5;
@@ -19,10 +23,6 @@
         }
 
         .info {
-            .title {
-                margin: 0;
-            }
-
             .description {
                 max-height: 230px;
                 overflow: hidden;
