@@ -11,14 +11,6 @@
     vertical-align: top;
     width: 50.5%;
 
-    &.col1 {
-        width: 47.5%;
-    }
-
-    &.col1 + &.col2 {
-        padding-left: 3%;
-    }
-
     .external {
         position: relative;
         display: block;
@@ -41,7 +33,6 @@
             text-indent: -9999px;
         }
     }
-
 
     .info {
         min-height: 85px;
@@ -68,7 +59,6 @@
         }
     }
 
-
     .price,
     .price-sale {
         font-family: $font-opensans;
@@ -92,18 +82,6 @@
     @include breakpoint($bp-mobile-landscape) {
         width: 33.6%;
 
-        &.col1 {
-            width: 30.6%;
-        }
-
-        &.col1 + &.col2 {
-            padding-left: 3%;
-        }
-
-        &.col2 + .col3 {
-            padding-left: 3%;
-        }
-
         .image {
             max-height: 310px;
             height: 310px;
@@ -112,67 +90,101 @@
 
     @include breakpoint($bp-tablets-portrait) {
         width: 25.22%;
+    }
+}
 
-        &.col1 {
-            width: 22.2%;
-        }
 
-        &.col1 + &.col2 {
-            padding-left: 3%;
-        }
+/*** COLUMN STYLES ***/
+.col1 {
+    width: 47.5%;
+}
 
-        &.col2 + &.col3 {
-            padding-left: 3%;
-        }
+.col1 + .col2 {
+    padding-left: 3%;
+}
 
-        &.col3 + &.col4 {
-            padding-left: 3%;
-        }
 
-        .sm & {
+@include breakpoint($bp-mobile-landscape) {
+    .col1 {
+        width: 30.6%;
+    }
+
+    .col1 + .col2 {
+        padding-left: 3%;
+    }
+
+    .col2 + .col3 {
+        padding-left: 3%;
+    }
+}
+
+@include breakpoint($bp-tablets-portrait) {
+    .col1 {
+        width: 22.2%;
+    }
+
+    .col1 + .col2 {
+        padding-left: 3%;
+    }
+
+    .col2 + .col3 {
+        padding-left: 3%;
+    }
+
+    .col3 + .col4 {
+        padding-left: 3%;
+    }
+
+    .col4 + .col5 {
+        padding-left: 3%;
+    }
+}
+
+
+/*** SECTION SPECIFIC STYLES ***/
+
+.sm & {
+    @include breakpoint($bp-tablets-portrait) {
+        .product {
             width: 33.6%;
-
-            &.col1 {
-                width: 30.6%;
-            }
-
-            &.col1 + &.col2 {
-                padding-left: 3%;
-            }
-
-            &.col2 + .col3 {
-                padding-left: 3%;
-            }
-
-            .image {
-                max-height: 360px;
-                height: 360px;
-            }
         }
 
+        .col1 {
+            width: 30.6%;
+        }
 
-        .sale & {
-            width: 20.5%;
-
-            &.col1 {
-                width: 17.5%;
-            }
-
-            &.col1 + &.col2 {
-                padding-left: 3%;
-            }
-
-            &.col2 + &.col3 {
-                padding-left: 3%;
-            }
-
-            &.col3 + &.col4 {
-                padding-left: 3%;
-            }
-
-            &.col4 + &.col5 {
-                padding-left: 3%;
-            }
+        .image {
+            max-height: 360px;
+            height: 360px;
         }
     }
+}
+
+.sale & {
+    @include breakpoint($bp-tablets-landscape) {
+        .product {
+            width: 20%;
+        }
+
+        .col1 {
+            width: 18%;
+        }
+
+        .col1 + .col2 {
+            padding-left: 2%;
+        }
+
+        .col2 + .col3 {
+            padding-left: 2%;
+        }
+
+        .col3 + .col4 {
+            padding-left: 2%;
+        }
+
+        .col4 + .col5 {
+            padding-left: 2%;
+        }
+    }
+
 }
