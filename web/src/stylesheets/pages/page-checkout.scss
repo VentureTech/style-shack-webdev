@@ -1,5 +1,6 @@
 @import "../config/base-import";
 @import "../components/partials/property-editor";
+@import "../components/partials/shoppingbag";
 
 label {
     display: block;
@@ -14,17 +15,20 @@ label {
     }
 }
 
+
 input[type="text"],
 textarea,
 select {
     width: auto;
     max-width: 100%;
+    width: auto;
 }
 
 .ctb {
     display: block;
     margin: 5px 0;
 }
+
 
 @include breakpoint($bp-mobile-only) {
     .checkout.miwt {
@@ -206,6 +210,18 @@ select {
         }
     }
 
+    .payment.option.editor {
+        .credit_card_name,
+        .credit_card_account,
+        .credit_card_ccid,
+        .credit_card_expiration {
+            label {
+                padding: 10px 10px 3px;
+            }
+        }
+    }
+
+
     @include breakpoint($bp-mobile-only) {
         table {
             display: block;
@@ -250,25 +266,39 @@ select {
             }
         }
     }
-}
-
-.actions {
-    text-align: center;
-
-    .btn {
-        background-color: $color-red;
-        margin-top: 20px;
-        padding: 20px;
-    }
 
     @include breakpoint($bp-tablets-portrait) {
-        text-align: left;
-        float: right;
-        margin-top: -30px;
+        .payment.option.editor {
+            .credit_card_name,
+            .credit_card_account,
+            .credit_card_ccid,
+            .credit_card_expiration {
+                padding: 10px;
 
-        .btn {
-            margin: 0;
-            padding: 5px 15px;
+                label {
+                    width: 185px;
+                    text-align: right;
+                    padding: 10px;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+
+                input {
+                    width: auto;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+
+            .credit_card_expiration {
+                input {
+                    width: 100px;
+
+                    &.month {
+                        margin-left: 3px;
+                    }
+                }
+            }
         }
     }
 }
