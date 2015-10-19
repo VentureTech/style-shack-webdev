@@ -1,4 +1,4 @@
-jQuery(function($){
+jQuery(function ($) {
     var $forms = $("form.miwt-form");
     var CSS_CLASS_SELECT_INIT = "select2-offscreen";
     var DEFAULT_SELECT_OPTIONS = {
@@ -10,7 +10,7 @@ jQuery(function($){
     function initScrollPage(context) {
         var $con = $(context || document);
 
-        if (btnhitId = "" && ($con.find(".message-container .message").length)) {
+        if ($con.find(".message").length) {
             $('html,body').scrollTop(100);
         }
     }
@@ -21,28 +21,14 @@ jQuery(function($){
         var $tags = $form.find(".post.tags");
         var $categories = $form.find(".post.categories");
         var $status = $form.find(".post.status");
-        var selectChange = false;
+        var btnhitId;
         var selectDefaults = {
             maximumSelectionLength: 10,
             width: 360
         };
 
         function onSubmitHandler() {
-            btnhitId = $form.find('.select2-container').val();
-
-            if (btnhitId.length) {
-                var $btnhitEl = $(document.getElementById(btnhitId));
-                var $cropper = $btnhitEl.closest(PICTURE_SELECTOR);
-
-                if ($btnhitEl.length && $cropper.length) {
-                    if ($btnhitEl.hasClass(CSS_CANCEL_BUTTON_CLASS)) {
-                        $cropper.data('image-cropper').clearCroppedImageData();
-                    } else if ($btnhitEl.hasClass(CSS_SAVE_BUTTON_CLASS)) {
-                        $cropper.data('image-cropper').saveCroppedImageData();
-                    }
-                }
-            }
-
+            btnhitId = $form.find('input[name=btnhit]').val();
             return true;
         }
 
@@ -50,7 +36,7 @@ jQuery(function($){
         function initSelector(con, opts) {
             var $con = $(con);
             var $select = $con.find("select");
-			var serializedPreloadValues = $con.find('input').val();
+            var serializedPreloadValues = $con.find('input').val();
 
             $select.find("option.empty").attr("disabled", "true");
 
@@ -60,18 +46,12 @@ jQuery(function($){
 
             else if (serializedPreloadValues == null) {
                 $select.select2($.extend({}, selectDefaults, opts));
-                $select.on("change", function(){
-                    selectChange = true;
-                });
             }
 
             else {
                 $select.select2($.extend({}, selectDefaults, opts, {placeholder: 'Select an option'}));
                 $select.find("option.empty").remove();
                 $select.next(".select2-container").find('select2-selection__choice__remove[value="x"]').remove();
-                $select.on("change", function(){
-                    selectChange = true;
-                });
             }
         }
 
@@ -82,9 +62,7 @@ jQuery(function($){
             var preloadValues = serializedPreloadValues.length ? serializedPreloadValues.split(',') : null;
 
             $select.select2($.extend({}, selectDefaults, opts));
-            $select.on("change", function(){
-                selectChange = true;
-            });
+
 
             if (preloadValues) {
                 $select.select2('val', preloadValues);
@@ -104,8 +82,9 @@ jQuery(function($){
 
             $select.on("select2:select", updateTagFieldInput);
             $select.on("select2:unselect", updateTagFieldInput);
-          	$select.on("change", updateTagFieldInput);
+            $select.on("change", updateTagFieldInput);
         }
+
 
         function init() {
             initSelector($tags, {tags: true, multiple: true});
@@ -144,22 +123,25 @@ jQuery(function($){
         }
 
 
-
         if (!this.submit_options) {
             this.submit_options = {};
         }
 
-        this.submit_options.postUpdate = function() {
-            initScrollPage(this);
+        this.submit_options.postUpdate = function () {
+            if (btnhitId.length) {
+                initScrollPage(this);
+            }
         };
 
-        this.submit_options.preProcessNode = function(data) {
+        this.submit_options.onSubmit = onSubmitHandler;
+
+        this.submit_options.preProcessNode = function (data) {
             destroySelectUpdates(document.getElementById(data.refid));
             return data.content;
         };
 
-        this.submit_options.postProcessNode = function(data) {
-            $.each(data, function(idx, d) {
+        this.submit_options.postProcessNode = function (data) {
+            $.each(data, function (idx, d) {
                 initSelectUpdates(d.node);
             });
         };
