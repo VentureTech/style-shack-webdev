@@ -250,20 +250,27 @@ jQuery(function ($) {
     function updateMainImageCon(url, xlUrl) {
         var $imageCon = $photoCon.find(".main .image");
         var largeUrl = url;
-        var xlUrl = xlUrl ? xlUrl : largeUrl;
+        var xlUrl = xlUrl;
         var $newImg = $('<img src="' + largeUrl + '" />');
-        var $zoomImg = $('<img src="' + xlUrl + '" />');
-        var $zoomImgDiv = $('<div mag-zoom="inner" class="zoom-img" />');
+        /*var $zoomImg = $('<img src="' + xlUrl + '" />');
+        var $zoomImgDiv = $('<div mag-zoom="inner" class="zoom-img" />');*/
 
         function setupZoom() {
-            $zoomImgDiv.append($zoomImg);
+            /*$zoomImgDiv.append($zoomImg);
             $zoomImgDiv.insertAfter($imageCon);
-            $imageCon.mag();
+            $imageCon.mag();*/
+
+            if (xlUrl) {
+                $imageCon.find("img").magnify({
+                    speed: 200,
+                    src: xlUrl
+                });
+            }
         }
 
         function updateImages() {
             $imageCon.empty().append($newImg);
-            $('.zoom-img').remove();
+            //$('.zoom-img').remove();
             setupZoom();
         };
 
@@ -293,6 +300,7 @@ jQuery(function ($) {
             $thumbs.first().trigger("click");
         });
     }
+
 
 
     function updateVariantPrice(variantID) {
