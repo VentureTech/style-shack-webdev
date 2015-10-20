@@ -212,8 +212,30 @@
 
     @include breakpoint($bp-tablets-landscape) {
         .box-wc {
-            min-height: 35px;
+            min-height: 41px;
             text-align: right;
+        }
+
+        .menu-t1 {
+            > .mi > .menuitemlabel {
+                padding: 11px 15px;
+
+                &.count {
+                    padding: 8px 15px;
+                }
+            }
+        }
+
+        .shop-cta {
+            > .menu-t1 {
+                > .mi > div.menuitemlabel {
+                    padding: 11px 15px;
+                }
+            }
+
+            .menu-t2 {
+                top: 100%;
+            }
         }
 
         .menu-t2 {
