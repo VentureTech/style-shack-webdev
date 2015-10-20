@@ -252,15 +252,9 @@ jQuery(function ($) {
         var largeUrl = url;
         var xlUrl = xlUrl;
         var $newImg = $('<img src="' + largeUrl + '" />');
-        /*var $zoomImg = $('<img src="' + xlUrl + '" />');
-        var $zoomImgDiv = $('<div mag-zoom="inner" class="zoom-img" />');*/
 
         function setupZoom() {
-            /*$zoomImgDiv.append($zoomImg);
-            $zoomImgDiv.insertAfter($imageCon);
-            $imageCon.mag();*/
-
-            if (xlUrl) {
+            if (xlUrl && windowWidth > BREAKPOINT_TABLET_PORTRAIT && !isTouch) {
                 $imageCon.find("img").magnify({
                     speed: 200,
                     src: xlUrl
@@ -270,7 +264,6 @@ jQuery(function ($) {
 
         function updateImages() {
             $imageCon.empty().append($newImg);
-            //$('.zoom-img').remove();
             setupZoom();
         };
 
@@ -304,8 +297,9 @@ jQuery(function ($) {
 
 
     function updateVariantPrice(variantID) {
-        var updateURL = $(".price-manager").data('updateUrl');
-        var productID = $(".price-manager").data('productId');
+        var $priceManager = $(".price-manager");
+        var updateURL = $priceManager.data('updateUrl');
+        var productID = $priceManager.data('productId');
         var updateData = {
             product: productID,
             variant: variantID
@@ -313,14 +307,15 @@ jQuery(function ($) {
 
         $.get(updateURL, updateData, function (html) {
             var $newNodes = $($.parseHTML(html));
-            $('.price-manager').empty().append($newNodes.find(".price-manager").text().trim());
+            $priceManager.empty().append($newNodes.find(".price-manager").text().trim());
         });
     }
 
 
     function updateImageManager(variantID) {
-        var updateURL = $(".image-manager").data('updateUrl');
-        var productID = $(".image-manager").data('productId');
+        var $imageManager = $(".image-manager");
+        var updateURL = $imageManager.data('updateUrl');
+        var productID = $imageManager.data('productId');
         var updateData = {
             product: productID,
             variant: variantID
@@ -328,7 +323,7 @@ jQuery(function ($) {
 
         $.get(updateURL, updateData, function (html) {
             var $newNodes = $($.parseHTML(html));
-            $('.image-manager').empty().append($newNodes.find(".image-manager").children());
+            $imageManager.empty().append($newNodes.find(".image-manager").children());
             setupProductPhotos();
         });
     }
@@ -338,10 +333,6 @@ jQuery(function ($) {
         setupDescriptionToggle();
         addResizeWatcher();
         setupProductPhotos();
-
-        /*$bodyCon.on("ss:pvm-loading", function (e) {
-
-        });*/
 
         $bodyCon.on("ss:pvm-loaded", function (e) {
             var productVariantID = $productVariantManager.find("> div").data("pvId");
