@@ -110,6 +110,7 @@
     }
 }
 
+
 .post {
     font-size: 22px;
     font-family: $font-opensanslight;
@@ -210,7 +211,19 @@
         font-family: $font-italic;
         margin-top: 7px;
     }
+
+    &.upload {
+        font-family: $font-opensansbold;
+        font-size: 14px;
+
+        .file {
+            font-family: $font-opensans;
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
 }
+
 
 .paging {
     margin-top: $spacing-between-boxes;
@@ -227,9 +240,8 @@
     .forwards {
         margin-left: 5px;
     }
-
-
 }
+
 
 .pager {
     th, td {
