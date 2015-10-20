@@ -132,7 +132,7 @@
         padding-top: 360px;
         background-repeat: no-repeat;
         background-position: top center;
-        background-size: contain;
+        background-size: cover;
         text-decoration: none;
     }
 
@@ -181,59 +181,6 @@
     }
 }
 
-/*.store-links {
-  display: none;
-
-  .mi {
-    width: 32%;
-
-    + .mi {
-      margin-left: 2%;
-      margin-top: 0;
-    }
-  }
-
-  .menuitemlabel {
-    display: block;
-    padding-top: 350px;
-    text-align: center;
-    color: $color-black;
-    font-family: $font-opensans;
-    background-size: cover !important;
-
-    .mil {
-      display: inline-block;
-      transform: scale(1.5,1);
-    }
-  }
-
-  .mens {
-    .menuitemlabel {
-      background: url("/_resources/dyn/files/1058611z8f039dd7/_fn/mens.jpg") top center no-repeat;
-    }
-  }
-
-  .new-arrivals {
-    .menuitemlabel {
-      background: url("/_resources/dyn/files/1058612z160acc6d/_fn/new-arrivals.jpg") top center no-repeat;
-    }
-  }
-
-  .sale {
-    .menuitemlabel {
-      background: url("/_resources/dyn/files/1058613z610dfcfb/_fn/summer-sale.jpg") top center no-repeat;
-    }
-  }
-
-  @include breakpoint($bp-tablets-portrait) {
-    display: block;
-
-    .menuitemlabel {
-      background-size: auto !important;
-    }
-
-  }
-}*/
 
 .mobile-content-links {
     .menu {
