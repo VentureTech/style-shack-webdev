@@ -177,6 +177,8 @@
                 img {
                     max-width: 100%;
                     max-height: 100%;
+                    min-width: 75%;
+                    height: auto;
                     width: auto;
                     display: inline-block;
                 }
@@ -404,8 +406,8 @@
 
     .message {
         margin: 5px 0 20px;
-        font-size: 13px;
-        font-family: $font-italic;
+        font-size: 14px;
+        font-family: $font-opensansbold;
     }
 }
 
