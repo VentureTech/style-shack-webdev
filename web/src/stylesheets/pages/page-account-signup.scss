@@ -9,9 +9,7 @@ label {
 
 .prop-wrapper {
     .prop {
-        padding: 20px;
-        margin-bottom: 0;
-        background-color: #f2f2f2;
+        @include style-prop-wrapper-grey;
 
         > .val {
             display: block !important;
