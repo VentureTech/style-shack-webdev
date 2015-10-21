@@ -270,7 +270,6 @@ jQuery(function ($) {
         updateImages();
     }
 
-
     function setupProductPhotos() {
         $photoCon.find('.image').off();
         $photoCon.find(".navi").off();
