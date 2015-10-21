@@ -171,9 +171,12 @@
     .teaser {
         color: $color-grey-80;
         margin: 20px 0;
+        line-height: 1.5;
 
         p {
             display: inline;
+            line-height: 1.5;
+            color: $color-grey-80;
         }
     }
 
