@@ -1,15 +1,122 @@
+@import "../config/base-import";
 @import "../components/partials/img-cropper";
 
 .label,
 label {
-  font-weight: bold;
-  font-size: 14px !important;
+    font-weight: bold;
+    font-size: 14px !important;
 }
 
 .prop-wrapper {
-  .prop {
-    > .val {
-      display: block !important;
+    .prop {
+        padding: 20px;
+        margin-bottom: 0;
+        background-color: #f2f2f2;
+
+        > .val {
+            display: block !important;
+        }
+
+        &.password.repeat,
+        &.metro,
+        &.address,
+        &.picture {
+            margin-bottom: $spacing-between-boxes;
+        }
+
+        &.address {
+            padding: 20px;
+        }
     }
-  }
+
+    @include breakpoint($bp-tablets-landscape) {
+        .prop {
+            input[type="text"] {
+                width: 60%;
+            }
+
+            &.name {
+                width: 33%;
+                display: inline-block;
+                vertical-align: top;
+
+                input {
+                    width: 300px;
+                }
+            }
+
+            &.last {
+                width: 67%;
+            }
+
+            &.email,
+            &.password {
+                width: 33.33%;
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            &.phone input[type="text"],
+            &.email input,
+            &.password input {
+                width: 100%;
+            }
+
+            &.phone,
+            &.birthdate,
+            &.metro {
+                width: 33.33%;
+                display: inline-block;
+                vertical-align: top;
+                min-height: 140px;
+            }
+
+            &.address {
+                padding: 20px 0;
+
+                > .label {
+                    margin: 0 20px;
+                }
+
+                div.address_line {
+                    display: inline-block;
+                    width: 67%;
+                    padding: 0 20px;
+
+                    input {
+                        width: 300px;
+                    }
+
+                    &.first {
+                        width: 33%;
+                    }
+                }
+
+                .city_container,
+                .region_container,
+                .postal_code_container {
+                    display: inline-block;
+                    width: 33.33%;
+                    padding: 20px;
+
+                    input {
+                        width: 100%;
+                    }
+                }
+
+                .country_container {
+                    padding: 20px;
+                }
+
+            }
+        }
+    }
 }
+
+.actions {
+    .btn + .btn {
+        margin-left: 10px;
+    }
+}
+
+
