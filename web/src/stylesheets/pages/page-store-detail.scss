@@ -23,13 +23,20 @@
     }
 }
 
-.store-promo {
+.store-promo,
+.promotion-images {
     margin-top: $spacing-between-boxes*2;
 
     img {
         max-width: 100%;
+        width: 100%;
         height: auto;
-        width: auto;
+    }
+
+    .promotion-image {
+        + .promotion-image {
+            margin-top: $spacing-between-boxes/4;
+        }
     }
 }
 
