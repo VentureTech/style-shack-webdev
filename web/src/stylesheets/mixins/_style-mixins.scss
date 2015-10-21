@@ -27,6 +27,12 @@
 	padding: 3px 10px 4px;
 }
 
+@mixin style-prop-wrapper-grey {
+	padding: 20px;
+	margin-bottom: 0;
+	background-color: #f2f2f2;
+}
+
 @mixin style-generic-table {
 	width: 100%;
 	max-width: 100%;
