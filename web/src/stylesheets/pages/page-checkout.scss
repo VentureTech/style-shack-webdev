@@ -45,6 +45,15 @@ select {
         font-size: 16px;
         font-weight: bold;
     }
+
+    .btn {
+        @include style-button-sm;
+        margin: 15px 0;
+    }
+
+    .name_form {
+        clear: right;
+    }
 }
 
 .email-con {
@@ -82,6 +91,9 @@ select {
 
 
 .total-con {
+    text-align: right;
+    padding-right: 10px;
+
     label {
         display: inline-block;
         margin-right: 3px;
@@ -89,6 +101,48 @@ select {
         font-size: 16px;
     }
 }
+
+/** override shopping cart table styles **/
+.items {
+    .subtotal {
+        .table-cell.subtotal {
+            text-align: right;
+        }
+    }
+
+    .price {
+        text-align: right;
+    }
+
+    span.price {
+        width: 100%;
+    }
+
+    .shipping {
+        &:before {
+            display: table-cell;
+            clear: none;
+            content: '';
+            border-bottom: 1px solid $color-black;
+        }
+
+        &:after {
+            display: none;
+        }
+    }
+
+    .table-cell {
+        &.item-name {
+            min-width: 200px;
+            text-transform: uppercase;
+            font-family: $font-opensansbold;
+            font-size: 12px;
+        }
+
+    }
+}
+
+
 
 @include breakpoint($bp-tablets-landscape) {
     .contact-info-con {
