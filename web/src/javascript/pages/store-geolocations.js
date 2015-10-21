@@ -10,7 +10,7 @@ var isWindowsPhone = /windows phone/i.test(navigator.userAgent.toLowerCase());
 var params = (window.location.search);
 
 if (!(isiPad || isiPhone || isiPod || isiDevice || isAndroid || isBlackBerry || isWebOS || isWindowsPhone) || jQuery(window).width() > 1024) {
-    window.location.href="/shop/stores/search";
+    window.location.href="/store/search";
 }
 
 jQuery(function($){
