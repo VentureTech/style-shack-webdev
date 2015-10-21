@@ -1,0 +1,35 @@
+@import "../config/base-import";
+
+.blogger-signup {
+    .question {
+        @include breakpoint($bp-tablets-landscape) {
+            input[type="text"] {
+                max-width: 90%;
+            }
+
+            .name_field {
+                width: 50%;
+                vertical-align: middle;
+
+                .given_name_container,
+                .family_name_container {
+                    input {
+                        width: auto;
+                    }
+                }
+            }
+
+            .form_field + .phone_field {
+                margin-top: 0;
+            }
+
+            .email_field,
+            .phone_field {
+                width: 25%;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+
+}

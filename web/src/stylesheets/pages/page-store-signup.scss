@@ -1,0 +1,71 @@
+@import "../config/base-import";
+
+.store-signup-form {
+    .label {
+        font-weight: bold;
+    }
+
+    .question {
+        @include style-prop-wrapper-grey;
+
+        @include breakpoint($bp-tablets-landscape) {
+            input[type="text"] {
+                max-width: 90%;
+            }
+
+            .name_field {
+                width: 50%;
+                vertical-align: top;
+
+                .given_name_container,
+                .family_name_container {
+                    input {
+                        width: auto;
+                    }
+                }
+            }
+
+            .form_field + .phone_field {
+                margin-top: 0;
+            }
+
+            .email_field,
+            .phone_field {
+                width: 25%;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            .address_form {
+                div.address_line {
+                    display: inline-block;
+                    width: 67%;
+
+                    input {
+                        width: 300px;
+                    }
+
+                    &.first {
+                        width: 33%;
+                    }
+                }
+
+                .city_container,
+                .region_container,
+                .postal_code_container {
+                    display: inline-block;
+                    width: 33.33%;
+
+                    input {
+                        width: auto;
+                        max-width: 90%;
+                    }
+                }
+
+            }
+        }
+
+    }
+
+
+}

@@ -1,0 +1,49 @@
+@import "../config/base-import";
+
+.contact-form {
+
+    .label {
+        font-weight: bold;
+    }
+
+    .question {
+        @include style-prop-wrapper-grey;
+
+        @include breakpoint($bp-tablets-landscape) {
+            .name_field,
+            .email_field {
+                display: inline-block;
+                vertical-align: top;
+
+                .part + .part {
+                    margin-top: 0;
+                }
+            }
+
+            .name_field {
+                width: 67%;
+
+                .given_name_container,
+                .family_name_container {
+                    width: 50%;
+                    display: inline-block;
+                    vertical-align: top;
+
+                    input {
+                        width: 300px;
+                    }
+                }
+            }
+
+            .form_field + .email_field {
+                margin-top: 0;
+            }
+
+            .email_field {
+                width: 33%;
+                margin-top: 0;
+            }
+        }
+    }
+
+}

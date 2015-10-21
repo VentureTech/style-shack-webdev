@@ -1,0 +1,24 @@
+@import "../config/base-import";
+
+.request-ad-form {
+    .label,
+    .store-selector {
+        font-weight: bold;
+    }
+
+    .choice {
+        input, label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    }
+
+    .question {
+        @include breakpoint($bp-tablets-landscape) {
+
+            .email_field {
+                vertical-align: bottom;
+            }
+        }
+    }
+}
