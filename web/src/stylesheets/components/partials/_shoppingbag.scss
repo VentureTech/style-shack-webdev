@@ -43,19 +43,9 @@
 
     .location {
         margin-top: 5px;
-    }
-
-    @include breakpoint($bp-tablets-portrait) {
-        .name,
-        .location {
-            display: inline-block;
-        }
-
-        .location {
-            margin-left: 10px;
-            padding-left: 10px;
-            border-left: 1px solid $color-black;
-        }
+        margin-bottom: 10px;
+        font-size: 13px;
+        font-weight: normal;
     }
 }
 
@@ -80,6 +70,10 @@
         text-align: left;
         padding: 10px;
         font-size: 14px;
+
+        a {
+            color: $color-black;
+        }
     }
 
     /** specific cells **/
@@ -95,6 +89,23 @@
             padding: 0;
         }
     }
+
+    .name-con {
+        text-transform: uppercase;
+
+        .name {
+            font-size: 12px;
+            margin-bottom: 4px;
+            font-family: $font-opensansbold;
+
+            .price {
+                font-family: $font-opensans;
+                color: $color-grey-80;
+                font-size: 13px;
+            }
+        }
+    }
+
 
     .image-con {
         float: left;
@@ -127,6 +138,10 @@
             font-family: $font-handwriting;
             display: inline-block;
             width: 60%;
+
+            a {
+                color: $color-black;
+            }
         }
 
         .amount-con {
@@ -267,6 +282,7 @@
             float: none;
             padding: 10px;
             width: 20%;
+            max-width: 200px;
 
             img {
                 max-width: 100%;
@@ -350,6 +366,7 @@
                 width: 30%;
                 text-align: right;
                 display: table-cell;
+
             }
 
             .amount-con {
