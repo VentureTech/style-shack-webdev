@@ -107,6 +107,7 @@ jQuery(function($) {
         });
     }
 
+
     function initSortCon($context) {
         var $sortItems = $context.find('.sort-option');
         var $sortInputs = $context.find('input');
