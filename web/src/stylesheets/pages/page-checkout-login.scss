@@ -66,6 +66,13 @@
     display: none;
 }
 
+.order-items,
+.items {
+    .image-con {
+        max-width: 90px;
+    }
+}
+
 @include breakpoint($bp-tablets-portrait) {
     .checkout-decision,
     .checkout-con {
@@ -90,29 +97,8 @@
         width: 55%;
     }
 
-    /*.order-items {
-        .discount {
-            .image-con,
-            .items .discount .image-con {
-                display: none;
-            }
-
-            .table-cell.name {
-                width: 50%;
-            }
-
-            &:before,
-            &:after {
-                display: table-cell;
-                content: '';
-                border-bottom: 1px solid $color-black;
-            }
-        }
-    }*/
-
     .right.column {
         .actions {
-            float: none;
             margin-top: $spacing-between-boxes/2;
             text-align: left;
         }
