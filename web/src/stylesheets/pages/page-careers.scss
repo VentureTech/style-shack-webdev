@@ -1,0 +1,16 @@
+@import "../config/base-import";
+
+.articlecontainer.career-listing {
+    .ac_heading {
+        font-weight: normal;
+        font-family: $font-italic;
+        font-size: 36px;
+        line-height: 1.3;
+    }
+
+    .article_heading {
+        font-weight: normal;
+        font-family: $font-handwriting;
+        font-size: 25px;
+    }
+}
