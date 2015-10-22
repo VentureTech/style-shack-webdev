@@ -7,17 +7,28 @@
     input[type="submit"] {
         @include style-button-base;
         @include style-button-sm;
-        background: $color-grey-66 url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png") 7px 5px no-repeat;
-        background-size: 17px;
+        background: $color-grey-66;
         position: relative;
         transition: none;
-        padding: 6px 10px 6px 30px;
+        padding: 6px 10px;
         width: 100%;
         max-width: 100%;
 
         &:hover {
-            background: $color-black url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png") 7px 5px no-repeat;
-            background-size: 17px;
+            background: $color-black;
         }
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+       input[type="submit"] {
+           background: $color-grey-66 url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png") 7px 5px no-repeat;
+           padding: 6px 10px 6px 30px;
+           background-size: 17px;
+
+           &:hover {
+               background: $color-black url("/_resources/dyn/files/1060002z8988d3a1/_fn/shack-white.png") 7px 5px no-repeat;
+               background-size: 17px;
+           }
+       }
     }
 }
