@@ -12,7 +12,7 @@
         }
 
         function appendBlogCatsToMenu($con, classname) {
-            $mainNav.find(classname).addClass("mi-parent").append($con);
+            $mainNav.find(".mi" + classname).addClass("mi-parent").append($con);
         }
     }
 
