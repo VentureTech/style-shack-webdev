@@ -15,8 +15,10 @@
     }
 }
 
-.quiz-taker-message {
+.message.info.quiz-taker-message {
     text-align: center;
     font-family: $font-italic;
-    font-size: 30px;
+    font-size: 22px;
+    color: $color-black;
 }
+
