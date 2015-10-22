@@ -1,5 +1,5 @@
 jQuery(function($){
-    var $userMenu = $(".menu.user-links");
+    var $userMenu = $(".menu.user-links").add($(".login-main > .menu"));
     var $productCount;
     var $storeCount;
     var pollCount = 0;
