@@ -86,6 +86,11 @@
                             border-top: none;
                         }
                     }
+
+                    > .render > .menu {
+                        max-height: 2000px;
+                        opacity: 1;
+                    }
                 }
             }
 
@@ -153,6 +158,9 @@
             }
         }
 
+        .render {
+            display: block;
+        }
 
         &.open {
             > .menu {
@@ -160,6 +168,7 @@
             }
         }
     }
+
 
     .login-main {
         > .menu {
