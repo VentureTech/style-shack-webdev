@@ -9,7 +9,7 @@
 
     .addthis_counter_facebook,
     .addthis_counter_twitter,
-    .addthis_counter_pinterest_share {
+    .addthis_counter_pinterest {
         position: relative;
         display: inline-block;
         vertical-align: top;
@@ -39,6 +39,17 @@
         background: url("/_resources/dyn/files/1058943z17264f83/_fn/social-sprite.png") -56px 0 no-repeat;
 
         .aticon-twitter {
+            display: none;
+        }
+    }
+
+    .addthis_button_pinterest {
+        margin-left: 10px;
+        height: 45px;
+        width: 46px !important;
+        background: url("/_resources/dyn/files/1058943z17264f83/_fn/social-sprite.png") -168px 0 no-repeat;
+
+        .at_PinItButton {
             display: none;
         }
     }
