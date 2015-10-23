@@ -115,6 +115,12 @@
               }
             });
 
+            /** ADDITION BY KNOONE @ VIPA TO REMOVE THE LENS IF THE CALCULATION DOESN'T GET CAUGHT BY A QUICK MOUSE MOVE **/
+            $container.on('mouseleave', function(e){
+              $lens.fadeOut(oSettings.speed);
+            });
+            /** END VIPA EDIT **/
+
             if ($anchor.length) {
               // Make parent anchor inline-block to have correct dimensions
               $anchor.css('display', 'inline-block');
