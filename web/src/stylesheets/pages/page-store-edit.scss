@@ -1,82 +1,103 @@
 @import "../config/base-import";
 
 .mode-view {
-  .logo-image,
-  .banner-image {
-    .drop-zone {
-      max-height: 300px;
-      overflow: hidden;
+    .logo-image,
+    .banner-image {
+        .drop-zone {
+            max-height: 300px;
+            overflow: hidden;
 
-      img {
-        max-width: 100%;
-        height: auto;
-        width: auto;
-      }
+            img {
+                max-width: 100%;
+                height: auto;
+                width: auto;
+            }
 
-      .mode-crop {
-        img {
-          max-width: none;
+            .mode-crop {
+                img {
+                    max-width: none;
+                }
+            }
         }
-      }
     }
-  }
 }
 
-
 .main-container {
-  padding: 10px 20px;
-  border: 1px solid $color-grey-cc;
+    padding: 10px 20px;
+    border: 1px solid $color-grey-cc;
 }
 
 .store-images-wrapper,
 .store-shipping-fees,
 .store-members-wrapper,
 .ecomm-settings-wrapper {
-  margin-top: $spacing-between-boxes;
-  padding: 10px 20px;
-  border: 1px solid $color-grey-cc;
+    margin-top: $spacing-between-boxes;
+    padding: 10px 20px;
+    border: 1px solid $color-grey-cc;
 
-  .actions,
-  .entity-actions {
+    .actions,
+    .entity-actions {
 
-  }
+    }
 }
 
 .store-members-wrapper,
 .ecomm-settings-wrapper {
-  margin-top: $spacing-between-boxes;
+    margin-top: $spacing-between-boxes;
 
-  .store-members {
-    .entity-actions {
-      width: 100%;
-      float: left;
-    }
+    .store-members {
+        .entity-actions {
+            width: 100%;
+            float: left;
+        }
 
-    .search {
-      clear: right;
+        .search {
+            clear: right;
+        }
     }
-  }
 }
 
 .store-images-label {
-  font-weight: bold;
+    font-weight: bold;
 }
-
 
 .store-social {
-  .prop {
-    > .val {
-      width: 100%;
+    .prop {
+        > .val {
+            width: 100%;
+        }
     }
-  }
 }
 
-
 .btn {
-  &.add {
-    float: right;
-    margin: -25px 0 10px;
-  }
+    &.add {
+        float: right;
+        margin: -25px 0 10px;
+    }
+}
+
+.ctb {
+    input,
+    label {
+        display: inline-block;
+        margin-left: 3px;
+    }
+}
+
+.store-options {
+    .prop,
+    .ctb {
+        + .prop {
+            margin-top: 5px;
+        }
+    }
+}
+
+.store-profile-editor {
+    .actions {
+        position: relative;
+        top: -8px;
+    }
 }
 
 
