@@ -126,7 +126,8 @@
 
     img {
         margin: 10px 0;
-        max-width: 100% !important;
+        max-width: 100%;
+        height: auto !important;
 
         &[style*="float:left"] {
             margin-left: 0;
