@@ -36,6 +36,13 @@
     }
   }
 
+  .message {
+    padding: 10px;
+    font-size: 13px;
+    background: $color-orange-red;
+    color: $color-white;
+  }
+
   .username {
     font-size: 14px;
 
@@ -95,6 +102,7 @@
     width: 300px;
   }
 }
+
 
 .sign-up {
   width: 90%;
