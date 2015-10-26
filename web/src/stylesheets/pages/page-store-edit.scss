@@ -29,20 +29,15 @@
 
 .store-images-wrapper,
 .store-shipping-fees,
-.store-members-wrapper,
-.ecomm-settings-wrapper {
+.store-members-wrapper {
     margin-top: $spacing-between-boxes;
     padding: 10px 20px;
     border: 1px solid $color-grey-cc;
 
-    .actions,
-    .entity-actions {
-
-    }
 }
 
 .store-members-wrapper,
-.ecomm-settings-wrapper {
+.shipping-fees {
     margin-top: $spacing-between-boxes;
 
     .store-members {
@@ -55,6 +50,13 @@
             clear: right;
         }
     }
+}
+
+.ecomm-settings-label {
+    font-weight: normal;
+    font-family: $font-handwriting;
+    font-size: 25px;
+    margin-top: 0;
 }
 
 .store-images-label {
@@ -93,8 +95,8 @@
     }
 }
 
-.store-profile-editor {
-    .actions {
+.tab-content > div {
+    > .actions {
         position: relative;
         top: -8px;
     }
