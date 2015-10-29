@@ -52,6 +52,28 @@
     }
 }
 
+.stripe-settings {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.stripe-account {
+    margin-top: 5px;
+    font-weight: normal;
+    font-size: 14px;
+    text-transform: none;
+
+    label {
+        margin-bottom: 3px;
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+}
+
 .ecomm-settings-label {
     font-weight: normal;
     font-family: $font-handwriting;
@@ -100,9 +122,21 @@
         position: relative;
         top: -8px;
     }
+
+    > .prop-wrapper + .actions {
+        top: 8px;
+    }
+}
+
+.miwt-table td.action-column .actions {
+    margin-bottom: 0;
 }
 
 
+/* Hide Sort Option STYS-506 */
+.product-editor .product-options-order-wrapper {
+    display: none;
+}
 
 
 
