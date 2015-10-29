@@ -5,9 +5,9 @@
       <paths name="Styleshack Live">
         <serverdata>
           <mappings>
-            <mapping deploy="styleshack-admin.venturetech.net\Web\Design" local="$PROJECT_DIR$/web/build/admin/design" web="/" />
-            <mapping deploy="styleshack-admin.venturetech.net\Web\Javascript" local="$PROJECT_DIR$/web/build/admin/javascript" web="/" />
-            <mapping deploy="styleshack-admin.venturetech.net\Web\Stylesheets" local="$PROJECT_DIR$/web/build/admin/stylesheets" web="/" />
+            <mapping deploy="admin.styleshack.com\Web\Design" local="$PROJECT_DIR$/web/build/admin/design" web="/" />
+            <mapping deploy="admin.styleshack.com\Web\Javascript" local="$PROJECT_DIR$/web/build/admin/javascript" web="/" />
+            <mapping deploy="admin.styleshack.com\Web\Stylesheets" local="$PROJECT_DIR$/web/build/admin/stylesheets" web="/" />
             <mapping deploy="styleshack.com\Web\Design" local="$PROJECT_DIR$/web/build/frontend/design" web="/" />
             <mapping deploy="styleshack.com\Web\Javascript" local="$PROJECT_DIR$/web/build/frontend/javascript" web="/" />
             <mapping deploy="styleshack.com\Web\Stylesheets" local="$PROJECT_DIR$/web/build/frontend/stylesheets" web="/" />
