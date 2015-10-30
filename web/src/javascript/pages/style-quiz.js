@@ -3,32 +3,36 @@ jQuery(function($) {
     var CHECKED_CLASS = "checked";
     var SELECTED_CLASS = "selected";
     var UNSELECTED_CLASS = "unselected";
-    var FOCUSED_CLASS = "focused";
     var curStep = "";
     var lastStep = "";
-    var newErrorMessage;
 
     function initScrollPage(context) {
         var $con = $(context || document);
+        var needToScroll = false;
+        var curStep = getCurStepKey($con);
 
-        if (newErrorMessage == null && $con.find(".message-container .message").length) {
-            newErrorMessage = true;
-        }
+        $con.find(".message-container .message").each(function(idx, message) {
+            if (!$(this).data('processed')) {
+                needToScroll = true;
+                $(this).data('processed', true);
+            }
+        });
 
-        if (newErrorMessage && curStep !== lastStep && lastStep !== "") {
-            $('html,body').scrollTop(100);
-            newErrorMessage = false;
-        }
-
-        if (!(curStep == $con.find(".wizard_procedure_step").attr("class").replace("wizard_procedure_step", "").trim())) {
+        if (lastStep != curStep) {
             lastStep = curStep;
-            curStep = $con.find(".wizard_procedure_step").attr("class").replace("wizard_procedure_step", "").trim();
+            needToScroll = true;
+        }
+
+        if (needToScroll) {
             $('html,body').scrollTop(100);
-            newErrorMessage = null;
         }
     }
 
-    $forms.each(function(idx, form){
+    function getCurStepKey(con) {
+        return $(con).find(".wizard_procedure_step").attr("class").replace("wizard_procedure_step", "").trim();
+    }
+
+    $forms.each(function(idx, form) {
         function initButtonSetup() {
             var $form = $(form);
             var $questions = $form.find(".question");
@@ -36,32 +40,34 @@ jQuery(function($) {
             var $colorButtons = $colorQuestion.find(".button_description_container");
             var $imageButtons = $questions.find('.button-image-container');
 
-            curStep = $form.find(".wizard_procedure_step").attr("class").replace("wizard_procedure_step", "").trim();
+            curStep = getCurStepKey($form);
 
-            $colorButtons.each(function (idx, button) {
-                var $colorButton = $(button);
 
-                $colorButton.on('click', function (e) {
-                    $(this).siblings()
-                        .removeClass(SELECTED_CLASS)
-                        .addClass(UNSELECTED_CLASS)
-                        .find("input[type=radio]")
-                        .removeClass(FOCUSED_CLASS);
-                    $(this).addClass(SELECTED_CLASS)
-                        .removeClass(UNSELECTED_CLASS)
-                        .find("input[type=radio]")
-                        .addClass(FOCUSED_CLASS);
-                });
+            $colorButtons.off("click").on("click", function (e) {
+                $(this)
+                    .addClass(SELECTED_CLASS)
+                    .removeClass(UNSELECTED_CLASS)
+                    .find("input[type=radio]")
+                    .click();
+                $(this)
+                    .siblings()
+                    .removeClass(SELECTED_CLASS)
+                    .addClass(UNSELECTED_CLASS);
             });
+
+            $colorButtons.find('input[type=radio]').off('click').on('click', function(e){
+                e.stopPropagation();
+            });
+
 
             $imageButtons.each(function (idx, button) {
                 var $imageButton = $(button);
 
+
                 if (($imageButton).find(".wrap").length == 0) {
                     $imageButton.wrapInner('<div class="wrap" />');
 
-
-                    $imageButton.on('click', function (e) {
+                    $imageButton.off("click").on('click', function (e) {
                         $(this).parents('.button_description_container')
                             .addClass(SELECTED_CLASS)
                             .removeClass(UNSELECTED_CLASS)
@@ -69,11 +75,11 @@ jQuery(function($) {
                             .addClass(UNSELECTED_CLASS)
                             .find('.button-image-container')
                             .removeClass(CHECKED_CLASS);
-
-                        $(this).addClass(CHECKED_CLASS)
+                        $(this)
+                            .addClass(CHECKED_CLASS)
                             .siblings(".rtb")
                             .find("input[type=radio]")
-                            .attr(CHECKED_CLASS, true).click();
+                            .prop('checked', true).click();
                     });
                 }
             });
@@ -87,6 +93,8 @@ jQuery(function($) {
             initScrollPage(this);
             initButtonSetup();
         };
+
+        lastStep = getCurStepKey(form);
 
         initButtonSetup();
     });
