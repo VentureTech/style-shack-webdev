@@ -33,11 +33,26 @@
     margin-top: $spacing-between-boxes;
     padding: 10px 20px;
     border: 1px solid $color-grey-cc;
-
 }
 
+.purchasing,
+.promotions,
+.inventory,
+.on-hand,
+div.stripe {
+    margin-bottom: 10px;
+
+    label,
+    .label {
+        display: block;
+        font-weight: bold;
+    }
+}
+
+
 .store-members-wrapper,
-.shipping-fees {
+.shipping-fees,
+.stripe-account-con {
     margin-top: $spacing-between-boxes;
 
     .store-members {
