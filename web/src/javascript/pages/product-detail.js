@@ -306,7 +306,7 @@ jQuery(function ($) {
 
         $.get(updateURL, updateData, function (html) {
             var $newNodes = $($.parseHTML(html));
-            $priceManager.empty().append($newNodes.find(".price-manager").text().trim());
+            $priceManager.empty().append($newNodes.find(".price-manager").children());
         });
     }
 

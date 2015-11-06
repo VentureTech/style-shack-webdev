@@ -220,8 +220,18 @@
     }
 
     .price {
-        font-size: 18px;
+        font-size: 16px;
         margin: $spacing-between-boxes 0 25px;
+
+        .sale-price {
+            font-family: $font-opensansbold;
+            color: $color-orange-red;
+            margin-bottom: 3px;
+        }
+
+        .strikeout {
+            text-decoration: line-through;
+        }
     }
 
     .out-of-stock {
