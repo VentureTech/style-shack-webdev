@@ -64,12 +64,7 @@
   text-transform: none;
   position: relative;
   z-index: 7000;
-
-  .sort-option {
-    &:hover {
-      cursor: pointer;
-    }
-  }
+  cursor: pointer;
 
   .label {
     padding: 7px 20px 7px 0;
