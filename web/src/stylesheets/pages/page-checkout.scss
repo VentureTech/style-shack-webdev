@@ -21,12 +21,20 @@ textarea,
 select {
     width: auto;
     max-width: 100%;
-    width: auto;
 }
+
 
 .ctb {
     display: block;
     margin: 5px 0;
+}
+
+.user-entry-required {
+    .label:after,
+    label:after {
+        content: "*";
+        color: $color-red;
+    }
 }
 
 
