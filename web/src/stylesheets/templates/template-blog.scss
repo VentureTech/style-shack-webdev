@@ -110,13 +110,16 @@
     }
 }
 
-
 .post {
     font-size: 22px;
     font-family: $font-opensanslight;
 
     + .post {
         margin-top: $spacing-between-boxes*2;
+    }
+
+    .full-date {
+        display: none;
     }
 
     strong {
