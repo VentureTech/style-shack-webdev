@@ -4,6 +4,13 @@
   list-style: none;
 }
 
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 // Based on Font Squirrel generated files
 @mixin fontFace($font-name, $file-path, $file-name) {
   $font-file-path: $path-fonts + $file-path + '/' + $file-name;

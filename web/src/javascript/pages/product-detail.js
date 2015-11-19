@@ -162,9 +162,9 @@ jQuery(function ($) {
 
     function setupMobileSlides() {
         var $thumbCon = $photoCon.find(".thumbs");
-        var $slides = $thumbCon.find(".image");
-        thumbCount = $thumbCon.find(".image").length;
-
+        var $slides = $thumbCon.find("div.image");
+        thumbCount = $slides.length;
+        console.log(thumbCount);
         $thumbCon.wrapInner($wrapper);
         var $mobileWrapper = $(".wrapper");
         $mobileWrapper.wrapInner($hScrollpane);
@@ -247,23 +247,25 @@ jQuery(function ($) {
         }
     }
 
-    function updateMainImageCon(url, xlUrl) {
+    function updateMainImageCon(url, retinaUrl, xlUrl, xlRetinaUrl) {
+        var zoomApi;
         var $imageCon = $photoCon.find(".main .image");
         var largeUrl = url;
         var xlUrl = xlUrl;
-        var $newImg = $('<img src="' + largeUrl + '" />');
-
+        var largeRetinaUrl = retinaUrl;
+        var xlRetinaUrl = xlRetinaUrl;
+        var imgSrcSet = largeUrl + " 1x, " + largeRetinaUrl + " 2x";
+        var $newImgLink = $('<a href="' + xlUrl + '" />');
+        $newImgLink.append($('<img>').attr("srcset", imgSrcSet));
         function setupZoom() {
-            if (xlUrl && windowWidth > BREAKPOINT_TABLET_PORTRAIT && !isTouch) {
-                $imageCon.find("img").magnify({
-                    speed: 200,
-                    src: xlUrl
-                });
+            if (xlUrl && windowWidth > BREAKPOINT_TABLET_PORTRAIT) {
+                // Instantiate EasyZoom instances
+                var $zoom = $imageCon.easyZoom();
             }
         }
 
         function updateImages() {
-            $imageCon.empty().append($newImg);
+            $imageCon.empty().append($newImgLink);
             setupZoom();
         };
 
@@ -277,15 +279,17 @@ jQuery(function ($) {
 
         $photoCon.each(function (idx, con) {
             var $con = $(con);
-            var $thumbs = $con.find(".thumbs .image");
+            var $thumbs = $con.find(".thumbs .image img");
 
             $thumbs.each(function (idx, thumb) {
                 var $thumb = $(thumb);
                 var largeUrl = $thumb.data("large");
                 var xlUrl = $thumb.data("xl");
+                var largeRetinaUrl = $thumb.data("retina-large");
+                var xlRetinaUrl = $thumb.data("retina-xl");
 
                 $thumb.on("click", function (e) {
-                    updateMainImageCon(largeUrl, xlUrl);
+                    updateMainImageCon(largeUrl, largeRetinaUrl, xlUrl, xlRetinaUrl);
                 });
             });
 

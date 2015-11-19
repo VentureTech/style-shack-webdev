@@ -27,10 +27,13 @@
         a {
             display: block;
             height: 100%;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center center;
-            text-indent: -9999px;
+
+            img {
+                @include centerer;
+                max-width: 100%;
+                height: auto;
+                width: auto;
+            }
         }
     }
 
