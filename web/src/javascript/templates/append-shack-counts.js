@@ -1,4 +1,5 @@
 jQuery(function($){
+    var $root = $("#e-content");
     var $userMenu = $(".menu.user-links").add($(".login-main > .menu"));
     var $productCount;
     var $storeCount;
@@ -6,12 +7,17 @@ jQuery(function($){
     var COUNT_CLASS = "count";
     var $userSideMenu = $(".menu.user-profile");
 
+    var productCountWsUrl;
+    var storeCountWsUrl;
+
     /* Function to find store/product count components after they are loaded */
     function pollForCounts() {
         setTimeout(function(){
             if (($(".product-count").length && $(".store-count").length) || pollCount > 101) {
                 $productCount = $('.product-count');
                 $storeCount = $('.store-count');
+                productCountWsUrl = $productCount.find('.product-count-inner').data("wsProductCount")
+                storeCountWsUrl = $storeCount.find('.store-count-inner').data("wsStoreCount");
                 appendCountsToNav();
             }
             else {
@@ -21,27 +27,33 @@ jQuery(function($){
         pollCount++;
     }
 
+    function loadContent(url) {
+        return $.get(url);
+    }
+
     function appendCountsToNav() {
         $userMenu.each(function (idx, menu) {
             var $menu = $(menu);
             var $myShackItem = $menu.find(".shack .menuitemlabel");
             var $followingItem = $menu.find(".following .menuitemlabel");
+            var productCountNumber = $productCount.find(".inner-content").text().trim();
+            var storeCountNumber = $storeCount.find(".inner-content").text().trim();
 
-            if ($productCount.text().length) {
-                if ($productCount.find(".num").length) {
-                    $productCount.find(".num").empty().append($productCount.text().trim());
+            if (productCountNumber !== "") {
+                if ($myShackItem.find(".num").length) {
+                    $myShackItem.find(".num").empty().append(productCountNumber);
                 }
                 else {
-                    $myShackItem.addClass(COUNT_CLASS).append("<span class='num'>" + $productCount.text().trim() + "</span>");
+                    $myShackItem.addClass(COUNT_CLASS).append("<span class='num'>" + productCountNumber + "</span>");
                 }
             }
 
-            if ($storeCount.text().length) {
+            if (storeCountNumber !== "") {
                 if ($followingItem.find(".num").length) {
-                    $followingItem.find(".num").empty().append($productCount.text().trim());
+                    $followingItem.find(".num").empty().append(storeCountNumber);
                 }
                 else {
-                    $followingItem.addClass(COUNT_CLASS).append("<span class='num'>" + $storeCount.text().trim() + "</span>");
+                    $followingItem.addClass(COUNT_CLASS).append("<span class='num'>" + storeCountNumber + "</span>");
                 }
             }
         });
@@ -62,6 +74,20 @@ jQuery(function($){
             });
         }
     }
+
+    $root.on("ss:shack-product-count-update", function(e){
+        $.when(loadContent(productCountWsUrl)).then(function(data) {
+            $productCount.empty().html($.parseHTML(data));
+            appendCountsToNav();
+        });
+    });
+
+    $root.on("ss:shack-store-count-update", function(e){
+        $.when(loadContent(storeCountWsUrl)).then(function(data) {
+            $storeCount.empty().html($.parseHTML(data));
+            appendCountsToNav();
+        });
+    });
 
     pollForCounts();
 });
