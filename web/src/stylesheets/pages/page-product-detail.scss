@@ -4,6 +4,13 @@
 @import "../components/partials/addthis-menu";
 @import "../libs/easyzoom";
 
+
+@include breakpoint($bp-tablets-portrait) {
+    .l-primary-content {
+        position: relative;
+    }
+}
+
 .images {
     position: relative;
     border-bottom: 1px solid $color-grey-66;
@@ -63,7 +70,6 @@
         position: relative;
         text-align: center;
         height: 560px;
-        overflow: hidden;
 
         .image {
             height: 100%;
@@ -78,6 +84,7 @@
         border-bottom: 0;
         margin-bottom: 0;
         padding-right: $spacing-between-boxes;
+        position: static;
 
         .thumbs {
             display: inline-block;
@@ -96,8 +103,8 @@
 
                 img {
                     max-width: 100%;
-                    width: auto;
                     height: auto;
+                    width: auto;
                 }
             }
 
@@ -181,7 +188,7 @@
                 width: 100%;
                 text-align: center;
                 display: inline-block;
-                position: relative;
+                position: static;
 
                 > img {
                     height: auto;
@@ -189,6 +196,12 @@
                     display: block;
                     margin: 0 auto;
                 }
+            }
+
+            a > img {
+                min-width: 75%;
+                max-width: 100%;
+                height: auto;
             }
         }
     }

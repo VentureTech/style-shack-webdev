@@ -25,6 +25,7 @@ jQuery(function ($) {
     var $variantConWrap = $('<div class="variants collection" />');
     var $overallConWrap = $('<div class="overall collection" />');
     var thumbCount;
+    var zoomApi;
 
     var resizeThrottleId;
     var slideWidth;
@@ -34,6 +35,8 @@ jQuery(function ($) {
     var prevWindowWidth;
 
     var isTouch = (Modernizr && Modernizr.touch) || navigator.maxTouchPoints;
+
+    Modernizr.addTest('srcset', 'srcset' in document.createElement('img'));
 
     function updateWindowWidth() {
         prevWindowWidth = windowWidth;
@@ -56,7 +59,6 @@ jQuery(function ($) {
             }, RESIZE_THROTTLE_TIME);
         });
     }
-
 
     function createDesktopThumbFunctionality() {
         var $variantThumbs = $photoCon.find(".thumbs .variant-img");
@@ -134,7 +136,6 @@ jQuery(function ($) {
             scrollThumbs('up');
         });
     }
-
 
     function setupDescriptionToggle() {
         $infoCon.each(function (idx, con) {
@@ -247,27 +248,44 @@ jQuery(function ($) {
         }
     }
 
-    function updateMainImageCon(url, retinaUrl, xlUrl, xlRetinaUrl) {
-        var zoomApi;
+    function updateMainImageCon(url, largeRetinaUrl, xlUrl, xlRetinaUrl) {
+        var isOldImage = false;
         var $imageCon = $photoCon.find(".main .image");
         var largeUrl = url;
         var xlUrl = xlUrl;
-        var largeRetinaUrl = retinaUrl;
-        var xlRetinaUrl = xlRetinaUrl;
+        if (!largeRetinaUrl) {
+            isOldImage = true;
+        }
+        var largeRetinaUrl = largeRetinaUrl ? largeRetinaUrl : largeUrl;
+        var xlRetinaUrl = xlRetinaUrl ? xlRetinaUrl : xlUrl;
         var imgSrcSet = largeUrl + " 1x, " + largeRetinaUrl + " 2x";
-        var $newImgLink = $('<a href="' + xlUrl + '" />');
-        $newImgLink.append($('<img>').attr("srcset", imgSrcSet));
+        var $newImgLink = $('<a href="' + largeUrl + '" />');
+
+        $newImgLink.append($('<img>').attr("src", largeUrl).attr("srcset", imgSrcSet));
+
         function setupZoom() {
-            if (xlUrl && windowWidth > BREAKPOINT_TABLET_PORTRAIT) {
+            if (xlRetinaUrl && windowWidth > BREAKPOINT_TABLET_PORTRAIT) {
                 // Instantiate EasyZoom instances
                 var $zoom = $imageCon.easyZoom();
+
+                zoomApi = $zoom.data('easyZoom').swap(largeUrl, largeRetinaUrl);
             }
         }
 
         function updateImages() {
             $imageCon.empty().append($newImgLink);
+            checkForOldImages();
+            if (!Modernizr.srcset) {
+                picturefill();
+            }
             setupZoom();
         };
+
+        function checkForOldImages() {
+           if (isOldImage) {
+               $imageCon.addClass("old");
+           }
+        }
 
         updateImages();
     }
