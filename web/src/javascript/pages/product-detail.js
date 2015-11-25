@@ -165,7 +165,6 @@ jQuery(function ($) {
         var $thumbCon = $photoCon.find(".thumbs");
         var $slides = $thumbCon.find("div.image");
         thumbCount = $slides.length;
-        console.log(thumbCount);
         $thumbCon.wrapInner($wrapper);
         var $mobileWrapper = $(".wrapper");
         $mobileWrapper.wrapInner($hScrollpane);
