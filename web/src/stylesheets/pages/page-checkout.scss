@@ -37,6 +37,19 @@ select {
     }
 }
 
+.required {
+    &.billing-address,
+    &.shipping-address {
+        .part {
+            .label:after,
+            label:after {
+                content: "*";
+                color: $color-red;
+            }
+        }
+    }
+}
+
 
 @include breakpoint($bp-mobile-only) {
     .checkout.miwt {
