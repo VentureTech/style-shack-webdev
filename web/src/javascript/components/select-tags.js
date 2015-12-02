@@ -23,7 +23,6 @@ jQuery(function ($) {
         var $status = $form.find(".post.status");
         var btnhitId;
         var selectDefaults = {
-            maximumSelectionLength: 10,
             width: 360
         };
 
