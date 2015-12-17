@@ -5,6 +5,12 @@
     margin: 0;
     padding: 0;
   }
+
+  > img {
+    max-width: 150px;
+    height: auto;
+    width: auto;
+  }
 }
 
 .reservation-confirmation,
