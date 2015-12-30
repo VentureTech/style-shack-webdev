@@ -406,7 +406,7 @@
         .addthis_button_twitter,
         .addthis_counter_twitter,
         .addthis_counter_facebook {
-            margin-left: 0;
+            margin-left: 0 !important;
         }
     }
 }
@@ -446,8 +446,11 @@
     }
 
     &[data-disabled-hover]:hover:before {
-        top: 0 !important;
+        font-weight: bold !important;
+        width: 100% !important;
+        padding: 10px 8px !important;
         left: auto !important;
+        top: auto !important;
         -moz-box-shadow: 0 0 3px rgba($color-black, .3) !important;
         -webkit-box-shadow: 0 0 3px rgba($color-black, .3) !important;
         box-shadow: 0 0 3px rgba($color-black, .3) !important;
