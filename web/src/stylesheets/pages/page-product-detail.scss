@@ -403,7 +403,9 @@
         overflow: hidden;
 
 
-        .addthis_button_twitter {
+        .addthis_button_twitter,
+        .addthis_counter_twitter,
+        .addthis_counter_facebook {
             margin-left: 0;
         }
     }
@@ -437,6 +439,21 @@
         margin: 5px 0 20px;
         font-size: 14px;
         font-family: $font-opensansbold;
+
+            &.info {
+                color: $color-orange-red;
+            }
+    }
+
+    &[data-disabled-hover]:hover:before {
+        top: 0 !important;
+        left: auto !important;
+        -moz-box-shadow: 0 0 3px rgba($color-black, .3) !important;
+        -webkit-box-shadow: 0 0 3px rgba($color-black, .3) !important;
+        box-shadow: 0 0 3px rgba($color-black, .3) !important;
+        background-image: none !important;
+        background-color: $color-grey-f2;
+        z-index: 800 !important;
     }
 }
 
