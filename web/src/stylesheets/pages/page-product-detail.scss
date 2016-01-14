@@ -403,10 +403,11 @@
         overflow: hidden;
 
 
-        .addthis_button_twitter,
-        .addthis_counter_twitter,
-        .addthis_counter_facebook {
+        &.addthis_button_twitter,
+        &.addthis_counter_twitter,
+        &.addthis_counter_facebook {
             margin-left: 0 !important;
+            background-image: url(/_resources/dyn/files/1215183zffa28e21/_fn/social-sprite-blk.png);
         }
     }
 }
@@ -414,6 +415,9 @@
 
 .pin-it {
     display: block;
+    a {
+        background-image: url(/_resources/dyn/files/1215183zffa28e21/_fn/social-sprite-blk.png) !important;
+    }
 }
 
 .product-option {
@@ -424,7 +428,11 @@
     button,
     a {
         @include style-button-base;
+        background: $color-orange-red;
         padding: 5px 10px;
+        &:hover {
+            background: $color-dark-red;
+        }
     }
 
     + .product-option {
