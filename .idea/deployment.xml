@@ -2,30 +2,15 @@
 <project version="4">
   <component name="PublishConfigData" serverName="Styleshack Live">
     <serverData>
-      <paths name="Styleshack Live">
-        <serverdata>
-          <mappings>
-            <mapping deploy="admin.styleshack.com\Web\Design" local="$PROJECT_DIR$/web/build/admin/design" web="/" />
-            <mapping deploy="admin.styleshack.com\Web\Javascript" local="$PROJECT_DIR$/web/build/admin/javascript" web="/" />
-            <mapping deploy="admin.styleshack.com\Web\Stylesheets" local="$PROJECT_DIR$/web/build/admin/stylesheets" web="/" />
-            <mapping deploy="www.styleshack.com\Web\Design" local="$PROJECT_DIR$/web/build/frontend/design" web="/" />
-            <mapping deploy="www.styleshack.com\Web\Javascript" local="$PROJECT_DIR$/web/build/frontend/javascript" web="/" />
-            <mapping deploy="www.styleshack.com/Web/Stylesheets" local="$PROJECT_DIR$/web/build/frontend/stylesheets" web="/" />
-            <mapping deploy="stores.styleshack.com\Web\Design" local="$PROJECT_DIR$/web/build/stores/design" web="/" />
-            <mapping deploy="stores.styleshack.com\Web\Javascript" local="$PROJECT_DIR$/web/build/stores/javascript" web="/" />
-            <mapping deploy="stores.styleshack.com\Web\Stylesheets" local="$PROJECT_DIR$/web/build/stores/stylesheets" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
       <paths name="Styleshack QA">
         <serverdata>
           <mappings>
-            <mapping deploy="qa-styleshack-admin.venturetech.net/Web/Stylesheets" local="$PROJECT_DIR$/web/build/admin/stylesheets" web="/" />
-            <mapping deploy="qa-styleshack-admin.venturetech.net/Web/Javascript" local="$PROJECT_DIR$/web/build/admin/javascript" web="/" />
-            <mapping deploy="qa-styleshack-admin.venturetech.net/Web/Design" local="$PROJECT_DIR$/web/build/admin/design" web="/" />
             <mapping deploy="qa-styleshack.venturetech.net/Web/Stylesheets" local="$PROJECT_DIR$/web/build/frontend/stylesheets" web="/" />
             <mapping deploy="qa-styleshack.venturetech.net/Web/Javascript" local="$PROJECT_DIR$/web/build/frontend/javascript" web="/" />
             <mapping deploy="qa-styleshack.venturetech.net/Web/Design" local="$PROJECT_DIR$/web/build/frontend/design" web="/" />
+            <mapping deploy="qa-styleshack-admin.venturetech.net/Web/Stylesheets" local="$PROJECT_DIR$/web/build/admin/stylesheets" web="/" />
+            <mapping deploy="qa-styleshack-admin.venturetech.net/Web/Javascript" local="$PROJECT_DIR$/web/build/admin/javascript" web="/" />
+            <mapping deploy="qa-styleshack-admin.venturetech.net/Web/Design" local="$PROJECT_DIR$/web/build/admin/design" web="/" />
             <mapping deploy="qa-styleshack-stores.venturetech.net/Web/Stylesheets" local="$PROJECT_DIR$/web/build/stores/stylesheets" web="/" />
             <mapping deploy="qa-styleshack-stores.venturetech.net/Web/Javascript" local="$PROJECT_DIR$/web/build/stores/javascript" web="/" />
             <mapping deploy="qa-styleshack-stores.venturetech.net/Web/Design" local="$PROJECT_DIR$/web/build/stores/design" web="/" />
