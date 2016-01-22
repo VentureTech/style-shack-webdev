@@ -1,5 +1,5 @@
 /**
- * Script from GetAmbassador for integration
+ * Script from GetAmbassador
  */
 
 (function (u, n, i, v, e, r, s, a, l) {
