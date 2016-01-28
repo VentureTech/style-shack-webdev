@@ -76,7 +76,7 @@ jQuery(function ($) {
 
             function updateTagFieldInput() {
                 values = $select.select2("val");
-                $input.val($.isArray(values) ? values.join(",") : values);
+                $input.attr("value", $.isArray(values) ? values.join() : values);
             }
 
             $select.on("select2:select", updateTagFieldInput);
@@ -139,10 +139,21 @@ jQuery(function ($) {
             return data.content;
         };
 
-        this.submit_options.postProcessNode = function (data) {
-            $.each(data, function (idx, d) {
-                initSelectUpdates(d.node);
+        /*this.submit_options.postProcessNode = function (data) {
+            $.each(data, function (idx, node) {
+                initSelectUpdates(node);
             });
+        };*/
+
+        this.submit_options.postProcessNode = function (data) {
+            initSelectUpdates(data.node);
+
+            var $dNode = $(data.node);
+            if (($dNode.hasClass('post') && $dNode.hasClass("tags")) || $dNode.find('.post.tags').length) {
+                $tags = $form.find('.post.tags');
+                initSelector($tags, {tags: true, multiple: true});
+                createTagField($tags);
+            }
         };
 
         init();
