@@ -1,0 +1,60 @@
+@import "../config/base-import";
+@import "../components/partials/filters";
+@import "../components/partials/product-listing";
+
+.influencer_profile {
+    .influencer-name {
+        padding-right: 50px;
+    }
+
+    .my-shack {
+        position: relative;
+    }
+
+    .phone,
+    .email {
+        line-height: 1.6;
+    }
+}
+
+
+.e-content {
+    padding-top: $spacing-between-boxes/2;
+
+    .box-wc {
+        position: relative;
+    }
+}
+
+.mobile-section-nav {
+    border-bottom: 1px solid $color-grey-cc;
+
+    > div {
+        display: inline-block;
+        padding: 15px 0;
+        width: 49%;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 18px;
+        cursor: pointer;
+
+        &.active {
+            font-weight: bold;
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        display: none;
+    }
+}
+
+@include breakpoint($bp-mobile-only) {
+    .l-primary-content,
+    .l-aside-content {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}
