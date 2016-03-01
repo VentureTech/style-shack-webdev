@@ -20,6 +20,10 @@
     font-family: $font-stack-sans;
     font-size: 16px;
 
+    .header-offer {
+        display: none;
+    }
+
     .box-wc {
         min-height: 45px;
         position: relative;
@@ -214,6 +218,12 @@
         .box-wc {
             min-height: 41px;
             text-align: right;
+
+            &:after {
+                content: '';
+                clear: both;
+                display: table;
+            }
         }
 
         .menu-t1 {
@@ -337,6 +347,20 @@
                 }
             }
         }
+
+        .header-offer {
+            display: block;
+            float: left;
+            padding: 16px 0 14px;
+
+            > p {
+                margin: 0;
+                font-size: 12px;
+                font-style: italic;
+            }
+
+        }
+
     }
 }
 
@@ -403,7 +427,7 @@
 
 .l-footer {
     display: block;
-    height: $spacing-mobile-footer-height;
+    height: auto;
     margin-top: -$spacing-mobile-footer-height;
     background: $color-black;
 
@@ -450,7 +474,7 @@
 
                 &.mi-parent {
                     margin-top: 0;
-                    width: 40%;
+                    width: 20%;
 
                     &:last-child {
                         width: 20%;
