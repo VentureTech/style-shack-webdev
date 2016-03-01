@@ -25,6 +25,10 @@
         position: relative;
     }
 
+    .header-offer {
+        display: none;
+    }
+
     .shop-cta,
     .menu-comp {
         display: none;
@@ -214,6 +218,24 @@
         .box-wc {
             min-height: 41px;
             text-align: right;
+
+            &:after {
+                content: '';
+                clear: both;
+                display: table;
+            }
+        }
+
+        .header-offer {
+            display: block;
+            float: left;
+            padding: 16px 0 15px;
+
+            > p {
+                margin: 0;
+                font-size: 10px;
+                font-style: italic;
+            }
         }
 
         .menu-t1 {
