@@ -13,4 +13,76 @@
         content: '';
     }
 }
-/* something goes here! */
+#main_content {
+
+    > .text {
+        text-align: center;
+    }
+
+    p {
+        font-family: $font-opensanslight;
+    }
+
+    .composite:after {
+        clear: both;
+        display: block;
+        content: '';
+    }
+
+}
+
+h3 {
+    font-family: $font-italic;
+}
+
+.composite {
+
+    .text {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0 25px;
+
+        &.hiw-image {
+            width: 60%;
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+        }
+
+        &.hiw-text {
+            width: 40%;
+
+            strong {
+                font-family: $font-italic;
+                font-size: 20px;
+            }
+
+        }
+
+    }
+
+    &:nth-of-type(odd) .composite .text.hiw-text {
+        text-align: right;
+    }
+
+}
+
+@include breakpoint($bp-mobile-only) {
+
+    .composite {
+
+        .text {
+            display: block;
+
+            &.hiw-image, &.hiw-text {
+                width: 100%;
+            }
+
+        }
+
+    }
+
+}
