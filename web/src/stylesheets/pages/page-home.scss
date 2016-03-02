@@ -1,91 +1,109 @@
 @import "../config/base-import";
 @import "../components/partials/mailchimp-newsletter";
 
-.top-cta {
-    display: none;
-    background: url("/_resources/dyn/files/1058377z36f15d8f/_fn/home-cta-bg.jpg") top center no-repeat;
-    background-size: cover;
-    margin-bottom: 10px;
-    height: 300px;
+.home-shop-container {
+    padding: 0 20px;
 
-    .your-style {
-        position: relative;
-        top: 80px;
-        text-align: center;
-        max-width: 300px;
-        padding: 15px 25px;
-        margin: 0 auto;
-    }
-
-    .your-style-heading,
-    .your-style-subheading {
-        font-family: $font-italic;
-        font-size: 30px;
-        line-height: 1.3;
-    }
-
-    .your-style-cta {
-        position: relative;
-        z-index: 2;
-        margin-top: 10px;
-    }
-
-    @include breakpoint($bp-tablets-portrait) {
-        height: 415px;
+    .featured_section {
+        width: 100%;
         display: block;
+        text-align: center;
 
-        .your-style {
+        &:after {
+            content: '';
+            clear: both;
+            display: table;
+        }
+
+        + .featured_section {
+            margin-top: 20px;
+        }
+
+    }
+
+    .text {
+        padding: 25px 20px;
+        text-align: center;
+        font-family: $font-opensans;
+    }
+
+    .label {
+        background-color: $color-black;
+        color: $color-white;
+        position: relative;
+        padding: 16px 0 13px;
+        display: block;
+        text-tranform: uppercase;
+
+        &:before, &:after {
+            content: '';
             background-color: $color-white;
-            border: 1px solid $color-black;
-            box-shadow: 0 0 0 10px $color-white;
-        }
-    }
-}
-
-.top-cta-mobile {
-    display: block;
-    background: transparent;
-
-    .your-style,
-    .shop-local {
-        display: block;
-        position: relative;
-        height: 300px;
-        max-width: none;
-        top: auto;
-        padding-top: 140px;
-        font-family: $font-italic;
-        font-size: 30px;
-        line-height: 1.3;
-        color: $color-black;
-        text-align: center;
-
-        span {
-            position: absolute;
             display: block;
-            padding-top: 6px;
-            bottom: 130px;
-            left: 0;
-            right: 0;
-            background: transparentize($color-white, .35);
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 25%;
         }
+
+        &:before {
+            left: 0;
+        }
+
+        &:after {
+            right: 0;
+        }
+
     }
 
-    .your-style {
-        background: url("/_resources/dyn/files/1107713z3b10da4f/_fn/style-mix.jpg") center center no-repeat;
-        background-size: 400px;
-    }
-
-    .shop-local {
-        background: url("/_resources/dyn/files/1142196z45708e88/_fn/storefront1.jpg") bottom center no-repeat;
+    a {
+        display: block;
+        padding-top: 360px;
+        background-repeat: no-repeat;
+        background-position: top center;
         background-size: cover;
-        margin-bottom: 10px;
-        border-top: 1px solid $color-white;
+        text-decoration: none;
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            background-color: $color-white;
+            height: 15px;
+            top: 345px;
+            left: 0;
+        }
+
     }
 
     @include breakpoint($bp-tablets-portrait) {
-        display: none;
+
+        a {
+            padding-top: 350px;
+            margin-left: 10px;
+        }
+
+        .featured_section {
+            display: inline-block;
+            vertical-align: top;
+            width: 50%;
+
+            + .featured_section {
+                margin-top: 0;
+            }
+
+        }
+
+        a:after {
+            top: 335px;
+        }
+
+        .label:before, .label:after {
+            width: 30%;
+        }
+
     }
+
 }
 
 .store-links {
