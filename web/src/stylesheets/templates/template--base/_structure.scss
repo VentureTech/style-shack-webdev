@@ -287,6 +287,7 @@
         .menu-comp {
             display: inline-block;
             text-align: right;
+            width: 80%;
 
             .menu-t1 {
                 > .mi-parent {
@@ -349,9 +350,11 @@
         }
 
         .header-offer {
-            display: block;
-            float: left;
-            padding: 16px 0 14px;
+            display: inline-block;
+            vertical-align: middle;
+            width: 20%;
+            text-align: left;
+            padding: 0;
 
             > p {
                 margin: 0;
@@ -427,7 +430,7 @@
 
 .l-footer {
     display: block;
-    height: auto;
+    height: 835px;
     margin-top: -$spacing-mobile-footer-height;
     background: $color-black;
 
@@ -467,6 +470,8 @@
     }
 
     @include breakpoint($bp-mobile-landscape) {
+        height: $spacing-mobile-footer-height;
+
         #footer-nav {
             .mi {
                 display: inline-block;
