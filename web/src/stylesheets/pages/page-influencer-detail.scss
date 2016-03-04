@@ -7,12 +7,22 @@
         padding-right: 50px;
     }
 
+    .blog-name {
+        text-transform: uppercase;
+    }
+
+    .metro {
+        font-size: 14px;
+        color: $color-grey-80;
+        line-height: 1.3;
+    }
+
     .profile-pic {
         display: none;
         padding-top: 100%;
         width: 100%;
         max-width: 100%;
-        margin-bottom: 20px;
+        margin: 20px 0;
         border-radius: 100%;
         shape-outside: circle();
         background-position: center center !important;
@@ -24,6 +34,30 @@
         line-height: 1.6;
     }
 
+    .profile-about {
+        p {
+            color: $color-grey-80;
+            margin-top: 5px;
+            line-height: 1.2;
+
+            + p {
+                margin-top: 10px;
+            }
+        }
+
+    }
+
+    .blog-url {
+        .title {
+            margin-bottom: 5px;
+        }
+        a {
+            color: $color-grey-80;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+    }
+
     @include breakpoint($bp-tablets-portrait) {
         .profile-pic {
             display: block;
@@ -31,6 +65,12 @@
     }
 }
 
+.banner {
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
 
 .e-content {
     padding-top: $spacing-between-boxes/2;
@@ -63,7 +103,7 @@
 }
 
 @include breakpoint($bp-mobile-only) {
-    .l-primary-content,
+    /*.l-primary-content*/
     .l-aside-content {
         display: none;
 
@@ -71,4 +111,5 @@
             display: block;
         }
     }
+
 }
