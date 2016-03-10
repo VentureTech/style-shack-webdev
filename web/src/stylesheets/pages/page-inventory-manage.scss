@@ -11,3 +11,21 @@
         text-align: right;
     }
 }
+
+.l-primary-content.wide {
+    max-width: 956px;
+    margin: 0 auto;
+
+    .entity_actions {
+        .btn {
+            margin: 15px 0;
+        }
+    }
+
+}
+
+.inventory_listing {
+    table {
+        width: 100%;
+    }
+}
