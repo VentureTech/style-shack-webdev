@@ -219,6 +219,11 @@
     .product-name {
         display: block;
         padding-right: 50px;
+
+        h1 {
+            margin: 0;
+        }
+
     }
 
     .my-shack {
@@ -275,12 +280,27 @@
             font-size: 16px;
         }
     }
+
+    .error.msg {
+        color: #fe413f;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
 }
 
 
 .store-name {
     color: $color-grey-80;
     margin-bottom: 20px;
+
+    h2 {
+        font-family: $font-stack-sans;
+        font-size: 16px;
+        line-height: 20px;
+        margin-top: 0;
+    }
 
     a {
         color: $color-grey-80;
@@ -407,7 +427,7 @@
         &.addthis_counter_twitter,
         &.addthis_counter_facebook {
             margin-left: 0 !important;
-            background-image: url(/_resources/dyn/files/1215183zffa28e21/_fn/social-sprite-blk.png);
+            background-image: url(https://www.styleshack.com/_resources/dyn/files/1215183zffa28e21/_fn/social-sprite-blk.png);
         }
     }
 }
@@ -416,7 +436,7 @@
 .pin-it {
     display: block;
     a {
-        background-image: url(/_resources/dyn/files/1215183zffa28e21/_fn/social-sprite-blk.png) !important;
+        background-image: url(https://www.styleshack.com/_resources/dyn/files/1215183zffa28e21/_fn/social-sprite-blk.png) !important;
     }
 }
 

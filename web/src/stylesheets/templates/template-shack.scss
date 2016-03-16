@@ -194,4 +194,21 @@ h2 {
         }
     }
 
+    .prop.banner {
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    .prop.slug {
+        display: none;
+    }
+
+    .influencer .picture-editor.mode-crop {
+        position: absolute;
+        left: 50%;
+        margin-left: -500px;
+    }
+
 }

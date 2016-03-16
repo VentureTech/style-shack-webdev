@@ -124,3 +124,9 @@ p.back {
 
     }
 }
+
+@include breakpoint($bp-mobile-only) {
+    .paging {
+        margin-top: 25px;
+    }
+}

@@ -39,16 +39,28 @@
 .promotions,
 .inventory,
 .on-hand,
-div.stripe {
+div.stripe,
+.title,
+.keywords,
+.description {
     margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.5;
 
     label,
     .label {
         display: block;
         font-weight: bold;
+        margin-bottom: 5px;
+        font-size: 16px;
     }
 }
 
+.seo {
+    input[type="text"], textarea {
+        margin-bottom: 10px;
+    }
+}
 
 .store-members-wrapper,
 .shipping-fees,
