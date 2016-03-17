@@ -1,5 +1,12 @@
 @import "addtoshack";
 
+#t_catalog {
+    .l-content-header h1 {
+        font-family: $font-stack-sans;
+        font-size: 24px;
+    }
+}
+
 .product {
     text-align: center;
     margin-bottom: 40px;
