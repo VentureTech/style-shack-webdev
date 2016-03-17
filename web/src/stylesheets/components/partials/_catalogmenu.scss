@@ -141,6 +141,14 @@
             font-family: $font-opensansbold;
           }
         }
+
+        .menuitemlabel[href="/women/dresses"] {
+          color: $color-black;
+          font-family: $font-opensansbold;
+          padding-top: 5px;
+          display: block;
+        }
+
       }
     }
 
