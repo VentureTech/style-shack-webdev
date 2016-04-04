@@ -1,0 +1,63 @@
+@import "../config/base-import";
+
+.l-header {
+    padding-bottom: 0;
+}
+#t-stylequiz .e-content {
+    padding-top: 0;
+}
+#main_content {
+    padding: 25px 50px 0;
+    border-top: 1px solid #000;
+
+    &:after {
+        content: '';
+        clear: both;
+        display: table;
+    }
+
+}
+.sq-intro {
+    text-align: center;
+    font-family: "OpenSans_Light",Arial,Verdana,sans-serif;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+.styles-comp {
+    width: 50%;
+    float: left;
+    border-bottom: none;
+
+    + .styles-comp {
+        margin-top: 0;
+    }
+
+    &:nth-of-type(2n) {
+        padding-right: 40px;
+    }
+
+    &:after {
+        content: '';
+        clear: both;
+        display: table;
+    }
+
+}
+
+@include breakpoint($bp-mobile-only) {
+
+    #main_content {
+        padding: 35px 0 0;
+        border-top: none;
+    }
+    .styles-comp {
+        clear: both;
+        width: 100%;
+
+        &:nth-of-type(2n) {
+            padding-right: 0;
+        }
+
+    }
+
+}
