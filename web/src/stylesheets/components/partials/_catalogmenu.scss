@@ -142,7 +142,8 @@
           }
         }
 
-        .menuitemlabel[href="/women/dresses"] {
+        .menuitemlabel[href="/women/dresses"],
+        .menuitemlabel[href="/women/loungewear-and-pajamas"]{
           color: $color-black;
           font-family: $font-opensansbold;
           padding-top: 5px;
