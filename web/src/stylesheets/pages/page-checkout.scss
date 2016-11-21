@@ -46,10 +46,44 @@ select {
                 content: "*";
                 color: $color-red;
             }
+            .address_line.last {
+                .label:after,
+                label:after {
+                    content: '';
+                }
+            }
         }
     }
 }
 
+
+span.instructions.shipping {
+    font-style: italic;
+    margin-bottom: 8px;
+    margin-top: 40px;
+    display: block;
+}
+
+.shipping.summary {
+    .btn.edit {
+        margin-bottom: 10px;
+    }
+    label, .label {
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .email {
+        display: block;
+        margin-bottom: 20px;
+    }
+    .name {
+        display: block;
+        margin-bottom: 0;
+    }
+    .address_form .address_container {
+        margin-bottom: 0;
+    }
+}
 
 @include breakpoint($bp-mobile-only) {
     .checkout.miwt {
@@ -65,6 +99,7 @@ select {
     > label {
         font-size: 16px;
         font-weight: bold;
+        margin-bottom: 5px;
     }
 
     .btn {
@@ -86,7 +121,6 @@ select {
 }
 
 .phone_number_form,
-.shipping-address-con,
 .billing-address-con,
 .payment-options {
     margin-top: $spacing-between-boxes;
@@ -123,11 +157,25 @@ select {
     }
 }
 
+.contact-info-con {
+    div.phone_number_format {
+        margin-bottom: 3px;
+    }
+}
+
 /** override shopping cart table styles **/
 .items {
     .subtotal {
         .table-cell.subtotal {
             text-align: right;
+        }
+    }
+
+    .table-header-row {
+        .column-header .column-header.price {
+            text-align: right;
+            padding: 0;
+            display: block;
         }
     }
 
