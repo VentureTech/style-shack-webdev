@@ -193,10 +193,10 @@
     #logo-mobile {
         display: block;
         text-align: center;
-        padding-top: 14px;
+        padding-top: 5px;
 
         img {
-            max-width: 170px;
+            max-width: 100px;
             margin-right: 15px;
             width: auto;
             height: auto;
@@ -205,10 +205,10 @@
 
     @include breakpoint($bp-mobile-landscape) {
         #logo-mobile {
-            padding-top: 14px;
+            padding-top: 5px;
 
             img {
-                max-width: 210px;
+                max-width: 150px;
             }
         }
 
@@ -401,8 +401,17 @@
     #logo-top {
         display: none;
 
+        p {
+            font-style: italic;
+            font-size: .9rem;
+
+            a {
+                color: $color-orange-red;
+            }
+        }
+
         img {
-            max-width: 100%;
+            max-width: 20rem;
             height: auto;
             width: auto;
         }
